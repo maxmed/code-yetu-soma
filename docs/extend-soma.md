@@ -1,179 +1,319 @@
 # Extend Soma Study Coach
 
 Use this with the [Code Map](./code-map.md), [Workshop Labs](./workshop/labs/README.md),
-and [AI Coding Prompts](./student/ai-coding-prompts.md).
+[Project Cards](./student/project-cards.md), and
+[AI Coding Prompts](./student/ai-coding-prompts.md).
 
-This guide gives beginner-friendly ways to change the app without breaking the
-architecture.
+This is the student extension guide. It answers three questions:
 
-## Beginner Rule
+- What can I safely change?
+- What must stay the same so Soma still works?
+- What should the project generalize next if many teams want to remix it?
 
-Make one small change at a time, then test it.
+## The Big Idea
 
-Good first changes:
-
-- add a topic,
-- change the text on the page,
-- add one local resource,
-- add one practice question,
-- change the style of an existing section,
-- add one response field after updating server, browser, and tests together.
-
-Avoid first:
-
-- login systems,
-- databases,
-- framework rewrites,
-- direct browser calls to Gemini,
-- large file moves,
-- changing many features at once.
-
-## Add A New Topic
-
-Edit:
+Soma is built around one repeatable pattern:
 
 ```text
-reference/data.js
+local data -> safe browser context -> /api/coach -> structured response -> honest UI
 ```
 
-Find `topicPacks`, then add a new topic object with the same shape as the
-existing ones.
+If your extension keeps that pattern, it will be much easier to test, explain,
+and deploy.
 
-Check that the topic includes:
+## Before You Start
 
-- `id`
-- `topic`
-- `summary`
-- `vocabulary`
-- `examples`
-- `misconceptions`
-- `resources`
-- `practiceQuestions`
-- `sampleQuestion`
-
-Then run:
-
-```bash
-npm run serve:mock
-```
-
-Open the public app and select the new topic.
-
-## Change The First Screen
-
-Edit:
+Write one sentence:
 
 ```text
-reference/index.html
-reference/style.css
+My extension helps [learner] with [learning task] by using normal code for
+[deterministic work] and AI for [language or reasoning work].
 ```
 
-Keep important IDs unless you also update JavaScript:
+Good examples:
+
+- "My extension helps Grade 7 learners revise mixtures by using normal code for
+  topic selection and AI for explaining mistakes."
+- "My extension helps students plan revision by using normal code for dates and
+  AI for turning weak topics into a study plan."
+
+Weak examples:
+
+- "My extension uses AI for everything."
+- "My extension stores real student marks and ranks learners."
+- "My extension calls Gemini directly from the browser."
+
+## Extension Map
+
+| If students want to... | Change these files | Keep this contract |
+|---|---|---|
+| add a new science topic | `reference/data.js`, `starter/data.js` | Topic objects keep the same fields. |
+| change page text or layout | `reference/index.html`, `reference/style.css` | Existing IDs stay stable unless JS and tests change too. |
+| add a new visible answer section | `api/coach.js`, `lib/coach-core.js`, `reference/app.js`, tests, API docs | Server, mock mode, renderer, and tests all know the new field. |
+| change what context is sent | `reference/app.js`, `starter/app.js`, `docs/api-coach-contract.md` | Browser still calls only `/api/coach`. |
+| add language support | `reference/data.js`, `reference/app.js`, `api/coach.js` | The selected language is explicit in the safe context. |
+| add a project-specific app | copy `starter/` or study `reference/` | Keep local data, one endpoint, safe context, and honest limits. |
+| change AI behavior | `api/coach.js` and Debug Lab | Keys stay server-side; model settings stay bounded. |
+| change mock/demo output | `lib/coach-core.js` | Mock mode remains deterministic for tests. |
+
+## Contracts You Should Preserve
+
+These are the parts that make Soma teachable.
+
+### Route Contract
+
+Keep these routes working:
+
+```text
+/
+/reference
+/starter/index.html
+/api/coach
+```
+
+The public app should open at `/`. The starter scaffold should remain available
+for workshop exercises.
+
+### Key-Safety Contract
+
+Never put provider keys in:
+
+- `reference/`
+- `starter/`
+- browser JavaScript
+- GitHub
+- screenshots
+- chat messages
+
+The browser calls `/api/coach`. The server decides whether to use mock mode or
+server-side Gemini mode.
+
+### DOM Contract
+
+JavaScript and tests depend on element IDs. If you change an ID in HTML, update
+the JavaScript and tests in the same patch.
+
+Important IDs include:
 
 - `topicSelect`
 - `studentQuestionInput`
 - `coachButton`
 - `coachStatus`
 - `coachOutput`
-- `keepLearningSection`
+- `openDebugLabButton`
+- `debugLabSection`
 - `debugOutput`
+- `keepLearningSection`
 
-## Change What The Browser Sends
+### Response Contract
 
-Edit:
+The coach response is structured JSON. If you add a field, update all of these:
 
-```text
-reference/app.js
+1. `api/coach.js` provider prompt/schema.
+2. `lib/coach-core.js` mock response.
+3. `reference/app.js` normalization and rendering.
+4. `docs/api-coach-contract.md`.
+5. `tests/soma-student.spec.js`.
+
+Do not only change the frontend.
+
+### Test Contract
+
+Before demo, run:
+
+```bash
+npm run test:e2e
 ```
 
-Start with:
+If you changed JavaScript, also run:
 
-```text
-buildCoachContext()
+```bash
+node --check reference/app.js
+node --check starter/app.js
+node --check api/coach.js
+node --check scripts/mock-coach-server.js
 ```
 
-That function builds the JSON sent to `/api/coach`.
+## Safe Extension Recipes
 
-After changing the request shape, update:
+### Recipe 1: Add A New Topic
 
-- `docs/api-coach-contract.md`
-- `api/coach.js` if the server needs the new field
-- `tests/soma-student.spec.js`
+Use this when a team wants more science content.
 
-## Change Mock Answers
-
-Edit:
+Files:
 
 ```text
-lib/coach-core.js
+reference/data.js
+starter/data.js
 ```
 
-Use this when you want local demo answers to change without calling Gemini.
+Steps:
 
-Most mock answer text comes from:
+1. Copy an existing topic object.
+2. Change `id`, `topic`, `summary`, `vocabulary`, `examples`,
+   `misconceptions`, `resources`, `practiceQuestions`, and `sampleQuestion`.
+3. Keep all dummy data.
+4. Open the app and select the new topic.
+5. Ask the sample question.
+6. Open Debug Lab and confirm the new topic appears in safe context.
 
-```text
-makeCoachResponse()
-```
+Good generalization later: move shared topic packs into one common data file so
+`reference/` and `starter/` do not need duplicate edits.
 
-## Change Gemini Behavior
+### Recipe 2: Add A New Answer Section
 
-Edit:
+Use this when a team wants a new learning move such as "Quick quiz" or
+"Misconception check."
+
+Files:
 
 ```text
 api/coach.js
+lib/coach-core.js
+reference/app.js
+docs/api-coach-contract.md
+tests/soma-student.spec.js
 ```
 
-Start with:
+Steps:
+
+1. Name the new field, for example `quickQuiz`.
+2. Add it to the server response instructions.
+3. Add deterministic mock output.
+4. Normalize the field in `reference/app.js`.
+5. Render it in `renderCoachResponse()`.
+6. Update the API contract docs.
+7. Add a Playwright expectation that proves it appears.
+
+Good generalization later: create a small shared response schema so server,
+mock mode, docs, and frontend can stay aligned.
+
+### Recipe 3: Make Soma Work For Another Subject
+
+Use this when a team wants English, mathematics, social studies, agriculture, or
+a school-specific topic.
+
+Files:
 
 ```text
-buildGeminiCall()
+reference/data.js
+reference/index.html
+reference/app.js
+api/coach.js
+lib/coach-core.js
+docs/mentor/curriculum-source.md
 ```
 
-This is where the server builds:
+Steps:
 
-- system prompt,
-- user prompt,
-- provider request body,
-- model endpoint.
+1. Change the visible subject labels.
+2. Add topic packs for the new subject.
+3. Update `getStudentSetup()` if the app needs new grade or learning-area
+   metadata.
+4. Update server prompt wording so the coach stays in the new subject.
+5. Update mock responses so no-key demos still work.
+6. Document the source boundary for the new content.
 
-Keep the rules:
+Good generalization later: make grade, subject, and topic metadata configurable
+from one shared place instead of hard-coding text across docs and UI.
 
-- API key stays server-side.
-- Response should be JSON.
-- Output should be age-appropriate.
-- The coach gives study support, not official marks or diagnosis.
+### Recipe 4: Add A Language Option
 
-## Add A New Response Section
+Use this when a team wants English, Swahili, or code-switching support.
 
-Example: add a `quickQuiz` section.
-
-1. Add `quickQuiz` to Gemini response schema in `api/coach.js`.
-2. Add `quickQuiz` to mock response in `lib/coach-core.js`.
-3. Add `quickQuiz` normalization in `reference/app.js`.
-4. Render `quickQuiz` in `renderCoachResponse()`.
-5. Update `docs/api-coach-contract.md`.
-6. Update Playwright tests.
-
-Do not only change the frontend. The server and tests must understand the new
-field too.
-
-## Create A New Student Project From The Pattern
-
-Use the same shape:
+Files:
 
 ```text
-local data -> safe browser context -> /api/coach -> structured response -> honest limits
+reference/index.html
+reference/app.js
+api/coach.js
+tests/soma-student.spec.js
 ```
 
-Possible projects:
+Steps:
 
-- reading helper,
-- career explorer,
-- school FAQ helper,
-- revision planner,
-- resource finder,
-- adaptive practice helper.
+1. Add a language selector.
+2. Include the selected language in `buildCoachContext()`.
+3. Tell `/api/coach` how to use that language.
+4. Keep safety messages understandable in every supported language.
+5. Test one normal question and one personal-data block.
 
-Keep the first version small. One dataset, one main question box, one endpoint,
-one clear response.
+Good generalization later: create a small UI text dictionary for labels, helper
+text, safety messages, and answer headings.
+
+### Recipe 5: Build A New App From The Pattern
+
+Use this when a team wants a different project, such as a reading helper, career
+explorer, revision planner, or school FAQ helper.
+
+Start from:
+
+```text
+starter/
+```
+
+Keep:
+
+- one clear learner job,
+- one local dataset,
+- one main input,
+- one `/api/coach` call only where AI is useful,
+- one structured response,
+- one visible safety note,
+- mock mode for no-key testing.
+
+Avoid:
+
+- real student records,
+- login systems,
+- databases,
+- payment flows,
+- direct provider calls from the browser,
+- several unrelated features in one patch.
+
+## What We Should Generalize Next
+
+These are not required for a beginner patch, but they would make Soma easier to
+adapt if many students remix it.
+
+| Generalize | Why It Helps | Possible Shape |
+|---|---|---|
+| shared topic data | Avoid editing both `reference/data.js` and `starter/data.js`. | Move topic packs into one shared JS module or generated JSON file. |
+| response schema | Keep server, mock, frontend, docs, and tests aligned. | Define response fields in one documented schema object. |
+| app configuration | Make subject/grade labels easier to change. | Add a small `appConfig` object for title, subject, grade, and safety copy. |
+| prompt templates | Let mentors compare prompt versions safely. | Store named prompt templates server-side, not in browser storage. |
+| extension checklist | Help mentors approve student scope. | Add a one-page project proposal form tied to the rubric. |
+| test helpers | Make new tests easier to write. | Add Playwright helpers for ask-flow, Debug Lab, safety block, and mobile smoke. |
+
+Mentor rule: generalize only when it removes repeated real work. Do not add a
+framework or abstraction just because it sounds professional.
+
+## Planning Discussion For Teams
+
+Before a team starts coding, discuss:
+
+1. Who is the learner?
+2. What is the one job the app helps with?
+3. What local data can safely power the app?
+4. What should normal JavaScript handle?
+5. What should `/api/coach` handle?
+6. What private data must users avoid?
+7. What route, DOM ID, response, and test contracts might change?
+8. What will the demo show if Gemini mode is unavailable?
+
+If the answer is unclear, shrink the project.
+
+## Review Checklist
+
+Before calling an extension done:
+
+- The app still runs in mock mode without a key.
+- `/api/coach` is still the only browser-to-coach path.
+- No provider key or key-bearing URL appears in frontend files or debug output.
+- The main learner flow works on desktop and mobile.
+- Debug Lab still explains context, prompt, request, response, parsing, and
+  safety boundaries.
+- The starter scaffold still works or the team explains why it did not change.
+- Playwright smoke tests pass or the team documents exactly what changed.
+- The demo explains what AI does, what normal code does, and what the limits
+  are.

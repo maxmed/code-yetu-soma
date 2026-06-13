@@ -110,6 +110,8 @@ For students:
   limits.
 - [docs/student/ai-coding-prompts.md](docs/student/ai-coding-prompts.md) -
   debugging and extension prompts.
+- [docs/extend-soma.md](docs/extend-soma.md) - what to change, what to keep
+  stable, and how to test a safe remix.
 
 For developers:
 

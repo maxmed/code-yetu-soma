@@ -80,6 +80,7 @@ Every team should define:
 | `reference/` | Full app to study or remix carefully. |
 | `docs/student/project-cards.md` | Project ideas. |
 | `docs/student/handout.md` | Student challenge and submission guide. |
+| `docs/extend-soma.md` | Extension contracts, safe recipes and generalization plan. |
 | `docs/mentor/rubric.md` | Demo and evaluation criteria. |
 | `docs/workshop/labs/README.md` | Practice tasks for common changes. |
 
@@ -93,6 +94,7 @@ Every team should define:
 - Keep one endpoint: `api/coach.js`.
 - Keep mock testing: `lib/coach-core.js`.
 - Add project tests: `tests/soma-student.spec.js`.
+- Check extension contracts: [Extend Soma Study Coach](../../extend-soma.md).
 - Helpful prompts: [Generate A Project Plan](../../student/ai-coding-prompts.md#generate-a-project-plan),
   [Create Dummy Data](../../student/ai-coding-prompts.md#create-dummy-data),
   [Add Responsible AI Note](../../student/ai-coding-prompts.md#add-responsible-ai-note).

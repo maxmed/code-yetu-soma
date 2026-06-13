@@ -41,6 +41,11 @@ Gemini provider mode, and keeping keys server-side.
 Beginner guide for importing the GitHub repo into Vercel, setting environment
 variables, deploying, and smoke-testing the live routes.
 
+`docs/extend-soma.md`
+
+Student extension guide for safe remixes, stable contracts, common extension
+recipes, generalization opportunities, and review checks.
+
 ## App Folders
 
 `reference/`
@@ -169,6 +174,7 @@ Add or edit topics:
 
 - `reference/data.js`
 - `starter/data.js`
+- `docs/extend-soma.md` for the extension checklist and contracts
 
 Change what the browser sends to the coach:
 

@@ -7,6 +7,8 @@ Use labs with:
 
 - [Lesson Index](../lessons/README.md) for the concept behind each task.
 - [Concept To Code Map](../concept-to-code-map.md) for file and prompt links.
+- [Extend Soma](../../extend-soma.md) when students are turning a lab into a
+  project remix.
 - [AI Coding Prompts](../../student/ai-coding-prompts.md) when students need
   focused help.
 - [Testing And Debugging](../../testing-debugging.md) before demos or commits.

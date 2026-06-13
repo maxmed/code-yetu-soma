@@ -28,6 +28,7 @@ prompts shape the answer, and where AI is useful, risky, or wasteful.
 | deeper teaching material | [Lesson Index](./lessons/README.md) |
 | hands-on practice | [Workshop Labs](./labs/README.md) |
 | student-facing challenge | [Student Guide](../student/README.md) |
+| extension/remix guidance | [Extend Soma](../extend-soma.md) |
 | mentor notes and rubric | [Mentor Guide Index](../mentor/README.md) |
 | setup, tests, and deploy | [Local Setup](../local-setup.md) |
 | exact file-to-concept links | [Concept To Code Map](./concept-to-code-map.md) |
@@ -76,6 +77,10 @@ Every lesson follows the same pattern:
 
 Use [the lesson template](./lesson-template.md) when adding optional extension
 lessons or rewriting these lessons for a different audience.
+
+Use [Extend Soma](../extend-soma.md) when teams are ready to adapt the app. It
+explains safe student changes, contracts to preserve, and what should be
+generalized later.
 
 ## Lab Path
 

@@ -20,6 +20,7 @@ Gemini provider calls that stay server-side.
 | understand AI history | [The Story Of AI](./workshop/lessons/13-ai-history-and-future.md) | [Reviewed Source Spine](./workshop/sources.md) |
 | do hands-on practice | [Workshop Labs](./workshop/labs/README.md) | [AI Coding Prompts](./student/ai-coding-prompts.md) |
 | build a student project | [Student Guide](./student/README.md) | [Project Cards](./student/project-cards.md) |
+| extend or remix Soma | [Extend Soma](./extend-soma.md) | [Concept To Code Map](./workshop/concept-to-code-map.md) |
 | mentor teams | [Mentor Guide](./mentor/README.md) | [Rubric](./mentor/rubric.md) |
 | review safety | [Safety Checklist](./api-safety-checklist.md) | [`/api/coach` Contract](./api-coach-contract.md) |
 | improve the UI | [Design Docs](./design/README.md) | [UI Redesign Brief](./design/ui-redesign-brief.md) |
@@ -54,6 +55,8 @@ Use these together:
    calls.
 6. Use [AI Coding Prompts](./student/ai-coding-prompts.md) when stuck.
 7. Use [Workshop Labs](./workshop/labs/README.md) for focused practice.
+8. Use [Extend Soma](./extend-soma.md) before changing the app structure,
+   response shape, prompts, topics, or subject area.
 
 ## Mentor Path
 

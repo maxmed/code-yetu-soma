@@ -13,6 +13,8 @@ workshop.
    without wasting requests or exposing private data.
 4. [AI Coding Prompts](./ai-coding-prompts.md) - focused prompts for planning,
    debugging, context building, testing, and responsible AI notes.
+5. [Extend Soma](../extend-soma.md) - what you can change, what contracts to
+   preserve, and how to test a remix.
 
 ## When You Are Stuck
 
@@ -24,6 +26,7 @@ workshop.
 | I need a good AI coding assistant prompt. | [AI Coding Prompts](./ai-coding-prompts.md) |
 | I need to connect a concept to a file. | [Concept To Code Map](../workshop/concept-to-code-map.md) |
 | I need hands-on practice. | [Workshop Labs](../workshop/labs/README.md) |
+| I want to extend or remix Soma. | [Extend Soma](../extend-soma.md) |
 | A mentor asked me to test a real key. | [Gemini Key Setup](../gemini-key-setup.md) |
 | A mentor asked me to deploy. | [Deploy To Vercel](../deploy-vercel.md) |
 

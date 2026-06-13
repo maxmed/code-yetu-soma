@@ -4,7 +4,10 @@ Use this with the [Student Handout](./handout.md), [AI Coding
 Prompts](./ai-coding-prompts.md), and [Concept To Code
 Map](../workshop/concept-to-code-map.md).
 
-Use these for ideation. Teams may copy one, combine two, or adapt one to their school/community.
+Use these for ideation. Teams may copy one, combine two, or adapt one to their
+school/community. Before coding a remix, read
+[Extend Soma Study Coach](../extend-soma.md) so you know which contracts to keep
+stable.
 
 ## 1. Soma Study Coach (Recommended)
 
@@ -145,3 +148,4 @@ Choose a project where the team can answer:
 - What intelligent decision does the app make?
 - How will users know why the app made that decision?
 - What can go wrong?
+- Which contracts from [Extend Soma](../extend-soma.md) must stay stable?
