@@ -195,34 +195,17 @@ What could go wrong?
 AI is already used in many fields. The point is not that every use is perfect.
 The point is that the same core ideas appear in different places.
 
-| Area | What AI Can Help With | Why Humans Still Matter |
-|---|---|---|
-| Education | tutoring, feedback, language practice, lesson planning | teachers protect learners, context, fairness, and motivation |
-| Medicine | image support, workflow tools, clinical decision support | clinicians are responsible for patient care and safety |
-| Weather and climate | faster forecasts, environmental monitoring, climate modeling | scientists validate models and communicate uncertainty |
-| Nature monitoring | wildlife sound detection, habitat monitoring, biodiversity research | conservation teams check data quality and decide what action to take |
-| Recommender systems | ranking pages, videos, products, songs, lessons, and resources | designers must avoid manipulation, unfair exposure, and filter bubbles |
-| Fashion and retail | design exploration, styling help, demand forecasting, merchandising | people still decide taste, culture, fit, sustainability, and fairness |
-| Accessibility | captions, image descriptions, speech tools, reading support | users need control, privacy, and accurate representation |
-| Software | code suggestions, tests, documentation, debugging support | developers must review, test, and secure the code |
-| Robotics | perception, planning, language-to-action | physical systems need strong safety engineering |
-
-Sources:
-
-- UNESCO, "Guidance for generative AI in education and research"
-  https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research
-- WHO, "Ethics and governance of artificial intelligence for health"
-  https://www.who.int/publications/i/item/9789240029200
-- NOAA Center for Artificial Intelligence
-  https://www.noaa.gov/ai
-- Google Research, "Bioacoustics"
-  https://deepmind.google/blog/how-ai-is-helping-advance-the-science-of-bioacoustics-to-save-endangered-species/
-- Google Research, "Machine Intelligence"
-  https://research.google/research-areas/machine-intelligence/
-- IBM, "Build an AI stylist with Granite, Python, and watsonx.ai"
-  https://www.ibm.com/think/tutorials/build-ai-stylist-with-granite-python-watsonx-ai
-- Google Cloud, "Recommendations AI"
-  https://cloud.google.com/use-cases/recommendations
+| Area | What AI Can Help With | Why Humans Still Matter | Reference |
+|---|---|---|---|
+| Education | tutoring, feedback, language practice, lesson planning | teachers protect learners, context, fairness, and motivation | [UNESCO generative AI in education guidance](https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research) |
+| Medicine | image support, workflow tools, clinical decision support | clinicians are responsible for patient care and safety | [WHO AI for health ethics and governance](https://www.who.int/publications/i/item/9789240029200) |
+| Weather and climate | faster forecasts, environmental monitoring, climate modeling | scientists validate models and communicate uncertainty | [NOAA Center for Artificial Intelligence](https://www.noaa.gov/ai) |
+| Nature monitoring | wildlife sound detection, habitat monitoring, biodiversity research | conservation teams check data quality and decide what action to take | [Google DeepMind bioacoustics example](https://deepmind.google/blog/how-ai-is-helping-advance-the-science-of-bioacoustics-to-save-endangered-species/) |
+| Recommender systems | ranking pages, videos, products, songs, lessons, and resources | designers must avoid manipulation, unfair exposure, and filter bubbles | [Google Cloud Recommendations AI](https://cloud.google.com/use-cases/recommendations) |
+| Fashion and retail | design exploration, styling help, demand forecasting, merchandising | people still decide taste, culture, fit, sustainability, and fairness | [IBM AI stylist example](https://www.ibm.com/think/tutorials/build-ai-stylist-with-granite-python-watsonx-ai) |
+| Accessibility | captions, image descriptions, speech tools, reading support | users need control, privacy, and accurate representation | [W3C WAI accessibility guidance](https://www.w3.org/WAI/WCAG22/Understanding/) |
+| Software | code suggestions, tests, documentation, debugging support | developers must review, test, and secure the code | [Google Research machine intelligence](https://research.google/research-areas/machine-intelligence/) |
+| Robotics | perception, planning, language-to-action | physical systems need strong safety engineering | [RT-2 robotics research](https://arxiv.org/abs/2307.15818) |
 
 Soma is one small example of the education row:
 
