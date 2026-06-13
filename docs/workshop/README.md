@@ -37,18 +37,18 @@ Every lesson follows the same pattern:
 | 1 | [How Web Apps Work](./lessons/01-how-web-apps-work.md) | Browser, HTML, CSS, JavaScript, events, state, `fetch`, and `localStorage`. |
 | 2 | [Soma App Architecture](./lessons/02-soma-architecture.md) | Frontend, topic data, `/api/coach`, mock mode, Gemini mode, and server-side keys. |
 | 3 | [Frontend Walkthrough](./lessons/03-frontend-walkthrough.md) | How `index.html`, DOM IDs, `app.js`, and rendering functions work together. |
-| 4 | Data And Context | Topic packs, safe context, resources, practice answers, and context limits. |
-| 5 | LLM Prompts | System prompts, user prompts, context, weak prompts, stronger prompts, and iteration. |
-| 6 | Calling The LLM | Request body, model settings, temperature, token limits, quota, errors, and retries. |
-| 7 | Parsing And Rendering | Raw model output, JSON parsing, normalization, app response fields, and UI rendering. |
-| 8 | Language And Swahili | English, Swahili, code-switching, language metadata, and multilingual testing. |
-| 9 | Where LLMs Fit | Good uses, bad uses, wasteful calls, rules, search, retrieval, and human review. |
-| 10 | Agents | Observe-plan-act loops, tools, memory/state, guardrails, and tradeoffs. |
-| 11 | Safety And Variability | Hallucination, prompt injection, personal data, non-determinism, evals, and limits. |
-| 12 | Build Your Own | Capstone checklist, project extensions, demo rubric, and next learning path. |
+| 4 | [Data And Context](./lessons/04-data-and-context.md) | Topic packs, safe context, resources, practice answers, and context limits. |
+| 5 | [LLM Prompts](./lessons/05-llm-prompts.md) | System prompts, user prompts, context, weak prompts, stronger prompts, and iteration. |
+| 6 | [Calling The LLM](./lessons/06-calling-the-llm.md) | Request body, model settings, temperature, token limits, quota, errors, and retries. |
+| 7 | [Parsing And Rendering](./lessons/07-parsing-and-rendering.md) | Raw model output, JSON parsing, normalization, app response fields, and UI rendering. |
+| 8 | [Language And Swahili](./lessons/08-language-and-swahili.md) | English, Swahili, code-switching, language metadata, and multilingual testing. |
+| 9 | [Where LLMs Fit](./lessons/09-where-llms-fit.md) | Good uses, bad uses, wasteful calls, rules, search, retrieval, and human review. |
+| 10 | [Agents](./lessons/10-agents.md) | Observe-plan-act loops, tools, memory/state, guardrails, and tradeoffs. |
+| 11 | [Safety And Variability](./lessons/11-safety-and-variability.md) | Hallucination, prompt injection, personal data, non-determinism, evals, and limits. |
+| 12 | [Build Your Own](./lessons/12-build-your-own.md) | Capstone checklist, project extensions, demo rubric, and next learning path. |
 
-Lessons 4-12 should be built with the same structure as the first three lessons.
-Use [the lesson template](./lesson-template.md) before adding more files.
+Use [the lesson template](./lesson-template.md) when adding optional extension
+lessons or rewriting these lessons for a different audience.
 
 ## Lab Path
 

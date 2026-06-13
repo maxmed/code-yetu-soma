@@ -24,7 +24,7 @@ calls that stay server-side.
 
 ## The Main App Flow
 
-The reference app is now tutor-first:
+The public app is now tutor-first:
 
 1. Pick a topic.
 2. Ask a question.
@@ -66,4 +66,13 @@ Lecture-style workshop course material lives in `workshop/`:
 - `workshop/lessons/01-how-web-apps-work.md`
 - `workshop/lessons/02-soma-architecture.md`
 - `workshop/lessons/03-frontend-walkthrough.md`
+- `workshop/lessons/04-data-and-context.md`
+- `workshop/lessons/05-llm-prompts.md`
+- `workshop/lessons/06-calling-the-llm.md`
+- `workshop/lessons/07-parsing-and-rendering.md`
+- `workshop/lessons/08-language-and-swahili.md`
+- `workshop/lessons/09-where-llms-fit.md`
+- `workshop/lessons/10-agents.md`
+- `workshop/lessons/11-safety-and-variability.md`
+- `workshop/lessons/12-build-your-own.md`
 - `workshop/labs/README.md`

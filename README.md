@@ -2,7 +2,7 @@
 
 Build a simple study-helper workshop that teaches the shape of an AI tutor app.
 
-Live demo status: local reference app, mock E2E, and a Vercel-compatible
+Live demo status: local main app, mock E2E, and a Vercel-compatible
 `/api/coach` adapter are ready; public deployment is pending.
 
 Important: `api/coach.js` calls Gemini server-side only when `GEMINI_API_KEY`
@@ -56,7 +56,16 @@ code-yetu-soma/
 │   │   ├── lessons/
 │   │   │   ├── 01-how-web-apps-work.md
 │   │   │   ├── 02-soma-architecture.md
-│   │   │   └── 03-frontend-walkthrough.md
+│   │   │   ├── 03-frontend-walkthrough.md
+│   │   │   ├── 04-data-and-context.md
+│   │   │   ├── 05-llm-prompts.md
+│   │   │   ├── 06-calling-the-llm.md
+│   │   │   ├── 07-parsing-and-rendering.md
+│   │   │   ├── 08-language-and-swahili.md
+│   │   │   ├── 09-where-llms-fit.md
+│   │   │   ├── 10-agents.md
+│   │   │   ├── 11-safety-and-variability.md
+│   │   │   └── 12-build-your-own.md
 │   │   └── labs/
 │   │       └── README.md
 │   ├── student/
@@ -103,8 +112,8 @@ code-yetu-soma/
 1. Open `docs/README.md` for the beginner codebase tour.
 2. Open `workshop/workshop_guide.md`.
 3. Open `docs/mentor/curriculum-source.md` for the Grade 7 Integrated Science content source.
-4. Demo `reference/index.html` with `npm run serve:mock`.
-5. Give every team the `starter/` folder.
+4. Demo the main app at `/` with `npm run serve:mock`.
+5. Give teams the `starter/` folder only when they need the smaller workshop scaffold.
 6. Run one workshop file per session.
 7. Use `docs/student/project-cards.md` for remix ideas.
 8. Share `docs/student/ai-limits.md` before students use the AI coach.
@@ -133,7 +142,7 @@ the codebase. It links to:
 
 Before this is public, it should be at least as complete as the previous Code Yetu workshop:
 
-- full working `reference/` app,
+- full working public app at `/`,
 - tutor-first Study Helper / Topic Tutor flow,
 - local topic-pack loading,
 - learner-facing Debug Lab for safe context, prompt, model and parameter experiments,
@@ -141,7 +150,7 @@ Before this is public, it should be at least as complete as the previous Code Ye
 - follow-up question flow,
 - local progress tracking,
 - honest quota, network, and safety error states,
-- simple `starter/` app for students,
+- simple `starter/` scaffold for workshop exercises,
 - numbered workshop guide,
 - rescue prompts for common failures,
 - curated local topic-pack data,
@@ -153,7 +162,7 @@ Before this is public, it should be at least as complete as the previous Code Ye
 
 Before publishing the live demo:
 
-1. Run the reference app locally with `npm run serve:mock`.
+1. Run the main app locally with `npm run serve:mock`.
 2. Verify the tutor-first Study Helper / Topic Tutor flow.
 3. Verify `/api/coach` behavior, including quota/error states.
 4. Deploy the static app and `/api/coach` adapter. The repo includes
@@ -162,7 +171,7 @@ Before publishing the live demo:
    same variable works locally in `.env` and in Vercel or another deployment
    provider's environment-variable settings.
 6. Add the live demo URL to this README.
-7. Re-test `/`, `/reference/index.html`, `/starter/index.html`, and `POST /api/coach` from a clean browser.
+7. Re-test `/`, `/index.html`, the optional `/starter/index.html` workshop scaffold, and `POST /api/coach` from a clean browser.
 8. Confirm the Debug Lab does not show keys.
 9. Optional: set `GEMINI_MODEL`; otherwise the default is `gemini-3.1-flash-lite`.
 
@@ -188,8 +197,17 @@ To use the mock manually:
 npm run serve:mock
 ```
 
-Then open `http://127.0.0.1:8787/reference/index.html` or
-`http://127.0.0.1:8787/starter/index.html`.
+Then open the main app:
+
+```text
+http://127.0.0.1:8787/
+```
+
+The smaller workshop scaffold remains available at:
+
+```text
+http://127.0.0.1:8787/starter/index.html
+```
 
 ## Environment Config
 
@@ -224,15 +242,15 @@ JavaScript.
 npm run serve:mock
 ```
 
-Then open `http://127.0.0.1:8787/reference/index.html`.
+Then open `http://127.0.0.1:8787/`.
 
 If port 8787 is already busy, stop the old local server. Port overrides are
 local test plumbing and are not part of the shared environment template or
 deployment setup.
 
-## Default Starter Project
+## Default Public App
 
-The flagship reference app is Soma Study Coach, an AI-tutor demo using Grade 7 Integrated Science as the class demo:
+The default public entry point is Soma Study Coach at `/`, an AI-tutor demo using Grade 7 Integrated Science as the class demo:
 
 - a student first picks a topic, asks a question, and reads the answer,
 - advanced help mode, grade/year, and learning-area controls stay available under Advanced Options,
@@ -244,15 +262,18 @@ The flagship reference app is Soma Study Coach, an AI-tutor demo using Grade 7 I
 - the app tracks progress locally,
 - the app shows run steps: observe, prepare context, ask coach endpoint, parse response, explain.
 
-Teams can build a smaller version or remix the same pattern into a career explorer, school FAQ bot, reading helper, resource finder, support dashboard, or adaptive practice game.
+The `starter/` folder remains as a smaller workshop scaffold. Teams can use it
+for early exercises, or remix the same pattern into a career explorer, school
+FAQ bot, reading helper, resource finder, support dashboard, or adaptive
+practice game.
 
 ## Current Status
 
 This repo contains the workshop-facing material.
 
-The current `reference/` app is tutor-first: Topic -> Question -> Your Answer,
+The current public app is tutor-first: Topic -> Question -> Your Answer,
 with Advanced Options collapsed and Debug Lab hidden until needed. Local mock E2E
-covers reference and starter flows across desktop and mobile. The deploy adapter
+covers the public app and workshop scaffold across desktop and mobile. The deploy adapter
 calls Gemini when `GEMINI_API_KEY` is configured and otherwise falls back to
 mock/demo responses.
 

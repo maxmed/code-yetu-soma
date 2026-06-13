@@ -56,7 +56,7 @@ render structured answer into the page
 | `reference/style.css` | Controls the layout, panels, Debug Lab, and responsive design. |
 | `reference/data.js` | Stores local topics, vocabulary, examples, resources, and sample questions. |
 | `reference/app.js` | Adds behavior: events, context building, `fetch`, rendering, progress, errors. |
-| `starter/` | Smaller version students can modify before reading the full reference app. |
+| `starter/` | Smaller scaffold students can modify before reading the full public app implementation. |
 
 ## Worked Soma Example
 
@@ -129,7 +129,7 @@ phone numbers, private learner records, or API keys.
 ## Live Demo
 
 1. Start the app with `npm run serve:mock`.
-2. Open `http://127.0.0.1:8787/reference/index.html`.
+2. Open `http://127.0.0.1:8787/`.
 3. Pick a topic.
 4. Click **Use sample**.
 5. Click **Ask coach**.

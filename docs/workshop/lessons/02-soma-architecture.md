@@ -165,7 +165,7 @@ This means the app can run without a real provider key.
 ## Live Demo
 
 1. Run `npm run serve:mock`.
-2. Open the reference app.
+2. Open the public app.
 3. Ask a question.
 4. Open Debug Lab.
 5. Show that the provider is `mock`.
