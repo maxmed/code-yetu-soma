@@ -168,6 +168,54 @@ Learner level: intermediate student and mentor reference.
 Why it is included: students need a memorable story of how AI became today's
 tools, with source links close to claims so mentors can validate facts.
 
+### Elements Of AI
+
+Link: https://course.elementsofai.com/
+
+Use for: beginner-friendly explanations of what AI is, what it can and cannot
+do, machine learning basics, neural networks, and societal implications.
+
+Learner level: beginner.
+
+Why it is included: this is one of the most approachable non-programming AI
+courses for students and mentors who want the big picture before code.
+
+### Google Machine Learning Crash Course
+
+Link: https://developers.google.com/machine-learning/crash-course
+
+Use for: practical machine learning concepts, examples, visual explanations,
+and exercises.
+
+Learner level: intermediate.
+
+Why it is included: students who want to move beyond LLM prompts need a clear
+path into supervised learning, data, features, evaluation, and model behavior.
+
+### MIT Introduction To Deep Learning
+
+Link: https://introtodeeplearning.com/
+
+Use for: neural networks, deep learning, computer vision, language, biology, and
+modern model architectures.
+
+Learner level: advanced student and mentor reference.
+
+Why it is included: it is a reputable university course for students who want a
+deeper technical path after the workshop.
+
+### OECD AI Principles
+
+Link: https://oecd.ai/en/ai-principles
+
+Use for: policy-oriented definitions of AI systems and principles for
+trustworthy AI.
+
+Learner level: mentor reference and advanced student reading.
+
+Why it is included: students should see that AI is also a governance and society
+topic, not only a coding topic.
+
 ### OpenAI Prompting Guide
 
 Link: https://developers.openai.com/api/docs/guides/prompting
@@ -201,6 +249,54 @@ Learner level: advanced student and mentor reference.
 
 Why it is included: agents are an extension topic after students understand a
 single LLM-backed endpoint.
+
+### Stanford HAI AI Index
+
+Link: https://hai.stanford.edu/ai-index/2026-ai-index-report
+
+Use for: current AI trends across research, technical performance, education,
+policy, public opinion, and societal impact.
+
+Learner level: mentor reference and advanced student reading.
+
+Why it is included: AI changes quickly, so students need current trend reports
+instead of only old history notes.
+
+### Google Research Machine Intelligence
+
+Link: https://research.google/research-areas/machine-intelligence/
+
+Use for: examples of AI research areas such as perception, language,
+recommendation, robotics, and science applications.
+
+Learner level: mentor reference and advanced student reading.
+
+Why it is included: students should see that AI is used across many practical
+domains, not only chatbots.
+
+### FDA Artificial Intelligence-Enabled Medical Devices
+
+Link: https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-enabled-medical-devices
+
+Use for: examples of AI-enabled medical device categories and regulatory
+framing.
+
+Learner level: mentor reference.
+
+Why it is included: medical AI is a strong example of why human responsibility,
+testing, and safety matter.
+
+### NOAA Center For Artificial Intelligence
+
+Link: https://www.noaa.gov/ai
+
+Use for: AI examples in weather, climate, oceans, environmental monitoring, and
+scientific operations.
+
+Learner level: mentor reference and selected student reading.
+
+Why it is included: weather and climate examples make AI practical beyond
+school apps and social media.
 
 ## Safety, Security, And Responsible AI
 
@@ -260,3 +356,15 @@ Use for: AI literacy competencies, classroom outcomes, and student reflection.
 Learner level: mentor reference and selected student reading.
 
 Why it is included: students should learn AI concepts, not only copy code.
+
+### UNESCO AI Competency Framework For Students
+
+Link: https://www.unesco.org/en/articles/ai-competency-framework-students
+
+Use for: student-facing AI competencies, ethical reflection, human agency, and
+age-appropriate AI literacy goals.
+
+Learner level: mentor reference.
+
+Why it is included: Soma should help students understand, question, and use AI
+responsibly, not only consume AI answers.

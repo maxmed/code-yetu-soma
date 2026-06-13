@@ -34,11 +34,144 @@ read, write, see, hear, use tools, and control robots.
 By the end, students can:
 
 - explain why AI has gone through different waves,
+- name places where AI already appears in daily life, science, education,
+  medicine, weather, and software,
 - distinguish symbolic AI, machine learning, neural networks, deep learning,
   LLMs, agents, and robotics,
 - explain why data, compute, algorithms, and evaluation all matter,
 - describe where current AI is powerful and where it is still risky,
 - choose good sources for learning more.
+
+## What Is AI?
+
+AI is not one single technology. It is a family of methods for making computer
+systems perform tasks that seem to require intelligence: recognizing patterns,
+making predictions, understanding language, generating media, planning actions,
+or using tools.
+
+The OECD's updated AI principles define an AI system as a machine-based system
+that, for explicit or implicit objectives, infers from input how to generate
+outputs such as predictions, content, recommendations, or decisions.
+
+Source: OECD AI Principles
+https://oecd.ai/en/ai-principles
+
+NIST frames AI in terms of systems that can create benefits but also risks to
+people, organizations, and society. That is why good AI work includes testing,
+risk management, transparency, privacy, and human oversight.
+
+Source: NIST AI Risk Management Framework
+https://www.nist.gov/itl/ai-risk-management-framework
+
+For students, a practical definition is:
+
+```text
+AI is software that uses rules, data, models, or learned patterns to do tasks
+that normally require human judgment, language, perception, planning, or
+decision-making.
+```
+
+That definition includes simple rule systems and modern LLMs. The important
+question is not "Is it magic?" The better question is:
+
+```text
+What input does it use?
+What pattern or rule does it apply?
+What output does it produce?
+Who checks whether the output is safe and useful?
+```
+
+## Try This Now: Spot AI Around You
+
+Take two minutes and list every place you might have seen AI or machine
+learning this week.
+
+Examples:
+
+- autocomplete while typing,
+- translation,
+- search ranking,
+- video recommendations,
+- spam filters,
+- face or object detection in photos,
+- voice assistants,
+- maps and traffic predictions,
+- study helpers,
+- code completion,
+- medical image tools,
+- weather forecasts.
+
+Now pick one example and answer:
+
+```text
+What is the input?
+What is the output?
+Does it need a human to check it?
+What could go wrong?
+```
+
+## Where AI Is Used Now
+
+AI is already used in many fields. The point is not that every use is perfect.
+The point is that the same core ideas appear in different places.
+
+| Area | What AI Can Help With | Why Humans Still Matter |
+|---|---|---|
+| Education | tutoring, feedback, language practice, lesson planning | teachers protect learners, context, fairness, and motivation |
+| Medicine | image support, workflow tools, clinical decision support | clinicians are responsible for patient care and safety |
+| Weather and climate | faster forecasts, environmental monitoring, climate modeling | scientists validate models and communicate uncertainty |
+| Search and recommendations | ranking pages, videos, products, resources | designers must avoid manipulation and filter bubbles |
+| Accessibility | captions, image descriptions, speech tools, reading support | users need control, privacy, and accurate representation |
+| Software | code suggestions, tests, documentation, debugging support | developers must review, test, and secure the code |
+| Robotics | perception, planning, language-to-action | physical systems need strong safety engineering |
+
+Sources:
+
+- UNESCO, "Guidance for generative AI in education and research"
+  https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research
+- FDA, "Artificial Intelligence-Enabled Medical Devices"
+  https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-enabled-medical-devices
+- NOAA Center for Artificial Intelligence
+  https://www.noaa.gov/ai
+- Google Research, "Machine Intelligence"
+  https://research.google/research-areas/machine-intelligence/
+
+Soma is one small example of the education row:
+
+```text
+student question -> topic context -> AI-shaped answer -> limitations -> human review
+```
+
+## What AI Is Still Missing
+
+Modern AI can be impressive, but it is not complete intelligence.
+
+Current systems can still struggle with:
+
+- **ground truth:** knowing whether a generated answer is actually correct,
+- **causality:** understanding why something happens, not only what pattern
+  often appears,
+- **common sense:** handling ordinary real-world assumptions people rarely
+  write down,
+- **long-term memory and goals:** staying reliable over long projects,
+- **embodiment:** acting safely in the physical world,
+- **values and judgment:** deciding what should be done, not only what can be
+  done,
+- **accountability:** explaining who is responsible when an AI system causes
+  harm.
+
+The Stanford AI Index tracks current AI progress and risks across technical
+performance, adoption, economy, education, policy, and public opinion. It is a
+useful annual reality check because the field changes quickly.
+
+Source: Stanford HAI, "The 2026 AI Index Report"
+https://hai.stanford.edu/ai-index/2026-ai-index-report
+
+Classroom rule:
+
+```text
+Treat AI as powerful assistance, not automatic truth.
+```
 
 ## The Short Version
 
@@ -77,6 +210,26 @@ rules written by people
 | 2017-2022 | Transformers and foundation models | Attention, BERT, GPT-style models |
 | 2023-2026 | Multimodal and agentic AI | GPT-4, Gemini, computer-use agents, robotics |
 
+## The Practical AI Stack
+
+Most real AI products are not just a model. They are a stack:
+
+```text
+User problem
+-> data and context
+-> model or rule
+-> tool/API call
+-> user interface
+-> tests and evaluation
+-> safety and privacy checks
+-> human feedback
+```
+
+That is why Soma is designed as a complete app, not only a prompt. The visible
+tutor answer is just the final layer. Under it are topic data, browser state,
+server boundaries, prompt construction, response parsing, tests, and safety
+rules.
+
 ## 1. Before The Name "AI": Can Machines Think?
 
 Two early ideas mattered.
@@ -102,6 +255,14 @@ Classroom question:
 ```text
 If a machine gives a useful explanation, does it need to "understand" the way a
 human does? Why or why not?
+```
+
+Try this now:
+
+```text
+Ask two people what "thinking" means. Do they define it as reasoning, feeling,
+remembering, explaining, or choosing? This is why Turing's question is still
+interesting.
 ```
 
 ## 2. 1956: AI Gets A Name
@@ -235,6 +396,16 @@ Student takeaway:
 Rules are written by people. Models are trained from data. Both can be useful.
 ```
 
+Practical examples:
+
+- A rule can say "if the question is empty, show an error."
+- A classifier can learn which emails look like spam.
+- A recommender can learn which resources helped similar students.
+- A language model can generate an explanation from topic context.
+
+Beginner learning resource: Google's Machine Learning Crash Course
+https://developers.google.com/machine-learning/crash-course
+
 ## 6. Neural Networks Return
 
 Neural networks are made of layers of simple mathematical units. They are only
@@ -292,6 +463,10 @@ player.
 Source: Silver et al., "Mastering the game of Go with deep neural networks and
 tree search"
 https://www.nature.com/articles/nature16961
+
+Optional classroom hook: show a short AlphaGo documentary clip or trailer before
+discussing why Go was hard. The point is not only that a machine won. The point
+is that human players learned new strategies by studying the system's moves.
 
 Important lesson:
 
@@ -361,6 +536,29 @@ Student takeaway:
 LLMs are powerful language engines. Good apps still need product design, data
 boundaries, tests, and human judgment.
 ```
+
+Practical LLM use cases:
+
+- explain a topic in different words,
+- draft a quiz from teacher-approved content,
+- summarize long notes,
+- translate or rephrase text,
+- help debug a small code error,
+- turn rough ideas into a project plan.
+
+Bad LLM use cases:
+
+- official grades without review,
+- private student records,
+- medical or legal decisions by itself,
+- pretending a generated answer is guaranteed true,
+- replacing a teacher relationship with a chatbot.
+
+UNESCO's generative AI education guidance emphasizes a human-centered approach
+and the need for policy, capacity building, and learner protection.
+
+Source: UNESCO, "Guidance for generative AI in education and research"
+https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research
 
 ## 10. Multimodal AI: Text, Images, Audio, Video, And More
 
@@ -490,6 +688,23 @@ A model may be able to answer, draw, code, or click. That does not mean it knows
 when it should stop, ask for help, protect privacy, or defer to a teacher,
 doctor, parent, or expert.
 
+Three future directions to watch:
+
+1. **Multimodal assistants** that can combine text, images, audio, video, code,
+   and sensor data.
+2. **Tool-using agents** that can search, write code, operate software, and
+   coordinate multi-step tasks.
+3. **Embodied AI** in robots, labs, vehicles, farms, factories, and assistive
+   devices.
+
+Three questions to keep asking:
+
+```text
+Who benefits?
+Who might be harmed?
+Who gets to decide whether the system is good enough?
+```
+
 ## 14. What This Means For Soma
 
 Soma is a small project, but it teaches the real shape of modern AI apps:
@@ -546,8 +761,21 @@ What should a human review?
 
 Use these when you want to go deeper:
 
+- Beginner AI overview: Elements of AI by the University of Helsinki and
+  Reaktor
+  https://course.elementsofai.com/
+- Machine learning basics: Google Machine Learning Crash Course
+  https://developers.google.com/machine-learning/crash-course
+- Deep learning course: MIT 6.S191 Introduction to Deep Learning
+  https://introtodeeplearning.com/
 - AI history and definitions: Stanford Encyclopedia of Philosophy,
   "Artificial Intelligence" https://plato.stanford.edu/entries/artificial-intelligence/
+- AI risk and trustworthy systems: NIST AI Risk Management Framework
+  https://www.nist.gov/itl/ai-risk-management-framework
+- AI policy principles: OECD AI Principles
+  https://oecd.ai/en/ai-principles
+- Education: UNESCO AI competency framework for students
+  https://www.unesco.org/en/articles/ai-competency-framework-students
 - Current AI trends: Stanford HAI AI Index 2026
   https://hai.stanford.edu/ai-index/2026-ai-index-report
 - Transformers: "Attention Is All You Need"
