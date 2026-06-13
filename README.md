@@ -156,7 +156,7 @@ The flagship reference app is Soma Study Coach, a mock AI-tutor demo using Grade
 - the demo coach returns an explanation, examples, misconception help, resources, or a study plan,
 - the app supports follow-up study questions,
 - the app tracks progress locally,
-- the app shows prompt/agent steps: observe, prepare context, ask model, parse response, explain.
+- the app shows prompt/agent steps: observe, prepare context, ask coach endpoint, parse response, explain.
 
 Teams can build a smaller version or remix the same pattern into a career explorer, school FAQ bot, reading helper, resource finder, support dashboard, or adaptive practice game.
 

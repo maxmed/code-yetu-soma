@@ -221,7 +221,7 @@ function renderAgentSteps(status = "ready") {
   const steps = [
     ["Observe", "Read selected mode, topic and student question."],
     ["Prepare context", "Attach the local topic pack, resources, optional practice answers and safety rules."],
-    ["Ask model", "POST the JSON context to /api/coach."],
+    ["Ask coach endpoint", "POST the JSON context to /api/coach."],
     ["Parse response", "Validate the structured JSON fields before rendering."],
     ["Explain limits", "Show limitations and honest quota/network/safety errors."]
   ];
