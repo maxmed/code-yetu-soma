@@ -10,7 +10,7 @@ Score each category from 1 to 4.
 | Intelligence layer | No intelligence | Basic hardcoded output | Clear recommendation/scoring/retrieval logic | Strong logic with explanation and edge cases |
 | Integration | Separate from app | Partly connected | User input changes output | Feels natural in the user flow |
 | Responsible AI | Not mentioned | Basic limitation | Clear limitations and risks | Thoughtful bias/testing/accuracy discussion |
-| Copilot/code understanding | Cannot explain code | Explains parts | Explains main functions | Explains choices, bugs, and improvements |
+| AI assistant/code understanding | Cannot explain code | Explains parts | Explains main functions | Explains choices, bugs, and improvements |
 | Demo and pitch | Hard to follow | Basic demo | Clear 3-5 minute demo | Compelling story and next steps |
 
 ## Minimum MVP Bar

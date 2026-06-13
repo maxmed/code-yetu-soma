@@ -53,7 +53,7 @@ code-yetu-soma/
 │   │   ├── handout.md
 │   │   ├── ai-limits.md
 │   │   ├── project-cards.md
-│   │   └── copilot-prompts.md
+│   │   └── ai-coding-prompts.md
 │   └── mentor/
 │       ├── mentor-guide.md
 │       ├── curriculum-source.md
@@ -98,7 +98,7 @@ code-yetu-soma/
 6. Run one workshop file per session.
 7. Use `docs/student/project-cards.md` for remix ideas.
 8. Share `docs/student/ai-limits.md` before students use the AI coach.
-9. Use `docs/student/copilot-prompts.md` for debugging help.
+9. Use `docs/student/ai-coding-prompts.md` for debugging help.
 10. Use `docs/mentor/rubric.md` for demos.
 
 ## Beginner Developer Docs
@@ -114,7 +114,7 @@ the codebase. It links to:
 - `docs/testing-debugging.md` - Playwright, manual checks, and Under The Hood.
 - `docs/extend-soma.md` - beginner extension tasks.
 - `docs/api-safety-checklist.md` - key, data, AI honesty, and debug checks.
-- `docs/student/` - student handout, limits, project cards, and Copilot prompts.
+- `docs/student/` - student handout, limits, project cards, and AI coding prompts.
 - `docs/mentor/` - facilitator guide, curriculum source notes, and demo rubric.
 
 ## Workshop Readiness Bar

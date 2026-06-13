@@ -49,7 +49,7 @@ Student-facing workshop docs live in `student/`:
 - `student/handout.md`
 - `student/ai-limits.md`
 - `student/project-cards.md`
-- `student/copilot-prompts.md`
+- `student/ai-coding-prompts.md`
 
 Mentor-facing workshop docs live in `mentor/`:
 

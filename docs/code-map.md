@@ -101,7 +101,7 @@ Remix ideas for teams.
 
 Demo and project evaluation guide.
 
-`docs/student/copilot-prompts.md`
+`docs/student/ai-coding-prompts.md`
 
 Suggested prompts for using an AI coding assistant during the workshop.
 

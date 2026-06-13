@@ -34,7 +34,7 @@ Before session 1:
 
 - print or share `../docs/student/project-cards.md`,
 - open `../reference/index.html` in a browser,
-- keep `../docs/student/copilot-prompts.md` ready for students.
+- keep `../docs/student/ai-coding-prompts.md` ready for students.
 
 ## Recommended Flow
 
@@ -50,5 +50,5 @@ Each session:
 - Default to HTML/CSS/JavaScript only.
 - Use dummy data.
 - Use the shared `/api/coach` path for AI calls; do not put API keys in student code.
-- Use Copilot for small tasks and debugging, not for blindly generating the whole project.
+- Use an AI coding assistant for small tasks and debugging, not for blindly generating the whole project.
 - Every intelligent output should include a reason.

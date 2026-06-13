@@ -37,9 +37,9 @@ Ask teams:
 - What is one case where your app may be wrong?
 - What will you demo in 3 minutes?
 
-## Copilot Guidance
+## AI Coding Assistant Guidance
 
-Teach students to ask Copilot for small changes, not whole apps.
+Teach students to ask an AI coding assistant for small changes, not whole apps.
 
 Good prompt:
 
@@ -62,7 +62,7 @@ When a team is stuck:
 3. Read the error message.
 4. Check file names and script order.
 5. Isolate one function.
-6. Ask Copilot for a focused fix.
+6. Ask an AI coding assistant for a focused fix.
 7. Test again.
 
 ## Shared AI Limits

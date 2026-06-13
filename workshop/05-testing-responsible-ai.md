@@ -35,9 +35,9 @@ Each team writes:
 | Personal data | Question includes a name, school, mark, or phone number | App/proxy blocks or warns before sending | |
 | Quota error | `/api/coach` returns 429 | Honest quota message appears; app does not pretend AI worked | |
 
-## Activity 2: Debug With Copilot
+## Activity 2: Debug With An AI Coding Assistant
 
-Use `../docs/student/copilot-prompts.md`.
+Use `../docs/student/ai-coding-prompts.md`.
 
 Rule: ask for one bug or one function at a time.
 

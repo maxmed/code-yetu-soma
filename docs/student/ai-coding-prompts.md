@@ -1,4 +1,4 @@
-# Copilot Prompts
+# AI Coding Prompts
 
 Use these when stuck. Paste only the relevant code, not your whole project unless needed.
 
