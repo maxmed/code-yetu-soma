@@ -5,10 +5,18 @@ Use this guide to run the 6-session project studio.
 This folder is the live-session runbook. The deeper lecture material lives one
 level up in `docs/workshop/`. Use both together:
 
-- `docs/workshop/sessions/` tells mentors what to run each session.
-- `docs/workshop/lessons/` teaches the concepts in more detail.
-- `../concept-to-code-map.md` connects sessions, lessons, files,
-  labs, and AI coding prompts.
+- [sessions/](./) tells mentors what to run each session.
+- [lessons/](../lessons/) teaches the concepts in more detail.
+- [labs/](../labs/README.md) gives hands-on practice tasks.
+- [Concept To Code Map](../concept-to-code-map.md) connects sessions, lessons,
+  files, labs, and AI coding prompts.
+
+Related indexes:
+
+- [Workshop Course](../README.md)
+- [Lesson Index](../lessons/README.md)
+- [Student Guide](../../student/README.md)
+- [Mentor Guide Index](../../mentor/README.md)
 
 ## What Students Build
 
@@ -53,9 +61,10 @@ pick a Grade 7 Integrated Science topic -> ask a study question -> call /api/coa
 
 Before session 1:
 
-- print or share `../../student/project-cards.md`,
+- print or share [Project Cards](../../student/project-cards.md),
 - run `npm run serve:mock` and open `/` in a browser,
-- keep `../../student/ai-coding-prompts.md` ready for students.
+- keep [AI Coding Prompts](../../student/ai-coding-prompts.md) ready for
+  students.
 
 ## Recommended Flow
 
@@ -66,11 +75,12 @@ Each session:
 3. 40-70 minutes: teams build.
 4. 10 minutes: teams share what changed.
 
-For deeper teaching material, use `../README.md`. It adds
-lecture-style lessons on web apps, Soma architecture, frontend code, LLM calls,
-prompts, multilingual use, agents, safety, variability and reputable self-study
-sources. Use `../concept-to-code-map.md` when students need to
-connect a concept to the exact files and AI coding prompts.
+For deeper teaching material, use the [Workshop Course](../README.md) and
+[Lesson Index](../lessons/README.md). They add lecture-style lessons on web
+apps, Soma architecture, frontend code, LLM calls, prompts, multilingual use,
+agents, safety, variability and reputable self-study sources. Use the
+[Concept To Code Map](../concept-to-code-map.md) when students need to connect a
+concept to the exact files and AI coding prompts.
 
 ## Technical Rules
 

@@ -1,5 +1,9 @@
 # Demo Rubric
 
+Use this with the [Mentor Guide Index](./README.md), [Student
+Handout](../student/handout.md), and [Session 6: Demo And
+Pitch](../workshop/sessions/06-demo-pitch.md).
+
 Score each category from 1 to 4.
 
 | Category | 1 | 2 | 3 | 4 |
@@ -31,4 +35,3 @@ A team is demo-ready if:
 - Best use of data
 - Best technical improvement
 - Best pitch
-

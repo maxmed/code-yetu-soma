@@ -1,5 +1,9 @@
 # Student AI Limits And Advice
 
+Use this with the [Student Handout](./handout.md), [Testing And
+Debugging](../testing-debugging.md), and [Safety
+Checklist](../api-safety-checklist.md).
+
 Use the shared `/api/coach` endpoint for AI help. Do not create your own API
 key, paste keys into code, or call Gemini directly from browser JavaScript.
 

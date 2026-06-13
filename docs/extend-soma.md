@@ -1,5 +1,8 @@
 # Extend Soma Study Coach
 
+Use this with the [Code Map](./code-map.md), [Workshop Labs](./workshop/labs/README.md),
+and [AI Coding Prompts](./student/ai-coding-prompts.md).
+
 This guide gives beginner-friendly ways to change the app without breaking the
 architecture.
 

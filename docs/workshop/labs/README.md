@@ -3,6 +3,26 @@
 Labs are short hands-on tasks. Each one should be possible in 20-45 minutes and
 should end with a visible result.
 
+Use labs with:
+
+- [Lesson Index](../lessons/README.md) for the concept behind each task.
+- [Concept To Code Map](../concept-to-code-map.md) for file and prompt links.
+- [AI Coding Prompts](../../student/ai-coding-prompts.md) when students need
+  focused help.
+- [Testing And Debugging](../../testing-debugging.md) before demos or commits.
+
+## Lab Map
+
+| Lab | Concept | Helpful Prompt |
+|---|---|---|
+| A | [How Web Apps Work](../lessons/01-how-web-apps-work.md) | [Make The UI Clearer](../../student/ai-coding-prompts.md#make-the-ui-clearer) |
+| B | [Data And Context](../lessons/04-data-and-context.md) | [Create Dummy Data](../../student/ai-coding-prompts.md#create-dummy-data) |
+| C | [LLM Prompts](../lessons/05-llm-prompts.md) | [Build The /api/coach Context](../../student/ai-coding-prompts.md#build-the-apicoach-context) |
+| D | [Calling The LLM](../lessons/06-calling-the-llm.md) | [Fix /api/coach 404 Or 429](../../student/ai-coding-prompts.md#fix-apicoach-404-or-429) |
+| E | [Language And Swahili](../lessons/08-language-and-swahili.md) | [Make The UI Clearer](../../student/ai-coding-prompts.md#make-the-ui-clearer) |
+| F | [Parsing And Rendering](../lessons/07-parsing-and-rendering.md) | [Response Not Rendering](../../student/ai-coding-prompts.md#response-not-rendering) |
+| G | [Where LLMs Fit](../lessons/09-where-llms-fit.md) | [Add Responsible AI Note](../../student/ai-coding-prompts.md#add-responsible-ai-note) |
+
 ## Lab A: Change One UI Section Safely
 
 Goal: learn how HTML, CSS, JavaScript, and tests stay connected.

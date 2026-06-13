@@ -1,5 +1,8 @@
 # Mentor Guide
 
+Use this with the [Mentor Guide Index](./README.md), [6-Session
+Runbook](../workshop/sessions/README.md), and [Demo Rubric](./rubric.md).
+
 ## Delivery Style
 
 Run this as a project studio:

@@ -1,5 +1,9 @@
 # Soma UI Redesign Brief
 
+Use this with the [Design Docs](./README.md), [UI Design Principles For Learning
+Apps](./ui-principles-for-students.md), and [Testing And
+Debugging](../testing-debugging.md).
+
 Status: review draft for pedagogy, safety, coordination, and deployment reviewers.
 
 This brief defines the next visual redesign for the public Soma demo. It is not

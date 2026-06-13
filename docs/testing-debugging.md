@@ -1,5 +1,8 @@
 # Testing And Debugging
 
+Use this with [Local Setup](./local-setup.md), [Safety
+Checklist](./api-safety-checklist.md), and the [Code Map](./code-map.md).
+
 ## Fast Confidence Check
 
 Run:

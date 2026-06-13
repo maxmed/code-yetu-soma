@@ -31,6 +31,16 @@ Chromium projects.
 
 Deployment hint for hosts that support Vercel-style serverless functions.
 
+`docs/gemini-key-setup.md`
+
+Beginner guide for creating a Gemini API key, adding it to `.env`, testing
+Gemini provider mode, and keeping keys server-side.
+
+`docs/deploy-vercel.md`
+
+Beginner guide for importing the GitHub repo into Vercel, setting environment
+variables, deploying, and smoke-testing the live routes.
+
 ## App Folders
 
 `reference/`
@@ -77,6 +87,10 @@ demo.
 
 ## Design Docs
 
+`docs/design/README.md`
+
+Design navigation for learner UI principles and redesign planning.
+
 `docs/design/ui-principles-for-students.md`
 
 Student-facing principles for designing learning apps that are beautiful,
@@ -89,9 +103,22 @@ mobile, and Debug Lab wireframes plus review criteria.
 
 ## Workshop Material
 
+`docs/workshop/README.md`
+
+Main curriculum hub for sessions, lessons, labs, source links, and safety
+rules.
+
 `docs/workshop/sessions/`
 
 Six live-session files plus the facilitator runbook.
+
+`docs/workshop/lessons/README.md`
+
+Index for the 12 deeper teaching lessons.
+
+`docs/student/README.md`
+
+Student navigation for handout, project cards, AI limits, and coding prompts.
 
 `docs/student/handout.md`
 
@@ -104,6 +131,11 @@ Student-facing AI usage limits and quota guidance.
 `docs/mentor/mentor-guide.md`
 
 Facilitator guide.
+
+`docs/mentor/README.md`
+
+Mentor navigation for facilitation, curriculum source, rubric, and safety
+checks.
 
 `docs/student/project-cards.md`
 

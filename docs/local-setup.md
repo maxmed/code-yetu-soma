@@ -1,5 +1,9 @@
 # Local Setup, Config, And Deploy
 
+Use this with [Gemini Key Setup](./gemini-key-setup.md), [Deploy To
+Vercel](./deploy-vercel.md), [Testing And Debugging](./testing-debugging.md),
+the [Architecture](./architecture.md), and the [Code Map](./code-map.md).
+
 ## Prerequisites
 
 Install Node.js and npm. Then from the repo root:
@@ -48,6 +52,9 @@ npm run test:e2e:ui
 
 ## Use A Real Gemini Key Locally
 
+For the full beginner walkthrough, use [Gemini Key
+Setup](./gemini-key-setup.md). Short version:
+
 Do not paste keys into chat or commit keys to Git.
 
 Create a local private env file:
@@ -73,6 +80,9 @@ The local server loads `.env` and `/api/coach` will use Gemini if the key is
 valid.
 
 ## Deploy
+
+For the full beginner walkthrough, use [Deploy To Vercel](./deploy-vercel.md).
+Short version:
 
 The repo includes:
 

@@ -1,5 +1,8 @@
 # Student Handout
 
+Use this with the [Student Guide](./README.md), [Project
+Cards](./project-cards.md), and [Student AI Limits And Advice](./ai-limits.md).
+
 ## Your Challenge
 
 Build a web app that helps with an education problem and includes an intelligent feature.

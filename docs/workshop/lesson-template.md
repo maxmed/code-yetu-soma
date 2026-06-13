@@ -1,5 +1,8 @@
 # Lesson Template
 
+Use this with the [Lesson Index](./lessons/README.md), [Workshop
+Course](./README.md), and [Reviewed Source Spine](./sources.md).
+
 Use this template for every new workshop lesson. Keep the lesson practical,
 grounded in Soma code, and honest about AI limits.
 

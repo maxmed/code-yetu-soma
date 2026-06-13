@@ -1,5 +1,9 @@
 # Architecture
 
+Use this with the [Code Map](./code-map.md), [`/api/coach`
+Contract](./api-coach-contract.md), and [Testing And
+Debugging](./testing-debugging.md).
+
 This project is intentionally small. The goal is to teach the shape of an AI
 tutor without introducing frameworks, databases, accounts, queues, or build
 systems.

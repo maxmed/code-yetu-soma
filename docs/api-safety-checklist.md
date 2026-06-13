@@ -1,6 +1,10 @@
 # Safety Checklist
 
-Use this before demos, deployments, or major changes.
+Use this before demos, deployments, or major changes. Related docs:
+[`/api/coach` Contract](./api-coach-contract.md), [Testing And
+Debugging](./testing-debugging.md), and [Student AI Limits And
+Advice](./student/ai-limits.md). For setup details, use [Gemini Key
+Setup](./gemini-key-setup.md) and [Deploy To Vercel](./deploy-vercel.md).
 
 ## Key Safety
 

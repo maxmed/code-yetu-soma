@@ -11,6 +11,7 @@ The main paths are:
 - [labs/](./labs/) - hands-on practice tasks.
 - [concept-to-code-map.md](./concept-to-code-map.md) - how sessions, lessons,
   files, labs, and AI coding prompts connect.
+- [sources.md](./sources.md) - reviewed sources behind the course.
 
 Use [concept-to-code-map.md](./concept-to-code-map.md) when students need to see
 how a lesson maps back to actual Soma files, labs, and AI coding prompts.
@@ -18,6 +19,18 @@ how a lesson maps back to actual Soma files, labs, and AI coding prompts.
 The goal is not only to run the app. Students should understand how a web app is
 assembled, how the browser talks to a server, how the server calls an LLM, how
 prompts shape the answer, and where AI is useful, risky, or wasteful.
+
+## Course Navigation
+
+| If you need... | Go to |
+|---|---|
+| live facilitation plan | [6-Session Runbook](./sessions/README.md) |
+| deeper teaching material | [Lesson Index](./lessons/README.md) |
+| hands-on practice | [Workshop Labs](./labs/README.md) |
+| student-facing challenge | [Student Guide](../student/README.md) |
+| mentor notes and rubric | [Mentor Guide Index](../mentor/README.md) |
+| setup, tests, and deploy | [Local Setup](../local-setup.md) |
+| exact file-to-concept links | [Concept To Code Map](./concept-to-code-map.md) |
 
 ## How To Use This Course
 
@@ -68,13 +81,13 @@ Use labs when students need hands-on practice.
 
 | Lab | Task | Main Files |
 |---|---|---|
-| A | Change one UI section safely. | `reference/index.html`, `reference/style.css`, `tests/soma-student.spec.js` |
-| B | Add a new topic pack. | `reference/data.js`, `starter/data.js` |
-| C | Edit a tutor prompt and compare output. | Debug Lab, `api/coach.js` |
-| D | Change model settings and observe variability. | Debug Lab, `/api/coach` |
-| E | Add Swahili answer mode. | `reference/data.js`, `reference/app.js`, `api/coach.js` |
-| F | Debug malformed JSON. | `api/coach.js`, `reference/app.js` |
-| G | Replace a wasteful LLM call with normal code. | `reference/app.js`, `lib/coach-core.js` |
+| [A](./labs/README.md#lab-a-change-one-ui-section-safely) | Change one UI section safely. | `reference/index.html`, `reference/style.css`, `tests/soma-student.spec.js` |
+| [B](./labs/README.md#lab-b-add-a-new-topic-pack) | Add a new topic pack. | `reference/data.js`, `starter/data.js` |
+| [C](./labs/README.md#lab-c-edit-a-tutor-prompt-and-compare-output) | Edit a tutor prompt and compare output. | Debug Lab, `api/coach.js` |
+| [D](./labs/README.md#lab-d-change-model-settings-and-observe-variability) | Change model settings and observe variability. | Debug Lab, `/api/coach` |
+| [E](./labs/README.md#lab-e-add-swahili-answer-mode) | Add Swahili answer mode. | `reference/data.js`, `reference/app.js`, `api/coach.js` |
+| [F](./labs/README.md#lab-f-debug-a-bad-json-response) | Debug malformed JSON. | `api/coach.js`, `reference/app.js` |
+| [G](./labs/README.md#lab-g-replace-a-wasteful-llm-call-with-normal-code) | Replace a wasteful LLM call with normal code. | `reference/app.js`, `lib/coach-core.js` |
 
 ## Concept To Code Map
 

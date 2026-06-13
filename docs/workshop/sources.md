@@ -1,5 +1,8 @@
 # Reviewed Source Spine
 
+Use this with the [Workshop Course](./README.md), [Lesson
+Index](./lessons/README.md), and [UI Design Principles](../design/ui-principles-for-students.md).
+
 These sources are the default self-study path for Soma workshop material. Each
 source is reputable, learner-appropriate, and tied to a lesson objective.
 

@@ -1,5 +1,9 @@
 # `/api/coach` Contract
 
+Use this with the [Architecture](./architecture.md), [Safety
+Checklist](./api-safety-checklist.md), and [Testing And
+Debugging](./testing-debugging.md).
+
 The browser calls one endpoint:
 
 ```text

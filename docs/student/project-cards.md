@@ -1,5 +1,9 @@
 # Project Cards
 
+Use this with the [Student Handout](./handout.md), [AI Coding
+Prompts](./ai-coding-prompts.md), and [Concept To Code
+Map](../workshop/concept-to-code-map.md).
+
 Use these for ideation. Teams may copy one, combine two, or adapt one to their school/community.
 
 ## 1. Soma Study Coach (Recommended)

@@ -1,5 +1,8 @@
 # Curriculum Content Source
 
+Use this with the [Mentor Guide Index](./README.md), [Workshop
+Course](../workshop/README.md), and [Project Cards](../student/project-cards.md).
+
 Use Kenya's KICD CBC curriculum designs as the source for age-appropriate learning material.
 
 Primary source:

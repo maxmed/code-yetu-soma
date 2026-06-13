@@ -1,5 +1,9 @@
 # AI Coding Prompts
 
+Use this with the [Student Guide](./README.md), [Workshop
+Labs](../workshop/labs/README.md), and [Concept To Code
+Map](../workshop/concept-to-code-map.md).
+
 Use these when stuck. Paste only the relevant code, not your whole project unless needed.
 
 For help choosing the right prompt, use

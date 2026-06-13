@@ -42,7 +42,8 @@ tasks.
    ```
 
 Mock mode needs no API key. Real Gemini answers are optional and must be
-configured server-side. See [docs/local-setup.md](docs/local-setup.md).
+configured server-side. See [docs/local-setup.md](docs/local-setup.md) and
+[docs/gemini-key-setup.md](docs/gemini-key-setup.md).
 
 ## What Is Included
 
@@ -82,6 +83,12 @@ Then use the deeper course:
 To connect sessions, lessons, files, labs, and AI coding prompts, use:
 [docs/workshop/concept-to-code-map.md](docs/workshop/concept-to-code-map.md)
 
+To use a real LLM key for testing, use:
+[docs/gemini-key-setup.md](docs/gemini-key-setup.md)
+
+To deploy the app publicly with Vercel, use:
+[docs/deploy-vercel.md](docs/deploy-vercel.md)
+
 ## Where To Go Next
 
 For facilitators:
@@ -109,6 +116,10 @@ For developers:
 - [docs/README.md](docs/README.md) - best reading order.
 - [docs/architecture.md](docs/architecture.md) - browser, data, server, mock
   mode, and Gemini mode.
+- [docs/gemini-key-setup.md](docs/gemini-key-setup.md) - beginner guide to
+  creating and testing a Gemini API key safely.
+- [docs/deploy-vercel.md](docs/deploy-vercel.md) - beginner Vercel deployment
+  guide.
 - [docs/code-map.md](docs/code-map.md) - where to change common things.
 - [docs/api-coach-contract.md](docs/api-coach-contract.md) - request and
   response contract.

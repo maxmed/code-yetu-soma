@@ -2,6 +2,10 @@
 
 Use this map when a student asks: "Where is this idea in the actual project?"
 
+Related navigation: [Workshop Course](./README.md), [6-Session
+Runbook](./sessions/README.md), [Lesson Index](./lessons/README.md), and
+[Workshop Labs](./labs/README.md).
+
 The [sessions/](./sessions/) folder is the 6-session runbook. The
 [lessons/](./lessons/) folder is the deeper lecture course. This file connects
 both to the code, labs, and AI coding prompts.
