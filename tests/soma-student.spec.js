@@ -16,18 +16,22 @@ async function runReferenceSuccess(page, testInfo) {
 
   await page.locator("#topicSelect").selectOption("mixtures");
   await page.getByRole("button", { name: "Use sample" }).click();
-  await page.getByRole("button", { name: "Debug Lab" }).click();
+  await page.getByRole("button", { name: "Behind The Scenes" }).click();
   await expect(page.locator("#debugLabSection")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Debug Lab" })).toBeVisible();
   await page.getByRole("button", { name: "Show context" }).click();
   await expect(page.locator("#promptPreview")).toContainText("studentQuestion");
   await expect(page.locator("#promptPreview")).toContainText("Mixtures and separation");
   await expect(page.locator("#promptPreview")).not.toContainText("student name");
+  await page.getByRole("button", { name: "Close" }).click();
+  await expect(page.locator("#debugLabSection")).toBeHidden();
 
-  await page.getByRole("button", { name: "Ask coach" }).click();
+  await page.getByRole("button", { name: "Ask Soma" }).click();
   await expect(page.locator("#coachStatus")).toContainText("Response ready");
   await expect(page.locator("#coachOutput")).toContainText("Topic explanation");
-  await expect(page.locator("#coachOutput")).toContainText("Misconception help");
-  await expect(page.locator("#coachOutput")).toContainText("Recommended resources");
+  await expect(page.locator("#coachOutput")).toContainText("Common mistake");
+  await expect(page.locator("#coachOutput")).toContainText("Next resources");
+  await expect(page.locator("#coachOutput")).not.toContainText("[object Object]");
   await expect(page.locator("#debugStatus")).toContainText("mock: deterministic-demo");
   await expect(page.locator("#debugOutput")).toContainText("Safe context sent by browser");
   await expect(page.locator("#debugOutput")).toContainText("Student question");
@@ -39,6 +43,7 @@ async function runReferenceSuccess(page, testInfo) {
   await expect(page.locator("#debugOutput")).not.toContainText("?key=");
 
   await expect(page.locator("#keepLearningSection")).toBeVisible();
+  await page.getByRole("button", { name: "Behind The Scenes" }).click();
   await page.locator("#labModelInput").fill("student-lab-model");
   await page.locator("#labTemperatureInput").fill("0.2");
   await page.locator("#labMaxTokensInput").fill("1024");
@@ -49,6 +54,7 @@ async function runReferenceSuccess(page, testInfo) {
   await expect(page.locator("#debugOutput")).toContainText("Lab settings");
   await expect(page.locator("#debugOutput")).toContainText("student-lab-model");
   await expect(page.locator("#debugOutput")).toContainText("Explain like a patient tutor");
+  await page.getByRole("button", { name: "Close" }).click();
 
   await expect(page.locator("#planOutput input[type='checkbox']").first()).toBeVisible();
   await page.locator("#planOutput input[type='checkbox']").first().check();
@@ -99,13 +105,13 @@ test.describe("Soma Study Coach student smoke", () => {
   test("public app shows honest quota and network errors", async ({ page }, testInfo) => {
     await page.goto("/");
     await page.locator("#studentQuestionInput").fill("quota-test: explain this topic");
-    await page.getByRole("button", { name: "Ask coach" }).click();
+    await page.getByRole("button", { name: "Ask Soma" }).click();
     await expect(page.locator("#coachStatus")).toContainText("Coach unavailable");
     await expect(page.locator("#coachOutput")).toContainText("quota");
     await expect(page.locator("#keepLearningSection")).toBeHidden();
 
     await page.locator("#studentQuestionInput").fill("network-test: explain this topic");
-    await page.getByRole("button", { name: "Ask coach" }).click();
+    await page.getByRole("button", { name: "Ask Soma" }).click();
     await expect(page.locator("#coachOutput")).toContainText("temporarily unavailable");
     await expect(page.locator("#keepLearningSection")).toBeHidden();
     await saveFullPage(page, testInfo, "reference-errors");
@@ -114,13 +120,13 @@ test.describe("Soma Study Coach student smoke", () => {
   test("main app and workshop scaffold block personal-data prompts before provider use", async ({ page }, testInfo) => {
     await page.goto("/");
     await page.locator("#studentQuestionInput").fill("My name is Amina and I got 20 marks out of 100. Help me.");
-    await page.getByRole("button", { name: "Ask coach" }).click();
+    await page.getByRole("button", { name: "Ask Soma" }).click();
     await expect(page.locator("#coachOutput")).toContainText("Remove personal data");
     await expect(page.locator("#keepLearningSection")).toBeHidden();
     await saveFullPage(page, testInfo, "reference-safety");
 
     await page.locator("#studentQuestionInput").fill("Explain mixtures using a local example.");
-    await page.getByRole("button", { name: "Ask coach" }).click();
+    await page.getByRole("button", { name: "Ask Soma" }).click();
     await expect(page.locator("#coachStatus")).toContainText("Response ready");
     await page.locator("#followUpInput").fill("My school name is Test Academy. Help me.");
     await page.getByRole("button", { name: /^Ask$/ }).click();

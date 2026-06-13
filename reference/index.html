@@ -8,102 +8,108 @@
 </head>
 <body>
   <header class="topbar">
-    <div>
+    <div class="hero-copy">
       <p class="eyebrow">Code Yetu Soma</p>
       <h1>Soma Study Coach</h1>
       <p class="intro">
-        Pick a topic, ask a question, get study help.
+        Ask a study question. See the answer. Open the lab to learn how the AI
+        tutoring pipeline works.
       </p>
     </div>
     <aside class="provider-card" aria-label="Coach endpoint status">
       <span id="coachStatus" class="badge">Ready</span>
-      <strong>Grade 7 · Integrated Science</strong>
-      <button id="openDebugLabButton" type="button" class="secondary">Debug Lab</button>
+      <strong>Grade 7 Integrated Science</strong>
+      <small>Mock mode or server-side Gemini</small>
     </aside>
   </header>
 
   <main>
-    <section class="panel" aria-labelledby="setup-title">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">Step 1</p>
-          <h2 id="setup-title">Pick A Topic</h2>
+    <section class="ask-studio" aria-labelledby="ask-title">
+      <div class="ask-card">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Ask Soma</p>
+            <h2 id="ask-title">Start With One Question</h2>
+          </div>
         </div>
-      </div>
-      <div class="setup-grid">
         <label class="wide">
           Topic
           <select id="topicSelect"></select>
         </label>
-      </div>
-      <div id="topicSummary" class="topic-summary"></div>
-      <details class="advanced-options">
-        <summary>Advanced options</summary>
-        <div class="setup-grid">
-          <label>
-            Help mode
-            <select id="modeSelect"></select>
-          </label>
-          <label>
-            Grade / Year
-            <select id="gradeSelect"></select>
-          </label>
-          <label>
-            Learning area
-            <select id="learningAreaSelect"></select>
-          </label>
+
+        <label for="studentQuestionInput" class="question-label">What do you want to understand?</label>
+        <textarea id="studentQuestionInput" rows="4" placeholder="Example: Why is growth a life process?"></textarea>
+        <p class="note">Use a learning question. Do not enter names, school names, marks, phone numbers, or private records.</p>
+
+        <div class="button-row hero-actions">
+          <button id="coachButton" type="button">Ask Soma</button>
+          <button id="openDebugLabButton" type="button" class="secondary">Behind The Scenes</button>
+          <button id="resetButton" type="button" class="ghost">Reset</button>
         </div>
-      </details>
+
+        <details class="advanced-options">
+          <summary>Advanced options</summary>
+          <div class="setup-grid">
+            <label>
+              Help mode
+              <select id="modeSelect"></select>
+            </label>
+            <label>
+              Grade / Year
+              <select id="gradeSelect"></select>
+            </label>
+            <label>
+              Learning area
+              <select id="learningAreaSelect"></select>
+            </label>
+          </div>
+        </details>
+      </div>
+
+      <aside class="topic-card" aria-labelledby="topic-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Topic Snapshot</p>
+            <h2 id="topic-title">What Soma Knows</h2>
+          </div>
+          <button id="sampleQuestionButton" type="button" class="small secondary">Use sample</button>
+        </div>
+        <div id="topicSummary" class="topic-summary"></div>
+      </aside>
     </section>
 
-    <section class="panel" aria-labelledby="question-title">
+    <section class="lesson-panel" aria-labelledby="ai-title">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">Step 2</p>
-          <h2 id="question-title">Ask A Question</h2>
-        </div>
-        <button id="sampleQuestionButton" type="button" class="small secondary">Use sample</button>
-      </div>
-      <label for="studentQuestionInput" class="question-label">What do you want to learn?</label>
-      <textarea id="studentQuestionInput" rows="3" placeholder="Example: Why is growth a life process?"></textarea>
-      <p class="note">Do not enter names, school names, marks, or phone numbers.</p>
-      <div class="button-row">
-        <button id="coachButton" type="button">Ask coach</button>
-        <button id="resetButton" type="button" class="secondary">Reset</button>
-      </div>
-    </section>
-
-    <section class="panel response-panel" aria-labelledby="ai-title">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">Step 3</p>
-          <h2 id="ai-title">Your Answer</h2>
+          <p class="eyebrow">Your Lesson</p>
+          <h2 id="ai-title">Answer, Example, Practice</h2>
         </div>
       </div>
       <div id="coachOutput" class="empty-state">
-        Pick a topic and ask a question to get study help.
+        Pick a topic and ask one question. Soma will explain it with an example,
+        a common mistake, and a next step.
       </div>
     </section>
 
-    <section id="debugLabSection" class="debug-lab hidden" aria-labelledby="debug-title">
+    <section id="debugLabSection" class="debug-lab hidden" aria-labelledby="debug-title" role="dialog" aria-modal="false">
       <div class="debug-lab-header">
         <div>
           <p class="eyebrow">Behind The Scenes</p>
           <h2 id="debug-title">Debug Lab</h2>
-          <p class="intro">Step through the coach call, inspect what changed, and safely try prompt or model settings.</p>
+          <p class="intro">See every step from student question to rendered answer. Safely try prompt and model settings without exposing keys.</p>
         </div>
         <div class="heading-actions">
           <span id="debugStatus" class="badge">Ready</span>
-          <button id="closeDebugLabButton" type="button" class="small secondary">Hide lab</button>
+          <button id="closeDebugLabButton" type="button" class="small secondary">Close</button>
         </div>
       </div>
 
       <div class="lab-layout">
         <aside class="lab-rail" aria-labelledby="lab-steps-title">
-          <h3 id="lab-steps-title">Run Path</h3>
-          <ol id="runSteps" class="steps"></ol>
-          <div class="button-row compact">
-            <button id="togglePromptButton" type="button" class="small secondary">Show context</button>
+            <h3 id="lab-steps-title">Pipeline Steps</h3>
+            <ol id="runSteps" class="steps"></ol>
+            <div class="button-row compact">
+              <button id="togglePromptButton" type="button" class="small secondary">Show context</button>
             <button id="runLabButton" type="button" class="small">Run lab</button>
           </div>
           <p class="note">Lab changes affect only this request. API keys are never shown.</p>
@@ -205,7 +211,7 @@
       </div>
     </section>
 
-    <section class="panel" aria-labelledby="limits-title">
+    <section class="safety-strip" aria-labelledby="limits-title">
       <div class="section-heading">
         <div>
           <p class="eyebrow">Responsible AI</p>

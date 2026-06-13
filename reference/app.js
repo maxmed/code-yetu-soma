@@ -89,14 +89,16 @@ function renderTopicSummary() {
   const topic = getTopic();
   const mode = getMode();
   const vocabHtml = topic.vocabulary
-    .map(item => `<li><strong>${escapeHtml(item.term)}:</strong> ${escapeHtml(item.meaning)}</li>`)
+    .slice(0, 4)
+    .map(item => `<li><strong>${escapeHtml(item.term)}</strong><span>${escapeHtml(item.meaning)}</span></li>`)
     .join("");
   const examplesHtml = topic.examples
+    .slice(0, 3)
     .map(example => `<li>${escapeHtml(example)}</li>`)
     .join("");
 
   elements.topicSummary.innerHTML = `
-    <div>
+    <div class="topic-summary-main">
       <p class="eyebrow">${escapeHtml(topic.strand)}</p>
       <h3>${escapeHtml(topic.topic)}</h3>
       <p>${escapeHtml(topic.summary)}</p>
@@ -268,15 +270,19 @@ function updatePromptPreview() {
 
 function renderRunSteps(status = "ready") {
   const steps = [
-    ["Observe", "Read selected mode, topic and student question."],
-    ["Prepare context", "Attach the local topic pack, resources, optional practice answers and safety rules."],
-    ["Ask coach endpoint", "POST the JSON context to /api/coach."],
-    ["Parse response", "Validate the structured JSON fields before rendering."],
-    ["Explain limits", "Show limitations and honest quota/network/safety errors."]
+    ["Input", "Read the topic, question and optional practice answers."],
+    ["Context", "Attach the local topic pack, resources and safety rules."],
+    ["Prompt", "Build tutor instructions on the server."],
+    ["Model", "Use the allowlisted model and safe lab settings."],
+    ["Request", "POST the safe JSON context to /api/coach."],
+    ["Raw return", "Receive raw model or mock output."],
+    ["Parsed", "Validate structured fields before rendering."],
+    ["Rendered", "Turn the response into a learner-friendly lesson."],
+    ["Safety", "Show limits, blocks, quota and network errors honestly."]
   ];
 
   elements.runSteps.innerHTML = steps.map(([label, detail], index) => {
-    const active = status === "running" && index === 2 ? " active" : "";
+    const active = status === "running" && (index === 4 || index === 5) ? " active" : "";
     const done = status === "done" ? " done" : "";
     return `<li class="${active}${done}"><strong>${label}</strong><span>${detail}</span></li>`;
   }).join("");
@@ -371,14 +377,17 @@ function renderDebug(debug) {
 
 function openDebugLab() {
   elements.debugLabSection.classList.remove("hidden");
-  elements.openDebugLabButton.textContent = "Debug Lab open";
+  document.body.classList.add("debug-open");
+  elements.openDebugLabButton.textContent = "Behind The Scenes open";
   updatePromptPreview();
-  elements.debugLabSection.scrollIntoView({ behavior: "smooth", block: "start" });
+  elements.closeDebugLabButton.focus();
 }
 
 function closeDebugLab() {
   elements.debugLabSection.classList.add("hidden");
-  elements.openDebugLabButton.textContent = "Debug Lab";
+  document.body.classList.remove("debug-open");
+  elements.openDebugLabButton.textContent = "Behind The Scenes";
+  elements.openDebugLabButton.focus();
 }
 
 function resetLabFields() {
@@ -503,38 +512,65 @@ function renderTextItem(item) {
   if (typeof item === "string") {
     return `<li>${escapeHtml(item)}</li>`;
   }
-  return `<li><strong>${escapeHtml(item.title || item.topic || item.day || "Item")}:</strong> ${escapeHtml(item.text || item.explanation || item.reason || item.description || item.task || item.activity || item.focus || "")}</li>`;
+  return `<li><strong>${escapeHtml(item.title || item.topic || item.day || "Item")}:</strong> ${escapeHtml(textFromItem(item))}</li>`;
+}
+
+function textFromItem(item, fallback = "") {
+  if (typeof item === "string") {
+    return item;
+  }
+  if (!item || typeof item !== "object") {
+    return fallback;
+  }
+  return item.text ||
+    item.explanation ||
+    item.reason ||
+    item.description ||
+    item.task ||
+    item.activity ||
+    item.focus ||
+    item.title ||
+    item.topic ||
+    item.day ||
+    fallback;
 }
 
 function renderCoachResponse(response) {
   elements.coachOutput.className = "coach-result";
+  const firstExample = textFromItem(response.examples[0], "No example returned.");
+  const remainingExamples = response.examples.slice(1);
+  const firstMisconception = textFromItem(response.misconceptionHelp[0], "No misconception help returned.");
   elements.coachOutput.innerHTML = `
-    <section class="feedback-block">
-      <h3>Study feedback</h3>
+    <section class="lesson-hero">
+      <p class="eyebrow">Short answer</p>
       <p>${escapeHtml(response.studyFeedback || "Study support returned by the proxy.")}</p>
     </section>
-    <section class="feedback-block">
-      <h3>Topic explanation</h3>
-      <p>${escapeHtml(response.topicExplanation || "No topic explanation returned.")}</p>
-    </section>
-    <section class="feedback-block">
-      <h3>Examples</h3>
-      <ul>${renderArray(response.examples, "No examples returned.", renderTextItem)}</ul>
-    </section>
-    <section class="feedback-block">
-      <h3>Misconception help</h3>
-      <ul>${renderArray(response.misconceptionHelp, "No misconception help returned.", renderTextItem)}</ul>
-    </section>
-    <section class="feedback-block">
-      <h3>Likely weak areas</h3>
-      <div class="topic-list">
-        ${response.likelyWeakAreas.length ? response.likelyWeakAreas.map(area => `<span class="topic-pill">${escapeHtml(area)}</span>`).join("") : `<span class="topic-pill success">None returned</span>`}
-      </div>
-    </section>
-    <section class="feedback-block">
-      <h3>Recommended resources</h3>
-      <ul>${renderArray(response.recommendedResources, "No resources returned.", renderTextItem)}</ul>
-    </section>
+    <div class="lesson-grid">
+      <section class="feedback-block wide-block">
+        <h3>Topic explanation</h3>
+        <p>${escapeHtml(response.topicExplanation || "No topic explanation returned.")}</p>
+      </section>
+      <section class="feedback-block">
+        <h3>Example</h3>
+        <p>${escapeHtml(firstExample)}</p>
+        ${remainingExamples.length ? `<ul>${remainingExamples.map(renderTextItem).join("")}</ul>` : ""}
+      </section>
+      <section class="feedback-block">
+        <h3>Common mistake</h3>
+        <p>${escapeHtml(firstMisconception)}</p>
+      </section>
+      <section class="feedback-block">
+        <h3>Try this</h3>
+        <p>Answer one practice question or ask a follow-up using your own local example.</p>
+        <div class="topic-list">
+          ${response.likelyWeakAreas.length ? response.likelyWeakAreas.map(area => `<span class="topic-pill">${escapeHtml(area)}</span>`).join("") : `<span class="topic-pill success">Ready for a new question</span>`}
+        </div>
+      </section>
+      <section class="feedback-block">
+        <h3>Next resources</h3>
+        <ul>${renderArray(response.recommendedResources, "No resources returned.", renderTextItem)}</ul>
+      </section>
+    </div>
     <p class="limitation">${escapeHtml(response.limitations || "Demo output is study support from dummy data. Check important learning decisions with a teacher or mentor.")}</p>
   `;
   renderPlan(response.sevenDayPlan);
@@ -655,7 +691,7 @@ async function runCoach() {
   renderRunSteps("running");
   elements.coachButton.disabled = true;
   elements.coachOutput.className = "empty-state";
-  elements.coachOutput.textContent = "Sending safe topic context to /api/coach...";
+  elements.coachOutput.textContent = "Preparing context -> Asking coach -> Turning answer into a lesson...";
 
   try {
     const response = await askStudyCoach(context);
@@ -677,6 +713,7 @@ async function runLab() {
     return;
   }
 
+  const originalResponse = state.lastResponse;
   const context = buildCoachContext(undefined, "", true);
   state.lastContext = context;
   updatePromptPreview();
@@ -697,6 +734,20 @@ async function runLab() {
     setStatus("Lab response ready", "success");
     renderRunSteps("done");
     renderDebug(response.__debug);
+    if (originalResponse) {
+      elements.debugOutput.insertAdjacentHTML("beforeend", `
+        <article class="debug-card">
+          <h3>8. Compare with original</h3>
+          <p>Use this to notice how safe prompt or model setting changes affected the lesson.</p>
+          <pre>${escapeHtml(formatDebugValue({
+            originalShortAnswer: originalResponse.studyFeedback,
+            labShortAnswer: response.studyFeedback,
+            originalExamples: originalResponse.examples,
+            labExamples: response.examples
+          }))}</pre>
+        </article>
+      `);
+    }
     renderCoachResponse(response);
   } catch (error) {
     renderError(error);
@@ -763,7 +814,7 @@ function resetApp() {
   renderRunSteps("ready");
   updatePracticeBadge();
   elements.coachOutput.className = "empty-state";
-  elements.coachOutput.textContent = "Pick a topic and ask a question to get study help.";
+  elements.coachOutput.textContent = "Pick a topic and ask one question. Soma will explain it with an example, a common mistake, and a next step.";
   elements.planOutput.className = "empty-state";
   elements.planOutput.textContent = "A study plan will appear after your first question.";
   elements.followUpOutput.className = "answer-box";
