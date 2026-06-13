@@ -1,4 +1,4 @@
-# Lesson 1: How Web Apps Work
+# Lesson 2: How Web Apps Work
 
 Time: 30-40 minutes
 

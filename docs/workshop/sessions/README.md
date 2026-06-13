@@ -20,26 +20,25 @@ Related indexes:
 
 ## What Students Build
 
-A browser-based education MVP with a simple intelligence layer:
+A browser-based study coach, starting from one common path: Soma Study Coach.
+When the local server is running, open the polished app at `/` and the beginner
+scaffold at `/starter/index.html`.
 
-- recommender,
-- scoring/classification logic,
-- retrieval assistant,
-- or simple agent workflow.
-
-The default public project is Soma Study Coach. When the local server is
-running, open it at `/`. The implementation lives in `../../../reference/`, and it
-demonstrates the full course arc:
+Students first learn the Soma pattern:
 
 ```text
 pick a Grade 7 Integrated Science topic -> ask a study question -> call /api/coach -> study explanation/resources/plan -> optional Debug Lab context -> follow-up -> progress -> limitations
 ```
 
+After students understand the starter scaffold and the `/api/coach` pattern,
+they can remix Soma into recommenders, planners, reading helpers, resource
+finders, or other education tools.
+
 ## Session Path
 
 | Session | Guide | Output |
 |---|---|---|
-| 1 | [Ideation and AI basics](./01-ideation-ai-basics.md) | Problem, user, project choice, AI idea |
+| 1 | [Why AI matters and what Soma does](./01-ideation-ai-basics.md) | AI examples, safe Soma demo question, first topic-data ideas |
 | 2 | [Web app scaffold](./02-web-app-scaffold.md) | App shell with topic/question flow, setup controls, context preview, result, plan, and tutor sections |
 | 3 | [Data and intelligence](./03-data-intelligence.md) | KICD/CBC-aligned sample data, prompt context, and LLM response handling |
 | 4 | [Integrate intelligence into UX](./04-integrate-ai-ux.md) | Topic context produces explanations, resources, a plan, and follow-up help |
@@ -50,19 +49,20 @@ pick a Grade 7 Integrated Science topic -> ask a study question -> call /api/coa
 
 | Session | Deep Lessons | Code/Lab Tie-Back |
 |---|---|---|
-| 1 | [Where LLMs Fit](../lessons/09-where-llms-fit.md), [Agents](../lessons/10-agents.md), [Build Your Own](../lessons/12-build-your-own.md) | [Concept map](../concept-to-code-map.md#session-to-lesson-map) |
-| 2 | [How Web Apps Work](../lessons/01-how-web-apps-work.md), [Frontend Walkthrough](../lessons/03-frontend-walkthrough.md) | [Lab A](../labs/README.md#lab-a-change-one-ui-section-safely) |
-| 3 | [Data And Context](../lessons/04-data-and-context.md), [LLM Prompts](../lessons/05-llm-prompts.md), [Calling The LLM](../lessons/06-calling-the-llm.md) | [Lab B](../labs/README.md#lab-b-add-a-new-topic-pack), [Lab C](../labs/README.md#lab-c-edit-a-tutor-prompt-and-compare-output) |
-| 4 | [Parsing And Rendering](../lessons/07-parsing-and-rendering.md), [Language And Swahili](../lessons/08-language-and-swahili.md) | [Lab E](../labs/README.md#lab-e-add-swahili-answer-mode), [Lab F](../labs/README.md#lab-f-debug-a-bad-json-response) |
-| 5 | [Safety And Variability](../lessons/11-safety-and-variability.md), [Where LLMs Fit](../lessons/09-where-llms-fit.md) | [Lab G](../labs/README.md#lab-g-replace-a-wasteful-llm-call-with-normal-code) |
-| 6 | [Build Your Own](../lessons/12-build-your-own.md) | [Rubric](../../mentor/rubric.md) |
+| 1 | [Why AI Matters Now](../lessons/01-ai-history-and-future.md) | [Getting Started From Zero](../../getting-started.md) |
+| 2 | [How Web Apps Work](../lessons/02-how-web-apps-work.md), [Frontend Walkthrough](../lessons/04-frontend-walkthrough.md) | [Lab A](../labs/README.md#lab-a-change-one-ui-section-safely) |
+| 3 | [Data And Context](../lessons/05-data-and-context.md), [LLM Prompts](../lessons/06-llm-prompts.md), [Calling The LLM](../lessons/07-calling-the-llm.md) | [Lab B](../labs/README.md#lab-b-add-a-new-topic-pack), [Lab C](../labs/README.md#lab-c-edit-a-tutor-prompt-and-compare-output) |
+| 4 | [Parsing And Rendering](../lessons/08-parsing-and-rendering.md), [Language And Swahili](../lessons/09-language-and-swahili.md) | [Lab E](../labs/README.md#lab-e-add-swahili-answer-mode), [Lab F](../labs/README.md#lab-f-debug-a-bad-json-response) |
+| 5 | [Safety And Variability](../lessons/12-safety-and-variability.md), [Where LLMs Fit](../lessons/10-where-llms-fit.md) | [Lab G](../labs/README.md#lab-g-replace-a-wasteful-llm-call-with-normal-code) |
+| 6 | [Build Your Own](../lessons/13-build-your-own.md) | [Rubric](../../mentor/rubric.md) |
 
 ## First Session Checklist
 
 Before session 1:
 
-- print or share [Project Cards](../../student/project-cards.md),
 - run `npm run serve:mock` and open `/` in a browser,
+- open `/starter/index.html` in a browser,
+- keep [Getting Started From Zero](../../getting-started.md) ready,
 - keep [AI Coding Prompts](../../student/ai-coding-prompts.md) ready for
   students.
 

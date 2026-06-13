@@ -1,4 +1,4 @@
-# Lesson 9: Where LLMs Fit
+# Lesson 10: Where LLMs Fit
 
 Time: 30-40 minutes
 

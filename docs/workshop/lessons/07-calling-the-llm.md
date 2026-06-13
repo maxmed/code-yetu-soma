@@ -1,4 +1,4 @@
-# Lesson 6: Calling The LLM
+# Lesson 7: Calling The LLM
 
 Time: 35-40 minutes
 

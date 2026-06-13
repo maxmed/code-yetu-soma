@@ -1,4 +1,4 @@
-# Lesson 11: Safety And Variability
+# Lesson 12: Safety And Variability
 
 Time: 35-40 minutes
 

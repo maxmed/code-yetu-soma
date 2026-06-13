@@ -94,7 +94,8 @@ demo.
 
 `docs/design/README.md`
 
-Design navigation for learner UI principles and redesign planning.
+Design navigation for learner UI principles and the implemented redesign
+reference.
 
 `docs/design/ui-principles-for-students.md`
 
@@ -103,8 +104,8 @@ functional, engaging, accessible, and safe.
 
 `docs/design/ui-redesign-brief.md`
 
-Review draft for the next Soma public demo UI redesign. It includes desktop,
-mobile, and Debug Lab wireframes plus review criteria.
+Implemented Soma learner UI redesign reference. It includes desktop, mobile, and
+Debug Lab wireframes plus review criteria.
 
 ## Workshop Material
 
@@ -119,7 +120,7 @@ Six live-session files plus the facilitator runbook.
 
 `docs/workshop/lessons/README.md`
 
-Index for the 12 deeper teaching lessons.
+Index for the 13 deeper teaching lessons.
 
 `docs/student/README.md`
 

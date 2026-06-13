@@ -1,5 +1,8 @@
 # Deploy To Vercel
 
+Start with [Getting Started From Zero](./getting-started.md). Deploy only after
+the app runs locally in mock/demo mode.
+
 Use this guide to put Soma Study Coach on a public Vercel URL.
 
 Vercel is a good fit for this repo because the app has static files plus one
@@ -53,7 +56,7 @@ Expected:
 
 ## 2. Create Or Sign In To Vercel
 
-1. Go to https://vercel.com.
+1. Go to https://vercel.com
 2. Sign up or log in.
 3. Connect your GitHub account when Vercel asks for a Git provider.
 4. Allow Vercel to access the `code-yetu-soma` repository.

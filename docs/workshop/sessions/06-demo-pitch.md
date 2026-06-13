@@ -6,7 +6,7 @@ Teams polish their app and prepare for showcase.
 
 Deepen this session:
 
-- [Build Your Own](../lessons/12-build-your-own.md)
+- [Build Your Own](../lessons/13-build-your-own.md)
 - [Project Rubric](../../mentor/rubric.md)
 - [Student Handout](../../student/handout.md)
 - [Add Responsible AI Note prompt](../../student/ai-coding-prompts.md#add-responsible-ai-note)
@@ -73,3 +73,15 @@ Mentors/judges can ask:
 - What would happen with real student data?
 - What was the hardest bug you fixed?
 - What would you build next?
+
+## Ready To Finish Check
+
+A team is ready to present if they can:
+
+- open the app without errors,
+- complete the main learner flow in under two minutes,
+- explain what data the app uses,
+- explain what `/api/coach` does,
+- say whether the demo is using mock mode or Gemini mode,
+- name one limitation or safety risk,
+- describe one next extension they would build.

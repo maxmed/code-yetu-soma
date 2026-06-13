@@ -1,5 +1,9 @@
 # Gemini Key Setup For Beginners
 
+Start with [Getting Started From Zero](./getting-started.md). That is the one
+complete beginner path. Use this page only when you are ready for the Gemini
+key details.
+
 Use this when you want Soma to call the real Gemini API instead of the local
 mock/demo response.
 
@@ -21,7 +25,7 @@ Official reference:
 
 ## 1. Create A Gemini API Key
 
-1. Open https://aistudio.google.com.
+1. Open https://aistudio.google.com
 2. Sign in with your Google account. This is the same kind of account you use
    for Gmail or YouTube.
 3. Click **Get API key** in the left sidebar.
@@ -56,15 +60,10 @@ GEMINI_MODEL=gemini-3.1-flash-lite
 Keep the variable name exactly `GEMINI_API_KEY`. The server reads that name in
 `api/coach.js`.
 
-## 3. Run The App
+## 3. Run The App With The Key
 
-Install dependencies if needed:
-
-```bash
-npm install
-```
-
-Start the local server:
+If mock mode already works, stop the old server with `Ctrl+C`, then start it
+again:
 
 ```bash
 npm run serve:mock
@@ -127,7 +126,8 @@ only be read server-side by `api/coach.js`.
 
 ## 6. Deploy With The Key
 
-For deployed apps, do not upload `.env`.
+For deployed apps, do not upload `.env` and do not put the key in frontend
+files.
 
 Set these as server-side environment variables in the hosting provider:
 

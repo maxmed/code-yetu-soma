@@ -1,4 +1,4 @@
-# Lesson 8: Language And Swahili
+# Lesson 9: Language And Swahili
 
 Time: 30-40 minutes
 

@@ -6,9 +6,9 @@ Teams add dummy data and write the first intelligent function.
 
 Deepen this session:
 
-- [Data And Context](../lessons/04-data-and-context.md)
-- [LLM Prompts](../lessons/05-llm-prompts.md)
-- [Calling The LLM](../lessons/06-calling-the-llm.md)
+- [Data And Context](../lessons/05-data-and-context.md)
+- [LLM Prompts](../lessons/06-llm-prompts.md)
+- [Calling The LLM](../lessons/07-calling-the-llm.md)
 - [Build The /api/coach Context prompt](../../student/ai-coding-prompts.md#build-the-apicoach-context)
 
 ## Students Build
@@ -116,3 +116,13 @@ Functions that turn selected Grade 7 Integrated Science topic data into:
 ## Homework
 
 Connect the function to the app UI.
+
+## Ready To Continue Check
+
+Students are ready for Session 4 if they can:
+
+- explain what local topic data is,
+- add or edit one dummy topic, vocabulary item, example, or resource,
+- preview the safe context sent to `/api/coach`,
+- explain why personal data should not be included,
+- receive a mock `/api/coach` response from the local server.

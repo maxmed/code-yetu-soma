@@ -1,4 +1,4 @@
-# Lesson 7: Parsing And Rendering
+# Lesson 8: Parsing And Rendering
 
 Time: 30-40 minutes
 

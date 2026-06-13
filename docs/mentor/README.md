@@ -16,7 +16,7 @@ student demos.
 - [6-Session Runbook](../workshop/sessions/README.md) - live session plan.
 - [Workshop Course](../workshop/README.md) - deeper lesson path, lab path, and
   source standard.
-- [Lesson Index](../workshop/lessons/README.md) - the 12 concept lessons.
+- [Lesson Index](../workshop/lessons/README.md) - the 13 concept lessons.
 - [Concept To Code Map](../workshop/concept-to-code-map.md) - links sessions,
   lessons, code files, labs, and AI coding prompts.
 - [Student Guide](../student/README.md) - what students see.

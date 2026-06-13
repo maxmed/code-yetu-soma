@@ -1,4 +1,4 @@
-# Lesson 2: Soma App Architecture
+# Lesson 3: Soma App Architecture
 
 Time: 30-40 minutes
 

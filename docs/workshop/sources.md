@@ -155,18 +155,40 @@ unlimited.
 
 ## Prompting, Agents, And LLM Concepts
 
-### The Story Of AI Lecture
+### Why AI Matters Now
 
-Link: ./lessons/13-ai-history-and-future.md
+Link: ./lessons/01-ai-history-and-future.md
 
-Use for: a lecture-quality narrative from symbolic AI and expert systems to
-machine learning, neural networks, LLMs, multimodal systems, computer-use
-agents, robotics, and future directions.
+Use for: the opening workshop hook on why students should pay attention to AI,
+where AI appears in real life, how AI systems work, and the longer history from
+symbolic AI to machine learning, LLMs, agents, robotics, and future directions.
 
 Learner level: intermediate student and mentor reference.
 
-Why it is included: students need a memorable story of how AI became today's
-tools, with source links close to claims so mentors can validate facts.
+Why it is included: students need excitement and practical relevance before
+code, plus source links close to claims so mentors can validate facts.
+
+### AI Media Hooks
+
+Links:
+
+- Boston Dynamics, "Do You Love Me?"
+  https://www.youtube.com/watch?v=fn3KWM1kuAw
+- Waymo, "360 Experience: A Fully Autonomous Driving Journey"
+  https://www.youtube.com/watch?v=B8R148hFxPw
+- Google DeepMind YouTube videos
+  https://www.youtube.com/@googledeepmind/videos
+- Runway YouTube videos
+  https://www.youtube.com/@RunwayML/videos
+
+Use for: short opening clips that make AI feel concrete before students start
+the Soma build.
+
+Learner level: beginner, with mentor framing.
+
+Why it is included: robotics, self-driving, and creative AI videos help
+students see that AI is wider than chatbots, while the discussion questions
+keep the focus on evidence, safety, and human judgment.
 
 ### Elements Of AI
 
@@ -274,17 +296,53 @@ Learner level: mentor reference and advanced student reading.
 Why it is included: students should see that AI is used across many practical
 domains, not only chatbots.
 
-### FDA Artificial Intelligence-Enabled Medical Devices
+### Google Research Bioacoustics
 
-Link: https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-enabled-medical-devices
+Link: https://deepmind.google/blog/how-ai-is-helping-advance-the-science-of-bioacoustics-to-save-endangered-species/
 
-Use for: examples of AI-enabled medical device categories and regulatory
-framing.
+Use for: nature monitoring examples where machine learning helps researchers
+analyze wildlife sounds and ecological signals.
+
+Learner level: mentor reference and selected student reading.
+
+Why it is included: biodiversity and conservation examples make AI concrete
+beyond school, office, and social media tools.
+
+### IBM AI Stylist Tutorial
+
+Link: https://www.ibm.com/think/tutorials/build-ai-stylist-with-granite-python-watsonx-ai
+
+Use for: a practical fashion example where AI can help with styling and product
+recommendations.
+
+Learner level: mentor reference and selected student reading.
+
+Why it is included: fashion gives students a creative, everyday industry
+example beyond chatbots, schoolwork, and software engineering.
+
+### Google Cloud Recommendations AI
+
+Link: https://cloud.google.com/use-cases/recommendations
+
+Use for: recommender-system examples that connect products, resources, ranking,
+and personalization.
+
+Learner level: mentor reference and advanced student reading.
+
+Why it is included: recommendations are one of the most common ways students
+experience AI and machine learning in daily life.
+
+### WHO AI For Health Governance
+
+Link: https://www.who.int/publications/i/item/9789240029200
+
+Use for: health AI examples, ethical risks, governance, and why medical uses
+need human responsibility.
 
 Learner level: mentor reference.
 
-Why it is included: medical AI is a strong example of why human responsibility,
-testing, and safety matter.
+Why it is included: medical AI is a strong example of why testing, safety,
+privacy, accountability, and human oversight matter.
 
 ### NOAA Center For Artificial Intelligence
 

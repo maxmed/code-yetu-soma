@@ -7,8 +7,8 @@ students how to design better learning apps.
 
 1. [UI Design Principles For Learning Apps](./ui-principles-for-students.md) -
    student-facing design principles for learning apps.
-2. [Soma UI Redesign Brief](./ui-redesign-brief.md) - review brief for the next
-   public demo UI redesign.
+2. [Soma UI Redesign Brief](./ui-redesign-brief.md) - implemented redesign
+   reference for the public demo UI.
 
 ## Related Implementation Docs
 

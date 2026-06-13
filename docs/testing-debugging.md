@@ -14,7 +14,7 @@ npm run test:e2e
 Expected result:
 
 ```text
-8 passed
+10 passed
 ```
 
 The tests cover:

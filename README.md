@@ -16,26 +16,28 @@ tasks.
 
 ## Quick Start
 
-1. Try the live demo at https://soma-study-coach.vercel.app/.
-2. Install local dependencies:
+1. Try the live demo: https://soma-study-coach.vercel.app/
+2. For the full beginner path, use
+   [docs/getting-started.md](docs/getting-started.md).
+3. Install local dependencies:
 
    ```bash
    npm install
    ```
 
-3. Run the app in mock mode:
+4. Run the app in mock mode:
 
    ```bash
    npm run serve:mock
    ```
 
-4. Open the main app:
+5. Open the main app:
 
    ```text
    http://127.0.0.1:8787/
    ```
 
-5. Run the student-flow smoke tests:
+6. Run the student-flow smoke tests:
 
    ```bash
    npm run test:e2e

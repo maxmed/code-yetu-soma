@@ -4,11 +4,11 @@ Use this with the [Design Docs](./README.md), [UI Design Principles For Learning
 Apps](./ui-principles-for-students.md), and [Testing And
 Debugging](../testing-debugging.md).
 
-Status: review draft for pedagogy, safety, coordination, and deployment reviewers.
+Status: implemented design reference for the current public Soma learner UI.
 
-This brief defines the next visual redesign for the public Soma demo. It is not
-an implementation patch. The goal is a demo that feels beautiful, functional,
-engaging, and simple while still teaching how an AI tutor works.
+This brief records the implemented visual redesign for the public Soma demo.
+Use it to review whether the current UI stays beautiful, functional, engaging,
+and simple while still teaching how an AI tutor works.
 
 ## Product Goal
 
@@ -53,13 +53,13 @@ Reference material behind these principles:
   `https://m3.material.io/` and
   `https://developer.apple.com/design/human-interface-guidelines/`
 
-## Current UI Problems
+## Problems This Redesign Addressed
 
-- The page still reads as a utility dashboard rather than a learning product.
-- Many panels share the same visual weight.
-- The answer does not yet feel enough like a lesson.
-- Debug Lab exists, but it should feel like a designed workbench.
-- The visual system is serviceable but plain: default typography, conservative
+- The previous page read as a utility dashboard rather than a learning product.
+- Many panels shared the same visual weight.
+- The answer did not yet feel enough like a lesson.
+- Debug Lab existed, but needed to feel like a designed workbench.
+- The visual system was serviceable but plain: default typography, conservative
   spacing, and limited brand personality.
 
 ## Target Experience

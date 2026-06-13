@@ -17,38 +17,49 @@ Use labs with:
 
 | Lab | Concept | Helpful Prompt |
 |---|---|---|
-| A | [How Web Apps Work](../lessons/01-how-web-apps-work.md) | [Make The UI Clearer](../../student/ai-coding-prompts.md#make-the-ui-clearer) |
-| B | [Data And Context](../lessons/04-data-and-context.md) | [Create Dummy Data](../../student/ai-coding-prompts.md#create-dummy-data) |
-| C | [LLM Prompts](../lessons/05-llm-prompts.md) | [Build The /api/coach Context](../../student/ai-coding-prompts.md#build-the-apicoach-context) |
-| D | [Calling The LLM](../lessons/06-calling-the-llm.md) | [Fix /api/coach 404 Or 429](../../student/ai-coding-prompts.md#fix-apicoach-404-or-429) |
-| E | [Language And Swahili](../lessons/08-language-and-swahili.md) | [Make The UI Clearer](../../student/ai-coding-prompts.md#make-the-ui-clearer) |
-| F | [Parsing And Rendering](../lessons/07-parsing-and-rendering.md) | [Response Not Rendering](../../student/ai-coding-prompts.md#response-not-rendering) |
-| G | [Where LLMs Fit](../lessons/09-where-llms-fit.md) | [Add Responsible AI Note](../../student/ai-coding-prompts.md#add-responsible-ai-note) |
+| A | [How Web Apps Work](../lessons/02-how-web-apps-work.md) | [Make The UI Clearer](../../student/ai-coding-prompts.md#make-the-ui-clearer) |
+| B | [Data And Context](../lessons/05-data-and-context.md) | [Create Dummy Data](../../student/ai-coding-prompts.md#create-dummy-data) |
+| C | [LLM Prompts](../lessons/06-llm-prompts.md) | [Build The /api/coach Context](../../student/ai-coding-prompts.md#build-the-apicoach-context) |
+| D | [Calling The LLM](../lessons/07-calling-the-llm.md) | [Fix /api/coach 404 Or 429](../../student/ai-coding-prompts.md#fix-apicoach-404-or-429) |
+| E | [Language And Swahili](../lessons/09-language-and-swahili.md) | [Make The UI Clearer](../../student/ai-coding-prompts.md#make-the-ui-clearer) |
+| F | [Parsing And Rendering](../lessons/08-parsing-and-rendering.md) | [Response Not Rendering](../../student/ai-coding-prompts.md#response-not-rendering) |
+| G | [Where LLMs Fit](../lessons/10-where-llms-fit.md) | [Add Responsible AI Note](../../student/ai-coding-prompts.md#add-responsible-ai-note) |
 
 ## Lab A: Change One UI Section Safely
 
-Goal: learn how HTML, CSS, JavaScript, and tests stay connected.
+Goal: learn how HTML, CSS, and JavaScript stay connected without touching the
+larger reference app yet.
 
 Main files:
 
-- `reference/index.html`
-- `reference/style.css`
-- `reference/app.js`
-- `tests/soma-student.spec.js`
+- `starter/index.html`
+- `starter/style.css`
+- `starter/app.js`
 
 Task:
 
-1. Change one visible heading or label.
+1. Open `http://127.0.0.1:8787/starter/index.html`.
+2. Change one visible heading, label, or intro sentence in `starter/index.html`.
 2. Keep the element ID the same.
-3. Reload the app and confirm the UI changed.
-4. Run `npm run test:e2e`.
-5. If the test expects the old label, update the test intentionally.
+3. Save the file.
+4. Hard refresh the browser and confirm the UI changed.
+5. Open browser developer tools and confirm there is no red console error.
+6. Click **Use sample**, **Preview context**, and **Call /api/coach** to confirm
+   the starter still works.
+
+Stretch after the starter works:
+
+1. Find the same kind of visible label in `reference/index.html`.
+2. Change only visible text, not IDs.
+3. Run `npm run test:e2e`.
+4. If a test expects the old label, update the test intentionally with a mentor.
 
 Discussion:
 
 - What changed visually?
 - What broke or stayed stable?
 - Why are IDs more fragile than visible text?
+- Why do beginners start in `starter/` before editing `reference/`?
 
 ## Lab B: Add A New Topic Pack
 

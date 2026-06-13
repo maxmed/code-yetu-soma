@@ -1,96 +1,160 @@
-# Session 1: Ideation And AI Basics
+# Session 1: Why AI Matters And What Soma Does
 
 ## Goal
 
-Teams choose an education problem, define a user, and decide what "intelligence" their app will include.
+Students understand why AI is worth learning, what AI can and cannot do, what
+Soma Study Coach does, and how to try the app safely before editing code.
 
 Deepen this session:
 
-- [Where LLMs Fit](../lessons/09-where-llms-fit.md)
-- [Agents](../lessons/10-agents.md)
-- [Build Your Own](../lessons/12-build-your-own.md)
-- [Generate A Project Plan prompt](../../student/ai-coding-prompts.md#generate-a-project-plan)
+- [Lesson 1: Why AI Matters Now](../lessons/01-ai-history-and-future.md)
+- [Getting Started From Zero](../../getting-started.md)
+- [Gemini Key Setup](../../gemini-key-setup.md)
+- [Student AI Limits And Advice](../../student/ai-limits.md)
 
 ## Students Build
 
-- project idea
-- user/problem statement
-- first data list
-- first AI/intelligence plan
+Students do not build a new app yet. They build shared understanding:
 
-## Concept: What Is An AI Agent?
+- a short explanation of what Soma does,
+- a map of where AI appears in real life,
+- one safe study question to test in Soma,
+- a first list of topic data they may want to change later.
 
-Simple definition:
+Everyone follows the same Soma path first. Project remixes come after students
+understand the starter scaffold and the `/api/coach` pattern.
 
-An AI agent observes information, decides what to do next, may use a tool or data source, then gives an answer or action.
+## Concept: What Is AI?
 
-For this workshop, an agent can be simple:
+AI is software that uses rules, data, models, or learned patterns to do tasks
+that normally require human judgment, language, perception, planning, or
+decision-making.
 
-```text
-Student chooses a topic -> app builds safe context -> app asks an LLM for study help -> app shows explanation, examples, resources, or a plan -> app explains limits
-```
-
-## Activity 1: Pick A Problem
-
-Teams answer:
-
-- Who is the user?
-- What education problem do they have?
-- Why does it matter?
-- What would a helpful app do?
-
-## Activity 2: Choose A Project Card
-
-Use `../../student/project-cards.md`. Each team chooses one:
-
-- Study Buddy Recommender
-- Soma Study Coach
-- AI Revision Planner
-- School FAQ Assistant
-- Career Path Explorer
-- Reading Helper
-- Resource Finder
-- Attendance And Support Dashboard
-- Adaptive Practice Game
-
-## Activity 3: Define The Intelligence
-
-Teams choose one intelligence pattern:
-
-- recommender
-- scoring/classification
-- search/retrieval assistant
-- simple agent workflow
-
-For the flagship Soma pattern, the workflow is:
+Soma is a small, safe example:
 
 ```text
-Observe selected topic, question, support mode, and local topic pack.
-Explain the topic in age-appropriate language.
-Recommend resources or examples.
-Plan the next 7 days if requested.
-Answer simple follow-up questions using the same context.
-Explain the reasoning and limits.
+student chooses a topic
+-> student asks a study question
+-> app builds safe topic context
+-> app calls /api/coach
+-> student receives an answer, example, practice step, resources, and limits
 ```
+
+The first lesson is not "AI can do everything." The first lesson is:
+
+```text
+AI can be useful, but you must know what it uses, what it outputs, what can go
+wrong, and who checks it.
+```
+
+## Activity 1: See AI Around You
+
+Students list places they have seen AI or machine learning:
+
+- translation,
+- search ranking,
+- video recommendations,
+- captions,
+- maps and traffic,
+- code suggestions,
+- medical image support,
+- weather forecasting,
+- nature or wildlife monitoring,
+- study helpers.
+
+For two examples, answer:
+
+```text
+What is the input?
+What is the output?
+Who should check it?
+What could go wrong?
+```
+
+## Activity 2: Try Soma As A Learner
+
+Open the live or local app:
+
+```text
+https://soma-study-coach.vercel.app/
+http://127.0.0.1:8787/
+```
+
+Students:
+
+1. Pick a Grade 7 Integrated Science topic.
+2. Click **Use sample** or type a dummy study question.
+3. Click **Ask Soma**.
+4. Read the answer, example, common mistake, resources, and study plan.
+5. Open **Behind The Scenes**.
+6. Find the safe context, prompt shape, response shape, and limits.
+
+Do not type names, schools, marks, phone numbers, or private records.
+
+## Activity 3: What Makes It Intelligent?
+
+Students fill this out for Soma:
+
+```text
+User:
+Problem:
+Input:
+Local data/context:
+AI or rule step:
+Output:
+What could be wrong:
+Who checks it:
+```
+
+Example:
+
+```text
+User: Grade 7 science learner
+Problem: stuck on separating mixtures
+Input: topic + question
+Local data/context: vocabulary, examples, misconceptions, resources
+AI or rule step: /api/coach creates a structured study response
+Output: answer, example, practice, resources, limits
+What could be wrong: answer may be incomplete or too general
+Who checks it: student, teacher, mentor, tests, source material
+```
+
+## Activity 4: Beginner Setup Preview
+
+Mentor shows the setup path students will use next:
+
+1. [Getting Started From Zero](../../getting-started.md)
+2. [Local Setup](../../local-setup.md) for command reference
+3. [Gemini Key Setup](../../gemini-key-setup.md) for provider-mode detail
+4. [Deploy To Vercel](../../deploy-vercel.md) for public demos later
+
+Students do not need a Gemini key for Session 1. Mock/demo mode is enough.
 
 ## Team Output Template
 
 ```text
-Project name:
-User:
-Problem:
-Our app helps by:
-Data we need:
-User input:
-Intelligence logic:
-What the app outputs:
-What could go wrong:
+What Soma does:
+One AI use that surprised us:
+One safe study question:
+Input Soma uses:
+Output Soma gives:
+One risk or limitation:
+One thing we want to change later:
 ```
 
-## Mentor Check
+## Ready To Continue Check
 
-Before leaving, each team should be able to explain their app in 30 seconds.
+Students are ready for Session 2 if they can:
+
+- explain what Soma does in one sentence,
+- name one place AI is used outside chatbots,
+- explain why AI answers need human checking,
+- open the live or local Soma app,
+- ask one dummy study question,
+- find the Behind The Scenes view,
+- point to [Getting Started From Zero](../../getting-started.md).
 
 ## Homework
 
-Collect or invent 10-20 dummy data items for the app.
+Collect or invent 5-10 dummy topic facts, examples, vocabulary words, or study
+questions for a science topic. Do not collect personal data.

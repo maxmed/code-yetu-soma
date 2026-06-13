@@ -1,10 +1,88 @@
-# Special Lecture: The Story Of AI
+# Lesson 1: Why AI Matters Now
 
-Use this as a lecture, self-study reading, or mentor prep. It is longer than the
-normal Soma lessons because it tells the big story behind the tools students are
-using.
+Start the workshop here. Before students write HTML, CSS, JavaScript, or
+prompts, they need to know why AI is worth their attention, what it can already
+do, how it works at a high level, and why human judgment still matters.
 
-## The Hook
+## The Hook: AI Is Becoming A New Basic Skill
+
+Students should pay attention to AI for the same reason they should pay
+attention to reading, writing, maths, science, and the internet: it is becoming
+part of how people learn, work, create, search, communicate, and solve
+problems.
+
+AI is already helping people:
+
+- explain school topics in different words,
+- translate and summarize information,
+- detect patterns in medical images,
+- forecast weather and monitor climate risks,
+- listen for wildlife sounds in nature recordings,
+- describe images for accessibility,
+- write and test software,
+- help with fashion design, styling, merchandising, and inventory planning,
+- recommend videos, products, music, lessons, and search results,
+- plan routes, schedules, and supply chains,
+- control robots and lab equipment,
+- search large collections of text, images, audio, and video.
+
+Sources:
+
+- WHO, "Ethics and governance of artificial intelligence for health"
+  https://www.who.int/publications/i/item/9789240029200
+- NOAA Center for Artificial Intelligence
+  https://www.noaa.gov/ai
+- Google Research, "Bioacoustics"
+  https://deepmind.google/blog/how-ai-is-helping-advance-the-science-of-bioacoustics-to-save-endangered-species/
+- Google Research, "Machine Intelligence"
+  https://research.google/research-areas/machine-intelligence/
+- IBM, "Build an AI stylist with Granite, Python, and watsonx.ai"
+  https://www.ibm.com/think/tutorials/build-ai-stylist-with-granite-python-watsonx-ai
+- Google Cloud, "Recommendations AI"
+  https://cloud.google.com/use-cases/recommendations
+
+That does not mean AI is always right. It means students need to learn how to
+ask better questions:
+
+```text
+What can this system do?
+What data or rules does it use?
+Where could it be wrong?
+Who checks the answer?
+What should a human decide?
+```
+
+## Media Hook: Watch AI Become Visible
+
+Use one or two short clips before the lecture. The goal is not to say "AI is
+magic." The goal is to help students feel why the topic matters, then ask what
+data, sensors, models, safety checks, and human decisions sit behind the demo.
+
+- **Robots dancing:** Boston Dynamics, "Do You Love Me?"
+  https://www.youtube.com/watch?v=fn3KWM1kuAw
+- **Self-driving cars:** Waymo, "360 Experience: A Fully Autonomous Driving
+  Journey"
+  https://www.youtube.com/watch?v=B8R148hFxPw
+- **Robotics research:** Google DeepMind YouTube channel
+  https://www.youtube.com/@googledeepmind/videos
+- **Creative video AI:** Runway YouTube channel
+  https://www.youtube.com/@RunwayML/videos
+
+After a clip, ask:
+
+```text
+What sensors or data might this system use?
+What model or rule might help it decide?
+What could go wrong?
+What safety check should a human require?
+```
+
+This lesson gives the big picture before the code. Soma is the practical
+project that follows: students will build a small AI-shaped study coach and
+learn how the visible app, local data, server endpoint, prompt, model response,
+tests, and safety rules fit together.
+
+## The Big Question
 
 Imagine a student in 1950 asking:
 
@@ -35,7 +113,7 @@ By the end, students can:
 
 - explain why AI has gone through different waves,
 - name places where AI already appears in daily life, science, education,
-  medicine, weather, and software,
+  medicine, weather, fashion, recommendations, and software,
 - distinguish symbolic AI, machine learning, neural networks, deep learning,
   LLMs, agents, and robotics,
 - explain why data, compute, algorithms, and evaluation all matter,
@@ -92,6 +170,8 @@ Examples:
 - translation,
 - search ranking,
 - video recommendations,
+- shopping recommendations,
+- fashion styling or size suggestions,
 - spam filters,
 - face or object detection in photos,
 - voice assistants,
@@ -120,7 +200,9 @@ The point is that the same core ideas appear in different places.
 | Education | tutoring, feedback, language practice, lesson planning | teachers protect learners, context, fairness, and motivation |
 | Medicine | image support, workflow tools, clinical decision support | clinicians are responsible for patient care and safety |
 | Weather and climate | faster forecasts, environmental monitoring, climate modeling | scientists validate models and communicate uncertainty |
-| Search and recommendations | ranking pages, videos, products, resources | designers must avoid manipulation and filter bubbles |
+| Nature monitoring | wildlife sound detection, habitat monitoring, biodiversity research | conservation teams check data quality and decide what action to take |
+| Recommender systems | ranking pages, videos, products, songs, lessons, and resources | designers must avoid manipulation, unfair exposure, and filter bubbles |
+| Fashion and retail | design exploration, styling help, demand forecasting, merchandising | people still decide taste, culture, fit, sustainability, and fairness |
 | Accessibility | captions, image descriptions, speech tools, reading support | users need control, privacy, and accurate representation |
 | Software | code suggestions, tests, documentation, debugging support | developers must review, test, and secure the code |
 | Robotics | perception, planning, language-to-action | physical systems need strong safety engineering |
@@ -129,12 +211,18 @@ Sources:
 
 - UNESCO, "Guidance for generative AI in education and research"
   https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research
-- FDA, "Artificial Intelligence-Enabled Medical Devices"
-  https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-enabled-medical-devices
+- WHO, "Ethics and governance of artificial intelligence for health"
+  https://www.who.int/publications/i/item/9789240029200
 - NOAA Center for Artificial Intelligence
   https://www.noaa.gov/ai
+- Google Research, "Bioacoustics"
+  https://deepmind.google/blog/how-ai-is-helping-advance-the-science-of-bioacoustics-to-save-endangered-species/
 - Google Research, "Machine Intelligence"
   https://research.google/research-areas/machine-intelligence/
+- IBM, "Build an AI stylist with Granite, Python, and watsonx.ai"
+  https://www.ibm.com/think/tutorials/build-ai-stylist-with-granite-python-watsonx-ai
+- Google Cloud, "Recommendations AI"
+  https://cloud.google.com/use-cases/recommendations
 
 Soma is one small example of the education row:
 
@@ -230,7 +318,7 @@ tutor answer is just the final layer. Under it are topic data, browser state,
 server boundaries, prompt construction, response parsing, tests, and safety
 rules.
 
-## 1. Before The Name "AI": Can Machines Think?
+## Before The Name "AI": Can Machines Think?
 
 Two early ideas mattered.
 
@@ -265,7 +353,7 @@ remembering, explaining, or choosing? This is why Turing's question is still
 interesting.
 ```
 
-## 2. 1956: AI Gets A Name
+## 1956: AI Gets A Name
 
 The term "artificial intelligence" is strongly associated with a 1956 Dartmouth
 summer research project proposal. John McCarthy, Marvin Minsky, Nathaniel
@@ -286,7 +374,7 @@ Student takeaway:
 AI began as a big research question, not as one product.
 ```
 
-## 3. The Symbolic AI Era: Reasoning With Rules
+## The Symbolic AI Era: Reasoning With Rules
 
 In the 1960s and 1970s, many researchers believed intelligence could be built
 from symbols, logic, and search. A system might represent facts like:
@@ -325,7 +413,7 @@ Why it was hard:
 - common sense is difficult to write as rules,
 - rules break when the situation changes.
 
-## 4. The 1970s And 1980s: Expert Systems
+## The 1970s And 1980s: Expert Systems
 
 Expert systems tried to capture specialist knowledge in rules. Instead of
 making a machine learn from millions of examples, engineers interviewed experts
@@ -356,7 +444,7 @@ If a feature can be solved with clear rules, use normal JavaScript.
 If it needs flexible language help, consider /api/coach.
 ```
 
-## 5. Machine Learning: Let The Data Teach The Rules
+## Machine Learning: Let The Data Teach The Rules
 
 Machine learning changed the question.
 
@@ -401,12 +489,13 @@ Practical examples:
 - A rule can say "if the question is empty, show an error."
 - A classifier can learn which emails look like spam.
 - A recommender can learn which resources helped similar students.
+- A fashion app can learn which sizes, colors, or styles people often choose.
 - A language model can generate an explanation from topic context.
 
 Beginner learning resource: Google's Machine Learning Crash Course
 https://developers.google.com/machine-learning/crash-course
 
-## 6. Neural Networks Return
+## Neural Networks Return
 
 Neural networks are made of layers of simple mathematical units. They are only
 loosely inspired by brains, but the brain metaphor helped people imagine
@@ -441,7 +530,7 @@ Why they came back:
 - better network designs,
 - the internet created huge digital datasets.
 
-## 7. Deep Learning: When Data And Compute Met Neural Nets
+## Deep Learning: When Data And Compute Met Neural Nets
 
 Deep learning means training neural networks with many layers. Around the early
 2010s, deep learning made major progress in image recognition, speech, and
@@ -475,7 +564,7 @@ Modern AI progress often comes from combining old ideas in new ways:
 search + learning + data + compute + evaluation.
 ```
 
-## 8. Transformers: The Architecture Behind Many LLMs
+## Transformers: The Architecture Behind Many LLMs
 
 Before transformers, many language models processed text mostly in sequence.
 Transformers introduced an attention mechanism that made it easier to learn
@@ -504,7 +593,7 @@ could perform many tasks from prompts and examples.
 Source: Brown et al., "Language Models are Few-Shot Learners"
 https://arxiv.org/abs/2005.14165
 
-## 9. LLMs: Language Models Become General Interfaces
+## LLMs: Language Models Become General Interfaces
 
 An LLM is trained on large amounts of text and learns statistical patterns that
 help it predict and generate tokens. It can write, summarize, translate,
@@ -560,7 +649,7 @@ and the need for policy, capacity building, and learner protection.
 Source: UNESCO, "Guidance for generative AI in education and research"
 https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research
 
-## 10. Multimodal AI: Text, Images, Audio, Video, And More
+## Multimodal AI: Text, Images, Audio, Video, And More
 
 Multimodal AI handles more than one kind of input or output. A model might read
 text, inspect an image, listen to audio, or respond with text, speech, and
@@ -592,7 +681,7 @@ If a model can see and hear, what private information might accidentally be in
 the input?
 ```
 
-## 11. Agents And Computer Use
+## Agents And Computer Use
 
 An AI agent is a system that can use a model to choose actions, call tools,
 observe results, and continue working toward a goal.
@@ -630,7 +719,7 @@ The more power an AI system has to act, the stronger its permissions, checks,
 logs, and human confirmation should be.
 ```
 
-## 12. Robotics: From Words To Physical Action
+## Robotics: From Words To Physical Action
 
 Robotics adds a harder problem: the model must deal with the physical world.
 The world is noisy. Objects move. Cameras miss things. A robot can bump into
@@ -657,7 +746,7 @@ Robots need AI plus sensors, motors, control systems, safety engineering, and
 testing in the real world.
 ```
 
-## 13. Where AI Is Going Now
+## Where AI Is Going Now
 
 As of 2026, AI is moving in several directions at once:
 
@@ -705,7 +794,7 @@ Who might be harmed?
 Who gets to decide whether the system is good enough?
 ```
 
-## 14. What This Means For Soma
+## What This Means For Soma
 
 Soma is a small project, but it teaches the real shape of modern AI apps:
 

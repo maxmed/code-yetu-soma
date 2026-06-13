@@ -6,8 +6,8 @@ The app should feel intelligent to the user, not just print raw data.
 
 Deepen this session:
 
-- [Parsing And Rendering](../lessons/07-parsing-and-rendering.md)
-- [Language And Swahili](../lessons/08-language-and-swahili.md)
+- [Parsing And Rendering](../lessons/08-parsing-and-rendering.md)
+- [Language And Swahili](../lessons/09-language-and-swahili.md)
 - [Response Not Rendering prompt](../../student/ai-coding-prompts.md#response-not-rendering)
 - [Follow-Up Not Grounded prompt](../../student/ai-coding-prompts.md#follow-up-not-grounded)
 
@@ -85,3 +85,13 @@ The user can complete the main flow and understand the topic explanation, recomm
 ## Homework
 
 Ask another team to test the app and write down 3 issues.
+
+## Ready To Continue Check
+
+Students are ready for Session 5 if they can:
+
+- complete the main ask-a-question flow,
+- render the answer, examples, resources, limits, and study plan clearly,
+- show a useful empty state or error state,
+- explain the response shape in plain language,
+- ask another team to test the flow and record at least three issues.

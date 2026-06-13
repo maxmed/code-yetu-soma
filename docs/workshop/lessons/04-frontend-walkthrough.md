@@ -1,4 +1,4 @@
-# Lesson 3: Frontend Walkthrough
+# Lesson 4: Frontend Walkthrough
 
 Time: 35-40 minutes
 

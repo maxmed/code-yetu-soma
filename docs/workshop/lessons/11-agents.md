@@ -1,4 +1,4 @@
-# Lesson 10: Agents
+# Lesson 11: Agents
 
 Time: 35-40 minutes
 

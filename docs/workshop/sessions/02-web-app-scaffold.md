@@ -6,8 +6,8 @@ Teams create a working HTML/CSS/JS app shell.
 
 Deepen this session:
 
-- [How Web Apps Work](../lessons/01-how-web-apps-work.md)
-- [Frontend Walkthrough](../lessons/03-frontend-walkthrough.md)
+- [How Web Apps Work](../lessons/02-how-web-apps-work.md)
+- [Frontend Walkthrough](../lessons/04-frontend-walkthrough.md)
 - [Lab A: Change One UI Section Safely](../labs/README.md#lab-a-change-one-ui-section-safely)
 - [Fix A JavaScript Error prompt](../../student/ai-coding-prompts.md#fix-a-javascript-error)
 
@@ -86,3 +86,15 @@ A working page where a user can enter or select information and see at least one
 ## Homework
 
 Replace the scaffold questions/data with your project data.
+
+## Ready To Continue Check
+
+Students are ready for Session 3 if they can:
+
+- open `http://127.0.0.1:8787/starter/index.html`,
+- identify `starter/index.html`, `starter/style.css`, `starter/app.js`, and
+  `starter/data.js`,
+- make one visible text or style change in `starter/`,
+- hard refresh and see the change,
+- click one button and explain which JavaScript function ran,
+- open the browser console and check for errors.

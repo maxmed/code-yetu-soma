@@ -1,4 +1,4 @@
-# Lesson 5: LLM Prompts
+# Lesson 6: LLM Prompts
 
 Time: 35-40 minutes
 

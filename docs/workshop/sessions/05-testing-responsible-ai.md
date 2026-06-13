@@ -6,8 +6,8 @@ Teams test their MVP, fix bugs, and explain limitations.
 
 Deepen this session:
 
-- [Safety And Variability](../lessons/11-safety-and-variability.md)
-- [Where LLMs Fit](../lessons/09-where-llms-fit.md)
+- [Safety And Variability](../lessons/12-safety-and-variability.md)
+- [Where LLMs Fit](../lessons/10-where-llms-fit.md)
 - [Testing And Debugging](../../testing-debugging.md)
 - [Add Test Cases prompt](../../student/ai-coding-prompts.md#add-test-cases)
 
@@ -67,3 +67,14 @@ Working MVP plus test cases and responsible AI note.
 ## Homework
 
 Prepare a 3-5 minute demo.
+
+## Ready To Continue Check
+
+Students are ready for Session 6 if they can:
+
+- run the app locally,
+- run or explain the smoke test path,
+- show at least three manual test cases,
+- demonstrate that personal data is blocked or warned about,
+- explain when mock mode is being used,
+- write a responsible AI note with limits and data safety.

@@ -11,13 +11,14 @@ Gemini provider calls that stay server-side.
 
 | I want to... | Start here | Then use |
 |---|---|---|
-| run the app | [Local Setup](./local-setup.md) | [Testing And Debugging](./testing-debugging.md) |
-| use a real Gemini key | [Gemini Key Setup](./gemini-key-setup.md) | [Safety Checklist](./api-safety-checklist.md) |
+| start from zero | [Getting Started From Zero](./getting-started.md) | [Workshop Course](./workshop/README.md) |
+| run the app | [Getting Started From Zero](./getting-started.md) | [Local Setup](./local-setup.md) |
+| use a real Gemini key | [Getting Started From Zero](./getting-started.md) | [Gemini Key Setup](./gemini-key-setup.md) |
 | deploy the demo | [Deploy To Vercel](./deploy-vercel.md) | [Gemini Key Setup](./gemini-key-setup.md) |
 | understand the architecture | [Architecture](./architecture.md) | [Code Map](./code-map.md) |
 | teach the workshop | [Workshop Course](./workshop/README.md) | [6-Session Runbook](./workshop/sessions/README.md) |
 | learn the concepts | [Lesson Index](./workshop/lessons/README.md) | [Concept To Code Map](./workshop/concept-to-code-map.md) |
-| understand AI history | [The Story Of AI](./workshop/lessons/13-ai-history-and-future.md) | [Reviewed Source Spine](./workshop/sources.md) |
+| understand why AI matters | [Why AI Matters Now](./workshop/lessons/01-ai-history-and-future.md) | [Reviewed Source Spine](./workshop/sources.md) |
 | do hands-on practice | [Workshop Labs](./workshop/labs/README.md) | [AI Coding Prompts](./student/ai-coding-prompts.md) |
 | build a student project | [Student Guide](./student/README.md) | [Project Cards](./student/project-cards.md) |
 | extend or remix Soma | [Extend Soma](./extend-soma.md) | [Concept To Code Map](./workshop/concept-to-code-map.md) |
@@ -29,14 +30,17 @@ Gemini provider calls that stay server-side.
 
 Use these together:
 
+- [Getting Started From Zero](./getting-started.md) - one beginner path from
+  install to local mock mode, optional Gemini key setup, safety check, and
+  deployment pointers.
 - [Workshop Course](./workshop/README.md) - the main curriculum hub.
 - [6-Session Runbook](./workshop/sessions/README.md) - what to run each live
   session.
-- [Lesson Index](./workshop/lessons/README.md) - the 12 deeper teaching
+- [Lesson Index](./workshop/lessons/README.md) - the 13 deeper teaching
   lessons.
-- [The Story Of AI](./workshop/lessons/13-ai-history-and-future.md) - lecture
-  material on AI history, machine learning, LLMs, multimodal systems, computer
-  use, robotics, and future directions.
+- [Why AI Matters Now](./workshop/lessons/01-ai-history-and-future.md) - the
+  opening hook on what AI is, where it is used, AI history, machine learning,
+  LLMs, multimodal systems, computer use, robotics, and future directions.
 - [Workshop Labs](./workshop/labs/README.md) - hands-on practice tasks.
 - [Concept To Code Map](./workshop/concept-to-code-map.md) - connects sessions,
   lessons, labs, code files, and AI coding prompts.
@@ -73,28 +77,30 @@ Use these together:
 
 ## Developer Path
 
-1. [Local Setup](./local-setup.md) - install, run, configure, and deploy.
-2. [Gemini Key Setup](./gemini-key-setup.md) - get a key, add it to `.env`, and
+1. [Getting Started From Zero](./getting-started.md) - beginner path from no
+   setup to local mock mode, optional Gemini mode, and safety checks.
+2. [Local Setup](./local-setup.md) - focused local commands and test commands.
+3. [Gemini Key Setup](./gemini-key-setup.md) - get a key, add it to `.env`, and
    test provider mode safely.
-3. [Deploy To Vercel](./deploy-vercel.md) - create a Vercel project, set
+4. [Deploy To Vercel](./deploy-vercel.md) - create a Vercel project, set
    environment variables, deploy, and smoke-test the live app.
-4. [Architecture](./architecture.md) - browser, data, server, mock mode, and
+5. [Architecture](./architecture.md) - browser, data, server, mock mode, and
    Gemini mode.
-5. [Code Map](./code-map.md) - where to change common things.
-6. [`/api/coach` Contract](./api-coach-contract.md) - request and response shape.
-7. [Testing And Debugging](./testing-debugging.md) - Playwright, manual checks,
+6. [Code Map](./code-map.md) - where to change common things.
+7. [`/api/coach` Contract](./api-coach-contract.md) - request and response shape.
+8. [Testing And Debugging](./testing-debugging.md) - Playwright, manual checks,
    Debug Lab, and commit gates.
-8. [Safety Checklist](./api-safety-checklist.md) - key, data, AI honesty, and
+9. [Safety Checklist](./api-safety-checklist.md) - key, data, AI honesty, and
    debug checks.
-9. [Extend Soma](./extend-soma.md) - safe beginner-sized extension tasks.
+10. [Extend Soma](./extend-soma.md) - safe beginner-sized extension tasks.
 
 ## Design Path
 
 - [Design Docs](./design/README.md) - design navigation.
 - [UI Design Principles For Learning Apps](./design/ui-principles-for-students.md)
   - student-facing principles.
-- [Soma UI Redesign Brief](./design/ui-redesign-brief.md) - the next public demo
-  design plan.
+- [Soma UI Redesign Brief](./design/ui-redesign-brief.md) - implemented learner
+  UI design reference.
 
 ## The Main App Flow
 

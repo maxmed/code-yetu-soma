@@ -20,6 +20,21 @@ The goal is not only to run the app. Students should understand how a web app is
 assembled, how the browser talks to a server, how the server calls an LLM, how
 prompts shape the answer, and where AI is useful, risky, or wasteful.
 
+## Beginner Journey
+
+Use one common path before students remix anything:
+
+1. Start with [Lesson 1: Why AI Matters Now](./lessons/01-ai-history-and-future.md)
+   and a live Soma demo.
+2. Complete [Getting Started From Zero](../getting-started.md): install
+   dependencies, run the local server, open the app, open `/starter/index.html`,
+   make one visible starter edit, hard refresh, read the browser console, and
+   optionally add a Gemini key safely.
+3. Use `starter/` for the first hands-on changes.
+4. Use `reference/` to inspect the polished app and compare patterns.
+5. Move into `reference/`, tests, deployment, and extension after students can
+   explain the starter flow.
+
 ## Course Navigation
 
 | If you need... | Go to |
@@ -30,9 +45,9 @@ prompts shape the answer, and where AI is useful, risky, or wasteful.
 | student-facing challenge | [Student Guide](../student/README.md) |
 | extension/remix guidance | [Extend Soma](../extend-soma.md) |
 | mentor notes and rubric | [Mentor Guide Index](../mentor/README.md) |
-| setup, tests, and deploy | [Local Setup](../local-setup.md) |
+| setup, tests, and deploy | [Getting Started From Zero](../getting-started.md) |
 | exact file-to-concept links | [Concept To Code Map](./concept-to-code-map.md) |
-| AI history and future context | [Special Lecture: The Story Of AI](./lessons/13-ai-history-and-future.md) |
+| AI opening hook and future context | [Lesson 1: Why AI Matters Now](./lessons/01-ai-history-and-future.md) |
 
 ## How To Use This Course
 
@@ -61,19 +76,19 @@ Every lesson follows the same pattern:
 
 | Lesson | Topic | What Students Learn |
 |---|---|---|
-| 1 | [How Web Apps Work](./lessons/01-how-web-apps-work.md) | Browser, HTML, CSS, JavaScript, events, state, `fetch`, and `localStorage`. |
-| 2 | [Soma App Architecture](./lessons/02-soma-architecture.md) | Frontend, topic data, `/api/coach`, mock mode, Gemini mode, and server-side keys. |
-| 3 | [Frontend Walkthrough](./lessons/03-frontend-walkthrough.md) | How `index.html`, DOM IDs, `app.js`, and rendering functions work together. |
-| 4 | [Data And Context](./lessons/04-data-and-context.md) | Topic packs, safe context, resources, practice answers, and context limits. |
-| 5 | [LLM Prompts](./lessons/05-llm-prompts.md) | System prompts, user prompts, context, weak prompts, stronger prompts, and iteration. |
-| 6 | [Calling The LLM](./lessons/06-calling-the-llm.md) | Request body, model settings, temperature, token limits, quota, errors, and retries. |
-| 7 | [Parsing And Rendering](./lessons/07-parsing-and-rendering.md) | Raw model output, JSON parsing, normalization, app response fields, and UI rendering. |
-| 8 | [Language And Swahili](./lessons/08-language-and-swahili.md) | English, Swahili, code-switching, language metadata, and multilingual testing. |
-| 9 | [Where LLMs Fit](./lessons/09-where-llms-fit.md) | Good uses, bad uses, wasteful calls, rules, search, retrieval, and human review. |
-| 10 | [Agents](./lessons/10-agents.md) | Observe-plan-act loops, tools, memory/state, guardrails, and tradeoffs. |
-| 11 | [Safety And Variability](./lessons/11-safety-and-variability.md) | Hallucination, prompt injection, personal data, non-determinism, evals, and limits. |
-| 12 | [Build Your Own](./lessons/12-build-your-own.md) | Capstone checklist, project extensions, demo rubric, and next learning path. |
-| Special | [The Story Of AI](./lessons/13-ai-history-and-future.md) | Logic, expert systems, machine learning, neural networks, LLMs, multimodal AI, agents, computer use, robotics, and future directions. |
+| 1 | [Why AI Matters Now](./lessons/01-ai-history-and-future.md) | Why students should pay attention to AI; practical examples from education, healthcare, nature monitoring, weather, fashion, recommender systems, accessibility, software, robotics, and media hooks; how AI works; history; risks; future directions. |
+| 2 | [How Web Apps Work](./lessons/02-how-web-apps-work.md) | Browser, HTML, CSS, JavaScript, events, state, `fetch`, and `localStorage`. |
+| 3 | [Soma App Architecture](./lessons/03-soma-architecture.md) | Frontend, topic data, `/api/coach`, mock mode, Gemini mode, and server-side keys. |
+| 4 | [Frontend Walkthrough](./lessons/04-frontend-walkthrough.md) | How `index.html`, DOM IDs, `app.js`, and rendering functions work together. |
+| 5 | [Data And Context](./lessons/05-data-and-context.md) | Topic packs, safe context, resources, practice answers, and context limits. |
+| 6 | [LLM Prompts](./lessons/06-llm-prompts.md) | System prompts, user prompts, context, weak prompts, stronger prompts, and iteration. |
+| 7 | [Calling The LLM](./lessons/07-calling-the-llm.md) | Request body, model settings, temperature, token limits, quota, errors, and retries. |
+| 8 | [Parsing And Rendering](./lessons/08-parsing-and-rendering.md) | Raw model output, JSON parsing, normalization, app response fields, and UI rendering. |
+| 9 | [Language And Swahili](./lessons/09-language-and-swahili.md) | English, Swahili, code-switching, language metadata, and multilingual testing. |
+| 10 | [Where LLMs Fit](./lessons/10-where-llms-fit.md) | Good uses, bad uses, wasteful calls, rules, search, retrieval, and human review. |
+| 11 | [Agents](./lessons/11-agents.md) | Observe-plan-act loops, tools, memory/state, guardrails, and tradeoffs. |
+| 12 | [Safety And Variability](./lessons/12-safety-and-variability.md) | Hallucination, prompt injection, personal data, non-determinism, evals, and limits. |
+| 13 | [Build Your Own](./lessons/13-build-your-own.md) | Capstone checklist, project extensions, demo rubric, and next learning path. |
 
 Use [the lesson template](./lesson-template.md) when adding optional extension
 lessons or rewriting these lessons for a different audience.
@@ -88,7 +103,7 @@ Use labs when students need hands-on practice.
 
 | Lab | Task | Main Files |
 |---|---|---|
-| [A](./labs/README.md#lab-a-change-one-ui-section-safely) | Change one UI section safely. | `reference/index.html`, `reference/style.css`, `tests/soma-student.spec.js` |
+| [A](./labs/README.md#lab-a-change-one-ui-section-safely) | Change one starter UI section safely. | `starter/index.html`, `starter/style.css`, `starter/app.js` |
 | [B](./labs/README.md#lab-b-add-a-new-topic-pack) | Add a new topic pack. | `reference/data.js`, `starter/data.js` |
 | [C](./labs/README.md#lab-c-edit-a-tutor-prompt-and-compare-output) | Edit a tutor prompt and compare output. | Debug Lab, `api/coach.js` |
 | [D](./labs/README.md#lab-d-change-model-settings-and-observe-variability) | Change model settings and observe variability. | Debug Lab, `/api/coach` |
