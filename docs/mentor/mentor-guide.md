@@ -72,7 +72,7 @@ The workshop default model is `gemini-3.1-flash-lite` through the server-side
 minute, 250K tokens per minute, and 500 requests per day for this model. These
 limits are shared by the whole class, not per student.
 
-Use `student-ai-limits.md` as the student-facing guide. During build time,
+Use `../student/ai-limits.md` as the student-facing guide. During build time,
 encourage teams to debug UI and JavaScript with mock/demo responses first, then
 spend real AI calls only on final tutor-flow checks.
 

@@ -37,7 +37,7 @@ Each team writes:
 
 ## Activity 2: Debug With Copilot
 
-Use `copilot-prompts.md`.
+Use `../docs/student/copilot-prompts.md`.
 
 Rule: ask for one bug or one function at a time.
 

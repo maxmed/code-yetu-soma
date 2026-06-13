@@ -32,9 +32,9 @@ choose help mode -> choose Grade 7 Integrated Science topic -> preview safe cont
 
 Before session 1:
 
-- print or share `../project-cards.md`,
+- print or share `../docs/student/project-cards.md`,
 - open `../reference/index.html` in a browser,
-- keep `../copilot-prompts.md` ready for students.
+- keep `../docs/student/copilot-prompts.md` ready for students.
 
 ## Recommended Flow
 

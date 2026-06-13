@@ -39,12 +39,6 @@ Use this as a 4-week project studio with 6 training sessions:
 ```text
 code-yetu-soma/
 ├── README.md
-├── curriculum-source.md
-├── project-cards.md
-├── mentor-guide.md
-├── student-ai-limits.md
-├── rubric.md
-├── copilot-prompts.md
 ├── vercel.json
 ├── docs/
 │   ├── README.md
@@ -54,7 +48,16 @@ code-yetu-soma/
 │   ├── local-setup.md
 │   ├── testing-debugging.md
 │   ├── extend-soma.md
-│   └── api-safety-checklist.md
+│   ├── api-safety-checklist.md
+│   ├── student/
+│   │   ├── handout.md
+│   │   ├── ai-limits.md
+│   │   ├── project-cards.md
+│   │   └── copilot-prompts.md
+│   └── mentor/
+│       ├── mentor-guide.md
+│       ├── curriculum-source.md
+│       └── rubric.md
 ├── api/
 │   └── coach.js
 ├── lib/
@@ -89,14 +92,14 @@ code-yetu-soma/
 
 1. Open `docs/README.md` for the beginner codebase tour.
 2. Open `workshop/workshop_guide.md`.
-3. Open `curriculum-source.md` for the Grade 7 Integrated Science content source.
+3. Open `docs/mentor/curriculum-source.md` for the Grade 7 Integrated Science content source.
 4. Demo `reference/index.html` from a simple local server.
 5. Give every team the `starter/` folder.
 6. Run one workshop file per session.
-7. Use `project-cards.md` for remix ideas.
-8. Share `student-ai-limits.md` before students use the AI coach.
-9. Use `copilot-prompts.md` for debugging help.
-10. Use `rubric.md` for demos.
+7. Use `docs/student/project-cards.md` for remix ideas.
+8. Share `docs/student/ai-limits.md` before students use the AI coach.
+9. Use `docs/student/copilot-prompts.md` for debugging help.
+10. Use `docs/mentor/rubric.md` for demos.
 
 ## Beginner Developer Docs
 
@@ -111,6 +114,8 @@ the codebase. It links to:
 - `docs/testing-debugging.md` - Playwright, manual checks, and Under The Hood.
 - `docs/extend-soma.md` - beginner extension tasks.
 - `docs/api-safety-checklist.md` - key, data, AI honesty, and debug checks.
+- `docs/student/` - student handout, limits, project cards, and Copilot prompts.
+- `docs/mentor/` - facilitator guide, curriculum source notes, and demo rubric.
 
 ## Workshop Readiness Bar
 
@@ -186,7 +191,7 @@ GEMINI_MODEL=gemini-3.1-flash-lite
 `gemini-3.1-flash-lite` is the workshop default because it is the best tested
 Gemini text-tutor choice for this app: the active classroom table shows 15 RPM,
 250K TPM, and 500 RPD for this model, and `/api/coach` has been smoke-tested
-with it. See `student-ai-limits.md` for the student-facing limits and advice.
+with it. See `docs/student/ai-limits.md` for the student-facing limits and advice.
 
 For a local real-Gemini test, create a private `.env` file from the example:
 

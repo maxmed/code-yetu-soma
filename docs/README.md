@@ -17,6 +17,8 @@ calls that stay server-side.
 5. `api-coach-contract.md` - the request and response shape for `/api/coach`.
 6. `testing-debugging.md` - how to use tests and the Under The Hood view.
 7. `extend-soma.md` - safe beginner tasks for changing or extending the app.
+8. `student/handout.md` - student challenge and submission guide.
+9. `mentor/mentor-guide.md` - facilitator rhythm and check-in guide.
 
 ## The Main App Flow
 
@@ -39,3 +41,18 @@ The reference app is now tutor-first:
 - Gemini mode is enabled only by server-side environment variables.
 - Keep changes beginner-sized unless a mentor explicitly approves a larger
   architecture change.
+
+## Audience Guides
+
+Student-facing workshop docs live in `student/`:
+
+- `student/handout.md`
+- `student/ai-limits.md`
+- `student/project-cards.md`
+- `student/copilot-prompts.md`
+
+Mentor-facing workshop docs live in `mentor/`:
+
+- `mentor/mentor-guide.md`
+- `mentor/curriculum-source.md`
+- `mentor/rubric.md`

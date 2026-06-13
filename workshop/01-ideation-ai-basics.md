@@ -34,7 +34,7 @@ Teams answer:
 
 ## Activity 2: Choose A Project Card
 
-Use `project-cards.md`. Each team chooses one:
+Use `../docs/student/project-cards.md`. Each team chooses one:
 
 - Study Buddy Recommender
 - Soma Study Coach

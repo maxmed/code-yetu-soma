@@ -81,31 +81,31 @@ demo.
 
 Six session files plus the workshop guide.
 
-`student-handout.md`
+`docs/student/handout.md`
 
 Student-facing workshop handout.
 
-`student-ai-limits.md`
+`docs/student/ai-limits.md`
 
 Student-facing AI usage limits and quota guidance.
 
-`mentor-guide.md`
+`docs/mentor/mentor-guide.md`
 
 Facilitator guide.
 
-`project-cards.md`
+`docs/student/project-cards.md`
 
 Remix ideas for teams.
 
-`rubric.md`
+`docs/mentor/rubric.md`
 
 Demo and project evaluation guide.
 
-`copilot-prompts.md`
+`docs/student/copilot-prompts.md`
 
 Suggested prompts for using an AI coding assistant during the workshop.
 
-`curriculum-source.md`
+`docs/mentor/curriculum-source.md`
 
 Notes about the curriculum source and sample content boundary.
 

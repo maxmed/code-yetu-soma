@@ -17,7 +17,7 @@ Your app might:
 
 Use the course-provided `/api/coach` for LLM features. Do not use paid APIs, student API keys, or provider keys in frontend JavaScript.
 
-Before testing the AI coach, read `student-ai-limits.md`. The shared workshop
+Before testing the AI coach, read `ai-limits.md`. The shared workshop
 model is `gemini-3.1-flash-lite`, and the whole class shares the same request
 limits.
 
