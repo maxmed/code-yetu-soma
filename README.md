@@ -120,7 +120,7 @@ Before publishing the live demo:
    provider's environment-variable settings.
 6. Add the live demo URL to this README.
 7. Re-test the deployed URL from a clean browser.
-8. Optional: set `GEMINI_MODEL`; otherwise the default is `gemini-2.5-flash-lite`.
+8. Optional: set `GEMINI_MODEL`; otherwise the default is `gemini-3.1-flash-lite`.
 
 ## Local Mock And E2E Smoke
 
@@ -154,7 +154,7 @@ It contains only provider configuration:
 
 ```text
 GEMINI_API_KEY=
-GEMINI_MODEL=gemini-2.5-flash-lite
+GEMINI_MODEL=gemini-3.1-flash-lite
 ```
 
 For a local real-Gemini test, create a private `.env` file from the example:

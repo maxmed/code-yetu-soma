@@ -1,7 +1,7 @@
 const { buildCoachResult, hasPersonalData } = require("../lib/coach-core");
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-2.5-flash-lite";
+const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.1-flash-lite";
 
 async function readProviderError(response) {
   try {
