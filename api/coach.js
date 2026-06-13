@@ -83,6 +83,18 @@ function normalizeGeminiResponse(result, mode, topic) {
   return normalized;
 }
 
+function parseGeminiJson(text) {
+  try {
+    return JSON.parse(text);
+  } catch {
+    const match = text.match(/\{[\s\S]*\}/);
+    if (!match) {
+      throw new Error("No JSON object found.");
+    }
+    return JSON.parse(match[0]);
+  }
+}
+
 async function callGemini(payload) {
   const topic = payload?.studentSetup?.topic || "the selected topic";
   const snippet = payload?.curriculumContext?.snippets?.[0] || {};
@@ -113,7 +125,7 @@ Rules:
       contents: [{ parts: [{ text: `${systemPrompt}\n\n${userPrompt}` }] }],
       generationConfig: {
         temperature: 0.7,
-        maxOutputTokens: 1024,
+        maxOutputTokens: 4096,
         responseMimeType: "application/json",
         responseSchema: {
           type: "object",
@@ -144,7 +156,7 @@ Rules:
   if (!text) throw { status: 503, message: "Empty Gemini response." };
 
   try {
-    return normalizeGeminiResponse(JSON.parse(text), mode, topic);
+    return normalizeGeminiResponse(parseGeminiJson(text), mode, topic);
   } catch {
     throw { status: 503, message: "Gemini returned a malformed response." };
   }
