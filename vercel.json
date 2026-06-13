@@ -3,11 +3,15 @@
   "rewrites": [
     {
       "source": "/",
-      "destination": "/reference/index.html"
+      "destination": "/reference"
+    },
+    {
+      "source": "/index",
+      "destination": "/reference"
     },
     {
       "source": "/index.html",
-      "destination": "/reference/index.html"
+      "destination": "/reference"
     },
     {
       "source": "/style.css",
