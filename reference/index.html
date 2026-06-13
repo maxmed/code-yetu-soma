@@ -13,14 +13,14 @@
       <h1>Soma Study Coach</h1>
       <p class="intro">
         A mode-first Grade 7 Integrated Science Study Helper. Choose a topic,
-        ask a question, preview the safe context, and call the shared
+        ask a question, preview the safe context, and call the demo
         <code>/api/coach</code> endpoint for structured study support.
       </p>
     </div>
-    <aside class="provider-card" aria-label="AI provider status">
-      <span>AI boundary</span>
+    <aside class="provider-card" aria-label="Coach endpoint status">
+      <span>Demo boundary</span>
       <strong>/api/coach</strong>
-      <small>No frontend API keys</small>
+      <small>Mock demo, no frontend API keys</small>
     </aside>
   </header>
 
@@ -67,7 +67,7 @@
         <textarea id="studentQuestionInput" rows="5" placeholder="Example: Why is growth a life process?"></textarea>
         <p class="note">Use dummy learning questions only. Do not enter names, school names, marks, phone numbers or private records.</p>
         <div class="button-row">
-          <button id="coachButton" type="button">Ask AI coach</button>
+          <button id="coachButton" type="button">Ask demo coach</button>
           <button id="resetButton" type="button" class="secondary">Reset</button>
         </div>
       </article>
@@ -154,9 +154,9 @@
       </div>
       <ul class="limits-list">
         <li>This app uses dummy learner data and simplified KICD/CBC-aligned sample content.</li>
-        <li>The AI gives study support, not official marks, diagnosis, or guaranteed tutoring accuracy.</li>
+        <li>The demo coach gives study support, not official marks, diagnosis, or guaranteed tutoring accuracy.</li>
         <li>Do not send student names, school names, real marks, phone numbers, or private records.</li>
-        <li>If the AI proxy fails or quota is exhausted, the app shows the failure clearly.</li>
+        <li>If the coach endpoint fails or quota is exhausted, the app shows the failure clearly.</li>
       </ul>
     </section>
   </main>

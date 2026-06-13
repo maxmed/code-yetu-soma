@@ -150,12 +150,12 @@ async function askStudyCoach(context) {
       throw new Error("No /api/coach endpoint is running.");
     }
     if (response.status === 429) {
-      throw new Error("The AI quota or rate limit was reached.");
+      throw new Error("The classroom coach quota or rate limit was reached.");
     }
     if (response.status === 400) {
       throw new Error("The request was blocked. Check for personal data.");
     }
-    throw new Error(`The AI coach is unavailable. HTTP ${response.status}.`);
+    throw new Error(`The coach endpoint is unavailable. HTTP ${response.status}.`);
   }
 
   return normalizeResponse(await response.json());
@@ -200,7 +200,7 @@ function renderResponse(result) {
       <h3>7-day plan</h3>
       <ul>${listHtml(result.sevenDayPlan)}</ul>
     </article>
-    <p class="note">${escapeHtml(result.limitations || "AI output is study support from dummy data. Check important learning decisions with a teacher or mentor.")}</p>
+    <p class="note">${escapeHtml(result.limitations || "Demo output is study support from dummy data. Check important learning decisions with a teacher or mentor.")}</p>
   `;
   renderPlan(result.sevenDayPlan);
 }

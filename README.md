@@ -1,9 +1,14 @@
 # Code Yetu Soma
 
-Build a simple AI-powered study helper workshop.
+Build a simple study-helper workshop that teaches the shape of an AI tutor app.
 
-Live demo: local reference app, mock E2E, and a Vercel-compatible `/api/coach`
-adapter are ready; public deployment is pending.
+Live demo status: local reference app, mock E2E, and a Vercel-compatible
+demo-only `/api/coach` adapter are ready; public deployment is pending.
+
+Important: the included `api/coach.js` adapter is deterministic mock/demo logic.
+It does not call a real LLM provider or read provider API keys. Use it for
+workshop testing and static demo deployment only. Connect a real
+organizer-hosted provider proxy before claiming the deployed app is LLM-powered.
 
 This pack is for students aged 12-18 who know basic HTML/CSS, some JavaScript, and can use an AI coding assistant for small code generation and debugging tasks.
 
@@ -15,7 +20,7 @@ By the end of the program, each team should have:
 
 - a working browser-based education MVP,
 - age-appropriate sample content based on KICD/CBC curriculum designs,
-- a real LLM workflow for study feedback, explanations, resources, or planning,
+- the safe workflow shape for an LLM-backed study helper: prepare context, call a server-side coach endpoint, render limitations clearly,
 - a short demo explaining the problem, user, data, AI logic, limitations, and next steps.
 
 ## Recommended Program Shape
@@ -108,10 +113,12 @@ Before publishing the live demo:
 1. Run the reference app locally from a simple static server.
 2. Verify the mode-first Study Helper / Topic Tutor flow.
 3. Verify `/api/coach` behavior, including quota/error states.
-4. Deploy the static app and tiny `/api/coach` proxy. The repo includes
-   `api/coach.js` and `vercel.json` for a Vercel-style deployment.
+4. Deploy the static app and demo-only `/api/coach` mock. The repo includes
+   `api/coach.js` and `vercel.json` for a Vercel-style mock deployment.
 5. Add the live demo URL to this README.
 6. Re-test the deployed URL from a clean browser.
+7. For a real AI demo, replace the mock adapter with an organizer-hosted
+   provider proxy before using LLM-powered wording.
 
 ## Local Mock And E2E Smoke
 
@@ -140,13 +147,13 @@ Then open `http://127.0.0.1:8787/reference/index.html` or
 
 ## Default Starter Project
 
-The flagship reference app is Soma Study Coach, an LLM-powered learning coach using Grade 7 Integrated Science as the class demo:
+The flagship reference app is Soma Study Coach, a mock AI-tutor demo using Grade 7 Integrated Science as the class demo:
 
 - a student selects help mode, year/class, learning area, topic, and study need,
 - the app loads local KICD/CBC-aligned sample topic content,
 - the app shows the safe context it will send,
 - the app calls one shared `/api/coach` endpoint,
-- the LLM gives an explanation, examples, misconception help, resources, or a study plan,
+- the demo coach returns an explanation, examples, misconception help, resources, or a study plan,
 - the app supports follow-up study questions,
 - the app tracks progress locally,
 - the app shows prompt/agent steps: observe, prepare context, ask model, parse response, explain.
@@ -157,7 +164,7 @@ Teams can build a smaller version or remix the same pattern into a career explor
 
 This repo contains the workshop-facing material. Planning notes, architecture discussion, provider research, and build coordination stay in the Mica workspace.
 
-The current `reference/` app is mode-first: Study Helper / Topic Tutor first, with practice/review as optional input. Local mock E2E covers reference and starter flows across desktop and mobile.
+The current `reference/` app is mode-first: Study Helper / Topic Tutor first, with practice/review as optional input. Local mock E2E covers reference and starter flows across desktop and mobile. The included deploy adapter is mock/demo-only until a real provider-backed `/api/coach` is connected.
 
 ## Simplicity Rule
 

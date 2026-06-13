@@ -250,7 +250,7 @@ function normalizeList(value) {
 
 function normalizeCoachResponse(payload, mode) {
   if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
-    throw new Error("The AI proxy returned an unexpected response shape.");
+    throw new Error("The coach endpoint returned an unexpected response shape.");
   }
 
   const normalized = {
@@ -276,11 +276,11 @@ function normalizeCoachResponse(payload, mode) {
   );
 
   if (mode === "follow-up" && !normalized.followUpAnswer) {
-    throw new Error("The AI proxy did not return followUpAnswer.");
+    throw new Error("The coach endpoint did not return followUpAnswer.");
   }
 
   if (mode !== "follow-up" && !hasMainResponse) {
-    throw new Error("The AI proxy returned JSON, but no study helper content was found.");
+    throw new Error("The coach endpoint returned JSON, but no study helper content was found.");
   }
 
   return normalized;
@@ -302,20 +302,20 @@ async function askStudyCoach(context) {
       if (response.status === 404) {
         detail = "No /api/coach endpoint is running for this page.";
       } else if (response.status === 429) {
-        detail = "The classroom AI quota or rate limit was reached.";
+        detail = "The classroom coach quota or rate limit was reached.";
       } else if (response.status === 400) {
         detail = "The request was blocked. Check that no personal data was included.";
       }
     }
 
-    throw new Error(detail || `The AI coach is unavailable. Proxy returned HTTP ${response.status}.`);
+    throw new Error(detail || `The coach endpoint is unavailable. Returned HTTP ${response.status}.`);
   }
 
   let payload;
   try {
     payload = await response.json();
   } catch {
-    throw new Error("The AI proxy responded, but the response was not valid JSON.");
+    throw new Error("The coach endpoint responded, but the response was not valid JSON.");
   }
 
   return normalizeCoachResponse(payload, context.mode);
@@ -364,7 +364,7 @@ function renderCoachResponse(response) {
       <h3>Recommended resources</h3>
       <ul>${renderArray(response.recommendedResources, "No resources returned.", renderTextItem)}</ul>
     </section>
-    <p class="limitation">${escapeHtml(response.limitations || "AI output is study support from dummy data. Check important learning decisions with a teacher or mentor.")}</p>
+    <p class="limitation">${escapeHtml(response.limitations || "Demo output is study support from dummy data. Check important learning decisions with a teacher or mentor.")}</p>
   `;
   renderPlan(response.sevenDayPlan);
 }
@@ -459,7 +459,7 @@ function validateQuestion() {
 }
 
 function renderError(error) {
-  setStatus("AI unavailable", "danger");
+  setStatus("Coach unavailable", "danger");
   renderAgentSteps("ready");
   elements.coachOutput.className = "error-state";
   elements.coachOutput.innerHTML = `

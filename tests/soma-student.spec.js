@@ -19,7 +19,7 @@ async function runReferenceSuccess(page, testInfo) {
   await expect(page.locator("#promptPreview")).toContainText("Mixtures and separation");
   await expect(page.locator("#promptPreview")).not.toContainText("student name");
 
-  await page.getByRole("button", { name: "Ask AI coach" }).click();
+  await page.getByRole("button", { name: "Ask demo coach" }).click();
   await expect(page.locator("#coachStatus")).toContainText("Response ready");
   await expect(page.locator("#coachOutput")).toContainText("Topic explanation");
   await expect(page.locator("#coachOutput")).toContainText("Misconception help");
@@ -74,12 +74,12 @@ test.describe("Soma Study Coach student smoke", () => {
   test("reference app shows honest quota and network errors", async ({ page }, testInfo) => {
     await page.goto("/reference/index.html");
     await page.locator("#studentQuestionInput").fill("quota-test: explain this topic");
-    await page.getByRole("button", { name: "Ask AI coach" }).click();
-    await expect(page.locator("#coachStatus")).toContainText("AI unavailable");
+    await page.getByRole("button", { name: "Ask demo coach" }).click();
+    await expect(page.locator("#coachStatus")).toContainText("Coach unavailable");
     await expect(page.locator("#coachOutput")).toContainText("quota");
 
     await page.locator("#studentQuestionInput").fill("network-test: explain this topic");
-    await page.getByRole("button", { name: "Ask AI coach" }).click();
+    await page.getByRole("button", { name: "Ask demo coach" }).click();
     await expect(page.locator("#coachOutput")).toContainText("temporarily unavailable");
     await saveFullPage(page, testInfo, "reference-errors");
   });
@@ -87,12 +87,12 @@ test.describe("Soma Study Coach student smoke", () => {
   test("reference and starter block personal-data prompts before provider use", async ({ page }, testInfo) => {
     await page.goto("/reference/index.html");
     await page.locator("#studentQuestionInput").fill("My name is Amina and I got 20 marks out of 100. Help me.");
-    await page.getByRole("button", { name: "Ask AI coach" }).click();
+    await page.getByRole("button", { name: "Ask demo coach" }).click();
     await expect(page.locator("#coachOutput")).toContainText("Remove personal data");
     await saveFullPage(page, testInfo, "reference-safety");
 
     await page.locator("#studentQuestionInput").fill("Explain mixtures using a local example.");
-    await page.getByRole("button", { name: "Ask AI coach" }).click();
+    await page.getByRole("button", { name: "Ask demo coach" }).click();
     await expect(page.locator("#coachStatus")).toContainText("Response ready");
     await page.locator("#followUpInput").fill("My school name is Test Academy. Help me.");
     await page.getByRole("button", { name: /^Ask$/ }).click();
