@@ -2,6 +2,14 @@
 
 Use this guide to run the 6-session project studio.
 
+This folder is the live-session runbook. The deeper lecture material lives in
+`../docs/workshop/`. Use both together:
+
+- `workshop/` tells mentors what to run each session.
+- `docs/workshop/` teaches the concepts in more detail.
+- `../docs/workshop/concept-to-code-map.md` connects sessions, lessons, files,
+  labs, and AI coding prompts.
+
 ## What Students Build
 
 A browser-based education MVP with a simple intelligence layer:
@@ -30,6 +38,17 @@ pick a Grade 7 Integrated Science topic -> ask a study question -> call /api/coa
 | 5 | [Testing and responsible AI](./05-testing-responsible-ai.md) | Test cases, progress checks, bug fixes, responsible AI note |
 | 6 | [Demo and pitch](./06-demo-pitch.md) | Final demo script, README, project reflection |
 
+## Session To Deep Lesson Map
+
+| Session | Deep Lessons | Code/Lab Tie-Back |
+|---|---|---|
+| 1 | [Where LLMs Fit](../docs/workshop/lessons/09-where-llms-fit.md), [Agents](../docs/workshop/lessons/10-agents.md), [Build Your Own](../docs/workshop/lessons/12-build-your-own.md) | [Concept map](../docs/workshop/concept-to-code-map.md#session-to-lesson-map) |
+| 2 | [How Web Apps Work](../docs/workshop/lessons/01-how-web-apps-work.md), [Frontend Walkthrough](../docs/workshop/lessons/03-frontend-walkthrough.md) | [Lab A](../docs/workshop/labs/README.md#lab-a-change-one-ui-section-safely) |
+| 3 | [Data And Context](../docs/workshop/lessons/04-data-and-context.md), [LLM Prompts](../docs/workshop/lessons/05-llm-prompts.md), [Calling The LLM](../docs/workshop/lessons/06-calling-the-llm.md) | [Lab B](../docs/workshop/labs/README.md#lab-b-add-a-new-topic-pack), [Lab C](../docs/workshop/labs/README.md#lab-c-edit-a-tutor-prompt-and-compare-output) |
+| 4 | [Parsing And Rendering](../docs/workshop/lessons/07-parsing-and-rendering.md), [Language And Swahili](../docs/workshop/lessons/08-language-and-swahili.md) | [Lab E](../docs/workshop/labs/README.md#lab-e-add-swahili-answer-mode), [Lab F](../docs/workshop/labs/README.md#lab-f-debug-a-bad-json-response) |
+| 5 | [Safety And Variability](../docs/workshop/lessons/11-safety-and-variability.md), [Where LLMs Fit](../docs/workshop/lessons/09-where-llms-fit.md) | [Lab G](../docs/workshop/labs/README.md#lab-g-replace-a-wasteful-llm-call-with-normal-code) |
+| 6 | [Build Your Own](../docs/workshop/lessons/12-build-your-own.md) | [Rubric](../docs/mentor/rubric.md) |
+
 ## First Session Checklist
 
 Before session 1:
@@ -50,7 +69,8 @@ Each session:
 For deeper teaching material, use `../docs/workshop/README.md`. It adds
 lecture-style lessons on web apps, Soma architecture, frontend code, LLM calls,
 prompts, multilingual use, agents, safety, variability and reputable self-study
-sources.
+sources. Use `../docs/workshop/concept-to-code-map.md` when students need to
+connect a concept to the exact files and AI coding prompts.
 
 ## Technical Rules
 

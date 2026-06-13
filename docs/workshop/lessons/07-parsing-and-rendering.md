@@ -57,6 +57,18 @@ render answer sections
 | `reference/app.js` | `normalizeCoachResponse()` and `renderCoachResponse()` prepare UI. |
 | `docs/api-coach-contract.md` | Documents required request/response fields. |
 
+## Map To Soma Code
+
+- Parse provider text: `api/coach.js` `parseGeminiJson()`.
+- Normalize provider result: `api/coach.js` `normalizeGeminiResponse()`.
+- Mock response shape: `lib/coach-core.js` `makeCoachResponse()`.
+- Frontend response check: `reference/app.js` `normalizeCoachResponse()`.
+- Render answer sections: `reference/app.js` `renderCoachResponse()`.
+- Render study plan: `reference/app.js` `renderPlan()`.
+- Render debug parsed response: `reference/app.js` `renderDebug()`.
+- Related lab: [Lab F: Debug A Bad JSON Response](../labs/README.md#lab-f-debug-a-bad-json-response).
+- Helpful prompt: [Response Not Rendering](../../student/ai-coding-prompts.md#response-not-rendering).
+
 ## Worked Soma Example
 
 The server attempts to parse Gemini text:

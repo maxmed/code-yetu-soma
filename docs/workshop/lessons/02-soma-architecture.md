@@ -70,6 +70,18 @@ Browser renders answer, resources, plan, Debug Lab
 | `.env.example` | Shows the server-side environment variables for Gemini mode. |
 | `docs/api-coach-contract.md` | Documents the request and response shape. |
 
+## Map To Soma Code
+
+- Public app entry point: `/` -> `reference/index.html`.
+- Browser request builder: `reference/app.js` `buildCoachContext()`.
+- Browser API call: `reference/app.js` `askStudyCoach()`.
+- Server endpoint: `api/coach.js` exported handler.
+- Mock mode: `lib/coach-core.js` `buildCoachResult()`.
+- Gemini mode: `api/coach.js` `callGemini()` and `buildGeminiCall()`.
+- Local server route: `scripts/mock-coach-server.js`.
+- Deployment route: `vercel.json`.
+- Helpful prompt: [Fix /api/coach 404 Or 429](../../student/ai-coding-prompts.md#fix-apicoach-404-or-429).
+
 ## Request Flow
 
 The frontend builds a context object with:

@@ -1,7 +1,17 @@
 # Soma Workshop Course
 
 This course turns Soma Study Coach into lecture material. Use it alongside the
-six-session project studio in `../../workshop/`.
+six-session project studio in [../../workshop/](../../workshop/).
+
+The two workshop folders have different jobs:
+
+- [../../workshop/](../../workshop/) is the facilitator runbook for the six live
+  sessions.
+- `./` is the deeper course: lectures, labs, source links, and concept-to-code
+  explanations.
+
+Use [concept-to-code-map.md](./concept-to-code-map.md) when students need to see
+how a lesson maps back to actual Soma files, labs, and AI coding prompts.
 
 The goal is not only to run the app. Students should understand how a web app is
 assembled, how the browser talks to a server, how the server calls an LLM, how
@@ -63,6 +73,16 @@ Use labs when students need hands-on practice.
 | E | Add Swahili answer mode. | `reference/data.js`, `reference/app.js`, `api/coach.js` |
 | F | Debug malformed JSON. | `api/coach.js`, `reference/app.js` |
 | G | Replace a wasteful LLM call with normal code. | `reference/app.js`, `lib/coach-core.js` |
+
+## Concept To Code Map
+
+Use [concept-to-code-map.md](./concept-to-code-map.md) to connect:
+
+- each root `workshop/` session,
+- each deep lesson,
+- the relevant project files,
+- the matching lab,
+- the useful AI coding prompt in `../student/ai-coding-prompts.md`.
 
 ## Source Standard
 

@@ -53,6 +53,18 @@ browser renders structured answer
 | `docs/api-coach-contract.md` | Documents the app-level request and response contract. |
 | `docs/testing-debugging.md` | Shows how to inspect Debug Lab and avoid leaking keys. |
 
+## Map To Soma Code
+
+- Server endpoint: `api/coach.js` `module.exports = async function handler`.
+- Provider model default: `api/coach.js` `GEMINI_MODEL`.
+- Provider request builder: `api/coach.js` `buildGeminiCall()`.
+- Provider call: `api/coach.js` `callGemini()`.
+- Provider error wording: `api/coach.js` `providerErrorMessage()`.
+- Mock fallback: `api/coach.js` `if (!GEMINI_API_KEY)`.
+- Lab settings UI: `reference/index.html` experiment controls.
+- Related lab: [Lab D: Change Model Settings And Observe Variability](../labs/README.md#lab-d-change-model-settings-and-observe-variability).
+- Helpful prompt: [Fix /api/coach 404 Or 429](../../student/ai-coding-prompts.md#fix-apicoach-404-or-429).
+
 ## Important Settings
 
 Model:

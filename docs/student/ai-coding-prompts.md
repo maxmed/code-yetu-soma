@@ -2,6 +2,10 @@
 
 Use these when stuck. Paste only the relevant code, not your whole project unless needed.
 
+For help choosing the right prompt, use
+`../workshop/concept-to-code-map.md#code-prompts-by-task`. It maps workshop
+concepts to code files, labs, and the prompt that fits the task.
+
 ## Generate A Project Plan
 
 ```text

@@ -58,11 +58,12 @@ Mentor-facing workshop docs live in `mentor/`:
 - `mentor/curriculum-source.md`
 - `mentor/rubric.md`
 
-Lecture-style workshop course material lives in `workshop/`:
+Lecture-style workshop course material lives in `docs/workshop/`:
 
 - `workshop/README.md`
 - `workshop/sources.md`
 - `workshop/lesson-template.md`
+- `workshop/concept-to-code-map.md`
 - `workshop/lessons/01-how-web-apps-work.md`
 - `workshop/lessons/02-soma-architecture.md`
 - `workshop/lessons/03-frontend-walkthrough.md`

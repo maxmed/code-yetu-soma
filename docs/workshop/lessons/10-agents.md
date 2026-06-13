@@ -86,6 +86,18 @@ continue or stop
 | `lib/coach-core.js` | Deterministic fallback logic for safe testing. |
 | `docs/api-safety-checklist.md` | Guardrails that would matter even more for agents. |
 
+## Map To Soma Code
+
+- Observe selected setup/topic/question: `reference/app.js` `buildCoachContext()`.
+- Act by calling one tool-like endpoint: `reference/app.js` `askStudyCoach()`.
+- Follow-up state: `reference/app.js` `state.lastContext` and follow-up handler.
+- Tool boundary: `api/coach.js` `/api/coach` handler.
+- Guardrails: `api/coach.js` `getLabConfig()` and `lib/coach-core.js`
+  `hasPersonalData()`.
+- Current app is not autonomous: there is no loop that chooses tools without a
+  user click.
+- Helpful prompt: [Generate A Project Plan](../../student/ai-coding-prompts.md#generate-a-project-plan).
+
 ## Tool Design Questions
 
 Before giving an agent a tool, ask:

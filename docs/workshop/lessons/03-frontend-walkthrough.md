@@ -66,6 +66,20 @@ Soma's frontend uses plain JavaScript so students can see the full chain.
 | `reference/app.js` | `renderDebug()` | Turns debug JSON into learner-readable panels. |
 | `reference/data.js` | `topicPacks` | Supplies local curriculum-style content. |
 
+## Map To Soma Code
+
+- Topic dropdown: `reference/index.html` `topicSelect`.
+- Question box: `reference/index.html` `studentQuestionInput`.
+- Ask button: `reference/index.html` `coachButton`.
+- Element lookup: `reference/app.js` `const elements = ...`.
+- Selected topic lookup: `reference/app.js` `getTopic()`.
+- Context builder: `reference/app.js` `buildCoachContext()`.
+- API call: `reference/app.js` `askStudyCoach()`.
+- Answer rendering: `reference/app.js` `renderCoachResponse()`.
+- Debug rendering: `reference/app.js` `renderDebug()`.
+- Helpful prompts: [Prompt Preview Not Showing](../../student/ai-coding-prompts.md#prompt-preview-not-showing),
+  [Response Not Rendering](../../student/ai-coding-prompts.md#response-not-rendering).
+
 ## Worked Soma Example: Topic Summary
 
 In `reference/data.js`, a topic has fields like:

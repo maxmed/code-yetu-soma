@@ -58,6 +58,18 @@ mentor checks quality and code-switching
 | `api/coach.js` | `buildGeminiCall()` would include language instructions. |
 | `tests/soma-student.spec.js` | Tests should cover the language path if it is added. |
 
+## Map To Soma Code
+
+- Current page language: `reference/index.html` `lang="en"`.
+- Possible language selector location: `reference/index.html` setup or advanced
+  options.
+- Language context field: `reference/app.js` `buildCoachContext()`.
+- Translated labels or vocabulary: `reference/data.js`.
+- Server prompt instruction: `api/coach.js` `buildGeminiCall()`.
+- Test coverage: `tests/soma-student.spec.js`.
+- Related lab: [Lab E: Add Swahili Answer Mode](../labs/README.md#lab-e-add-swahili-answer-mode).
+- Helpful prompt: [Make The UI Clearer](../../student/ai-coding-prompts.md#make-the-ui-clearer).
+
 ## UI Language Versus Answer Language
 
 UI language means labels like:

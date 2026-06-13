@@ -62,6 +62,17 @@ Can we provide safe, relevant context?
 | Explain a misconception | LLM through `/api/coach` | Needs language generation. |
 | Build a study plan | LLM through `/api/coach` | Needs flexible adaptation. |
 
+## Map To Soma Code
+
+- Normal-code counting: `reference/app.js` `updatePracticeBadge()`.
+- Normal-code local progress: `reference/app.js` `readProgress()` and
+  `writeProgress()`.
+- Local-data display: `reference/app.js` `renderTopicSummary()`.
+- LLM-backed call: `reference/app.js` `askStudyCoach()`.
+- Mock LLM-shaped result: `lib/coach-core.js` `makeCoachResponse()`.
+- Related lab: [Lab G: Replace A Wasteful LLM Call With Normal Code](../labs/README.md#lab-g-replace-a-wasteful-llm-call-with-normal-code).
+- Helpful prompt: [Add Test Cases](../../student/ai-coding-prompts.md#add-test-cases).
+
 ## Worked Soma Example
 
 `updatePracticeBadge()` counts answered practice questions. This should not call

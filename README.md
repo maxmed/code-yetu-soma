@@ -53,6 +53,7 @@ code-yetu-soma/
 │   │   ├── README.md
 │   │   ├── sources.md
 │   │   ├── lesson-template.md
+│   │   ├── concept-to-code-map.md
 │   │   ├── lessons/
 │   │   │   ├── 01-how-web-apps-work.md
 │   │   │   ├── 02-soma-architecture.md
@@ -134,7 +135,8 @@ the codebase. It links to:
 - `docs/extend-soma.md` - beginner extension tasks.
 - `docs/api-safety-checklist.md` - key, data, AI honesty, and debug checks.
 - `docs/workshop/` - lecture-style course material, labs, and reputable
-  self-study sources.
+  self-study sources, including a concept-to-code map that links lessons to
+  files, labs, and AI coding prompts.
 - `docs/student/` - student handout, limits, project cards, and AI coding prompts.
 - `docs/mentor/` - facilitator guide, curriculum source notes, and demo rubric.
 

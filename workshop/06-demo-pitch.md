@@ -4,6 +4,13 @@
 
 Teams polish their app and prepare for showcase.
 
+Deepen this session:
+
+- [Build Your Own](../docs/workshop/lessons/12-build-your-own.md)
+- [Project Rubric](../docs/mentor/rubric.md)
+- [Student Handout](../docs/student/handout.md)
+- [Add Responsible AI Note prompt](../docs/student/ai-coding-prompts.md#add-responsible-ai-note)
+
 ## Students Build
 
 - final demo flow
@@ -66,4 +73,3 @@ Mentors/judges can ask:
 - What would happen with real student data?
 - What was the hardest bug you fixed?
 - What would you build next?
-

@@ -62,6 +62,18 @@ server prompt and structured response
 | `api/coach.js` | `buildGeminiCall()` turns context into a server-side prompt. |
 | `docs/mentor/curriculum-source.md` | Explains the sample-content boundary. |
 
+## Map To Soma Code
+
+- Topic pack array: `reference/data.js` `topicPacks`.
+- Scaffold topic pack: `starter/data.js`.
+- Topic summary UI: `reference/app.js` `renderTopicSummary()`.
+- Practice answers: `reference/app.js` `getPracticeAnswers()`.
+- Safe request context: `reference/app.js` `buildCoachContext()`.
+- Server prompt context: `api/coach.js` `buildGeminiCall()`.
+- Related lab: [Lab B: Add A New Topic Pack](../labs/README.md#lab-b-add-a-new-topic-pack).
+- Helpful prompts: [Create Dummy Data](../../student/ai-coding-prompts.md#create-dummy-data),
+  [Build The /api/coach Context](../../student/ai-coding-prompts.md#build-the-apicoach-context).
+
 ## Worked Soma Example
 
 In `reference/data.js`, the mixtures topic includes:

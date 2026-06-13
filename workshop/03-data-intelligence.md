@@ -4,6 +4,13 @@
 
 Teams add dummy data and write the first intelligent function.
 
+Deepen this session:
+
+- [Data And Context](../docs/workshop/lessons/04-data-and-context.md)
+- [LLM Prompts](../docs/workshop/lessons/05-llm-prompts.md)
+- [Calling The LLM](../docs/workshop/lessons/06-calling-the-llm.md)
+- [Build The /api/coach Context prompt](../docs/student/ai-coding-prompts.md#build-the-apicoach-context)
+
 ## Students Build
 
 - JavaScript data array

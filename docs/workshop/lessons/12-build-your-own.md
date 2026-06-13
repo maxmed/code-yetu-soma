@@ -64,6 +64,20 @@ Every team should define:
 | `docs/mentor/rubric.md` | Demo and evaluation criteria. |
 | `docs/workshop/labs/README.md` | Practice tasks for common changes. |
 
+## Map To Soma Code
+
+- Study the full pattern: `reference/`.
+- Build from the smaller scaffold: `starter/`.
+- Add local data first: `starter/data.js` or `reference/data.js`.
+- Build one safe request: `starter/app.js` or `reference/app.js`
+  `buildCoachContext()`.
+- Keep one endpoint: `api/coach.js`.
+- Keep mock testing: `lib/coach-core.js`.
+- Add project tests: `tests/soma-student.spec.js`.
+- Helpful prompts: [Generate A Project Plan](../../student/ai-coding-prompts.md#generate-a-project-plan),
+  [Create Dummy Data](../../student/ai-coding-prompts.md#create-dummy-data),
+  [Add Responsible AI Note](../../student/ai-coding-prompts.md#add-responsible-ai-note).
+
 ## Capstone Checklist
 
 Before demo, each team should answer:

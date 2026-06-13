@@ -4,6 +4,13 @@
 
 Teams test their MVP, fix bugs, and explain limitations.
 
+Deepen this session:
+
+- [Safety And Variability](../docs/workshop/lessons/11-safety-and-variability.md)
+- [Where LLMs Fit](../docs/workshop/lessons/09-where-llms-fit.md)
+- [Testing And Debugging](../docs/testing-debugging.md)
+- [Add Test Cases prompt](../docs/student/ai-coding-prompts.md#add-test-cases)
+
 ## Students Build
 
 - 5 test cases

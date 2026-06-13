@@ -4,6 +4,13 @@
 
 Teams choose an education problem, define a user, and decide what "intelligence" their app will include.
 
+Deepen this session:
+
+- [Where LLMs Fit](../docs/workshop/lessons/09-where-llms-fit.md)
+- [Agents](../docs/workshop/lessons/10-agents.md)
+- [Build Your Own](../docs/workshop/lessons/12-build-your-own.md)
+- [Generate A Project Plan prompt](../docs/student/ai-coding-prompts.md#generate-a-project-plan)
+
 ## Students Build
 
 - project idea

@@ -61,6 +61,19 @@ student answer + limitations
 | `tests/soma-student.spec.js` | Checks safety and error paths. |
 | `docs/api-safety-checklist.md` | Checklist for review before release. |
 
+## Map To Soma Code
+
+- Frontend personal-data patterns: `reference/app.js` `personalDataPatterns`.
+- Frontend block UI: `reference/app.js` `showPersonalDataError()`.
+- Server personal-data check: `lib/coach-core.js` `hasPersonalData()` and
+  `api/coach.js` request handling.
+- Honest error rendering: `reference/app.js` `renderError()`.
+- Quota/network mock triggers: `lib/coach-core.js` `buildCoachResult()`.
+- Safety tests: `tests/soma-student.spec.js`.
+- Safety checklist: `docs/api-safety-checklist.md`.
+- Helpful prompts: [Personal Data In Context](../../student/ai-coding-prompts.md#personal-data-in-context),
+  [Add Responsible AI Note](../../student/ai-coding-prompts.md#add-responsible-ai-note).
+
 ## Variability
 
 The same prompt can produce different answers. Reasons include:
