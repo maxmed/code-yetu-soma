@@ -75,6 +75,18 @@ Small Node server for local development. It serves the static app and connects
 End-to-end student smoke tests. These tests are the best quick check before a
 demo.
 
+## Design Docs
+
+`docs/design/ui-principles-for-students.md`
+
+Student-facing principles for designing learning apps that are beautiful,
+functional, engaging, accessible, and safe.
+
+`docs/design/ui-redesign-brief.md`
+
+Review draft for the next Soma public demo UI redesign. It includes desktop,
+mobile, and Debug Lab wireframes plus review criteria.
+
 ## Workshop Material
 
 `docs/workshop/sessions/`
