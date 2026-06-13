@@ -46,7 +46,9 @@ Deepen this session:
 
 ## How To Run
 
-Open index.html in a browser.
+Run `npm run serve:mock`, then open `http://127.0.0.1:8787/`.
+Use `http://127.0.0.1:8787/starter/index.html` only if your project is still
+based on the starter scaffold.
 
 ## Limitations
 

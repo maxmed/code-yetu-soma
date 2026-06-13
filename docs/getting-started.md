@@ -169,10 +169,18 @@ know how to see whether the page has a red JavaScript error before moving on.
 
 ## 8. Run The Smoke Tests
 
-In a second terminal from the repo root, run:
+Keep the learning server open in the first terminal. In a second terminal from
+the repo root, run the tests on a separate port so Playwright does not collide
+with the server already using `8787`:
 
 ```bash
-npm run test:e2e
+SOMA_TEST_PORT=8790 npm run test:e2e
+```
+
+On Windows PowerShell, use:
+
+```powershell
+$env:SOMA_TEST_PORT=8790; npm run test:e2e
 ```
 
 Expected: the Playwright student-flow tests pass. If they fail, read the first

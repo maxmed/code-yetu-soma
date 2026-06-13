@@ -40,8 +40,13 @@ Data = what the app reasons over
 
 ## Activity 1: Run The Scaffold
 
-Open `starter/index.html` in a browser or through the local server at
-`/starter/index.html`.
+Use the local server path, not a `file://` browser open:
+
+```text
+http://127.0.0.1:8787/starter/index.html
+```
+
+The server path matters because later labs use `/api/coach`.
 
 Check:
 

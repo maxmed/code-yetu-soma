@@ -32,8 +32,23 @@ server command uses Gemini provider mode.
 
 ## Test
 
+If no local server is already running, use:
+
 ```bash
 npm run test:e2e
+```
+
+If `npm run serve:mock` is already running on `8787`, keep it open and run the
+tests on a separate port:
+
+```bash
+SOMA_TEST_PORT=8790 npm run test:e2e
+```
+
+On Windows PowerShell:
+
+```powershell
+$env:SOMA_TEST_PORT=8790; npm run test:e2e
 ```
 
 Expected result: the Playwright student-flow tests pass.
