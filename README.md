@@ -115,11 +115,12 @@ Before publishing the live demo:
 3. Verify `/api/coach` behavior, including quota/error states.
 4. Deploy the static app and `/api/coach` adapter. The repo includes
    `api/coach.js` and `vercel.json` for a Vercel-style deployment.
-5. Add the live demo URL to this README.
-6. Re-test the deployed URL from a clean browser.
-7. For real Gemini answers, set `GEMINI_API_KEY` in the Vercel environment and
-   redeploy. Optional: set `GEMINI_MODEL`; otherwise the default is
-   `gemini-2.0-flash`.
+5. For real Gemini answers, set `GEMINI_API_KEY` in the host environment. The
+   same variable works locally in `.env` and in Vercel or another deployment
+   provider's environment-variable settings.
+6. Add the live demo URL to this README.
+7. Re-test the deployed URL from a clean browser.
+8. Optional: set `GEMINI_MODEL`; otherwise the default is `gemini-2.0-flash`.
 
 ## Local Mock And E2E Smoke
 
@@ -146,7 +147,15 @@ npm run serve:mock
 Then open `http://127.0.0.1:8787/reference/index.html` or
 `http://127.0.0.1:8787/starter/index.html`.
 
-## Local Gemini Config
+## Environment Config
+
+Use `.env.example` as the shared template for local development and deployment.
+It contains only provider configuration:
+
+```text
+GEMINI_API_KEY=
+GEMINI_MODEL=gemini-2.0-flash
+```
 
 For a local real-Gemini test, create a private `.env` file from the example:
 
@@ -155,8 +164,12 @@ cp .env.example .env
 ```
 
 Edit `.env` and set `GEMINI_API_KEY` to the organizer-owned key. Do not commit
-`.env` or paste the key into chat. `npm run serve:mock` loads `.env`
-automatically before serving `/api/coach`.
+`.env` or paste the key into chat. For deployment, set the same variables in the
+hosting provider's server-side environment variables, for example Vercel Project
+Settings -> Environment Variables. Never put provider keys in frontend
+JavaScript.
+
+`npm run serve:mock` loads `.env` automatically before serving `/api/coach`.
 
 ```bash
 npm run serve:mock
@@ -164,18 +177,9 @@ npm run serve:mock
 
 Then open `http://127.0.0.1:8787/reference/index.html`.
 
-Only use `SOMA_TEST_PORT` if port 8787 is already busy and you cannot stop the
-old local server. It is not needed for normal local testing or deployment.
-
-For deployment, do not upload `.env`. Set the same `GEMINI_API_KEY` value in the
-hosting provider's server-side environment variables, for example Vercel Project
-Settings -> Environment Variables, then redeploy.
-
-Temporary alternate-port example:
-
-```bash
-SOMA_TEST_PORT=8788 npm run serve:mock
-```
+If port 8787 is already busy, stop the old local server. Port overrides are
+local test plumbing and are not part of the shared environment template or
+deployment setup.
 
 ## Default Starter Project
 
