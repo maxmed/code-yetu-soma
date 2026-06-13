@@ -8,6 +8,18 @@
     {
       "source": "/index.html",
       "destination": "/reference/index.html"
+    },
+    {
+      "source": "/style.css",
+      "destination": "/reference/style.css"
+    },
+    {
+      "source": "/data.js",
+      "destination": "/reference/data.js"
+    },
+    {
+      "source": "/app.js",
+      "destination": "/reference/app.js"
     }
   ]
 }

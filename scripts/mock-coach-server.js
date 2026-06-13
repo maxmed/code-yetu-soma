@@ -72,6 +72,9 @@ function serveStatic(request, response) {
   if (pathname === "/" || pathname === "/index.html") {
     pathname = "/reference/index.html";
   }
+  if (["/style.css", "/data.js", "/app.js"].includes(pathname)) {
+    pathname = `/reference${pathname}`;
+  }
 
   const filePath = path.normalize(path.join(rootDir, pathname));
   if (!filePath.startsWith(rootDir)) {
