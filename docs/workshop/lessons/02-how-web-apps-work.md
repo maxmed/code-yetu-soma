@@ -12,8 +12,13 @@ style and behavior that make a page feel alive.
 
 ## Try This Now
 
-Open Soma, press F12, choose the Elements tab, and hover over the Ask coach
-button. Watch the browser highlight the exact HTML element behind the button.
+Open Soma at `http://127.0.0.1:8787/`. Open browser developer tools:
+
+- Chrome/Edge on Windows or Linux: press `F12` or `Ctrl+Shift+I`.
+- Chrome/Edge/Safari on Mac: press `Cmd+Option+I`.
+
+Choose the Elements tab and hover over the Ask coach button. Watch the browser
+highlight the exact HTML element behind the button.
 
 ## Real-World Connection
 
@@ -178,16 +183,16 @@ Task: Change the sample question text for one topic.
 
 Steps:
 
-1. Open `reference/data.js`.
+1. Open `starter/data.js`.
 2. Find a topic's `sampleQuestion`.
 3. Change it to a new learning question.
-4. Reload the app.
+4. Reload `http://127.0.0.1:8787/starter/index.html`.
 5. Click **Use sample**.
 
 Expected result: the textarea shows the new sample question.
 
-Stretch: change one vocabulary definition and check that the topic summary
-updates.
+Stretch after the starter works: repeat the same kind of change in
+`reference/data.js` and compare the polished app with the starter scaffold.
 
 ## Reflection Questions
 

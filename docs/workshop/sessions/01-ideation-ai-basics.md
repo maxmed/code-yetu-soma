@@ -49,6 +49,11 @@ wrong, and who checks it.
 
 ## Activity 1: See AI Around You
 
+Start with one short media hook from
+[Lesson 1: Media Hook](../lessons/01-ai-history-and-future.md#media-hook-watch-ai-become-visible):
+robots, self-driving cars, robotics research, or creative video AI. Keep it
+short. The point is excitement plus questions, not hype.
+
 Students list places they have seen AI or machine learning:
 
 - translation,
@@ -129,6 +134,9 @@ Mentor shows the setup path students will use next:
 4. [Deploy To Vercel](../../deploy-vercel.md) for public demos later
 
 Students do not need a Gemini key for Session 1. Mock/demo mode is enough.
+
+Celebration checkpoint: each student should be able to say, "I opened Soma,
+asked one safe question, and found what data the app used."
 
 ## Team Output Template
 

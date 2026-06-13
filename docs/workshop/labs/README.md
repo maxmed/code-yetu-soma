@@ -49,9 +49,11 @@ Task:
 
 Stretch after the starter works:
 
-1. Find the same kind of visible label in `reference/index.html`.
+1. With a mentor, find the same kind of visible label in
+   `reference/index.html`.
 2. Change only visible text, not IDs.
-3. Run `npm run test:e2e`.
+3. If the learning server is still running, run
+   `SOMA_TEST_PORT=8790 npm run test:e2e`.
 4. If a test expects the old label, update the test intentionally with a mentor.
 
 Discussion:

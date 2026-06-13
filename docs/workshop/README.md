@@ -72,6 +72,26 @@ Every lesson follows the same pattern:
 - mentor notes,
 - deeper reading from reputable sources.
 
+Core vocabulary for beginners:
+
+| Term | Plain meaning in this workshop |
+|---|---|
+| DOM | The browser's live tree of page elements such as buttons, inputs, and sections. |
+| event listener | JavaScript that waits for an action such as a click. |
+| `fetch()` | The browser command that asks a server route for data. |
+| endpoint | A server URL that accepts a request, such as `/api/coach`. |
+| context | The safe topic data and question the app sends to the coach. |
+| mock mode | Local deterministic answers for learning and testing without a real AI key. |
+| provider mode | Server-side Gemini calls after a private key is configured. |
+
+Build in small confidence loops:
+
+1. Make one visible change.
+2. Hard refresh.
+3. Check the browser console.
+4. Show a teammate.
+5. Say what changed and what stayed safe.
+
 ## Lesson Path
 
 | Lesson | Topic | What Students Learn |

@@ -72,8 +72,10 @@ Each session:
 
 1. 10 minutes: explain the concept.
 2. 10 minutes: show one Soma Study Coach layer.
-3. 40-70 minutes: teams build.
-4. 10 minutes: teams share what changed.
+3. 5 minutes: pair check - each student explains one thing they just saw.
+4. 35-60 minutes: teams build.
+5. 5 minutes: checkpoint - celebrate one visible change or one bug understood.
+6. 10 minutes: teams share what changed.
 
 For deeper teaching material, use the [Workshop Course](../README.md) and
 [Lesson Index](../lessons/README.md). They add lecture-style lessons on web

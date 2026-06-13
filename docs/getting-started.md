@@ -16,6 +16,14 @@ mode, prove the app works, then add the key later.
 - Optional later: a Google account for Google AI Studio.
 - Optional later: a Vercel account for deployment.
 
+Terminal basics:
+
+- A terminal is the text window where you run commands.
+- Run one command at a time and press Enter.
+- Keep the server terminal open while you use the app.
+- If a command says `Ctrl+C`, hold Control and press C to stop the running
+  server.
+
 References for deeper detail:
 
 - [Local Setup](./local-setup.md)
