@@ -47,7 +47,7 @@ Weak examples:
 
 | If students want to... | Change these files | Keep this contract |
 |---|---|---|
-| add a new science topic | `reference/data.js`, `starter/data.js` | Topic objects keep the same fields. |
+| add a new science topic | `starter/data.js`, then `reference/data.js` | Topic objects keep the same fields. |
 | change page text or layout | `reference/index.html`, `reference/style.css` | Existing IDs stay stable unless JS and tests change too. |
 | add a new visible answer section | `api/coach.js`, `lib/coach-core.js`, `reference/app.js`, tests, API docs | Server, mock mode, renderer, and tests all know the new field. |
 | change what context is sent | `reference/app.js`, `starter/app.js`, `docs/api-coach-contract.md` | Browser still calls only `/api/coach`. |
@@ -122,8 +122,11 @@ Do not only change the frontend.
 Before demo, run:
 
 ```bash
-npm run test:e2e
+SOMA_TEST_PORT=8790 npm run test:e2e
 ```
+
+Use the port-safe test command if your local learning server is already open on
+`8787`.
 
 If you changed JavaScript, also run:
 

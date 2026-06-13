@@ -40,8 +40,11 @@ tasks.
 6. Run the student-flow smoke tests:
 
    ```bash
-   npm run test:e2e
+   SOMA_TEST_PORT=8790 npm run test:e2e
    ```
+
+   This keeps the learning server on `8787` open and lets Playwright use a
+   separate temporary port for tests.
 
 For the complete zero-to-hero beginner path, start with
 [docs/getting-started.md](docs/getting-started.md). It covers mock mode,

@@ -28,8 +28,11 @@ From the repo root:
 
 ```bash
 git status --short
-npm run test:e2e
+SOMA_TEST_PORT=8790 npm run test:e2e
 ```
+
+Use the port-safe test command if your local learning server is already open on
+`8787`.
 
 Before deploying with a real Gemini key, also check:
 

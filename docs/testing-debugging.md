@@ -136,3 +136,9 @@ node --check scripts/mock-coach-server.js
 git diff --check
 npm run test:e2e
 ```
+
+If the learning server is already running on `8787`, use the port-safe form:
+
+```bash
+SOMA_TEST_PORT=8790 npm run test:e2e
+```

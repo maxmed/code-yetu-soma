@@ -69,17 +69,21 @@ Goal: learn how local data powers the tutor.
 
 Main files:
 
-- `reference/data.js`
 - `starter/data.js`
+- `reference/data.js` after the starter pattern is clear
 
 Task:
 
-1. Copy an existing topic object.
+1. In `starter/data.js`, copy an existing topic object.
 2. Change `id`, `topic`, `summary`, `vocabulary`, `examples`,
    `misconceptions`, `resources`, `practiceQuestions`, and `sampleQuestion`.
-3. Reload the app and pick the new topic.
+3. Reload `http://127.0.0.1:8787/starter/index.html` and pick the new topic.
 4. Ask the sample question.
-5. Open Debug Lab and inspect the safe context.
+5. Click **Preview context** and inspect the safe context.
+
+Stretch after the starter works: repeat the topic-pack change in
+`reference/data.js`, then open Debug Lab in the polished app and compare the
+safe context.
 
 Discussion:
 

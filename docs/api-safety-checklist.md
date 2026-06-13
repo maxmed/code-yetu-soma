@@ -45,8 +45,10 @@ Setup](./gemini-key-setup.md) and [Deploy To Vercel](./deploy-vercel.md).
 rg -n "AIza|GEMINI_API_KEY|\\?key=" reference starter
 rg -n "AIza|key=AIza|GEMINI_API_KEY=[A-Za-z0-9_-]{20,}" . --glob '!node_modules/**' --glob '!.git/**'
 rg -n "includeLlmCall" reference tests
-npm run test:e2e
+SOMA_TEST_PORT=8790 npm run test:e2e
 ```
+
+Use `SOMA_TEST_PORT=8790` when the learning server is already open on `8787`.
 
 If `rg` is not installed, use:
 

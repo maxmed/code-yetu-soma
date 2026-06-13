@@ -11,8 +11,9 @@ give it the right topic pack and it can act like a focused study helper.
 
 ## Try This Now
 
-Open `reference/data.js`, change one topic's `sampleQuestion`, reload Soma,
-click Use sample, and confirm the question changed.
+Open `starter/data.js`, change one topic's `sampleQuestion`, reload
+`http://127.0.0.1:8787/starter/index.html`, click Use sample, and confirm the
+question changed. Later, compare the same pattern in `reference/data.js`.
 
 ## Real-World Connection
 
@@ -151,16 +152,17 @@ Task: add one new resource to a topic.
 
 Steps:
 
-1. Open `reference/data.js`.
+1. Open `starter/data.js`.
 2. Pick one topic.
 3. Add one item to its `resources` array.
-4. Reload the app.
+4. Reload `http://127.0.0.1:8787/starter/index.html`.
 5. Ask a question.
-6. Check whether the resource appears in the answer or Debug Lab.
+6. Check whether the resource appears in the answer or **Preview context**.
 
 Expected result: the new resource is available to the coach request.
 
-Stretch: add the same resource to `starter/data.js` and compare the two apps.
+Stretch after the starter works: add the same resource to `reference/data.js`
+and compare the polished app with the starter scaffold.
 
 ## Reflection Questions
 

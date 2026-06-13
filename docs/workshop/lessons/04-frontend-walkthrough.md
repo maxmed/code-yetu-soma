@@ -198,17 +198,19 @@ Task: Rename one answer section safely.
 
 Steps:
 
-1. Open `reference/app.js`.
-2. Find `renderCoachResponse()`.
+1. Open `starter/app.js`.
+2. Find `renderResponse()`.
 3. Change the visible heading `Topic explanation` to `Main idea`.
-4. Reload the app.
+4. Reload `http://127.0.0.1:8787/starter/index.html`.
 5. Ask a sample question.
 6. Confirm the section heading changed.
 
 Expected result: only the visible heading changes. The JSON field
 `topicExplanation` should not be renamed.
 
-Stretch: update the Playwright test if it expects the old visible text.
+Stretch after the starter works: inspect the same rendering pattern in
+`reference/app.js` `renderCoachResponse()`. Update Playwright tests only with a
+mentor if the polished app intentionally changes visible text.
 
 ## Reflection Questions
 

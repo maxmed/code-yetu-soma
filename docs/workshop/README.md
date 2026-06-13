@@ -124,7 +124,7 @@ Use labs when students need hands-on practice.
 | Lab | Task | Main Files |
 |---|---|---|
 | [A](./labs/README.md#lab-a-change-one-ui-section-safely) | Change one starter UI section safely. | `starter/index.html`, `starter/style.css`, `starter/app.js` |
-| [B](./labs/README.md#lab-b-add-a-new-topic-pack) | Add a new topic pack. | `reference/data.js`, `starter/data.js` |
+| [B](./labs/README.md#lab-b-add-a-new-topic-pack) | Add a new topic pack. | `starter/data.js`, then `reference/data.js` |
 | [C](./labs/README.md#lab-c-edit-a-tutor-prompt-and-compare-output) | Edit a tutor prompt and compare output. | Debug Lab, `api/coach.js` |
 | [D](./labs/README.md#lab-d-change-model-settings-and-observe-variability) | Change model settings and observe variability. | Debug Lab, `/api/coach` |
 | [E](./labs/README.md#lab-e-add-swahili-answer-mode) | Add Swahili answer mode. | `reference/data.js`, `reference/app.js`, `api/coach.js` |
