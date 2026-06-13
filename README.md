@@ -49,6 +49,16 @@ code-yetu-soma/
 │   ├── testing-debugging.md
 │   ├── extend-soma.md
 │   ├── api-safety-checklist.md
+│   ├── workshop/
+│   │   ├── README.md
+│   │   ├── sources.md
+│   │   ├── lesson-template.md
+│   │   ├── lessons/
+│   │   │   ├── 01-how-web-apps-work.md
+│   │   │   ├── 02-soma-architecture.md
+│   │   │   └── 03-frontend-walkthrough.md
+│   │   └── labs/
+│   │       └── README.md
 │   ├── student/
 │   │   ├── handout.md
 │   │   ├── ai-limits.md
@@ -114,6 +124,8 @@ the codebase. It links to:
 - `docs/testing-debugging.md` - Playwright, manual checks, and Debug Lab.
 - `docs/extend-soma.md` - beginner extension tasks.
 - `docs/api-safety-checklist.md` - key, data, AI honesty, and debug checks.
+- `docs/workshop/` - lecture-style course material, labs, and reputable
+  self-study sources.
 - `docs/student/` - student handout, limits, project cards, and AI coding prompts.
 - `docs/mentor/` - facilitator guide, curriculum source notes, and demo rubric.
 

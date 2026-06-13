@@ -45,6 +45,11 @@ Each session:
 3. 40-70 minutes: teams build.
 4. 10 minutes: teams share what changed.
 
+For deeper teaching material, use `../docs/workshop/README.md`. It adds
+lecture-style lessons on web apps, Soma architecture, frontend code, LLM calls,
+prompts, multilingual use, agents, safety, variability and reputable self-study
+sources.
+
 ## Technical Rules
 
 - Default to HTML/CSS/JavaScript only.
