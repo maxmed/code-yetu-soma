@@ -236,7 +236,7 @@ Teams can build a smaller version or remix the same pattern into a career explor
 
 ## Current Status
 
-This repo contains the workshop-facing material. Planning notes, architecture discussion, provider research, and build coordination stay in the Mica workspace.
+This repo contains the workshop-facing material.
 
 The current `reference/` app is tutor-first: Topic -> Question -> Your Answer,
 with Advanced Options and Under The Hood collapsed until needed. Local mock E2E
