@@ -111,7 +111,7 @@ the codebase. It links to:
 - `docs/code-map.md` - what each important file does.
 - `docs/api-coach-contract.md` - request/response contract for `/api/coach`.
 - `docs/local-setup.md` - local run, `.env`, tests, and deploy notes.
-- `docs/testing-debugging.md` - Playwright, manual checks, and Under The Hood.
+- `docs/testing-debugging.md` - Playwright, manual checks, and Debug Lab.
 - `docs/extend-soma.md` - beginner extension tasks.
 - `docs/api-safety-checklist.md` - key, data, AI honesty, and debug checks.
 - `docs/student/` - student handout, limits, project cards, and AI coding prompts.
@@ -124,7 +124,7 @@ Before this is public, it should be at least as complete as the previous Code Ye
 - full working `reference/` app,
 - tutor-first Study Helper / Topic Tutor flow,
 - local topic-pack loading,
-- opt-in visible safe context / prompt preview under Under The Hood,
+- learner-facing Debug Lab for safe context, prompt, model and parameter experiments,
 - `/api/coach` call with structured response rendering,
 - follow-up question flow,
 - local progress tracking,
@@ -151,7 +151,7 @@ Before publishing the live demo:
    provider's environment-variable settings.
 6. Add the live demo URL to this README.
 7. Re-test `/`, `/reference/index.html`, `/starter/index.html`, and `POST /api/coach` from a clean browser.
-8. Confirm the Under The Hood view does not show keys.
+8. Confirm the Debug Lab does not show keys.
 9. Optional: set `GEMINI_MODEL`; otherwise the default is `gemini-3.1-flash-lite`.
 
 ## Local Mock And E2E Smoke
@@ -225,12 +225,12 @@ The flagship reference app is Soma Study Coach, an AI-tutor demo using Grade 7 I
 - a student first picks a topic, asks a question, and reads the answer,
 - advanced help mode, grade/year, and learning-area controls stay available under Advanced Options,
 - the app loads local KICD/CBC-aligned sample topic content,
-- the app can show the safe context under the opt-in Under The Hood panel,
+- the app can open a Debug Lab that shows safe context, prompts, provider request shape and parsed response,
 - the app calls one shared `/api/coach` endpoint,
 - the coach endpoint returns an explanation, examples, misconception help, resources, or a study plan,
 - the app supports follow-up study questions,
 - the app tracks progress locally,
-- the app shows prompt/agent steps: observe, prepare context, ask coach endpoint, parse response, explain.
+- the app shows run steps: observe, prepare context, ask coach endpoint, parse response, explain.
 
 Teams can build a smaller version or remix the same pattern into a career explorer, school FAQ bot, reading helper, resource finder, support dashboard, or adaptive practice game.
 
@@ -239,7 +239,7 @@ Teams can build a smaller version or remix the same pattern into a career explor
 This repo contains the workshop-facing material.
 
 The current `reference/` app is tutor-first: Topic -> Question -> Your Answer,
-with Advanced Options and Under The Hood collapsed until needed. Local mock E2E
+with Advanced Options collapsed and Debug Lab hidden until needed. Local mock E2E
 covers reference and starter flows across desktop and mobile. The deploy adapter
 calls Gemini when `GEMINI_API_KEY` is configured and otherwise falls back to
 mock/demo responses.

@@ -9,7 +9,7 @@ Use this before demos, deployments, or major changes.
 - API keys are not in committed docs except as placeholder variable names.
 - `.env` is not committed.
 - `/api/coach` is the only provider path used by the browser.
-- Under The Hood does not show real key values or key-bearing URLs.
+- Debug Lab does not show real key values or key-bearing URLs.
 
 ## Student Data Safety
 

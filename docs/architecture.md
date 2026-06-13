@@ -56,7 +56,7 @@ coach call only works when `/api/coach` is available.
 2. Build a safe request object from the selected topic and student question.
 3. Send that request to `/api/coach`.
 4. Render the structured coach response.
-5. Show the optional Under The Hood debug view and Keep Learning section.
+5. Show the optional Debug Lab and Keep Learning section.
 
 ### Server endpoint
 
@@ -114,8 +114,9 @@ must be safe to show in the browser.
 
 ## Debug Boundary
 
-The Under The Hood view is for learning. It shows the safe request, prompt shape,
-provider request shape, raw return, parsed response, and boundary notes.
+The Debug Lab is for learning. It shows the safe request, prompt shape,
+provider request shape, raw return, parsed response, lab settings, and boundary
+notes.
 
 It must never show:
 

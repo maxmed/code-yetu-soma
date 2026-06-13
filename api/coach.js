@@ -28,6 +28,32 @@ function wantsDebug(payload) {
   return Boolean(payload?.debug?.includeLlmCall);
 }
 
+function getLabConfig(payload) {
+  const lab = payload?.debug?.lab;
+  const config = {};
+  if (!lab || typeof lab !== "object" || Array.isArray(lab)) {
+    return config;
+  }
+
+  if (typeof lab.model === "string" && /^[a-zA-Z0-9._:-]{3,80}$/.test(lab.model.trim())) {
+    config.model = lab.model.trim();
+  }
+  if (Number.isFinite(lab.temperature)) {
+    config.temperature = Math.max(0, Math.min(2, Number(lab.temperature)));
+  }
+  if (Number.isFinite(lab.maxOutputTokens)) {
+    config.maxOutputTokens = Math.max(256, Math.min(8192, Math.round(Number(lab.maxOutputTokens))));
+  }
+  if (typeof lab.systemPrompt === "string" && lab.systemPrompt.trim()) {
+    config.systemPrompt = lab.systemPrompt.trim().slice(0, 4000);
+  }
+  if (typeof lab.userPrompt === "string" && lab.userPrompt.trim()) {
+    config.userPrompt = lab.userPrompt.trim().slice(0, 2000);
+  }
+
+  return config;
+}
+
 function debugSnapshot(value) {
   if (value === null || value === undefined) {
     return value;
@@ -154,12 +180,13 @@ function parseGeminiJson(text) {
 }
 
 function buildGeminiCall(payload) {
+  const labConfig = getLabConfig(payload);
   const topic = payload?.studentSetup?.topic || "the selected topic";
   const snippet = payload?.curriculumContext?.snippets?.[0] || {};
   const mode = payload.mode || "learn-topic";
   const question = mode === "follow-up" ? payload.followUpQuestion : payload.studentQuestion;
 
-  const systemPrompt = `You are a Grade 7 Integrated Science study coach for Kenyan students (KICD/CBC curriculum).
+  const defaultSystemPrompt = `You are a Grade 7 Integrated Science study coach for Kenyan students (KICD/CBC curriculum).
 Topic: ${topic}
 Context: ${snippet.summary || "Use topic pack data."}
 Vocabulary: ${formatVocabulary(snippet.vocabulary)}
@@ -172,17 +199,25 @@ Rules:
 - Never store or ask for personal data
 - This is study support, not official marks or diagnosis`;
 
-  const userPrompt = mode === "follow-up"
+  const defaultUserPrompt = mode === "follow-up"
     ? `Follow-up question about ${topic}: ${question}`
     : `Student question: ${question}\n\nProvide: explanation, 2 examples, misconception help, and a 7-day study plan.`;
+  const systemPrompt = labConfig.systemPrompt || defaultSystemPrompt;
+  const userPrompt = labConfig.userPrompt || defaultUserPrompt;
+  const callGenerationConfig = {
+    ...generationConfig,
+    temperature: labConfig.temperature ?? generationConfig.temperature,
+    maxOutputTokens: labConfig.maxOutputTokens ?? generationConfig.maxOutputTokens
+  };
 
   return {
-    model: GEMINI_MODEL,
-    endpoint: `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`,
+    model: labConfig.model || GEMINI_MODEL,
+    endpoint: `https://generativelanguage.googleapis.com/v1beta/models/${labConfig.model || GEMINI_MODEL}:generateContent`,
+    labConfig,
     prompts: { systemPrompt, userPrompt },
     requestBody: {
       contents: [{ parts: [{ text: `${systemPrompt}\n\n${userPrompt}` }] }],
-      generationConfig
+      generationConfig: callGenerationConfig
     }
   };
 }
@@ -193,6 +228,7 @@ function buildGeminiDebug(call, payload, rawResponse = null, rawText = "", parse
     model: call.model,
     endpoint: call.endpoint,
     status,
+    labConfig: debugSnapshot(call.labConfig || {}),
     timestamp: new Date().toISOString(),
     note: "Provider key is held server-side and is never included in this debug view.",
     prompts: debugSnapshot(call.prompts),
@@ -207,18 +243,25 @@ function buildGeminiDebug(call, payload, rawResponse = null, rawText = "", parse
 }
 
 function buildMockDebug(payload, result) {
+  const labConfig = getLabConfig(payload);
+  const topic = payload?.studentSetup?.topic || "the selected topic";
+  const question = payload.mode === "follow-up" ? payload.followUpQuestion : payload.studentQuestion;
+  const defaultSystemPrompt = "Mock/demo mode uses local deterministic workshop logic instead of a provider prompt.";
+  const defaultUserPrompt = payload.mode === "follow-up"
+    ? `Follow-up question about ${topic}: ${question || ""}`
+    : `Student question: ${question || ""}`;
+
   return {
     provider: "mock",
-    model: "deterministic-demo",
+    model: labConfig.model || "deterministic-demo",
     endpoint: "/api/coach",
     status: result.status,
+    labConfig,
     timestamp: new Date().toISOString(),
     note: "No provider request was made because the server is in mock/demo mode.",
     prompts: {
-      systemPrompt: "Mock/demo mode uses local deterministic workshop logic instead of a provider prompt.",
-      userPrompt: payload.mode === "follow-up"
-        ? `Follow-up question: ${payload.followUpQuestion || ""}`
-        : `Student question: ${payload.studentQuestion || ""}`
+      systemPrompt: labConfig.systemPrompt || defaultSystemPrompt,
+      userPrompt: labConfig.userPrompt || defaultUserPrompt
     },
     browserRequestPayload: studentDebugPayload(payload),
     providerRequestBody: null,

@@ -15,7 +15,7 @@ calls that stay server-side.
    fit together.
 4. `code-map.md` - what each important file does.
 5. `api-coach-contract.md` - the request and response shape for `/api/coach`.
-6. `testing-debugging.md` - how to use tests and the Under The Hood view.
+6. `testing-debugging.md` - how to use tests and the Debug Lab view.
 7. `extend-soma.md` - safe beginner tasks for changing or extending the app.
 8. `student/handout.md` - student challenge and submission guide.
 9. `mentor/mentor-guide.md` - facilitator rhythm and check-in guide.
@@ -27,8 +27,7 @@ The reference app is now tutor-first:
 1. Pick a topic.
 2. Ask a question.
 3. Get an answer.
-4. Open Under The Hood only if you want to inspect context, prompts, and model
-   output.
+4. Open Debug Lab only if you want to inspect context, prompts, model settings, and model output.
 5. Use Keep Learning after the first answer for follow-up questions and a study
    plan.
 

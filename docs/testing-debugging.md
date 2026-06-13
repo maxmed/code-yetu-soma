@@ -45,22 +45,23 @@ Check:
 2. Keep Learning is hidden before the first successful answer.
 3. Ask coach returns a structured answer.
 4. Keep Learning appears after the answer.
-5. Under The Hood is collapsed by default.
-6. Opening Under The Hood shows safe context and debug information.
+5. Debug Lab is hidden by default.
+6. Opening Debug Lab shows safe context, prompt, model settings, request shape, and response details.
 7. No API key is shown.
 
-## Under The Hood View
+## Debug Lab View
 
-The Under The Hood panel is a teaching/debugging tool.
+The Debug Lab is a teaching and debugging view.
 
-Use it to inspect:
+Use it to inspect and experiment with:
 
 - browser request payload,
 - server prompt,
 - provider request shape,
 - raw return,
 - parsed response,
-- endpoint/model/status notes.
+- endpoint/model/status notes,
+- safe prompt/model/temperature/token overrides.
 
 Do not use it to show secrets. If a key or key-bearing URL appears in this view,
 that is a blocker.

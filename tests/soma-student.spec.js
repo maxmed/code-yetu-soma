@@ -11,12 +11,13 @@ async function runReferenceSuccess(page, testInfo) {
   await page.goto("/reference/index.html");
   await expect(page.getByRole("heading", { name: "Soma Study Coach" })).toBeVisible();
   await expect(page.locator("#keepLearningSection")).toBeHidden();
-  await expect(page.locator("details.under-the-hood")).not.toHaveAttribute("open", "");
+  await expect(page.locator("#debugLabSection")).toBeHidden();
   await expect(page.locator("#debugOutput")).toBeHidden();
 
   await page.locator("#topicSelect").selectOption("mixtures");
   await page.getByRole("button", { name: "Use sample" }).click();
-  await page.locator("details.under-the-hood summary").click();
+  await page.getByRole("button", { name: "Debug Lab" }).click();
+  await expect(page.locator("#debugLabSection")).toBeVisible();
   await page.getByRole("button", { name: "Show context" }).click();
   await expect(page.locator("#promptPreview")).toContainText("studentQuestion");
   await expect(page.locator("#promptPreview")).toContainText("Mixtures and separation");
@@ -38,6 +39,17 @@ async function runReferenceSuccess(page, testInfo) {
   await expect(page.locator("#debugOutput")).not.toContainText("?key=");
 
   await expect(page.locator("#keepLearningSection")).toBeVisible();
+  await page.locator("#labModelInput").fill("student-lab-model");
+  await page.locator("#labTemperatureInput").fill("0.2");
+  await page.locator("#labMaxTokensInput").fill("1024");
+  await page.locator("#labSystemPromptInput").fill("Explain like a patient tutor using one local example.");
+  await page.locator("#labUserPromptInput").fill("Answer the learner question and ask one check question.");
+  await page.getByRole("button", { name: "Run lab" }).click();
+  await expect(page.locator("#debugStatus")).toContainText("mock: student-lab-model");
+  await expect(page.locator("#debugOutput")).toContainText("Lab settings");
+  await expect(page.locator("#debugOutput")).toContainText("student-lab-model");
+  await expect(page.locator("#debugOutput")).toContainText("Explain like a patient tutor");
+
   await expect(page.locator("#planOutput input[type='checkbox']").first()).toBeVisible();
   await page.locator("#planOutput input[type='checkbox']").first().check();
   const storedProgress = await page.evaluate(() => localStorage.getItem("soma-study-coach.plan-progress.v2"));

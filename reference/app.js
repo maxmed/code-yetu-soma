@@ -10,7 +10,18 @@ const elements = {
   sampleQuestionButton: document.getElementById("sampleQuestionButton"),
   coachButton: document.getElementById("coachButton"),
   resetButton: document.getElementById("resetButton"),
-  agentSteps: document.getElementById("agentSteps"),
+  openDebugLabButton: document.getElementById("openDebugLabButton"),
+  closeDebugLabButton: document.getElementById("closeDebugLabButton"),
+  debugLabSection: document.getElementById("debugLabSection"),
+  runLabButton: document.getElementById("runLabButton"),
+  loadPromptButton: document.getElementById("loadPromptButton"),
+  resetLabButton: document.getElementById("resetLabButton"),
+  labModelInput: document.getElementById("labModelInput"),
+  labTemperatureInput: document.getElementById("labTemperatureInput"),
+  labMaxTokensInput: document.getElementById("labMaxTokensInput"),
+  labSystemPromptInput: document.getElementById("labSystemPromptInput"),
+  labUserPromptInput: document.getElementById("labUserPromptInput"),
+  runSteps: document.getElementById("runSteps"),
   togglePromptButton: document.getElementById("togglePromptButton"),
   promptPreview: document.getElementById("promptPreview"),
   coachStatus: document.getElementById("coachStatus"),
@@ -30,7 +41,8 @@ const progressStorageKey = "soma-study-coach.plan-progress.v2";
 const state = {
   contextVisible: false,
   lastContext: null,
-  lastResponse: null
+  lastResponse: null,
+  lastDebug: null
 };
 
 function escapeHtml(value) {
@@ -164,10 +176,43 @@ function getStudentSetup() {
   };
 }
 
-function buildCoachContext(modeOverride, followUpQuestion = "") {
+function getLabOverrides() {
+  const overrides = {};
+  const model = elements.labModelInput.value.trim();
+  const temperature = elements.labTemperatureInput.value.trim();
+  const maxOutputTokens = elements.labMaxTokensInput.value.trim();
+  const systemPrompt = elements.labSystemPromptInput.value.trim();
+  const userPrompt = elements.labUserPromptInput.value.trim();
+
+  if (model) {
+    overrides.model = model;
+  }
+  if (temperature) {
+    overrides.temperature = Number(temperature);
+  }
+  if (maxOutputTokens) {
+    overrides.maxOutputTokens = Number(maxOutputTokens);
+  }
+  if (systemPrompt) {
+    overrides.systemPrompt = systemPrompt;
+  }
+  if (userPrompt) {
+    overrides.userPrompt = userPrompt;
+  }
+
+  return overrides;
+}
+
+function buildCoachContext(modeOverride, followUpQuestion = "", includeLabOverrides = false) {
   const mode = modeOverride || getMode().id;
   const topic = getTopic();
   const practiceAnswers = getPracticeAnswers().filter(answer => answer.answered);
+  const debug = { includeLlmCall: true };
+  const labOverrides = includeLabOverrides ? getLabOverrides() : {};
+
+  if (Object.keys(labOverrides).length) {
+    debug.lab = labOverrides;
+  }
 
   return {
     mode,
@@ -199,7 +244,7 @@ function buildCoachContext(modeOverride, followUpQuestion = "") {
       ]
     },
     resources: topic.resources,
-    debug: { includeLlmCall: true },
+    debug,
     followUpQuestion
   };
 }
@@ -221,7 +266,7 @@ function updatePromptPreview() {
   elements.promptPreview.textContent = buildPromptPreview(context);
 }
 
-function renderAgentSteps(status = "ready") {
+function renderRunSteps(status = "ready") {
   const steps = [
     ["Observe", "Read selected mode, topic and student question."],
     ["Prepare context", "Attach the local topic pack, resources, optional practice answers and safety rules."],
@@ -230,7 +275,7 @@ function renderAgentSteps(status = "ready") {
     ["Explain limits", "Show limitations and honest quota/network/safety errors."]
   ];
 
-  elements.agentSteps.innerHTML = steps.map(([label, detail], index) => {
+  elements.runSteps.innerHTML = steps.map(([label, detail], index) => {
     const active = status === "running" && index === 2 ? " active" : "";
     const done = status === "done" ? " done" : "";
     return `<li class="${active}${done}"><strong>${label}</strong><span>${detail}</span></li>`;
@@ -258,6 +303,7 @@ function formatDebugValue(value) {
 }
 
 function renderDebug(debug) {
+  state.lastDebug = debug || null;
   if (!debug) {
     setDebugStatus("No debug data");
     elements.debugOutput.innerHTML = `
@@ -276,6 +322,9 @@ function renderDebug(debug) {
   }
 
   setDebugStatus(`${debug.provider || "coach"}: ${debug.model || "unknown"}`, "success");
+  const labConfig = debug.labConfig && Object.keys(debug.labConfig).length
+    ? debug.labConfig
+    : "No lab overrides used for this request.";
   elements.debugOutput.innerHTML = `
     <article class="debug-card">
       <h3>1. Safe context sent by browser</h3>
@@ -303,7 +352,12 @@ function renderDebug(debug) {
       <pre>${escapeHtml(formatDebugValue(debug.parsedResponse))}</pre>
     </article>
     <article class="debug-card">
-      <h3>6. Boundary check</h3>
+      <h3>6. Lab settings</h3>
+      <p>The safe model and prompt settings used by this run.</p>
+      <pre>${escapeHtml(formatDebugValue(labConfig))}</pre>
+    </article>
+    <article class="debug-card">
+      <h3>7. Boundary check</h3>
       <p>This confirms which endpoint/model handled the request and reminds students where the key lives.</p>
       <pre>${escapeHtml(formatDebugValue({
         endpoint: debug.endpoint,
@@ -313,6 +367,35 @@ function renderDebug(debug) {
       }))}</pre>
     </article>
   `;
+}
+
+function openDebugLab() {
+  elements.debugLabSection.classList.remove("hidden");
+  elements.openDebugLabButton.textContent = "Debug Lab open";
+  updatePromptPreview();
+  elements.debugLabSection.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function closeDebugLab() {
+  elements.debugLabSection.classList.add("hidden");
+  elements.openDebugLabButton.textContent = "Debug Lab";
+}
+
+function resetLabFields() {
+  elements.labModelInput.value = "";
+  elements.labTemperatureInput.value = "";
+  elements.labMaxTokensInput.value = "";
+  elements.labSystemPromptInput.value = "";
+  elements.labUserPromptInput.value = "";
+}
+
+function loadLastPromptIntoLab() {
+  if (!state.lastDebug?.prompts) {
+    openDebugLab();
+    return;
+  }
+  elements.labSystemPromptInput.value = state.lastDebug.prompts.systemPrompt || "";
+  elements.labUserPromptInput.value = state.lastDebug.prompts.userPrompt || "";
 }
 
 function setKeepLearningVisible(visible) {
@@ -549,7 +632,7 @@ function validateQuestion() {
 
 function renderError(error) {
   setStatus("Coach unavailable", "danger");
-  renderAgentSteps("ready");
+  renderRunSteps("ready");
   elements.coachOutput.className = "error-state";
   elements.coachOutput.innerHTML = `
     <h3>Study helper could not run</h3>
@@ -563,13 +646,13 @@ async function runCoach() {
     return;
   }
 
-  const context = buildCoachContext();
+  const context = buildCoachContext(undefined, "", false);
   state.lastContext = context;
   state.lastResponse = null;
   setKeepLearningVisible(false);
   updatePromptPreview();
   setStatus("Calling proxy", "working");
-  renderAgentSteps("running");
+  renderRunSteps("running");
   elements.coachButton.disabled = true;
   elements.coachOutput.className = "empty-state";
   elements.coachOutput.textContent = "Sending safe topic context to /api/coach...";
@@ -578,13 +661,47 @@ async function runCoach() {
     const response = await askStudyCoach(context);
     state.lastResponse = response;
     setStatus("Response ready", "success");
-    renderAgentSteps("done");
+    renderRunSteps("done");
     renderDebug(response.__debug);
     renderCoachResponse(response);
   } catch (error) {
     renderError(error);
   } finally {
     elements.coachButton.disabled = false;
+  }
+}
+
+async function runLab() {
+  openDebugLab();
+  if (!validateQuestion()) {
+    return;
+  }
+
+  const context = buildCoachContext(undefined, "", true);
+  state.lastContext = context;
+  updatePromptPreview();
+  setStatus("Lab running", "working");
+  setDebugStatus("Running lab", "working");
+  renderRunSteps("running");
+  elements.runLabButton.disabled = true;
+  elements.debugOutput.innerHTML = `
+    <article class="debug-card">
+      <h3>Running</h3>
+      <pre>Sending lab request to /api/coach...</pre>
+    </article>
+  `;
+
+  try {
+    const response = await askStudyCoach(context);
+    state.lastResponse = response;
+    setStatus("Lab response ready", "success");
+    renderRunSteps("done");
+    renderDebug(response.__debug);
+    renderCoachResponse(response);
+  } catch (error) {
+    renderError(error);
+  } finally {
+    elements.runLabButton.disabled = false;
   }
 }
 
@@ -639,10 +756,11 @@ function resetApp() {
   elements.practiceForm.reset();
   state.lastContext = null;
   state.lastResponse = null;
+  state.lastDebug = null;
   setKeepLearningVisible(false);
   setStatus("Ready");
   setDebugStatus("Ready");
-  renderAgentSteps("ready");
+  renderRunSteps("ready");
   updatePracticeBadge();
   elements.coachOutput.className = "empty-state";
   elements.coachOutput.textContent = "Pick a topic and ask a question to get study help.";
@@ -651,6 +769,7 @@ function resetApp() {
   elements.followUpOutput.className = "answer-box";
   elements.followUpOutput.textContent = "";
   renderDebug(null);
+  resetLabFields();
 }
 
 function updateTopicFlow() {
@@ -666,7 +785,7 @@ function updateTopicFlow() {
 renderSelects();
 renderTopicSummary();
 renderPractice();
-renderAgentSteps("ready");
+renderRunSteps("ready");
 setKeepLearningVisible(false);
 updatePromptPreview();
 
@@ -679,6 +798,11 @@ elements.practiceForm.addEventListener("change", updatePracticeBadge);
 elements.sampleQuestionButton.addEventListener("click", useSampleQuestion);
 elements.coachButton.addEventListener("click", runCoach);
 elements.resetButton.addEventListener("click", resetApp);
+elements.openDebugLabButton.addEventListener("click", openDebugLab);
+elements.closeDebugLabButton.addEventListener("click", closeDebugLab);
+elements.runLabButton.addEventListener("click", runLab);
+elements.loadPromptButton.addEventListener("click", loadLastPromptIntoLab);
+elements.resetLabButton.addEventListener("click", resetLabFields);
 elements.followUpButton.addEventListener("click", runFollowUp);
 elements.togglePromptButton.addEventListener("click", () => {
   state.contextVisible = !state.contextVisible;

@@ -90,7 +90,7 @@ For a Vercel-style deploy:
 4. Deploy.
 5. Test `/`; `vercel.json` rewrites it to `/reference/index.html`.
 6. Test `/reference/index.html`, `/starter/index.html`, and `POST /api/coach`.
-7. Confirm the Under The Hood view does not show keys.
+7. Confirm the Debug Lab does not show keys.
 
 ## Mock Versus Gemini
 

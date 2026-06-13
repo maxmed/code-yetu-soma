@@ -18,6 +18,7 @@
     <aside class="provider-card" aria-label="Coach endpoint status">
       <span id="coachStatus" class="badge">Ready</span>
       <strong>Grade 7 · Integrated Science</strong>
+      <button id="openDebugLabButton" type="button" class="secondary">Debug Lab</button>
     </aside>
   </header>
 
@@ -84,43 +85,96 @@
       </div>
     </section>
 
-    <details class="panel under-the-hood" aria-labelledby="debug-title">
-      <summary class="section-heading">
+    <section id="debugLabSection" class="debug-lab hidden" aria-labelledby="debug-title">
+      <div class="debug-lab-header">
         <div>
-          <p class="eyebrow">Under The Hood</p>
-          <h2 id="debug-title">See How It Works</h2>
+          <p class="eyebrow">Behind The Scenes</p>
+          <h2 id="debug-title">Debug Lab</h2>
+          <p class="intro">Step through the coach call, inspect what changed, and safely try prompt or model settings.</p>
         </div>
-        <span id="debugStatus" class="badge">Ready</span>
-      </summary>
-      <p class="note">
-        For mentors and curious learners: see the safe context, server prompt, and model response.
-        API keys are never shown.
-      </p>
-
-      <article class="debug-card" aria-labelledby="context-title">
-        <h3 id="context-title">Safe Context Preview</h3>
-        <button id="togglePromptButton" type="button" class="small secondary">Show context</button>
-        <ol id="agentSteps" class="steps"></ol>
-        <pre id="promptPreview" class="prompt-preview hidden"></pre>
-      </article>
-
-      <article class="debug-card" aria-labelledby="practice-title">
-        <h3 id="practice-title">Practice Input</h3>
-        <span id="practiceBadge" class="badge">0 answered</span>
-        <form id="practiceForm" class="question-grid"></form>
-      </article>
-
-      <div id="debugOutput" class="debug-grid">
-        <article class="debug-card">
-          <h3>Prompt Sent</h3>
-          <pre>Run the study helper to inspect the prompt.</pre>
-        </article>
-        <article class="debug-card">
-          <h3>Response Received</h3>
-          <pre>Run the study helper to inspect the response.</pre>
-        </article>
+        <div class="heading-actions">
+          <span id="debugStatus" class="badge">Ready</span>
+          <button id="closeDebugLabButton" type="button" class="small secondary">Hide lab</button>
+        </div>
       </div>
-    </details>
+
+      <div class="lab-layout">
+        <aside class="lab-rail" aria-labelledby="lab-steps-title">
+          <h3 id="lab-steps-title">Run Path</h3>
+          <ol id="runSteps" class="steps"></ol>
+          <div class="button-row compact">
+            <button id="togglePromptButton" type="button" class="small secondary">Show context</button>
+            <button id="runLabButton" type="button" class="small">Run lab</button>
+          </div>
+          <p class="note">Lab changes affect only this request. API keys are never shown.</p>
+        </aside>
+
+        <div class="lab-workbench">
+          <article class="debug-card" aria-labelledby="lab-controls-title">
+            <div class="section-heading">
+              <div>
+                <h3 id="lab-controls-title">Experiment Controls</h3>
+                <p class="note">Leave fields blank to use the server defaults.</p>
+              </div>
+              <button id="loadPromptButton" type="button" class="small secondary">Load last prompt</button>
+            </div>
+            <div class="lab-controls">
+              <label>
+                Model override
+                <input id="labModelInput" type="text" list="modelOptions" placeholder="Default server model">
+                <datalist id="modelOptions">
+                  <option value="gemini-3.1-flash-lite"></option>
+                  <option value="gemini-2.5-flash"></option>
+                </datalist>
+              </label>
+              <label>
+                Temperature
+                <input id="labTemperatureInput" type="number" min="0" max="2" step="0.1" placeholder="0.7">
+              </label>
+              <label>
+                Max output tokens
+                <input id="labMaxTokensInput" type="number" min="256" max="8192" step="256" placeholder="4096">
+              </label>
+              <label class="wide">
+                Tutor system prompt override
+                <textarea id="labSystemPromptInput" rows="4" placeholder="Example: Explain like a patient Grade 7 tutor. Use one local example."></textarea>
+              </label>
+              <label class="wide">
+                User prompt override
+                <textarea id="labUserPromptInput" rows="3" placeholder="Example: Answer the learner question, then ask one check-for-understanding question."></textarea>
+              </label>
+            </div>
+            <div class="button-row">
+              <button id="resetLabButton" type="button" class="secondary">Reset lab fields</button>
+            </div>
+          </article>
+
+          <article class="debug-card" aria-labelledby="context-title">
+            <h3 id="context-title">Safe Context Preview</h3>
+            <pre id="promptPreview" class="prompt-preview hidden"></pre>
+          </article>
+
+          <article class="debug-card" aria-labelledby="practice-title">
+            <div class="section-heading">
+              <h3 id="practice-title">Practice Input</h3>
+              <span id="practiceBadge" class="badge">0 answered</span>
+            </div>
+            <form id="practiceForm" class="question-grid"></form>
+          </article>
+
+          <div id="debugOutput" class="debug-grid">
+            <article class="debug-card">
+              <h3>Prompt Sent</h3>
+              <pre>Run the study helper to inspect the prompt.</pre>
+            </article>
+            <article class="debug-card">
+              <h3>Response Received</h3>
+              <pre>Run the study helper to inspect the response.</pre>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section id="keepLearningSection" class="keep-learning hidden">
       <div class="section-heading">

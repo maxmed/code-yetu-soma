@@ -5,8 +5,8 @@ Open `index.html` from a local/static HTTP server.
 This is the flagship AI-tutor-shaped sample project for the Code Yetu program.
 
 Current status: tutor-first reference app. Topic, question, and answer are the
-default path. Advanced options, safe context, practice input, and the LLM call
-inspector are collapsed until needed.
+default path. Advanced options are collapsed, and the Debug Lab stays hidden
+until learners want to inspect or experiment with the coach call.
 
 ## What It Demonstrates
 
@@ -14,9 +14,9 @@ inspector are collapsed until needed.
 - topic-pack context for a Study Helper / Topic Tutor
 - prompt/context building for an LLM-backed study coach
 - frontend adapter that calls `/api/coach`
-- opt-in agent steps and prompt preview inside Under The Hood
-- opt-in LLM call inspector showing the safe payload, provider request shape,
-  raw return, and parsed response without exposing provider keys
+- opt-in run steps and prompt preview inside Debug Lab
+- opt-in Debug Lab showing the safe payload, model settings, provider request
+  shape, raw return, and parsed response without exposing provider keys
 - honest error handling when the coach endpoint is unavailable
 - local progress tracking for generated study-plan tasks
 - follow-up tutor questions grounded in the same study context

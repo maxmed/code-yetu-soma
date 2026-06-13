@@ -156,14 +156,15 @@ it.
 
 When debug is requested, the response may include `__debug`.
 
-The Under The Hood view may show:
+The Debug Lab may show:
 
 - safe browser request payload,
 - server prompt text,
 - provider request body,
 - raw provider or mock return,
 - parsed app response,
-- endpoint/model/status notes.
+- endpoint/model/status notes,
+- safe prompt/model/temperature/token overrides.
 
 It must not show:
 
