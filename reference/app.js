@@ -15,6 +15,9 @@ const elements = {
   promptPreview: document.getElementById("promptPreview"),
   coachStatus: document.getElementById("coachStatus"),
   coachOutput: document.getElementById("coachOutput"),
+  debugStatus: document.getElementById("debugStatus"),
+  toggleDebugButton: document.getElementById("toggleDebugButton"),
+  debugOutput: document.getElementById("debugOutput"),
   planOutput: document.getElementById("planOutput"),
   followUpInput: document.getElementById("followUpInput"),
   followUpButton: document.getElementById("followUpButton"),
@@ -26,6 +29,7 @@ const progressStorageKey = "soma-study-coach.plan-progress.v2";
 
 const state = {
   contextVisible: false,
+  debugVisible: false,
   lastContext: null,
   lastResponse: null
 };
@@ -196,6 +200,7 @@ function buildCoachContext(modeOverride, followUpQuestion = "") {
       ]
     },
     resources: topic.resources,
+    debug: { includeLlmCall: true },
     followUpQuestion
   };
 }
@@ -238,6 +243,76 @@ function setStatus(text, tone = "") {
   elements.coachStatus.className = `badge ${tone}`.trim();
 }
 
+function setDebugStatus(text, tone = "") {
+  elements.debugStatus.textContent = text;
+  elements.debugStatus.className = `badge ${tone}`.trim();
+}
+
+function formatDebugValue(value) {
+  if (value === null || value === undefined || value === "") {
+    return "No data returned.";
+  }
+  if (typeof value === "string") {
+    return value;
+  }
+  return JSON.stringify(value, null, 2);
+}
+
+function renderDebug(debug) {
+  if (!debug) {
+    setDebugStatus("No debug data");
+    elements.debugOutput.innerHTML = `
+      <article class="debug-card">
+        <h3>Prompt sent</h3>
+        <pre>No debug data returned.</pre>
+      </article>
+      <article class="debug-card">
+        <h3>Returned response</h3>
+        <pre>No debug data returned.</pre>
+      </article>
+    `;
+    return;
+  }
+
+  setDebugStatus(`${debug.provider || "coach"}: ${debug.model || "unknown"}`, "success");
+  elements.debugOutput.innerHTML = `
+    <article class="debug-card">
+      <h3>Prompt sent</h3>
+      <pre>${escapeHtml(formatDebugValue(debug.prompts))}</pre>
+    </article>
+    <article class="debug-card">
+      <h3>Safe /api/coach payload</h3>
+      <pre>${escapeHtml(formatDebugValue(debug.browserRequestPayload || debug.requestBody))}</pre>
+    </article>
+    <article class="debug-card">
+      <h3>Provider request body</h3>
+      <pre>${escapeHtml(formatDebugValue(debug.providerRequestBody || "Mock/demo mode does not call an external provider."))}</pre>
+    </article>
+    <article class="debug-card">
+      <h3>Raw return</h3>
+      <pre>${escapeHtml(formatDebugValue(debug.rawText || debug.rawResponse || debug.errorBody))}</pre>
+    </article>
+    <article class="debug-card">
+      <h3>Parsed response</h3>
+      <pre>${escapeHtml(formatDebugValue(debug.parsedResponse))}</pre>
+    </article>
+    <article class="debug-card">
+      <h3>Boundary</h3>
+      <pre>${escapeHtml(formatDebugValue({
+        endpoint: debug.endpoint,
+        status: debug.status,
+        timestamp: debug.timestamp,
+        note: debug.note || "API keys are never shown in the browser."
+      }))}</pre>
+    </article>
+  `;
+}
+
+function updateDebugVisibility() {
+  elements.debugOutput.classList.toggle("hidden", !state.debugVisible);
+  elements.toggleDebugButton.textContent = state.debugVisible ? "Hide debug" : "Show debug";
+}
+
 function normalizeList(value) {
   if (Array.isArray(value)) {
     return value;
@@ -265,6 +340,10 @@ function normalizeCoachResponse(payload, mode) {
     followUpAnswer: String(payload.followUpAnswer || "").trim(),
     limitations: String(payload.limitations || "").trim()
   };
+
+  if (payload.__debug) {
+    normalized.__debug = payload.__debug;
+  }
 
   const hasMainResponse = Boolean(
     normalized.studyFeedback ||
@@ -298,6 +377,9 @@ async function askStudyCoach(context) {
     try {
       const errorBody = await response.json();
       detail = errorBody.error || errorBody.message || "";
+      if (errorBody.__debug) {
+        renderDebug(errorBody.__debug);
+      }
     } catch {
       if (response.status === 404) {
         detail = "No /api/coach endpoint is running for this page.";
@@ -489,6 +571,7 @@ async function runCoach() {
     state.lastResponse = response;
     setStatus("Response ready", "success");
     renderAgentSteps("done");
+    renderDebug(response.__debug);
     renderCoachResponse(response);
   } catch (error) {
     renderError(error);
@@ -523,6 +606,7 @@ async function runFollowUp() {
 
   try {
     const response = await askStudyCoach(context);
+    renderDebug(response.__debug);
     elements.followUpOutput.innerHTML = `
       <h3>Coach answer</h3>
       <p>${escapeHtml(response.followUpAnswer)}</p>
@@ -548,6 +632,7 @@ function resetApp() {
   state.lastContext = null;
   state.lastResponse = null;
   setStatus("Not run");
+  setDebugStatus("Waiting");
   renderAgentSteps("ready");
   updatePracticeBadge();
   elements.coachOutput.className = "empty-state";
@@ -556,6 +641,7 @@ function resetApp() {
   elements.planOutput.textContent = "A returned 7-day plan will appear here.";
   elements.followUpOutput.className = "answer-box";
   elements.followUpOutput.textContent = "Run the study helper first, then ask a follow-up question.";
+  renderDebug(null);
 }
 
 function updateTopicFlow() {
@@ -586,6 +672,10 @@ elements.togglePromptButton.addEventListener("click", () => {
   state.contextVisible = !state.contextVisible;
   elements.promptPreview.classList.toggle("hidden", !state.contextVisible);
   elements.togglePromptButton.textContent = state.contextVisible ? "Hide context" : "Show context";
+});
+elements.toggleDebugButton.addEventListener("click", () => {
+  state.debugVisible = !state.debugVisible;
+  updateDebugVisibility();
 });
 elements.clearProgressButton.addEventListener("click", () => {
   localStorage.removeItem(progressStorageKey);

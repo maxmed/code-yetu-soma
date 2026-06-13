@@ -24,6 +24,15 @@ async function runReferenceSuccess(page, testInfo) {
   await expect(page.locator("#coachOutput")).toContainText("Topic explanation");
   await expect(page.locator("#coachOutput")).toContainText("Misconception help");
   await expect(page.locator("#coachOutput")).toContainText("Recommended resources");
+  await expect(page.locator("#debugStatus")).toContainText("mock: deterministic-demo");
+  await page.getByRole("button", { name: "Show debug" }).click();
+  await expect(page.locator("#debugOutput")).toContainText("Prompt sent");
+  await expect(page.locator("#debugOutput")).toContainText("Student question");
+  await expect(page.locator("#debugOutput")).toContainText("Safe /api/coach payload");
+  await expect(page.locator("#debugOutput")).toContainText("Provider request body");
+  await expect(page.locator("#debugOutput")).toContainText("Parsed response");
+  await expect(page.locator("#debugOutput")).not.toContainText("GEMINI_API_KEY");
+  await expect(page.locator("#debugOutput")).not.toContainText("?key=");
 
   await expect(page.locator("#planOutput input[type='checkbox']").first()).toBeVisible();
   await page.locator("#planOutput input[type='checkbox']").first().check();

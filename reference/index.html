@@ -111,6 +111,33 @@
       </article>
     </section>
 
+    <section class="panel" aria-labelledby="debug-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Debug View</p>
+          <h2 id="debug-title">LLM Call Inspector</h2>
+        </div>
+        <div class="heading-actions">
+          <span id="debugStatus" class="badge">Waiting</span>
+          <button id="toggleDebugButton" type="button" class="small secondary">Show debug</button>
+        </div>
+      </div>
+      <p class="note">
+        Shows the prompt, server-side request shape, raw provider text, and parsed response for learning/debugging.
+        API keys are never shown.
+      </p>
+      <div id="debugOutput" class="debug-grid hidden">
+        <article class="debug-card">
+          <h3>Prompt sent</h3>
+          <pre>Run the study helper to inspect the prompt.</pre>
+        </article>
+        <article class="debug-card">
+          <h3>Returned response</h3>
+          <pre>Run the study helper to inspect the response.</pre>
+        </article>
+      </div>
+    </section>
+
     <section class="grid-two">
       <article class="panel" aria-labelledby="plan-title">
         <div class="section-heading">

@@ -13,6 +13,8 @@ Current status: mode-first reference app. Study Helper / Topic Tutor is the defa
 - prompt/context building for an LLM-backed study coach
 - frontend adapter that calls `/api/coach`
 - visible agent steps and prompt preview
+- opt-in LLM call inspector showing the safe payload, provider request shape,
+  raw return, and parsed response without exposing provider keys
 - honest error handling when the coach endpoint is unavailable
 - local progress tracking for generated study-plan tasks
 - follow-up tutor questions grounded in the same study context

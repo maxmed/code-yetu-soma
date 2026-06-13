@@ -3,6 +3,41 @@ const { buildCoachResult, hasPersonalData } = require("../lib/coach-core");
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.1-flash-lite";
 
+const generationConfig = {
+  temperature: 0.7,
+  maxOutputTokens: 4096,
+  responseMimeType: "application/json",
+  responseSchema: {
+    type: "object",
+    properties: {
+      studyFeedback: { type: "string" },
+      topicExplanation: { type: "string" },
+      examples: { type: "array", items: { type: "string" } },
+      misconceptionHelp: { type: "array", items: { type: "string" } },
+      recommendedResources: { type: "array", items: { type: "object", properties: { title: { type: "string" }, reason: { type: "string" } } } },
+      sevenDayPlan: { type: "array", items: { type: "object", properties: { day: { type: "integer" }, title: { type: "string" }, task: { type: "string" } } } },
+      followUpAnswer: { type: "string" },
+      limitations: { type: "string" }
+    },
+    required: ["studyFeedback", "topicExplanation", "examples", "limitations"]
+  }
+};
+
+function wantsDebug(payload) {
+  return Boolean(payload?.debug?.includeLlmCall);
+}
+
+function debugSnapshot(value) {
+  if (value === null || value === undefined) {
+    return value;
+  }
+  try {
+    return JSON.parse(JSON.stringify(value));
+  } catch {
+    return String(value);
+  }
+}
+
 async function readProviderError(response) {
   try {
     return await response.json();
@@ -95,7 +130,7 @@ function parseGeminiJson(text) {
   }
 }
 
-async function callGemini(payload) {
+function buildGeminiCall(payload) {
   const topic = payload?.studentSetup?.topic || "the selected topic";
   const snippet = payload?.curriculumContext?.snippets?.[0] || {};
   const mode = payload.mode || "learn-topic";
@@ -118,47 +153,103 @@ Rules:
     ? `Follow-up question about ${topic}: ${question}`
     : `Student question: ${question}\n\nProvide: explanation, 2 examples, misconception help, and a 7-day study plan.`;
 
-  const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`, {
+  return {
+    model: GEMINI_MODEL,
+    endpoint: `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`,
+    prompts: { systemPrompt, userPrompt },
+    requestBody: {
+      contents: [{ parts: [{ text: `${systemPrompt}\n\n${userPrompt}` }] }],
+      generationConfig
+    }
+  };
+}
+
+function buildGeminiDebug(call, payload, rawResponse = null, rawText = "", parsedResponse = null, errorBody = null, status = null) {
+  return {
+    provider: "gemini",
+    model: call.model,
+    endpoint: call.endpoint,
+    status,
+    timestamp: new Date().toISOString(),
+    note: "Provider key is held server-side and is never included in this debug view.",
+    prompts: debugSnapshot(call.prompts),
+    browserRequestPayload: debugSnapshot(payload),
+    providerRequestBody: debugSnapshot(call.requestBody),
+    requestBody: debugSnapshot(payload),
+    rawText,
+    rawResponse: debugSnapshot(rawResponse),
+    parsedResponse: debugSnapshot(parsedResponse),
+    errorBody: debugSnapshot(errorBody)
+  };
+}
+
+function buildMockDebug(payload, result) {
+  return {
+    provider: "mock",
+    model: "deterministic-demo",
+    endpoint: "/api/coach",
+    status: result.status,
+    timestamp: new Date().toISOString(),
+    note: "No provider request was made because the server is in mock/demo mode.",
+    prompts: {
+      systemPrompt: "Mock/demo mode uses local deterministic workshop logic instead of a provider prompt.",
+      userPrompt: payload.mode === "follow-up"
+        ? `Follow-up question: ${payload.followUpQuestion || ""}`
+        : `Student question: ${payload.studentQuestion || ""}`
+    },
+    browserRequestPayload: debugSnapshot(payload),
+    providerRequestBody: null,
+    requestBody: debugSnapshot(payload),
+    rawText: JSON.stringify(result.payload, null, 2),
+    rawResponse: debugSnapshot(result.payload),
+    parsedResponse: debugSnapshot(result.payload),
+    errorBody: result.status >= 400 ? debugSnapshot(result.payload) : null
+  };
+}
+
+async function callGemini(payload) {
+  const call = buildGeminiCall(payload);
+  const includeDebug = wantsDebug(payload);
+
+  const response = await fetch(`${call.endpoint}?key=${GEMINI_API_KEY}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      contents: [{ parts: [{ text: `${systemPrompt}\n\n${userPrompt}` }] }],
-      generationConfig: {
-        temperature: 0.7,
-        maxOutputTokens: 4096,
-        responseMimeType: "application/json",
-        responseSchema: {
-          type: "object",
-          properties: {
-            studyFeedback: { type: "string" },
-            topicExplanation: { type: "string" },
-            examples: { type: "array", items: { type: "string" } },
-            misconceptionHelp: { type: "array", items: { type: "string" } },
-            recommendedResources: { type: "array", items: { type: "object", properties: { title: { type: "string" }, reason: { type: "string" } } } },
-            sevenDayPlan: { type: "array", items: { type: "object", properties: { day: { type: "integer" }, title: { type: "string" }, task: { type: "string" } } } },
-            followUpAnswer: { type: "string" },
-            limitations: { type: "string" }
-          },
-          required: ["studyFeedback", "topicExplanation", "examples", "limitations"]
-        }
-      }
-    })
+    body: JSON.stringify(call.requestBody)
   });
 
   if (!response.ok) {
     const status = response.status;
     const errorBody = await readProviderError(response);
-    throw { status: status === 429 ? 429 : 503, message: providerErrorMessage(status, errorBody) };
+    throw {
+      status: status === 429 ? 429 : 503,
+      message: providerErrorMessage(status, errorBody),
+      debug: includeDebug ? buildGeminiDebug(call, payload, null, "", null, errorBody, status) : undefined
+    };
   }
 
   const data = await response.json();
   const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-  if (!text) throw { status: 503, message: "Empty Gemini response." };
+  if (!text) {
+    throw {
+      status: 503,
+      message: "Empty Gemini response.",
+      debug: includeDebug ? buildGeminiDebug(call, payload, data, "", null, null, response.status) : undefined
+    };
+  }
 
   try {
-    return normalizeGeminiResponse(parseGeminiJson(text), mode, topic);
+    const parsed = parseGeminiJson(text);
+    const normalized = normalizeGeminiResponse(parsed, payload.mode || "learn-topic", payload?.studentSetup?.topic || "the selected topic");
+    if (includeDebug) {
+      normalized.__debug = buildGeminiDebug(call, payload, data, text, normalized, null, response.status);
+    }
+    return normalized;
   } catch {
-    throw { status: 503, message: "Gemini returned a malformed response." };
+    throw {
+      status: 503,
+      message: "Gemini returned a malformed response.",
+      debug: includeDebug ? buildGeminiDebug(call, payload, data, text, null, null, response.status) : undefined
+    };
   }
 }
 
@@ -222,6 +313,9 @@ module.exports = async function handler(request, response) {
 
   if (!GEMINI_API_KEY) {
     const result = buildCoachResult(payload);
+    if (wantsDebug(payload)) {
+      result.payload.__debug = buildMockDebug(payload, result);
+    }
     sendJson(response, result.status, result.payload);
     return;
   }
@@ -231,6 +325,10 @@ module.exports = async function handler(request, response) {
     sendJson(response, 200, result);
   } catch (err) {
     const status = err.status || 503;
-    sendJson(response, status, { error: err.message || "Coach endpoint error." });
+    const errorPayload = { error: err.message || "Coach endpoint error." };
+    if (err.debug) {
+      errorPayload.__debug = err.debug;
+    }
+    sendJson(response, status, errorPayload);
   }
 };
