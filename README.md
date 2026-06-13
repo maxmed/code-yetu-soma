@@ -42,6 +42,7 @@ code-yetu-soma/
 ├── curriculum-source.md
 ├── project-cards.md
 ├── mentor-guide.md
+├── student-ai-limits.md
 ├── rubric.md
 ├── copilot-prompts.md
 ├── vercel.json
@@ -83,8 +84,9 @@ code-yetu-soma/
 4. Give every team the `starter/` folder.
 5. Run one workshop file per session.
 6. Use `project-cards.md` for remix ideas.
-7. Use `copilot-prompts.md` for debugging help.
-8. Use `rubric.md` for demos.
+7. Share `student-ai-limits.md` before students use the AI coach.
+8. Use `copilot-prompts.md` for debugging help.
+9. Use `rubric.md` for demos.
 
 ## Workshop Readiness Bar
 
@@ -156,6 +158,11 @@ It contains only provider configuration:
 GEMINI_API_KEY=
 GEMINI_MODEL=gemini-3.1-flash-lite
 ```
+
+`gemini-3.1-flash-lite` is the workshop default because it is the best tested
+Gemini text-tutor choice for this app: the active classroom table shows 15 RPM,
+250K TPM, and 500 RPD for this model, and `/api/coach` has been smoke-tested
+with it. See `student-ai-limits.md` for the student-facing limits and advice.
 
 For a local real-Gemini test, create a private `.env` file from the example:
 

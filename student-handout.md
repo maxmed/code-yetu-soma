@@ -17,6 +17,10 @@ Your app might:
 
 Use the course-provided `/api/coach` for LLM features. Do not use paid APIs, student API keys, or provider keys in frontend JavaScript.
 
+Before testing the AI coach, read `student-ai-limits.md`. The shared workshop
+model is `gemini-3.1-flash-lite`, and the whole class shares the same request
+limits.
+
 Your app can also use simple JavaScript support logic:
 
 - rules,
@@ -41,6 +45,13 @@ The app shows an explanation, examples, resources, and limitations.
 - explanation of your intelligence logic,
 - responsible AI note,
 - short demo.
+
+## AI Testing Advice
+
+- Preview your context before calling `/api/coach`.
+- Do not click the coach button repeatedly while debugging.
+- Fix layout and JavaScript bugs without spending AI requests.
+- If you see a quota or rate-limit error, stop and tell a mentor.
 
 ## Demo Questions
 

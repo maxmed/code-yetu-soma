@@ -65,6 +65,17 @@ When a team is stuck:
 6. Ask Copilot for a focused fix.
 7. Test again.
 
+## Shared AI Limits
+
+The workshop default model is `gemini-3.1-flash-lite` through the server-side
+`/api/coach` endpoint. The active classroom quota table shows 15 requests per
+minute, 250K tokens per minute, and 500 requests per day for this model. These
+limits are shared by the whole class, not per student.
+
+Use `student-ai-limits.md` as the student-facing guide. During build time,
+encourage teams to debug UI and JavaScript with mock/demo responses first, then
+spend real AI calls only on final tutor-flow checks.
+
 ## Responsible AI Prompts
 
 Every team should answer:
