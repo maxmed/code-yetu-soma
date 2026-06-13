@@ -2,7 +2,8 @@
 
 Build a simple AI-powered study helper workshop.
 
-Live demo: local reference app and mock E2E are ready; public deployment is pending.
+Live demo: local reference app, mock E2E, and a Vercel-compatible `/api/coach`
+adapter are ready; public deployment is pending.
 
 This pack is for students aged 12-18 who know basic HTML/CSS, some JavaScript, and can use an AI coding assistant for small code generation and debugging tasks.
 
@@ -38,6 +39,15 @@ code-yetu-soma/
 ├── mentor-guide.md
 ├── rubric.md
 ├── copilot-prompts.md
+├── vercel.json
+├── api/
+│   └── coach.js
+├── lib/
+│   └── coach-core.js
+├── scripts/
+│   └── mock-coach-server.js
+├── tests/
+│   └── soma-student.spec.js
 ├── workshop/
 │   ├── workshop_guide.md
 │   ├── 01-ideation-ai-basics.md
@@ -98,7 +108,8 @@ Before publishing the live demo:
 1. Run the reference app locally from a simple static server.
 2. Verify the mode-first Study Helper / Topic Tutor flow.
 3. Verify `/api/coach` behavior, including quota/error states.
-4. Deploy the static app and tiny `/api/coach` proxy.
+4. Deploy the static app and tiny `/api/coach` proxy. The repo includes
+   `api/coach.js` and `vercel.json` for a Vercel-style deployment.
 5. Add the live demo URL to this README.
 6. Re-test the deployed URL from a clean browser.
 
@@ -114,8 +125,9 @@ npm run test:e2e
 
 The Playwright hook starts `scripts/mock-coach-server.js`, serves the static app,
 and provides `POST /api/coach` mock responses for normal study help, follow-up,
-quota, network, and personal-data safety paths. Reports are written to
-`playwright-report/` and transient test files to `test-results/`.
+quota, network, and personal-data safety paths. The local mock and deploy adapter
+share `lib/coach-core.js` so reviewers test the same response contract. Reports
+are written to `playwright-report/` and transient test files to `test-results/`.
 
 To use the mock manually:
 
