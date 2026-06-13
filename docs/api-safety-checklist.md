@@ -51,6 +51,7 @@ npm run test:e2e
 If `rg` is not installed, use:
 
 ```bash
+grep -rn "AIza\\|GEMINI_API_KEY\\|?key=" reference starter
 grep -rn "AIza\\|key=AIza\\|GEMINI_API_KEY=[A-Za-z0-9_-]\\{20,\\}" . --exclude-dir=node_modules --exclude-dir=.git
 ```
 
@@ -58,6 +59,7 @@ Expected:
 
 - no real key values,
 - no key-bearing frontend URL,
+- no real key pasted into docs or root config,
 - `includeLlmCall` may appear as an internal request flag and test assertion,
   but it must not appear in student-visible debug output,
 - tests pass.

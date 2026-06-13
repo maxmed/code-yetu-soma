@@ -38,6 +38,7 @@ rg -n "AIza|key=AIza|GEMINI_API_KEY=[A-Za-z0-9_-]{20,}" . --glob '!node_modules/
 If `rg` is not installed, use:
 
 ```bash
+grep -rn "AIza\\|GEMINI_API_KEY\\|?key=" reference starter
 grep -rn "AIza\\|key=AIza\\|GEMINI_API_KEY=[A-Za-z0-9_-]\\{20,\\}" . --exclude-dir=node_modules --exclude-dir=.git
 ```
 
@@ -46,6 +47,7 @@ Expected:
 - `.env` is not tracked,
 - tests pass,
 - no real key appears in frontend files,
+- no real key appears in docs or root config,
 - `vercel.json` is present,
 - `api/coach.js` is present.
 
