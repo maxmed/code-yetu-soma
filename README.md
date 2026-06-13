@@ -3,12 +3,12 @@
 Build a simple study-helper workshop that teaches the shape of an AI tutor app.
 
 Live demo status: local reference app, mock E2E, and a Vercel-compatible
-demo-only `/api/coach` adapter are ready; public deployment is pending.
+`/api/coach` adapter are ready; public deployment is pending.
 
-Important: the included `api/coach.js` adapter is deterministic mock/demo logic.
-It does not call a real LLM provider or read provider API keys. Use it for
-workshop testing and static demo deployment only. Connect a real
-organizer-hosted provider proxy before claiming the deployed app is LLM-powered.
+Important: `api/coach.js` calls Gemini server-side only when `GEMINI_API_KEY`
+is set in the host environment. Without that env var, it falls back to
+deterministic mock/demo responses for local testing. Never put provider keys in
+frontend JavaScript, GitHub, or student machines.
 
 This pack is for students aged 12-18 who know basic HTML/CSS, some JavaScript, and can use an AI coding assistant for small code generation and debugging tasks.
 
@@ -113,12 +113,13 @@ Before publishing the live demo:
 1. Run the reference app locally from a simple static server.
 2. Verify the mode-first Study Helper / Topic Tutor flow.
 3. Verify `/api/coach` behavior, including quota/error states.
-4. Deploy the static app and demo-only `/api/coach` mock. The repo includes
-   `api/coach.js` and `vercel.json` for a Vercel-style mock deployment.
+4. Deploy the static app and `/api/coach` adapter. The repo includes
+   `api/coach.js` and `vercel.json` for a Vercel-style deployment.
 5. Add the live demo URL to this README.
 6. Re-test the deployed URL from a clean browser.
-7. For a real AI demo, replace the mock adapter with an organizer-hosted
-   provider proxy before using LLM-powered wording.
+7. For real Gemini answers, set `GEMINI_API_KEY` in the Vercel environment and
+   redeploy. Optional: set `GEMINI_MODEL`; otherwise the default is
+   `gemini-2.0-flash`.
 
 ## Local Mock And E2E Smoke
 
@@ -132,8 +133,8 @@ npm run test:e2e
 
 The Playwright hook starts `scripts/mock-coach-server.js`, serves the static app,
 and provides `POST /api/coach` mock responses for normal study help, follow-up,
-quota, network, and personal-data safety paths. The local mock and deploy adapter
-share `lib/coach-core.js` so reviewers test the same response contract. Reports
+quota, network, and personal-data safety paths. When `GEMINI_API_KEY` is not set,
+the deploy adapter also falls back to the same mock response contract. Reports
 are written to `playwright-report/` and transient test files to `test-results/`.
 
 To use the mock manually:
@@ -145,15 +146,38 @@ npm run serve:mock
 Then open `http://127.0.0.1:8787/reference/index.html` or
 `http://127.0.0.1:8787/starter/index.html`.
 
+## Local Gemini Config
+
+For a local real-Gemini test, create a private `.env` file from the example:
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env` and set `GEMINI_API_KEY` to the organizer-owned key. Do not commit
+`.env` or paste the key into chat. `npm run serve:mock` loads `.env`
+automatically before serving `/api/coach`.
+
+```bash
+npm run serve:mock
+```
+
+If another server is already using port 8787, set `SOMA_TEST_PORT` in `.env`
+or run with a temporary override:
+
+```bash
+SOMA_TEST_PORT=8788 npm run serve:mock
+```
+
 ## Default Starter Project
 
-The flagship reference app is Soma Study Coach, a mock AI-tutor demo using Grade 7 Integrated Science as the class demo:
+The flagship reference app is Soma Study Coach, an AI-tutor demo using Grade 7 Integrated Science as the class demo:
 
 - a student selects help mode, year/class, learning area, topic, and study need,
 - the app loads local KICD/CBC-aligned sample topic content,
 - the app shows the safe context it will send,
 - the app calls one shared `/api/coach` endpoint,
-- the demo coach returns an explanation, examples, misconception help, resources, or a study plan,
+- the coach endpoint returns an explanation, examples, misconception help, resources, or a study plan,
 - the app supports follow-up study questions,
 - the app tracks progress locally,
 - the app shows prompt/agent steps: observe, prepare context, ask coach endpoint, parse response, explain.
@@ -164,7 +188,7 @@ Teams can build a smaller version or remix the same pattern into a career explor
 
 This repo contains the workshop-facing material. Planning notes, architecture discussion, provider research, and build coordination stay in the Mica workspace.
 
-The current `reference/` app is mode-first: Study Helper / Topic Tutor first, with practice/review as optional input. Local mock E2E covers reference and starter flows across desktop and mobile. The included deploy adapter is mock/demo-only until a real provider-backed `/api/coach` is connected.
+The current `reference/` app is mode-first: Study Helper / Topic Tutor first, with practice/review as optional input. Local mock E2E covers reference and starter flows across desktop and mobile. The deploy adapter calls Gemini when `GEMINI_API_KEY` is configured and otherwise falls back to mock/demo responses.
 
 ## Simplicity Rule
 

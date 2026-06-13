@@ -12,7 +12,7 @@ module.exports = defineConfig({
     trace: "retain-on-failure"
   },
   webServer: {
-    command: `node scripts/mock-coach-server.js --port ${PORT}`,
+    command: `SOMA_DISABLE_LOCAL_ENV=1 node scripts/mock-coach-server.js --port ${PORT}`,
     url: `http://127.0.0.1:${PORT}/reference/index.html`,
     reuseExistingServer: !process.env.CI,
     timeout: 10000

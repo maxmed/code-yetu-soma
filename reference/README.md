@@ -27,12 +27,12 @@ It only calls:
 POST /api/coach
 ```
 
-For local tests and the first Vercel-style demo, `/api/coach` is deterministic
-mock logic from `../api/coach.js` and `../lib/coach-core.js`. That adapter does
-not call a real LLM provider.
+For local tests and any environment without `GEMINI_API_KEY`, `/api/coach` uses
+deterministic mock logic from `../lib/coach-core.js`.
 
-For a real AI deployment, replace the mock adapter with an organizer-hosted
-proxy that owns the provider key server-side.
+For a real AI deployment, set `GEMINI_API_KEY` server-side in the hosting
+environment. The browser still only calls `/api/coach`; provider keys stay out
+of frontend JavaScript and student machines.
 
 ## Request Shape
 
