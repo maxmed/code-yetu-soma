@@ -94,6 +94,14 @@ async function runScaffoldSuccess(page, testInfo) {
 }
 
 test.describe("Soma Study Coach student smoke", () => {
+  test("public app routes serve the learner UI", async ({ page }) => {
+    for (const route of ["/", "/index.html", "/reference", "/reference/"]) {
+      await page.goto(route);
+      await expect(page.getByRole("heading", { name: "Soma Study Coach" })).toBeVisible();
+      await expect(page.getByRole("heading", { name: "Start With One Question" })).toBeVisible();
+    }
+  });
+
   test("public app supports tutor-first coach, follow-up and progress", async ({ page }, testInfo) => {
     await runReferenceSuccess(page, testInfo);
   });

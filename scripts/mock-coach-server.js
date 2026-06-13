@@ -69,7 +69,7 @@ function serveStatic(request, response) {
   const parsedUrl = new URL(request.url, `http://127.0.0.1:${port}`);
   let pathname = decodeURIComponent(parsedUrl.pathname);
 
-  if (pathname === "/" || pathname === "/index.html") {
+  if (pathname === "/" || pathname === "/index.html" || pathname === "/reference" || pathname === "/reference/") {
     pathname = "/reference/index.html";
   }
   if (["/style.css", "/data.js", "/app.js"].includes(pathname)) {
