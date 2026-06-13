@@ -38,6 +38,14 @@ function debugSnapshot(value) {
   }
 }
 
+function studentDebugPayload(payload) {
+  const snapshot = debugSnapshot(payload);
+  if (snapshot && typeof snapshot === "object" && !Array.isArray(snapshot)) {
+    delete snapshot.debug;
+  }
+  return snapshot;
+}
+
 async function readProviderError(response) {
   try {
     return await response.json();
@@ -173,9 +181,9 @@ function buildGeminiDebug(call, payload, rawResponse = null, rawText = "", parse
     timestamp: new Date().toISOString(),
     note: "Provider key is held server-side and is never included in this debug view.",
     prompts: debugSnapshot(call.prompts),
-    browserRequestPayload: debugSnapshot(payload),
+    browserRequestPayload: studentDebugPayload(payload),
     providerRequestBody: debugSnapshot(call.requestBody),
-    requestBody: debugSnapshot(payload),
+    requestBody: studentDebugPayload(payload),
     rawText,
     rawResponse: debugSnapshot(rawResponse),
     parsedResponse: debugSnapshot(parsedResponse),
@@ -197,9 +205,9 @@ function buildMockDebug(payload, result) {
         ? `Follow-up question: ${payload.followUpQuestion || ""}`
         : `Student question: ${payload.studentQuestion || ""}`
     },
-    browserRequestPayload: debugSnapshot(payload),
+    browserRequestPayload: studentDebugPayload(payload),
     providerRequestBody: null,
-    requestBody: debugSnapshot(payload),
+    requestBody: studentDebugPayload(payload),
     rawText: JSON.stringify(result.payload, null, 2),
     rawResponse: debugSnapshot(result.payload),
     parsedResponse: debugSnapshot(result.payload),

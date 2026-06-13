@@ -25,12 +25,13 @@ async function runReferenceSuccess(page, testInfo) {
   await expect(page.locator("#coachOutput")).toContainText("Misconception help");
   await expect(page.locator("#coachOutput")).toContainText("Recommended resources");
   await expect(page.locator("#debugStatus")).toContainText("mock: deterministic-demo");
-  await page.getByRole("button", { name: "Show debug" }).click();
-  await expect(page.locator("#debugOutput")).toContainText("Prompt sent");
+  await page.getByRole("button", { name: "Show under the hood" }).click();
+  await expect(page.locator("#debugOutput")).toContainText("Safe context sent by browser");
   await expect(page.locator("#debugOutput")).toContainText("Student question");
-  await expect(page.locator("#debugOutput")).toContainText("Safe /api/coach payload");
-  await expect(page.locator("#debugOutput")).toContainText("Provider request body");
-  await expect(page.locator("#debugOutput")).toContainText("Parsed response");
+  await expect(page.locator("#debugOutput")).toContainText("Prompt built on server");
+  await expect(page.locator("#debugOutput")).toContainText("Provider request shape");
+  await expect(page.locator("#debugOutput")).toContainText("Parsed app response");
+  await expect(page.locator("#debugOutput")).not.toContainText("includeLlmCall");
   await expect(page.locator("#debugOutput")).not.toContainText("GEMINI_API_KEY");
   await expect(page.locator("#debugOutput")).not.toContainText("?key=");
 

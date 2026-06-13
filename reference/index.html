@@ -114,25 +114,25 @@
     <section class="panel" aria-labelledby="debug-title">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">Debug View</p>
-          <h2 id="debug-title">LLM Call Inspector</h2>
+          <p class="eyebrow">Under The Hood</p>
+          <h2 id="debug-title">See What The App Sends</h2>
         </div>
         <div class="heading-actions">
           <span id="debugStatus" class="badge">Waiting</span>
-          <button id="toggleDebugButton" type="button" class="small secondary">Show debug</button>
+          <button id="toggleDebugButton" type="button" class="small secondary">Show under the hood</button>
         </div>
       </div>
       <p class="note">
-        Shows the prompt, server-side request shape, raw provider text, and parsed response for learning/debugging.
-        API keys are never shown.
+        Opens a teaching view of the safe context, server prompt, model return, and parsed app response.
+        It never shows API keys or key-bearing provider URLs.
       </p>
       <div id="debugOutput" class="debug-grid hidden">
         <article class="debug-card">
-          <h3>Prompt sent</h3>
-          <pre>Run the study helper to inspect the prompt.</pre>
+          <h3>1. Safe context</h3>
+          <pre>Run the study helper to inspect the safe context.</pre>
         </article>
         <article class="debug-card">
-          <h3>Returned response</h3>
+          <h3>2. Coach response</h3>
           <pre>Run the study helper to inspect the response.</pre>
         </article>
       </div>

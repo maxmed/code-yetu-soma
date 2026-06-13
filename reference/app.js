@@ -263,11 +263,13 @@ function renderDebug(debug) {
     setDebugStatus("No debug data");
     elements.debugOutput.innerHTML = `
       <article class="debug-card">
-        <h3>Prompt sent</h3>
+        <h3>1. Safe context</h3>
+        <p>What the browser sends to <code>/api/coach</code> after removing secrets and following the safety rules.</p>
         <pre>No debug data returned.</pre>
       </article>
       <article class="debug-card">
-        <h3>Returned response</h3>
+        <h3>2. Coach response</h3>
+        <p>What the coach endpoint returns for the app to render.</p>
         <pre>No debug data returned.</pre>
       </article>
     `;
@@ -277,27 +279,33 @@ function renderDebug(debug) {
   setDebugStatus(`${debug.provider || "coach"}: ${debug.model || "unknown"}`, "success");
   elements.debugOutput.innerHTML = `
     <article class="debug-card">
-      <h3>Prompt sent</h3>
-      <pre>${escapeHtml(formatDebugValue(debug.prompts))}</pre>
-    </article>
-    <article class="debug-card">
-      <h3>Safe /api/coach payload</h3>
+      <h3>1. Safe context sent by browser</h3>
+      <p>The app sends this JSON to <code>/api/coach</code>. It should contain only the study question, topic pack, resources and safety rules.</p>
       <pre>${escapeHtml(formatDebugValue(debug.browserRequestPayload || debug.requestBody))}</pre>
     </article>
     <article class="debug-card">
-      <h3>Provider request body</h3>
+      <h3>2. Prompt built on server</h3>
+      <p>The server turns the safe context into instructions for the coach model. API keys stay server-side.</p>
+      <pre>${escapeHtml(formatDebugValue(debug.prompts))}</pre>
+    </article>
+    <article class="debug-card">
+      <h3>3. Provider request shape</h3>
+      <p>The request body sent by the server. Provider keys stay server-side and never appear in URLs here.</p>
       <pre>${escapeHtml(formatDebugValue(debug.providerRequestBody || "Mock/demo mode does not call an external provider."))}</pre>
     </article>
     <article class="debug-card">
-      <h3>Raw return</h3>
+      <h3>4. Raw coach return</h3>
+      <p>The raw text or JSON returned before the app formats it for the student.</p>
       <pre>${escapeHtml(formatDebugValue(debug.rawText || debug.rawResponse || debug.errorBody))}</pre>
     </article>
     <article class="debug-card">
-      <h3>Parsed response</h3>
+      <h3>5. Parsed app response</h3>
+      <p>The structured fields the app uses for feedback, examples, resources and the study plan.</p>
       <pre>${escapeHtml(formatDebugValue(debug.parsedResponse))}</pre>
     </article>
     <article class="debug-card">
-      <h3>Boundary</h3>
+      <h3>6. Boundary check</h3>
+      <p>This confirms which endpoint/model handled the request and reminds students where the key lives.</p>
       <pre>${escapeHtml(formatDebugValue({
         endpoint: debug.endpoint,
         status: debug.status,
@@ -310,7 +318,7 @@ function renderDebug(debug) {
 
 function updateDebugVisibility() {
   elements.debugOutput.classList.toggle("hidden", !state.debugVisible);
-  elements.toggleDebugButton.textContent = state.debugVisible ? "Hide debug" : "Show debug";
+  elements.toggleDebugButton.textContent = state.debugVisible ? "Hide under the hood" : "Show under the hood";
 }
 
 function normalizeList(value) {
