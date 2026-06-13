@@ -6,10 +6,10 @@ Teams choose an education problem, define a user, and decide what "intelligence"
 
 Deepen this session:
 
-- [Where LLMs Fit](../docs/workshop/lessons/09-where-llms-fit.md)
-- [Agents](../docs/workshop/lessons/10-agents.md)
-- [Build Your Own](../docs/workshop/lessons/12-build-your-own.md)
-- [Generate A Project Plan prompt](../docs/student/ai-coding-prompts.md#generate-a-project-plan)
+- [Where LLMs Fit](../lessons/09-where-llms-fit.md)
+- [Agents](../lessons/10-agents.md)
+- [Build Your Own](../lessons/12-build-your-own.md)
+- [Generate A Project Plan prompt](../../student/ai-coding-prompts.md#generate-a-project-plan)
 
 ## Students Build
 
@@ -41,7 +41,7 @@ Teams answer:
 
 ## Activity 2: Choose A Project Card
 
-Use `../docs/student/project-cards.md`. Each team chooses one:
+Use `../../student/project-cards.md`. Each team chooses one:
 
 - Study Buddy Recommender
 - Soma Study Coach

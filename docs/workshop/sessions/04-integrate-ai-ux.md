@@ -6,10 +6,10 @@ The app should feel intelligent to the user, not just print raw data.
 
 Deepen this session:
 
-- [Parsing And Rendering](../docs/workshop/lessons/07-parsing-and-rendering.md)
-- [Language And Swahili](../docs/workshop/lessons/08-language-and-swahili.md)
-- [Response Not Rendering prompt](../docs/student/ai-coding-prompts.md#response-not-rendering)
-- [Follow-Up Not Grounded prompt](../docs/student/ai-coding-prompts.md#follow-up-not-grounded)
+- [Parsing And Rendering](../lessons/07-parsing-and-rendering.md)
+- [Language And Swahili](../lessons/08-language-and-swahili.md)
+- [Response Not Rendering prompt](../../student/ai-coding-prompts.md#response-not-rendering)
+- [Follow-Up Not Grounded prompt](../../student/ai-coding-prompts.md#follow-up-not-grounded)
 
 ## Students Build
 

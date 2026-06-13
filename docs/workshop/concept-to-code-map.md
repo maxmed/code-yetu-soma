@@ -2,16 +2,16 @@
 
 Use this map when a student asks: "Where is this idea in the actual project?"
 
-The root [workshop/](../../workshop/) folder is the 6-session runbook. The
-[docs/workshop/](./README.md) folder is the deeper lecture course. This file
-connects both to the code, labs, and AI coding prompts.
+The [sessions/](./sessions/) folder is the 6-session runbook. The
+[lessons/](./lessons/) folder is the deeper lecture course. This file connects
+both to the code, labs, and AI coding prompts.
 
 ## Folder Roles
 
 | Folder | Purpose | Use It When |
 |---|---|---|
-| [workshop/](../../workshop/) | Session-by-session facilitator runbook. | You are running the 6 workshop sessions. |
-| [docs/workshop/](./README.md) | Lecture material and deeper explanations. | You are teaching a concept or assigning self-study. |
+| [docs/workshop/sessions/](./sessions/) | Session-by-session facilitator runbook. | You are running the 6 workshop sessions. |
+| [docs/workshop/lessons/](./lessons/) | Lecture material and deeper explanations. | You are teaching a concept or assigning self-study. |
 | [docs/student/](../student/handout.md) | Student handouts, project cards, limits, and AI coding prompts. | Students need instructions or rescue prompts. |
 | [docs/mentor/](../mentor/mentor-guide.md) | Mentor guide, curriculum notes, and rubric. | Facilitators need review and assessment guidance. |
 | `reference/` | Polished public app implementation. | Students use the real Soma app or inspect the full code. |
@@ -21,12 +21,12 @@ connects both to the code, labs, and AI coding prompts.
 
 | Workshop Session | Deep Lessons | Main Code | Student Prompts |
 |---|---|---|---|
-| [workshop/01-ideation-ai-basics.md](../../workshop/01-ideation-ai-basics.md) | [Where LLMs Fit](./lessons/09-where-llms-fit.md), [Agents](./lessons/10-agents.md), [Build Your Own](./lessons/12-build-your-own.md) | `docs/student/project-cards.md`, `docs/mentor/rubric.md` | [Generate A Project Plan](../student/ai-coding-prompts.md#generate-a-project-plan), [Add Responsible AI Note](../student/ai-coding-prompts.md#add-responsible-ai-note) |
-| [workshop/02-web-app-scaffold.md](../../workshop/02-web-app-scaffold.md) | [How Web Apps Work](./lessons/01-how-web-apps-work.md), [Frontend Walkthrough](./lessons/03-frontend-walkthrough.md) | `starter/index.html`, `starter/app.js`, `starter/style.css`, `reference/index.html`, `reference/app.js` | [Fix A JavaScript Error](../student/ai-coding-prompts.md#fix-a-javascript-error), [Make The UI Clearer](../student/ai-coding-prompts.md#make-the-ui-clearer) |
-| [workshop/03-data-intelligence.md](../../workshop/03-data-intelligence.md) | [Data And Context](./lessons/04-data-and-context.md), [LLM Prompts](./lessons/05-llm-prompts.md), [Calling The LLM](./lessons/06-calling-the-llm.md) | `reference/data.js`, `reference/app.js`, `api/coach.js`, `lib/coach-core.js` | [Create Dummy Data](../student/ai-coding-prompts.md#create-dummy-data), [Build The /api/coach Context](../student/ai-coding-prompts.md#build-the-apicoach-context) |
-| [workshop/04-integrate-ai-ux.md](../../workshop/04-integrate-ai-ux.md) | [Parsing And Rendering](./lessons/07-parsing-and-rendering.md), [Language And Swahili](./lessons/08-language-and-swahili.md) | `reference/app.js`, `reference/index.html`, `reference/style.css`, `api/coach.js` | [Response Not Rendering](../student/ai-coding-prompts.md#response-not-rendering), [Follow-Up Not Grounded](../student/ai-coding-prompts.md#follow-up-not-grounded) |
-| [workshop/05-testing-responsible-ai.md](../../workshop/05-testing-responsible-ai.md) | [Safety And Variability](./lessons/11-safety-and-variability.md), [Where LLMs Fit](./lessons/09-where-llms-fit.md) | `tests/soma-student.spec.js`, `docs/api-safety-checklist.md`, `docs/testing-debugging.md` | [Add Test Cases](../student/ai-coding-prompts.md#add-test-cases), [Personal Data In Context](../student/ai-coding-prompts.md#personal-data-in-context) |
-| [workshop/06-demo-pitch.md](../../workshop/06-demo-pitch.md) | [Build Your Own](./lessons/12-build-your-own.md) | `docs/mentor/rubric.md`, `docs/student/handout.md`, `README.md` | [Add Responsible AI Note](../student/ai-coding-prompts.md#add-responsible-ai-note), [Generate A Project Plan](../student/ai-coding-prompts.md#generate-a-project-plan) |
+| [Session 1: Ideation And AI Basics](./sessions/01-ideation-ai-basics.md) | [Where LLMs Fit](./lessons/09-where-llms-fit.md), [Agents](./lessons/10-agents.md), [Build Your Own](./lessons/12-build-your-own.md) | `docs/student/project-cards.md`, `docs/mentor/rubric.md` | [Generate A Project Plan](../student/ai-coding-prompts.md#generate-a-project-plan), [Add Responsible AI Note](../student/ai-coding-prompts.md#add-responsible-ai-note) |
+| [Session 2: Web App Scaffold](./sessions/02-web-app-scaffold.md) | [How Web Apps Work](./lessons/01-how-web-apps-work.md), [Frontend Walkthrough](./lessons/03-frontend-walkthrough.md) | `starter/index.html`, `starter/app.js`, `starter/style.css`, `reference/index.html`, `reference/app.js` | [Fix A JavaScript Error](../student/ai-coding-prompts.md#fix-a-javascript-error), [Make The UI Clearer](../student/ai-coding-prompts.md#make-the-ui-clearer) |
+| [Session 3: Data And Intelligence](./sessions/03-data-intelligence.md) | [Data And Context](./lessons/04-data-and-context.md), [LLM Prompts](./lessons/05-llm-prompts.md), [Calling The LLM](./lessons/06-calling-the-llm.md) | `reference/data.js`, `reference/app.js`, `api/coach.js`, `lib/coach-core.js` | [Create Dummy Data](../student/ai-coding-prompts.md#create-dummy-data), [Build The /api/coach Context](../student/ai-coding-prompts.md#build-the-apicoach-context) |
+| [Session 4: Integrate Intelligence Into UX](./sessions/04-integrate-ai-ux.md) | [Parsing And Rendering](./lessons/07-parsing-and-rendering.md), [Language And Swahili](./lessons/08-language-and-swahili.md) | `reference/app.js`, `reference/index.html`, `reference/style.css`, `api/coach.js` | [Response Not Rendering](../student/ai-coding-prompts.md#response-not-rendering), [Follow-Up Not Grounded](../student/ai-coding-prompts.md#follow-up-not-grounded) |
+| [Session 5: Testing And Responsible AI](./sessions/05-testing-responsible-ai.md) | [Safety And Variability](./lessons/11-safety-and-variability.md), [Where LLMs Fit](./lessons/09-where-llms-fit.md) | `tests/soma-student.spec.js`, `docs/api-safety-checklist.md`, `docs/testing-debugging.md` | [Add Test Cases](../student/ai-coding-prompts.md#add-test-cases), [Personal Data In Context](../student/ai-coding-prompts.md#personal-data-in-context) |
+| [Session 6: Demo And Pitch](./sessions/06-demo-pitch.md) | [Build Your Own](./lessons/12-build-your-own.md) | `docs/mentor/rubric.md`, `docs/student/handout.md`, `README.md` | [Add Responsible AI Note](../student/ai-coding-prompts.md#add-responsible-ai-note), [Generate A Project Plan](../student/ai-coding-prompts.md#generate-a-project-plan) |
 
 ## Concept To Code Map
 

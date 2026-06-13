@@ -1,284 +1,137 @@
 # Code Yetu Soma
 
-Build a simple study-helper workshop that teaches the shape of an AI tutor app.
+Code Yetu Soma is a beginner-friendly workshop project for building and
+understanding an AI-shaped study helper.
 
-Live demo status: local main app, mock E2E, and a Vercel-compatible
-`/api/coach` adapter are ready; public deployment is pending.
+The flagship demo is **Soma Study Coach**, a Grade 7 Integrated Science topic
+tutor. It lets a learner pick a topic, ask a question, receive a structured
+study answer, ask follow-up questions, and optionally open Debug Lab to inspect
+the safe context, prompt shape, model settings, and parsed response.
 
-Important: `api/coach.js` calls Gemini server-side only when `GEMINI_API_KEY`
-is set in the host environment. Without that env var, it falls back to
-deterministic mock/demo responses for local testing. Never put provider keys in
-frontend JavaScript, GitHub, or student machines.
+Live demo: https://soma-study-coach.vercel.app/
 
-This pack is for students aged 12-18 who know basic HTML/CSS, some JavaScript, and can use an AI coding assistant for small code generation and debugging tasks.
+This repo is for students aged 12-18 who know basic HTML/CSS, some JavaScript,
+and can use an AI coding assistant for small code generation and debugging
+tasks.
 
-The flagship demo app is **Soma Study Coach**: a Grade 7 Integrated Science Study Helper / Topic Tutor.
+## Quick Start
 
-## Goal
+1. Try the live demo at https://soma-study-coach.vercel.app/.
+2. Install local dependencies:
 
-By the end of the program, each team should have:
+   ```bash
+   npm install
+   ```
 
-- a working browser-based education MVP,
-- age-appropriate sample content based on KICD/CBC curriculum designs,
-- the safe workflow shape for an LLM-backed study helper: prepare context, call a server-side coach endpoint, render limitations clearly,
-- a short demo explaining the problem, user, data, AI logic, limitations, and next steps.
+3. Run the app in mock mode:
 
-## Recommended Program Shape
+   ```bash
+   npm run serve:mock
+   ```
 
-Use this as a 4-week project studio with 6 training sessions:
+4. Open the main app:
 
-1. Ideation and AI basics
-2. Web app scaffold
-3. Data and intelligence logic
-4. Integrating intelligence into the user experience
-5. Testing, debugging, and responsible AI
-6. Demo polish and pitch
+   ```text
+   http://127.0.0.1:8787/
+   ```
 
-## Folder Guide
+5. Run the student-flow smoke tests:
 
-```text
-code-yetu-soma/
-├── README.md
-├── vercel.json
-├── docs/
-│   ├── README.md
-│   ├── architecture.md
-│   ├── code-map.md
-│   ├── api-coach-contract.md
-│   ├── local-setup.md
-│   ├── testing-debugging.md
-│   ├── extend-soma.md
-│   ├── api-safety-checklist.md
-│   ├── workshop/
-│   │   ├── README.md
-│   │   ├── sources.md
-│   │   ├── lesson-template.md
-│   │   ├── concept-to-code-map.md
-│   │   ├── lessons/
-│   │   │   ├── 01-how-web-apps-work.md
-│   │   │   ├── 02-soma-architecture.md
-│   │   │   ├── 03-frontend-walkthrough.md
-│   │   │   ├── 04-data-and-context.md
-│   │   │   ├── 05-llm-prompts.md
-│   │   │   ├── 06-calling-the-llm.md
-│   │   │   ├── 07-parsing-and-rendering.md
-│   │   │   ├── 08-language-and-swahili.md
-│   │   │   ├── 09-where-llms-fit.md
-│   │   │   ├── 10-agents.md
-│   │   │   ├── 11-safety-and-variability.md
-│   │   │   └── 12-build-your-own.md
-│   │   └── labs/
-│   │       └── README.md
-│   ├── student/
-│   │   ├── handout.md
-│   │   ├── ai-limits.md
-│   │   ├── project-cards.md
-│   │   └── ai-coding-prompts.md
-│   └── mentor/
-│       ├── mentor-guide.md
-│       ├── curriculum-source.md
-│       └── rubric.md
-├── api/
-│   └── coach.js
-├── lib/
-│   └── coach-core.js
-├── scripts/
-│   └── mock-coach-server.js
-├── tests/
-│   └── soma-student.spec.js
-├── workshop/
-│   ├── workshop_guide.md
-│   ├── 01-ideation-ai-basics.md
-│   ├── 02-web-app-scaffold.md
-│   ├── 03-data-intelligence.md
-│   ├── 04-integrate-ai-ux.md
-│   ├── 05-testing-responsible-ai.md
-│   └── 06-demo-pitch.md
-├── starter/
-│   ├── README.md
-│   ├── index.html
-│   ├── style.css
-│   ├── data.js
-│   └── app.js
-└── reference/
-    ├── README.md
-    ├── index.html
-    ├── style.css
-    ├── data.js
-    └── app.js
-```
+   ```bash
+   npm run test:e2e
+   ```
 
-## Fast Start For Facilitators
+Mock mode needs no API key. Real Gemini answers are optional and must be
+configured server-side. See [docs/local-setup.md](docs/local-setup.md).
 
-1. Open `docs/README.md` for the beginner codebase tour.
-2. Open `workshop/workshop_guide.md`.
-3. Open `docs/mentor/curriculum-source.md` for the Grade 7 Integrated Science content source.
-4. Demo the main app at `/` with `npm run serve:mock`.
-5. Give teams the `starter/` folder only when they need the smaller workshop scaffold.
-6. Run one workshop file per session.
-7. Use `docs/student/project-cards.md` for remix ideas.
-8. Share `docs/student/ai-limits.md` before students use the AI coach.
-9. Use `docs/student/ai-coding-prompts.md` for debugging help.
-10. Use `docs/mentor/rubric.md` for demos.
+## What Is Included
 
-## Beginner Developer Docs
+- A polished learner demo in [reference/](reference/), served as the public app
+  at `/`.
+- A smaller workshop scaffold in [starter/](starter/) for early exercises.
+- One server-side coach endpoint, [`POST /api/coach`](api/coach.js).
+- Deterministic mock responses in [lib/coach-core.js](lib/coach-core.js), so
+  students can learn without provider keys.
+- Optional Gemini mode through server-side environment variables only.
+- Debug Lab for inspecting context, prompt shape, model settings, provider
+  request shape, raw output, and parsed response without exposing keys.
+- A complete workshop curriculum under [docs/workshop/](docs/workshop/).
+- Student handouts, project cards, AI limits, mentor notes, and a demo rubric
+  under [docs/student/](docs/student/) and [docs/mentor/](docs/mentor/).
 
-Use `docs/README.md` as the student and mentor entry point for understanding
-the codebase. It links to:
+## What Students Learn
 
-- `docs/architecture.md` - how the browser, local data, `/api/coach`, mock mode,
-  and Gemini mode fit together.
-- `docs/code-map.md` - what each important file does.
-- `docs/api-coach-contract.md` - request/response contract for `/api/coach`.
-- `docs/local-setup.md` - local run, `.env`, tests, and deploy notes.
-- `docs/testing-debugging.md` - Playwright, manual checks, and Debug Lab.
-- `docs/extend-soma.md` - beginner extension tasks.
-- `docs/api-safety-checklist.md` - key, data, AI honesty, and debug checks.
-- `docs/workshop/` - lecture-style course material, labs, and reputable
-  self-study sources, including a concept-to-code map that links lessons to
-  files, labs, and AI coding prompts.
-- `docs/student/` - student handout, limits, project cards, and AI coding prompts.
-- `docs/mentor/` - facilitator guide, curriculum source notes, and demo rubric.
+The workshop connects a real browser app to the concepts behind AI-assisted
+software:
 
-## Workshop Readiness Bar
+- how HTML, CSS, JavaScript, events, state, `fetch`, and `localStorage` work;
+- how local topic data becomes safe context for a study helper;
+- how a browser calls a server endpoint instead of calling an AI provider
+  directly;
+- how prompts, model settings, parsing, and rendering shape the user
+  experience;
+- when an LLM is useful, risky, wasteful, or unnecessary;
+- how to test, debug, explain limitations, and give a short project demo.
 
-Before this is public, it should be at least as complete as the previous Code Yetu workshop:
+Start with the 6-session runbook:
+[docs/workshop/sessions/README.md](docs/workshop/sessions/README.md)
 
-- full working public app at `/`,
-- tutor-first Study Helper / Topic Tutor flow,
-- local topic-pack loading,
-- learner-facing Debug Lab for safe context, prompt, model and parameter experiments,
-- `/api/coach` call with structured response rendering,
-- follow-up question flow,
-- local progress tracking,
-- honest quota, network, and safety error states,
-- simple `starter/` scaffold for workshop exercises,
-- numbered workshop guide,
-- rescue prompts for common failures,
-- curated local topic-pack data,
-- clear no-API-key student path through `/api/coach`,
-- deployed live demo URL in this README,
-- QR code or short link for the workshop if needed.
+Then use the deeper course:
+[docs/workshop/README.md](docs/workshop/README.md)
 
-## Deploy Plan
+To connect sessions, lessons, files, labs, and AI coding prompts, use:
+[docs/workshop/concept-to-code-map.md](docs/workshop/concept-to-code-map.md)
 
-Before publishing the live demo:
+## Where To Go Next
 
-1. Run the main app locally with `npm run serve:mock`.
-2. Verify the tutor-first Study Helper / Topic Tutor flow.
-3. Verify `/api/coach` behavior, including quota/error states.
-4. Deploy the static app and `/api/coach` adapter. The repo includes
-   `api/coach.js` and `vercel.json` for a Vercel-style deployment.
-5. For real Gemini answers, set `GEMINI_API_KEY` in the host environment. The
-   same variable works locally in `.env` and in Vercel or another deployment
-   provider's environment-variable settings.
-6. Add the live demo URL to this README.
-7. Re-test `/`, `/index.html`, the optional `/starter/index.html` workshop scaffold, and `POST /api/coach` from a clean browser.
-8. Confirm the Debug Lab does not show keys.
-9. Optional: set `GEMINI_MODEL`; otherwise the default is `gemini-3.1-flash-lite`.
+For facilitators:
 
-## Local Mock And E2E Smoke
+- [docs/workshop/sessions/README.md](docs/workshop/sessions/README.md) - the
+  6-session live workshop runbook.
+- [docs/mentor/mentor-guide.md](docs/mentor/mentor-guide.md) - facilitation
+  rhythm and check-ins.
+- [docs/mentor/curriculum-source.md](docs/mentor/curriculum-source.md) - Grade 7
+  Integrated Science source boundary.
+- [docs/mentor/rubric.md](docs/mentor/rubric.md) - project demo rubric.
 
-Use the local mock when mentors or reviewers need to test the full student flow
-without a real provider key:
+For students:
 
-```bash
-npm install
-npm run test:e2e
-```
+- [docs/student/handout.md](docs/student/handout.md) - challenge and submission
+  guide.
+- [docs/student/project-cards.md](docs/student/project-cards.md) - remix ideas.
+- [docs/student/ai-limits.md](docs/student/ai-limits.md) - safe AI usage and
+  limits.
+- [docs/student/ai-coding-prompts.md](docs/student/ai-coding-prompts.md) -
+  debugging and extension prompts.
 
-The Playwright hook starts `scripts/mock-coach-server.js`, serves the static app,
-and provides `POST /api/coach` mock responses for normal study help, follow-up,
-quota, network, and personal-data safety paths. When `GEMINI_API_KEY` is not set,
-the deploy adapter also falls back to the same mock response contract. Reports
-are written to `playwright-report/` and transient test files to `test-results/`.
+For developers:
 
-To use the mock manually:
+- [docs/README.md](docs/README.md) - best reading order.
+- [docs/architecture.md](docs/architecture.md) - browser, data, server, mock
+  mode, and Gemini mode.
+- [docs/code-map.md](docs/code-map.md) - where to change common things.
+- [docs/api-coach-contract.md](docs/api-coach-contract.md) - request and
+  response contract.
+- [docs/testing-debugging.md](docs/testing-debugging.md) - Playwright, manual
+  checks, and Debug Lab.
+- [docs/api-safety-checklist.md](docs/api-safety-checklist.md) - key, data, AI
+  honesty, and debug checks.
+- [docs/extend-soma.md](docs/extend-soma.md) - beginner extension tasks.
 
-```bash
-npm run serve:mock
-```
+## Safety Rules
 
-Then open the main app:
-
-```text
-http://127.0.0.1:8787/
-```
-
-The smaller workshop scaffold remains available at:
-
-```text
-http://127.0.0.1:8787/starter/index.html
-```
-
-## Environment Config
-
-Use `.env.example` as the shared template for local development and deployment.
-It contains only provider configuration:
-
-```text
-GEMINI_API_KEY=
-GEMINI_MODEL=gemini-3.1-flash-lite
-```
-
-`gemini-3.1-flash-lite` is the workshop default because it is the best tested
-Gemini text-tutor choice for this app: the active classroom table shows 15 RPM,
-250K TPM, and 500 RPD for this model, and `/api/coach` has been smoke-tested
-with it. See `docs/student/ai-limits.md` for the student-facing limits and advice.
-
-For a local real-Gemini test, create a private `.env` file from the example:
-
-```bash
-cp .env.example .env
-```
-
-Edit `.env` and set `GEMINI_API_KEY` to the organizer-owned key. Do not commit
-`.env` or paste the key into chat. For deployment, set the same variables in the
-hosting provider's server-side environment variables, for example Vercel Project
-Settings -> Environment Variables. Never put provider keys in frontend
-JavaScript.
-
-`npm run serve:mock` loads `.env` automatically before serving `/api/coach`.
-
-```bash
-npm run serve:mock
-```
-
-Then open `http://127.0.0.1:8787/`.
-
-If port 8787 is already busy, stop the old local server. Port overrides are
-local test plumbing and are not part of the shared environment template or
-deployment setup.
-
-## Default Public App
-
-The default public entry point is Soma Study Coach at `/`, an AI-tutor demo using Grade 7 Integrated Science as the class demo:
-
-- a student first picks a topic, asks a question, and reads the answer,
-- advanced help mode, grade/year, and learning-area controls stay available under Advanced Options,
-- the app loads local KICD/CBC-aligned sample topic content,
-- the app can open a Debug Lab that shows safe context, prompts, provider request shape and parsed response,
-- the app calls one shared `/api/coach` endpoint,
-- the coach endpoint returns an explanation, examples, misconception help, resources, or a study plan,
-- the app supports follow-up study questions,
-- the app tracks progress locally,
-- the app shows run steps: observe, prepare context, ask coach endpoint, parse response, explain.
-
-The `starter/` folder remains as a smaller workshop scaffold. Teams can use it
-for early exercises, or remix the same pattern into a career explorer, school
-FAQ bot, reading helper, resource finder, support dashboard, or adaptive
-practice game.
+- Never put provider keys in `reference/`, `starter/`, browser JavaScript,
+  GitHub, or student machines.
+- Keep provider keys in server-side environment variables only.
+- Use dummy learning questions, not names, phone numbers, marks, or private
+  school records.
+- Treat Debug Lab as a teaching view, not a secret-revealing log.
+- Keep the beginner architecture small: static HTML/CSS/JS, local data, browser
+  storage, and one `fetch("/api/coach")`.
 
 ## Current Status
 
-This repo contains the workshop-facing material.
-
-The current public app is tutor-first: Topic -> Question -> Your Answer,
-with Advanced Options collapsed and Debug Lab hidden until needed. Local mock E2E
-covers the public app and workshop scaffold across desktop and mobile. The deploy adapter
-calls Gemini when `GEMINI_API_KEY` is configured and otherwise falls back to
-mock/demo responses.
-
-## Simplicity Rule
-
-Keep P0 beginner-sized: static HTML/CSS/JS, local data, browser storage, and one `fetch("/api/coach")`. Do not add frameworks, build tooling, databases, login systems, queues, or orchestration layers unless a later scope explicitly needs them.
+The public app is deployed, the root route opens Soma Study Coach, and the repo
+supports a no-key mock path plus optional server-side Gemini mode. The workshop
+curriculum is integrated under [docs/workshop/](docs/workshop/) and includes
+session guides, deeper lessons, labs, source links, and concept-to-code mapping.

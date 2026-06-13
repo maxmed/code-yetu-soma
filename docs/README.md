@@ -17,10 +17,11 @@ calls that stay server-side.
 5. `api-coach-contract.md` - the request and response shape for `/api/coach`.
 6. `testing-debugging.md` - how to use tests and the Debug Lab view.
 7. `extend-soma.md` - safe beginner tasks for changing or extending the app.
-8. `workshop/README.md` - lecture-style lessons, labs, and deeper learning
+8. `workshop/sessions/README.md` - the 6-session facilitator runbook.
+9. `workshop/README.md` - lecture-style lessons, labs, and deeper learning
    sources.
-9. `student/handout.md` - student challenge and submission guide.
-10. `mentor/mentor-guide.md` - facilitator rhythm and check-in guide.
+10. `student/handout.md` - student challenge and submission guide.
+11. `mentor/mentor-guide.md` - facilitator rhythm and check-in guide.
 
 ## The Main App Flow
 
@@ -58,9 +59,16 @@ Mentor-facing workshop docs live in `mentor/`:
 - `mentor/curriculum-source.md`
 - `mentor/rubric.md`
 
-Lecture-style workshop course material lives in `docs/workshop/`:
+Workshop course material lives in `workshop/`:
 
 - `workshop/README.md`
+- `workshop/sessions/README.md`
+- `workshop/sessions/01-ideation-ai-basics.md`
+- `workshop/sessions/02-web-app-scaffold.md`
+- `workshop/sessions/03-data-intelligence.md`
+- `workshop/sessions/04-integrate-ai-ux.md`
+- `workshop/sessions/05-testing-responsible-ai.md`
+- `workshop/sessions/06-demo-pitch.md`
 - `workshop/sources.md`
 - `workshop/lesson-template.md`
 - `workshop/concept-to-code-map.md`

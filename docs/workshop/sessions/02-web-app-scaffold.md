@@ -6,10 +6,10 @@ Teams create a working HTML/CSS/JS app shell.
 
 Deepen this session:
 
-- [How Web Apps Work](../docs/workshop/lessons/01-how-web-apps-work.md)
-- [Frontend Walkthrough](../docs/workshop/lessons/03-frontend-walkthrough.md)
-- [Lab A: Change One UI Section Safely](../docs/workshop/labs/README.md#lab-a-change-one-ui-section-safely)
-- [Fix A JavaScript Error prompt](../docs/student/ai-coding-prompts.md#fix-a-javascript-error)
+- [How Web Apps Work](../lessons/01-how-web-apps-work.md)
+- [Frontend Walkthrough](../lessons/03-frontend-walkthrough.md)
+- [Lab A: Change One UI Section Safely](../labs/README.md#lab-a-change-one-ui-section-safely)
+- [Fix A JavaScript Error prompt](../../student/ai-coding-prompts.md#fix-a-javascript-error)
 
 ## Students Build
 

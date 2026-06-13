@@ -2,12 +2,12 @@
 
 Use this guide to run the 6-session project studio.
 
-This folder is the live-session runbook. The deeper lecture material lives in
-`../docs/workshop/`. Use both together:
+This folder is the live-session runbook. The deeper lecture material lives one
+level up in `docs/workshop/`. Use both together:
 
-- `workshop/` tells mentors what to run each session.
-- `docs/workshop/` teaches the concepts in more detail.
-- `../docs/workshop/concept-to-code-map.md` connects sessions, lessons, files,
+- `docs/workshop/sessions/` tells mentors what to run each session.
+- `docs/workshop/lessons/` teaches the concepts in more detail.
+- `../concept-to-code-map.md` connects sessions, lessons, files,
   labs, and AI coding prompts.
 
 ## What Students Build
@@ -20,7 +20,7 @@ A browser-based education MVP with a simple intelligence layer:
 - or simple agent workflow.
 
 The default public project is Soma Study Coach. When the local server is
-running, open it at `/`. The implementation lives in `../reference/`, and it
+running, open it at `/`. The implementation lives in `../../../reference/`, and it
 demonstrates the full course arc:
 
 ```text
@@ -42,20 +42,20 @@ pick a Grade 7 Integrated Science topic -> ask a study question -> call /api/coa
 
 | Session | Deep Lessons | Code/Lab Tie-Back |
 |---|---|---|
-| 1 | [Where LLMs Fit](../docs/workshop/lessons/09-where-llms-fit.md), [Agents](../docs/workshop/lessons/10-agents.md), [Build Your Own](../docs/workshop/lessons/12-build-your-own.md) | [Concept map](../docs/workshop/concept-to-code-map.md#session-to-lesson-map) |
-| 2 | [How Web Apps Work](../docs/workshop/lessons/01-how-web-apps-work.md), [Frontend Walkthrough](../docs/workshop/lessons/03-frontend-walkthrough.md) | [Lab A](../docs/workshop/labs/README.md#lab-a-change-one-ui-section-safely) |
-| 3 | [Data And Context](../docs/workshop/lessons/04-data-and-context.md), [LLM Prompts](../docs/workshop/lessons/05-llm-prompts.md), [Calling The LLM](../docs/workshop/lessons/06-calling-the-llm.md) | [Lab B](../docs/workshop/labs/README.md#lab-b-add-a-new-topic-pack), [Lab C](../docs/workshop/labs/README.md#lab-c-edit-a-tutor-prompt-and-compare-output) |
-| 4 | [Parsing And Rendering](../docs/workshop/lessons/07-parsing-and-rendering.md), [Language And Swahili](../docs/workshop/lessons/08-language-and-swahili.md) | [Lab E](../docs/workshop/labs/README.md#lab-e-add-swahili-answer-mode), [Lab F](../docs/workshop/labs/README.md#lab-f-debug-a-bad-json-response) |
-| 5 | [Safety And Variability](../docs/workshop/lessons/11-safety-and-variability.md), [Where LLMs Fit](../docs/workshop/lessons/09-where-llms-fit.md) | [Lab G](../docs/workshop/labs/README.md#lab-g-replace-a-wasteful-llm-call-with-normal-code) |
-| 6 | [Build Your Own](../docs/workshop/lessons/12-build-your-own.md) | [Rubric](../docs/mentor/rubric.md) |
+| 1 | [Where LLMs Fit](../lessons/09-where-llms-fit.md), [Agents](../lessons/10-agents.md), [Build Your Own](../lessons/12-build-your-own.md) | [Concept map](../concept-to-code-map.md#session-to-lesson-map) |
+| 2 | [How Web Apps Work](../lessons/01-how-web-apps-work.md), [Frontend Walkthrough](../lessons/03-frontend-walkthrough.md) | [Lab A](../labs/README.md#lab-a-change-one-ui-section-safely) |
+| 3 | [Data And Context](../lessons/04-data-and-context.md), [LLM Prompts](../lessons/05-llm-prompts.md), [Calling The LLM](../lessons/06-calling-the-llm.md) | [Lab B](../labs/README.md#lab-b-add-a-new-topic-pack), [Lab C](../labs/README.md#lab-c-edit-a-tutor-prompt-and-compare-output) |
+| 4 | [Parsing And Rendering](../lessons/07-parsing-and-rendering.md), [Language And Swahili](../lessons/08-language-and-swahili.md) | [Lab E](../labs/README.md#lab-e-add-swahili-answer-mode), [Lab F](../labs/README.md#lab-f-debug-a-bad-json-response) |
+| 5 | [Safety And Variability](../lessons/11-safety-and-variability.md), [Where LLMs Fit](../lessons/09-where-llms-fit.md) | [Lab G](../labs/README.md#lab-g-replace-a-wasteful-llm-call-with-normal-code) |
+| 6 | [Build Your Own](../lessons/12-build-your-own.md) | [Rubric](../../mentor/rubric.md) |
 
 ## First Session Checklist
 
 Before session 1:
 
-- print or share `../docs/student/project-cards.md`,
+- print or share `../../student/project-cards.md`,
 - run `npm run serve:mock` and open `/` in a browser,
-- keep `../docs/student/ai-coding-prompts.md` ready for students.
+- keep `../../student/ai-coding-prompts.md` ready for students.
 
 ## Recommended Flow
 
@@ -66,10 +66,10 @@ Each session:
 3. 40-70 minutes: teams build.
 4. 10 minutes: teams share what changed.
 
-For deeper teaching material, use `../docs/workshop/README.md`. It adds
+For deeper teaching material, use `../README.md`. It adds
 lecture-style lessons on web apps, Soma architecture, frontend code, LLM calls,
 prompts, multilingual use, agents, safety, variability and reputable self-study
-sources. Use `../docs/workshop/concept-to-code-map.md` when students need to
+sources. Use `../concept-to-code-map.md` when students need to
 connect a concept to the exact files and AI coding prompts.
 
 ## Technical Rules

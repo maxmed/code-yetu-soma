@@ -6,10 +6,10 @@ Teams polish their app and prepare for showcase.
 
 Deepen this session:
 
-- [Build Your Own](../docs/workshop/lessons/12-build-your-own.md)
-- [Project Rubric](../docs/mentor/rubric.md)
-- [Student Handout](../docs/student/handout.md)
-- [Add Responsible AI Note prompt](../docs/student/ai-coding-prompts.md#add-responsible-ai-note)
+- [Build Your Own](../lessons/12-build-your-own.md)
+- [Project Rubric](../../mentor/rubric.md)
+- [Student Handout](../../student/handout.md)
+- [Add Responsible AI Note prompt](../../student/ai-coding-prompts.md#add-responsible-ai-note)
 
 ## Students Build
 

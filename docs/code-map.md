@@ -6,8 +6,7 @@ Use this file when you want to know where to make a change.
 
 `README.md`
 
-Main project overview, fast start, local run instructions, environment setup,
-and workshop status.
+Main project overview, live demo link, quick start, and links into the docs.
 
 `.env.example`
 
@@ -78,9 +77,9 @@ demo.
 
 ## Workshop Material
 
-`workshop/`
+`docs/workshop/sessions/`
 
-Six session files plus the workshop guide.
+Six live-session files plus the facilitator runbook.
 
 `docs/student/handout.md`
 

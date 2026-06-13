@@ -1,14 +1,16 @@
 # Soma Workshop Course
 
-This course turns Soma Study Coach into lecture material. Use it alongside the
-six-session project studio in [../../workshop/](../../workshop/).
+This folder is the workshop home. It contains the six-session runbook, deeper
+lecture lessons, labs, source links, and concept-to-code mapping for Soma Study
+Coach.
 
-The two workshop folders have different jobs:
+The main paths are:
 
-- [../../workshop/](../../workshop/) is the facilitator runbook for the six live
-  sessions.
-- `./` is the deeper course: lectures, labs, source links, and concept-to-code
-  explanations.
+- [sessions/](./sessions/) - facilitator runbook for the six live sessions.
+- [lessons/](./lessons/) - deeper lecture material and self-study blocks.
+- [labs/](./labs/) - hands-on practice tasks.
+- [concept-to-code-map.md](./concept-to-code-map.md) - how sessions, lessons,
+  files, labs, and AI coding prompts connect.
 
 Use [concept-to-code-map.md](./concept-to-code-map.md) when students need to see
 how a lesson maps back to actual Soma files, labs, and AI coding prompts.
@@ -78,7 +80,7 @@ Use labs when students need hands-on practice.
 
 Use [concept-to-code-map.md](./concept-to-code-map.md) to connect:
 
-- each root `workshop/` session,
+- each live workshop session,
 - each deep lesson,
 - the relevant project files,
 - the matching lab,

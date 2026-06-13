@@ -6,10 +6,10 @@ Teams test their MVP, fix bugs, and explain limitations.
 
 Deepen this session:
 
-- [Safety And Variability](../docs/workshop/lessons/11-safety-and-variability.md)
-- [Where LLMs Fit](../docs/workshop/lessons/09-where-llms-fit.md)
-- [Testing And Debugging](../docs/testing-debugging.md)
-- [Add Test Cases prompt](../docs/student/ai-coding-prompts.md#add-test-cases)
+- [Safety And Variability](../lessons/11-safety-and-variability.md)
+- [Where LLMs Fit](../lessons/09-where-llms-fit.md)
+- [Testing And Debugging](../../testing-debugging.md)
+- [Add Test Cases prompt](../../student/ai-coding-prompts.md#add-test-cases)
 
 ## Students Build
 
@@ -44,7 +44,7 @@ Each team writes:
 
 ## Activity 2: Debug With An AI Coding Assistant
 
-Use `../docs/student/ai-coding-prompts.md`.
+Use `../../student/ai-coding-prompts.md`.
 
 Rule: ask for one bug or one function at a time.
 
