@@ -4,6 +4,23 @@ Time: 35-40 minutes
 
 Audience: students ready to inspect and edit prompt text.
 
+## Learner Hook
+
+The difference between a useless AI answer and a helpful one is often ten words
+of better instructions. Prompting is how you turn a vague chatbot into a
+focused study coach.
+
+## Try This Now
+
+Open Debug Lab, load the last prompt, add `Explain like I am 10 years old using
+one local example`, run again, and compare the result.
+
+## Real-World Connection
+
+Students already prompt search engines, chatbots and image generators. The same
+model can sound confused, funny, strict or helpful depending on how the task is
+framed.
+
 ## Learning Goals
 
 By the end, students can:
@@ -171,3 +188,8 @@ rendering.
 - OpenAI Prompting Guide: https://developers.openai.com/api/docs/guides/prompting
 - OpenAI Prompt Engineering Guide: https://developers.openai.com/api/docs/guides/prompt-engineering
 - Google People + AI Guidebook: https://pair.withgoogle.com/guidebook/
+
+## Inspiring Resources
+
+- Learn Prompting introduction - https://learnprompting.org/docs/introduction
+- Google Teachable Machine - https://teachablemachine.withgoogle.com/

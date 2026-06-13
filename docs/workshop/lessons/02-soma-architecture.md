@@ -4,6 +4,24 @@ Time: 30-40 minutes
 
 Audience: beginners who can open files and follow a request through the app.
 
+## Learner Hook
+
+Why does Soma never ask for your API key? Because secrets stay on the server,
+the same way a payment app never shows your private PIN to a shop. Architecture
+is the map that keeps useful things connected and dangerous things separated.
+
+## Try This Now
+
+Open DevTools, choose the Network tab, click Ask coach, and look for the
+`/api/coach` request. Open it and inspect the JSON payload without looking for
+any API key, because the key should not be there.
+
+## Real-World Connection
+
+Netflix, YouTube and school portals all split work between browser and server.
+Your browser shows the interface; servers handle accounts, recommendations,
+private data and expensive computation.
+
 ## Learning Goals
 
 By the end, students can:
@@ -233,3 +251,8 @@ but not secrets.
 - Gemini rate limits: https://ai.google.dev/gemini-api/docs/rate-limits
 - OWASP LLM Prompt Injection Prevention: https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html
 - W3C WCAG Understanding Docs: https://www.w3.org/WAI/WCAG22/Understanding/
+
+## Inspiring Resources
+
+- Fireship: APIs in 100 Seconds - https://www.youtube.com/watch?v=-MTSQjw5DrM
+- Code.org AI for Oceans - https://code.org/oceans

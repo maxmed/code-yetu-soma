@@ -4,6 +4,23 @@ Time: 35-40 minutes
 
 Audience: advanced students who understand one LLM-backed endpoint.
 
+## Learner Hook
+
+What if your app could think ahead like a video game player: observe the
+situation, choose a move, check what happened, then continue? That loop is the
+beginning of agent thinking.
+
+## Try This Now
+
+Use Soma follow-up questions three times in a row. You are manually acting as
+the loop: observe answer, choose next question, check result, continue.
+
+## Real-World Connection
+
+Game AI, robot vacuums and self-driving car systems all observe, decide, act
+and check. A study agent would need the same discipline, but with stronger
+safety boundaries.
+
 ## Learning Goals
 
 By the end, students can:
@@ -173,3 +190,8 @@ implementation.
 - OpenAI Agents Learning Material: https://developers.openai.com/learn/agents
 - Google People + AI Guidebook: https://pair.withgoogle.com/guidebook/
 - OWASP LLM Prompt Injection Prevention: https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html
+
+## Inspiring Resources
+
+- DeepMind: AlphaGo trailer - https://www.youtube.com/watch?v=WXuK6gekU1Y
+- OpenAI Agents learning material - https://developers.openai.com/learn/agents

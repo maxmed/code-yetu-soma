@@ -4,6 +4,23 @@ Time: 35-40 minutes
 
 Audience: students who understand frontend/backend boundaries.
 
+## Learner Hook
+
+When you click Ask coach, a message can travel to a model provider and back
+faster than you can sharpen a pencil. This lesson follows that trip from browser
+to server to AI and back.
+
+## Try This Now
+
+In Debug Lab, set temperature to `0.1` and run a question. Then set it to `1.5`
+and run the same question again. Compare which answer feels more predictable.
+
+## Real-World Connection
+
+Voice assistants use a similar shape: your device records a request, a server
+processes it, an AI system prepares a response, and your device presents the
+answer.
+
 ## Learning Goals
 
 By the end, students can:
@@ -179,3 +196,8 @@ adapter, safe request, structured response, honest errors.
 - Gemini API docs: https://ai.google.dev/gemini-api/docs
 - Gemini rate limits: https://ai.google.dev/gemini-api/docs/rate-limits
 - OpenAI Safety Best Practices: https://developers.openai.com/api/docs/guides/safety-best-practices
+
+## Inspiring Resources
+
+- 3Blue1Brown: But what is a GPT? - https://www.youtube.com/watch?v=wjZofJX0v4M
+- TensorFlow Playground - https://playground.tensorflow.org/

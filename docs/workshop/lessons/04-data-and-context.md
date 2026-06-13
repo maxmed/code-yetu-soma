@@ -4,6 +4,22 @@ Time: 30-40 minutes
 
 Audience: students who understand the basic frontend flow.
 
+## Learner Hook
+
+AI is only as smart as the context you give it. Give it nothing and it guesses;
+give it the right topic pack and it can act like a focused study helper.
+
+## Try This Now
+
+Open `reference/data.js`, change one topic's `sampleQuestion`, reload Soma,
+click Use sample, and confirm the question changed.
+
+## Real-World Connection
+
+Spotify Wrapped turns listening history into a personal story. Soma does a
+smaller classroom version: it turns selected topic data into context for a
+useful study answer.
+
 ## Learning Goals
 
 By the end, students can:
@@ -165,3 +181,8 @@ review before it is added to the app.
 - MDN JavaScript object basics: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Object_basics
 - Google People + AI Guidebook: https://pair.withgoogle.com/guidebook/
 - OWASP LLM Prompt Injection Prevention: https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html
+
+## Inspiring Resources
+
+- Spotify Engineering Blog - https://engineering.atspotify.com/
+- Google Teachable Machine - https://teachablemachine.withgoogle.com/

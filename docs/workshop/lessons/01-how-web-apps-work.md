@@ -4,6 +4,23 @@ Time: 30-40 minutes
 
 Audience: beginners who know a little HTML/CSS and are starting JavaScript.
 
+## Learner Hook
+
+Every app you use - WhatsApp, TikTok, M-Pesa, a school portal - is built from
+the same three layers. In this lesson, you open the hood and see the structure,
+style and behavior that make a page feel alive.
+
+## Try This Now
+
+Open Soma, press F12, choose the Elements tab, and hover over the Ask coach
+button. Watch the browser highlight the exact HTML element behind the button.
+
+## Real-World Connection
+
+M-Pesa and banking apps use visible screens, brand styling and JavaScript
+behavior together. The menu you tap is structure, the familiar colors are
+styling, and the transaction flow is behavior talking to a server.
+
 ## Learning Goals
 
 By the end, students can:
@@ -195,6 +212,11 @@ to `index.html`, then from the element ID into `app.js`.
 ## Deeper Reading
 
 - MDN Learn Web Development: https://developer.mozilla.org/en-US/docs/Learn_web_development
-- MDN JavaScript Guide: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
+- MDN JavaScript basics: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting
 - web.dev Learn HTML: https://web.dev/learn/html
 - web.dev Learn CSS: https://web.dev/learn/css
+
+## Inspiring Resources
+
+- Fireship: HTML in 100 Seconds - https://www.youtube.com/watch?v=ok-plXXHlWw
+- MDN: Creating the content for your first website - https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content

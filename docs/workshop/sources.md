@@ -19,7 +19,7 @@ learner-oriented explanations.
 
 ### MDN JavaScript Guide
 
-Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
+Link: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting
 
 Use for: JavaScript values, functions, objects, arrays, events, and async code.
 

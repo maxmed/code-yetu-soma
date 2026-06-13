@@ -4,6 +4,22 @@ Time: 35-40 minutes
 
 Audience: all students before demos or public sharing.
 
+## Learner Hook
+
+AI can be confidently wrong, tricked by bad input or used to leak secrets. Good
+builders do not just make AI impressive; they make it safe enough to use.
+
+## Try This Now
+
+Type a fake phone number or fake mark into Soma and click Ask coach. Watch the
+app block it before provider use.
+
+## Real-World Connection
+
+Jailbreak prompts, deepfakes and AI scams are real-world reminders that AI
+output needs boundaries. A classroom study coach should be helpful without
+collecting private learner records.
+
 ## Learning Goals
 
 By the end, students can:
@@ -163,3 +179,8 @@ visible and tested.
 - OpenAI Safety Best Practices: https://developers.openai.com/api/docs/guides/safety-best-practices
 - UNESCO Guidance For Generative AI In Education And Research: https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research
 - NIST AI Risk Management Framework: https://www.nist.gov/itl/ai-risk-management-framework
+
+## Inspiring Resources
+
+- Robert Miles AI Safety - https://www.youtube.com/@RobertMilesAI
+- Code.org AI for Oceans - https://code.org/oceans

@@ -4,6 +4,25 @@ Time: 35-40 minutes plus project studio time
 
 Audience: teams preparing a final project or remix.
 
+## Learner Hook
+
+You know the shape now. Fill it with your idea: a reading helper, a revision
+coach, a school FAQ assistant or something your classmates would actually use.
+
+## Try This Now
+
+Write this sentence:
+
+```text
+My app helps [who] to [do what] by using AI for [specific task] and normal code for [specific task].
+```
+
+## Real-World Connection
+
+Many products started as small projects for a real community. Your first
+version does not need to be huge; it needs one clear user, one useful flow and
+honest limits.
+
 ## Learning Goals
 
 By the end, students can:
@@ -177,3 +196,8 @@ one safety limit, and one test.
 - CAST UDL Guidelines: https://udlguidelines.cast.org/
 - W3C WCAG 2.2: https://www.w3.org/TR/WCAG22/
 - Google People + AI Guidebook: https://pair.withgoogle.com/guidebook/
+
+## Inspiring Resources
+
+- Google AI Experiment: Quick, Draw! - https://quickdraw.withgoogle.com/
+- AI Literacy Framework - https://ailiteracyframework.org/

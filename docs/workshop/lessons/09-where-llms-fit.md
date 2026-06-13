@@ -4,6 +4,21 @@ Time: 30-40 minutes
 
 Audience: students deciding what should and should not use AI.
 
+## Learner Hook
+
+AI can write poems, but you should not use it to count selected checkboxes.
+Knowing when not to use AI is a real engineering superpower.
+
+## Try This Now
+
+Ask an AI tool a simple arithmetic question, then write the same calculation in
+JavaScript. Discuss which one you would trust in an exam app and why.
+
+## Real-World Connection
+
+A calculator is better than a chatbot for exact arithmetic. A normal JavaScript
+rule is better than an LLM for checking whether a question box is empty.
+
 ## Learning Goals
 
 By the end, students can:
@@ -154,3 +169,8 @@ every LLM call with a learning purpose.
 - Google People + AI Guidebook: https://pair.withgoogle.com/guidebook/
 - Gemini rate limits: https://ai.google.dev/gemini-api/docs/rate-limits
 - NIST AI Risk Management Framework: https://www.nist.gov/itl/ai-risk-management-framework
+
+## Inspiring Resources
+
+- AI Weirdness - https://www.aiweirdness.com/
+- Code.org AI for Oceans - https://code.org/oceans

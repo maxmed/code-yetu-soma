@@ -4,6 +4,27 @@ Time: 35-40 minutes
 
 Audience: students ready to read small parts of JavaScript.
 
+## Learner Hook
+
+Every button, input and panel has a name. Once you learn those names, the page
+stops being magic and becomes something you can control.
+
+## Try This Now
+
+Open DevTools Console and type:
+
+```js
+document.getElementById("coachButton").click()
+```
+
+The app should behave as if you clicked Ask coach yourself.
+
+## Real-World Connection
+
+A social app's like button is also just an element, an event listener and a
+state update. At huge scale, the idea is still the same: user action, code runs,
+screen changes.
+
 ## Learning Goals
 
 By the end, students can:
@@ -212,3 +233,8 @@ JavaScript lookup must change too, and tests may need updates.
 - MDN Events: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Events
 - MDN Fetch API: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 - Nielsen Norman Group on progressive disclosure: https://www.nngroup.com/articles/progressive-disclosure/
+
+## Inspiring Resources
+
+- MDN: Your first website - creating the content - https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content
+- Google AI Experiment: Quick, Draw! - https://quickdraw.withgoogle.com/

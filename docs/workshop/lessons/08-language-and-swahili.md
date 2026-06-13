@@ -4,6 +4,22 @@ Time: 30-40 minutes
 
 Audience: students and mentors designing multilingual learning support.
 
+## Learner Hook
+
+Habari! Can AI help you study in Swahili? Yes, but only if the app tells it how,
+tests the result and respects how students actually speak.
+
+## Try This Now
+
+In Debug Lab, add `Jibu kwa Kiswahili rahisi, kisha eleza neno moja la sayansi
+kwa Kiingereza` to the prompt and compare the answer.
+
+## Real-World Connection
+
+Google Translate, Duolingo and multilingual keyboards show that language
+technology is already part of daily life. African language work matters because
+students should not have to leave their language at the classroom door.
+
 ## Learning Goals
 
 By the end, students can:
@@ -163,3 +179,8 @@ subject.
 - W3C Language Of Page Guidance: https://www.w3.org/WAI/WCAG22/Understanding/language-of-page.html
 - W3C WCAG Understanding Docs: https://www.w3.org/WAI/WCAG22/Understanding/
 - Google People + AI Guidebook: https://pair.withgoogle.com/guidebook/
+
+## Inspiring Resources
+
+- Masakhane African NLP - https://www.masakhane.io/
+- Google Teachable Machine - https://teachablemachine.withgoogle.com/

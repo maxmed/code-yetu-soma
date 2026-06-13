@@ -4,6 +4,21 @@ Time: 30-40 minutes
 
 Audience: students who understand JSON objects and page rendering.
 
+## Learner Hook
+
+The AI may return a wall of JSON text. Your job is to turn that raw material
+into something a student can actually read, trust and use.
+
+## Try This Now
+
+Open Debug Lab after a coach run and compare Raw coach return with Parsed app
+response. Find one field that becomes a visible answer section.
+
+## Real-World Connection
+
+Weather apps do this constantly. Raw API data becomes a simple card like
+`25C and sunny`, with icons, warnings and a forecast that humans can scan.
+
 ## Learning Goals
 
 By the end, students can:
@@ -158,3 +173,8 @@ evaluation, source limits and human review.
 - MDN JSON: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/JSON
 - MDN Fetch API: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 - OWASP LLM Prompt Injection Prevention: https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html
+
+## Inspiring Resources
+
+- JSON Crack visualizer - https://jsoncrack.com/
+- Google AI Experiment: Quick, Draw! - https://quickdraw.withgoogle.com/
