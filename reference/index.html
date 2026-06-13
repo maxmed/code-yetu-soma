@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Soma Study Coach</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Code Yetu Soma</p>
+      <h1>Soma Study Coach</h1>
+      <p class="intro">
+        A mode-first Grade 7 Integrated Science Study Helper. Choose a topic,
+        ask a question, preview the safe context, and call the shared
+        <code>/api/coach</code> endpoint for structured study support.
+      </p>
+    </div>
+    <aside class="provider-card" aria-label="AI provider status">
+      <span>AI boundary</span>
+      <strong>/api/coach</strong>
+      <small>No frontend API keys</small>
+    </aside>
+  </header>
+
+  <main>
+    <section class="panel" aria-labelledby="setup-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Step 1</p>
+          <h2 id="setup-title">Choose Help Mode And Topic</h2>
+        </div>
+        <span class="badge">Mode first</span>
+      </div>
+      <div class="setup-grid">
+        <label>
+          Help mode
+          <select id="modeSelect"></select>
+        </label>
+        <label>
+          Grade / Year
+          <select id="gradeSelect"></select>
+        </label>
+        <label>
+          Learning area
+          <select id="learningAreaSelect"></select>
+        </label>
+        <label class="wide">
+          Topic
+          <select id="topicSelect"></select>
+        </label>
+      </div>
+      <div id="topicSummary" class="topic-summary"></div>
+    </section>
+
+    <section class="grid-two">
+      <article class="panel" aria-labelledby="question-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Step 2</p>
+            <h2 id="question-title">Ask The Study Helper</h2>
+          </div>
+          <button id="sampleQuestionButton" type="button" class="small secondary">Use sample</button>
+        </div>
+        <label for="studentQuestionInput" class="question-label">Student question</label>
+        <textarea id="studentQuestionInput" rows="5" placeholder="Example: Why is growth a life process?"></textarea>
+        <p class="note">Use dummy learning questions only. Do not enter names, school names, marks, phone numbers or private records.</p>
+        <div class="button-row">
+          <button id="coachButton" type="button">Ask AI coach</button>
+          <button id="resetButton" type="button" class="secondary">Reset</button>
+        </div>
+      </article>
+
+      <article class="panel" aria-labelledby="practice-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Optional</p>
+            <h2 id="practice-title">Practice Input</h2>
+          </div>
+          <span id="practiceBadge" class="badge">0 answered</span>
+        </div>
+        <form id="practiceForm" class="question-grid"></form>
+      </article>
+    </section>
+
+    <section class="grid-two">
+      <article class="panel" aria-labelledby="context-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Step 3</p>
+            <h2 id="context-title">Safe Context Preview</h2>
+          </div>
+          <button id="togglePromptButton" type="button" class="small secondary">Show context</button>
+        </div>
+        <ol id="agentSteps" class="steps"></ol>
+        <pre id="promptPreview" class="prompt-preview hidden"></pre>
+      </article>
+
+      <article class="panel" aria-labelledby="ai-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Step 4</p>
+            <h2 id="ai-title">Study Helper Response</h2>
+          </div>
+          <span id="coachStatus" class="badge">Not run</span>
+        </div>
+        <div id="coachOutput" class="empty-state">
+          Choose a mode and topic, enter a question, then call <code>/api/coach</code>.
+        </div>
+      </article>
+    </section>
+
+    <section class="grid-two">
+      <article class="panel" aria-labelledby="plan-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Step 5</p>
+            <h2 id="plan-title">Local Study Progress</h2>
+          </div>
+          <button id="clearProgressButton" type="button" class="small secondary">Clear progress</button>
+        </div>
+        <div id="planOutput" class="empty-state">
+          A returned 7-day plan will appear here.
+        </div>
+      </article>
+
+      <article class="panel" aria-labelledby="followup-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Step 6</p>
+            <h2 id="followup-title">Follow-Up Tutor</h2>
+          </div>
+          <span class="badge">Same topic context</span>
+        </div>
+        <label class="question-label" for="followUpInput">Ask a follow-up question</label>
+        <div class="search-row">
+          <input id="followUpInput" type="text" placeholder="Example: give another local example">
+          <button id="followUpButton" type="button">Ask</button>
+        </div>
+        <p class="note">Do not include personal details. The follow-up uses the same dummy topic context.</p>
+        <div id="followUpOutput" class="answer-box">
+          Run the study helper first, then ask a follow-up question.
+        </div>
+      </article>
+    </section>
+
+    <section class="panel" aria-labelledby="limits-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Responsible AI</p>
+          <h2 id="limits-title">Limits And Safe Use</h2>
+        </div>
+      </div>
+      <ul class="limits-list">
+        <li>This app uses dummy learner data and simplified KICD/CBC-aligned sample content.</li>
+        <li>The AI gives study support, not official marks, diagnosis, or guaranteed tutoring accuracy.</li>
+        <li>Do not send student names, school names, real marks, phone numbers, or private records.</li>
+        <li>If the AI proxy fails or quota is exhausted, the app shows the failure clearly.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Sample content is original workshop material aligned to Kenya CBC/KICD curriculum design patterns.</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

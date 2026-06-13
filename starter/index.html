@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Soma Study Coach Starter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">Code Yetu Soma</p>
+      <h1>Soma Study Coach Starter</h1>
+      <p class="intro">
+        A plain HTML/CSS/JS scaffold for a mode-first Study Helper. Build from
+        mode and topic selection toward the full reference app.
+      </p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel" aria-labelledby="setup-title">
+      <div class="panel-header">
+        <h2 id="setup-title">Setup</h2>
+        <span class="badge">Mode first</span>
+      </div>
+      <div class="setup-grid">
+        <label>
+          Help mode
+          <select id="modeSelect"></select>
+        </label>
+        <label>
+          Grade
+          <select id="gradeSelect"></select>
+        </label>
+        <label>
+          Learning area
+          <select id="learningAreaSelect"></select>
+        </label>
+        <label>
+          Topic
+          <select id="topicSelect"></select>
+        </label>
+      </div>
+      <div id="topicCard" class="topic-card"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="question-title">
+      <div class="panel-header">
+        <h2 id="question-title">Question And Context</h2>
+        <button id="sampleButton" type="button" class="secondary">Use sample</button>
+      </div>
+      <label for="studentQuestionInput">Student question</label>
+      <textarea id="studentQuestionInput" rows="4" placeholder="Ask about the selected topic"></textarea>
+      <p class="note">Use dummy study questions only. Do not enter names, schools, marks, or private details.</p>
+      <div class="actions">
+        <button id="previewButton" type="button">Preview context</button>
+        <button id="coachButton" type="button">Call /api/coach</button>
+        <button id="resetButton" type="button" class="secondary">Reset</button>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="context-title">
+      <div class="panel-header">
+        <h2 id="context-title">Safe Context Preview</h2>
+        <span id="contextBadge" class="badge">Ready</span>
+      </div>
+      <pre id="contextPreview" class="context-preview"></pre>
+    </section>
+
+    <section class="panel" aria-labelledby="response-title">
+      <div class="panel-header">
+        <h2 id="response-title">Study Helper Response</h2>
+        <span id="coachStatus" class="badge">Not run</span>
+      </div>
+      <div id="responseOutput" class="empty-state">
+        Preview the context, then call the shared /api/coach endpoint.
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="progress-title">
+      <div class="panel-header">
+        <h2 id="progress-title">Local Progress</h2>
+        <button id="clearProgressButton" type="button" class="secondary">Clear</button>
+      </div>
+      <div id="planOutput" class="empty-state">A returned 7-day plan will appear here.</div>
+    </section>
+
+    <section class="panel" aria-labelledby="followup-title">
+      <div class="panel-header">
+        <h2 id="followup-title">Follow-Up Tutor</h2>
+        <span class="badge">Same context</span>
+      </div>
+      <label for="followUpInput">Follow-up question</label>
+      <textarea id="followUpInput" rows="3" placeholder="Ask one more question about the same topic"></textarea>
+      <p class="note">Do not include personal details. The follow-up uses the same topic context.</p>
+      <div class="actions">
+        <button id="followUpButton" type="button">Ask follow-up</button>
+      </div>
+      <div id="followUpOutput" class="empty-state">Run the study helper first, then ask a follow-up.</div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>This starter uses dummy Grade 7 Integrated Science content and one fetch('/api/coach') adapter.</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
