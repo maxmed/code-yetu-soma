@@ -44,8 +44,10 @@ tasks.
    ```
 
 Mock mode needs no API key. Real Gemini answers are optional and must be
-configured server-side. See [docs/local-setup.md](docs/local-setup.md) and
-[docs/gemini-key-setup.md](docs/gemini-key-setup.md).
+configured server-side. For the complete beginner path, start with
+[docs/getting-started.md](docs/getting-started.md); use
+[docs/local-setup.md](docs/local-setup.md) and
+[docs/gemini-key-setup.md](docs/gemini-key-setup.md) as references.
 
 ## What Is Included
 
