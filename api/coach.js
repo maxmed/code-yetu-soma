@@ -1,7 +1,65 @@
 const { buildCoachResult, hasPersonalData } = require("../lib/coach-core");
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const GEMINI_MODEL = "gemini-1.5-flash";
+const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-2.0-flash";
+
+function normalizeList(value) {
+  if (Array.isArray(value)) {
+    return value.filter(Boolean);
+  }
+  if (typeof value === "string" && value.trim()) {
+    return [value.trim()];
+  }
+  return [];
+}
+
+function normalizeGeminiResponse(result, mode, topic) {
+  const normalized = {
+    studyFeedback: String(result.studyFeedback || "").trim(),
+    topicExplanation: String(result.topicExplanation || "").trim(),
+    examples: normalizeList(result.examples),
+    misconceptionHelp: normalizeList(result.misconceptionHelp),
+    recommendedResources: normalizeList(result.recommendedResources),
+    sevenDayPlan: normalizeList(result.sevenDayPlan),
+    followUpAnswer: String(result.followUpAnswer || "").trim(),
+    limitations: String(result.limitations || "").trim()
+  };
+
+  if (mode === "follow-up") {
+    normalized.followUpAnswer = normalized.followUpAnswer ||
+      normalized.topicExplanation ||
+      normalized.studyFeedback ||
+      `For ${topic}, connect the follow-up question to the topic pack and explain it with one local example.`;
+    normalized.limitations = normalized.limitations ||
+      "AI-generated study support. Check important learning decisions with a teacher.";
+    return normalized;
+  }
+
+  normalized.studyFeedback = normalized.studyFeedback ||
+    `Good question about ${topic}. Start with the key idea, then connect it to an everyday example.`;
+  normalized.topicExplanation = normalized.topicExplanation ||
+    `${topic} can be explained using the selected Grade 7 Integrated Science topic pack.`;
+  normalized.examples = normalized.examples.length
+    ? normalized.examples
+    : [`Use a local example to explain ${topic}.`];
+  normalized.misconceptionHelp = normalized.misconceptionHelp.length
+    ? normalized.misconceptionHelp
+    : [`Do not memorize only the word. Explain why the example fits ${topic}.`];
+  normalized.recommendedResources = normalized.recommendedResources.length
+    ? normalized.recommendedResources
+    : [{ title: "Topic review card", reason: "Use the local topic pack to write one question and one example." }];
+  normalized.sevenDayPlan = normalized.sevenDayPlan.length
+    ? normalized.sevenDayPlan
+    : [
+      { day: 1, title: "Read the topic pack", task: "Write the key idea in your own words." },
+      { day: 2, title: "Practice examples", task: "Explain two local examples to a partner." },
+      { day: 3, title: "Check misconceptions", task: "Write one common mistake and correct it." }
+    ];
+  normalized.limitations = normalized.limitations ||
+    "AI-generated study support. Check important learning decisions with a teacher.";
+
+  return normalized;
+}
 
 async function callGemini(payload) {
   const topic = payload?.studentSetup?.topic || "the selected topic";
@@ -63,9 +121,11 @@ Rules:
   const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
   if (!text) throw { status: 503, message: "Empty Gemini response." };
 
-  const result = JSON.parse(text);
-  result.limitations = result.limitations || "AI-generated study support. Check important learning decisions with a teacher.";
-  return result;
+  try {
+    return normalizeGeminiResponse(JSON.parse(text), mode, topic);
+  } catch {
+    throw { status: 503, message: "Gemini returned a malformed response." };
+  }
 }
 
 function sendJson(response, status, payload) {
