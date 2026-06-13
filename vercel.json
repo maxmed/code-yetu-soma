@@ -4,6 +4,10 @@
     {
       "source": "/",
       "destination": "/reference/index.html"
+    },
+    {
+      "source": "/index.html",
+      "destination": "/reference/index.html"
     }
   ]
 }

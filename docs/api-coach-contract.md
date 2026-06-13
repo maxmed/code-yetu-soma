@@ -19,7 +19,7 @@ The endpoint protects three boundaries:
 
 ## Request Shape
 
-The reference app builds a request like this:
+The public app builds a request like this:
 
 ```json
 {
@@ -90,9 +90,9 @@ use the same shape.
 }
 ```
 
-The reference app normalizes the response before rendering. If a Gemini response
+The public app normalizes the response before rendering. If a Gemini response
 misses a non-critical field, the app fills in safe defaults where possible. The
-starter app reads the same core fields but intentionally ignores
+workshop scaffold reads the same core fields but intentionally ignores
 `likelyWeakAreas` to stay smaller.
 
 ## Follow-Up Mode

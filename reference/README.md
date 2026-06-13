@@ -4,9 +4,9 @@ Open `index.html` from a local/static HTTP server.
 
 This is the flagship AI-tutor-shaped sample project for the Code Yetu program.
 
-Current status: tutor-first reference app. Topic, question, and answer are the
-default path. Advanced options are collapsed, and the Debug Lab stays hidden
-until learners want to inspect or experiment with the coach call.
+Current status: tutor-first public app implementation. Topic, question, and
+answer are the default path. Advanced options are collapsed, and the Debug Lab
+stays hidden until learners want to inspect or experiment with the coach call.
 
 ## What It Demonstrates
 

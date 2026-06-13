@@ -16,8 +16,8 @@ Expected result:
 
 The tests cover:
 
-- reference app happy path,
-- starter app happy path,
+- public app happy path,
+- workshop scaffold happy path,
 - follow-up questions,
 - local progress checkboxes,
 - quota errors,
@@ -36,7 +36,7 @@ npm run serve:mock
 Open:
 
 ```text
-http://127.0.0.1:8787/reference/index.html
+http://127.0.0.1:8787/
 ```
 
 Check:

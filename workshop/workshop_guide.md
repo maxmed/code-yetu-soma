@@ -11,10 +11,12 @@ A browser-based education MVP with a simple intelligence layer:
 - retrieval assistant,
 - or simple agent workflow.
 
-The default project is Soma Study Coach in `../reference/`. It demonstrates the full course arc:
+The default public project is Soma Study Coach. When the local server is
+running, open it at `/`. The implementation lives in `../reference/`, and it
+demonstrates the full course arc:
 
 ```text
-pick a Grade 7 Integrated Science topic -> ask a study question -> call /api/coach -> study explanation/resources/plan -> optional Under The Hood context -> follow-up -> progress -> limitations
+pick a Grade 7 Integrated Science topic -> ask a study question -> call /api/coach -> study explanation/resources/plan -> optional Debug Lab context -> follow-up -> progress -> limitations
 ```
 
 ## Session Path
@@ -33,7 +35,7 @@ pick a Grade 7 Integrated Science topic -> ask a study question -> call /api/coa
 Before session 1:
 
 - print or share `../docs/student/project-cards.md`,
-- open `../reference/index.html` in a browser,
+- run `npm run serve:mock` and open `/` in a browser,
 - keep `../docs/student/ai-coding-prompts.md` ready for students.
 
 ## Recommended Flow

@@ -54,7 +54,7 @@ Then run:
 npm run serve:mock
 ```
 
-Open the reference app and select the new topic.
+Open the public app and select the new topic.
 
 ## Change The First Screen
 

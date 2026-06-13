@@ -76,7 +76,7 @@ Use `../student/ai-limits.md` as the student-facing guide. During build time,
 encourage teams to debug UI and JavaScript with mock/demo responses first, then
 spend real AI calls only on final tutor-flow checks.
 
-The reference app also includes an opt-in LLM Call Inspector. Use it to show
+The public app also includes an opt-in Debug Lab. Use it to show
 students the safe `/api/coach` payload, provider request shape, raw return, and
 parsed response. Remind students that provider keys stay server-side and are
 not shown in the browser.
@@ -94,7 +94,7 @@ Every team should answer:
 
 ## Facilitation Notes For 15 Schools
 
-- Use one common starter app to reduce debugging complexity.
+- Use one common scaffold to reduce debugging complexity.
 - Let teams choose different project data and UI, not different frameworks.
 - Keep everything browser-only unless a mentor can support setup.
 - Have a reference solution available for rescue.

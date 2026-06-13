@@ -13,7 +13,7 @@ module.exports = defineConfig({
   },
   webServer: {
     command: `SOMA_DISABLE_LOCAL_ENV=1 node scripts/mock-coach-server.js --port ${PORT}`,
-    url: `http://127.0.0.1:${PORT}/reference/index.html`,
+    url: `http://127.0.0.1:${PORT}/`,
     reuseExistingServer: false,
     timeout: 10000
   },

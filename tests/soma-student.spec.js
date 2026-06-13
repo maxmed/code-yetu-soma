@@ -8,7 +8,7 @@ async function saveFullPage(page, testInfo, name) {
 }
 
 async function runReferenceSuccess(page, testInfo) {
-  await page.goto("/reference/index.html");
+  await page.goto("/");
   await expect(page.getByRole("heading", { name: "Soma Study Coach" })).toBeVisible();
   await expect(page.locator("#keepLearningSection")).toBeHidden();
   await expect(page.locator("#debugLabSection")).toBeHidden();
@@ -61,7 +61,7 @@ async function runReferenceSuccess(page, testInfo) {
   await saveFullPage(page, testInfo, "reference-success");
 }
 
-async function runStarterSuccess(page, testInfo) {
+async function runScaffoldSuccess(page, testInfo) {
   await page.goto("/starter/index.html");
   await expect(page.getByRole("heading", { name: "Soma Study Coach Starter" })).toBeVisible();
 
@@ -84,20 +84,20 @@ async function runStarterSuccess(page, testInfo) {
   await page.locator("#followUpInput").fill("Give another local example.");
   await page.getByRole("button", { name: "Ask follow-up" }).click();
   await expect(page.locator("#followUpOutput")).toContainText("Coach answer");
-  await saveFullPage(page, testInfo, "starter-success");
+  await saveFullPage(page, testInfo, "scaffold-success");
 }
 
 test.describe("Soma Study Coach student smoke", () => {
-  test("reference app supports tutor-first coach, follow-up and progress", async ({ page }, testInfo) => {
+  test("public app supports tutor-first coach, follow-up and progress", async ({ page }, testInfo) => {
     await runReferenceSuccess(page, testInfo);
   });
 
-  test("starter app supports setup-visible coach, follow-up and progress", async ({ page }, testInfo) => {
-    await runStarterSuccess(page, testInfo);
+  test("workshop scaffold supports setup-visible coach, follow-up and progress", async ({ page }, testInfo) => {
+    await runScaffoldSuccess(page, testInfo);
   });
 
-  test("reference app shows honest quota and network errors", async ({ page }, testInfo) => {
-    await page.goto("/reference/index.html");
+  test("public app shows honest quota and network errors", async ({ page }, testInfo) => {
+    await page.goto("/");
     await page.locator("#studentQuestionInput").fill("quota-test: explain this topic");
     await page.getByRole("button", { name: "Ask coach" }).click();
     await expect(page.locator("#coachStatus")).toContainText("Coach unavailable");
@@ -111,8 +111,8 @@ test.describe("Soma Study Coach student smoke", () => {
     await saveFullPage(page, testInfo, "reference-errors");
   });
 
-  test("reference and starter block personal-data prompts before provider use", async ({ page }, testInfo) => {
-    await page.goto("/reference/index.html");
+  test("main app and workshop scaffold block personal-data prompts before provider use", async ({ page }, testInfo) => {
+    await page.goto("/");
     await page.locator("#studentQuestionInput").fill("My name is Amina and I got 20 marks out of 100. Help me.");
     await page.getByRole("button", { name: "Ask coach" }).click();
     await expect(page.locator("#coachOutput")).toContainText("Remove personal data");

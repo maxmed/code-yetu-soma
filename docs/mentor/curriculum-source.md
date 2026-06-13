@@ -23,7 +23,7 @@ Note: the HI Integrated Science Drive file is viewable through KICD's embedded p
 
 ## How To Use It
 
-The Soma Study Coach reference app should not invent random school content. It should use short, facilitator-curated sample questions, topic names, resources, and study tasks based on KICD/CBC learning areas.
+The Soma Study Coach public app should not invent random school content. It should use short, facilitator-curated sample questions, topic names, resources, and study tasks based on KICD/CBC learning areas.
 
 Approved class demo lane:
 
@@ -43,7 +43,7 @@ After the class demo works, add a setup step where students can choose:
 - topic or study need,
 - preferred support type: explanation, quiz practice, study plan, or resources.
 
-For the reference app, the data can be local and curated. The app should filter the available sample curriculum data before building the LLM prompt.
+For the public app, the data can be local and curated. The app should filter the available sample curriculum data before building the LLM prompt.
 
 ## App Content Rules
 

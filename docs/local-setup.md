@@ -19,10 +19,10 @@ npm run serve:mock
 Open:
 
 ```text
-http://127.0.0.1:8787/reference/index.html
+http://127.0.0.1:8787/
 ```
 
-or:
+The smaller workshop scaffold is still available for teaching exercises:
 
 ```text
 http://127.0.0.1:8787/starter/index.html
@@ -88,8 +88,8 @@ For a Vercel-style deploy:
    - `GEMINI_API_KEY`
    - optional `GEMINI_MODEL`
 4. Deploy.
-5. Test `/`; `vercel.json` rewrites it to `/reference/index.html`.
-6. Test `/reference/index.html`, `/starter/index.html`, and `POST /api/coach`.
+5. Test `/` and `/index.html`; both should open the polished Soma Study Coach.
+6. Test the optional `/starter/index.html` workshop scaffold and `POST /api/coach`.
 7. Confirm the Debug Lab does not show keys.
 
 ## Mock Versus Gemini

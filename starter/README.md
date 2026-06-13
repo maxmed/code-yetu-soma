@@ -1,9 +1,9 @@
-# Starter App: Soma Study Coach
+# Workshop Scaffold: Soma Study Coach
 
 Open `index.html` from a simple local server.
 
-This starter demonstrates the same `/api/coach` learning pattern as the
-reference app, but keeps all setup controls visible for beginners:
+This scaffold demonstrates the same `/api/coach` learning pattern as the public
+Soma app, but keeps all setup controls visible for beginners:
 
 - choose help mode,
 - choose Grade 7 Integrated Science topic,
@@ -14,15 +14,15 @@ reference app, but keeps all setup controls visible for beginners:
 - ask a follow-up question,
 - track returned plan tasks in local browser storage.
 
-The starter is intentionally smaller than `../reference/`. The reference app is
-the polished tutor-first version; this starter exposes more setup controls so
-students can see how the context is built. Students can add practice input,
-stronger error UI, and more topics during the workshop.
+This scaffold is intentionally smaller than `../reference/`. The public app is
+the polished tutor-first version served at `/`; this scaffold exposes more setup
+controls so students can see how the context is built. Students can add practice
+input, stronger error UI, and more topics during the workshop.
 
 ## Files
 
 - `index.html` - page structure
-- `style.css` - starter styling
+- `style.css` - scaffold styling
 - `data.js` - dummy Grade 7 topic-pack data
 - `app.js` - mode/topic selection, context preview, `/api/coach` adapter, response rendering
 

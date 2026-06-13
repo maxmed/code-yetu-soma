@@ -11,7 +11,7 @@ Student browser
   |
   | loads static files
   v
-reference/ or starter/
+public app in reference/ or workshop scaffold in starter/
   |
   | POST /api/coach with safe study context
   v
@@ -36,8 +36,8 @@ machines.
 
 ### Static apps
 
-- `reference/` is the complete working demo.
-- `starter/` is the simpler version students can edit.
+- `reference/` powers the public app served at `/` and `/index.html`.
+- `starter/` is the smaller workshop scaffold students can edit during lessons.
 
 Both are plain HTML/CSS/JS. They can be served by any static server, but the
 coach call only works when `/api/coach` is available.
@@ -89,8 +89,8 @@ or private provider key.
 
 `tests/soma-student.spec.js` uses Playwright to test:
 
-- reference app success flow,
-- starter app success flow,
+- public app success flow,
+- workshop scaffold success flow,
 - follow-up flow,
 - local progress checkboxes,
 - quota and network errors,

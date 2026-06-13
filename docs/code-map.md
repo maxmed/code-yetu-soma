@@ -36,18 +36,19 @@ Deployment hint for hosts that support Vercel-style serverless functions.
 
 `reference/`
 
-The complete demo app.
+The complete demo app. The local server and deployment rewrite `/` and
+`/index.html` to this app.
 
 - `index.html` defines the page sections and element IDs.
 - `style.css` controls layout and visual styling.
 - `data.js` contains local topic packs and setup options.
 - `app.js` contains the browser behavior.
-- `README.md` explains the reference app contract.
+- `README.md` explains the public app contract.
 
 `starter/`
 
-The smaller learner app. Students can start here before reading the full
-reference implementation.
+The smaller workshop scaffold. Students can start here before reading the full
+reference implementation, but it is not the public entry point.
 
 The file names match `reference/` so students can compare simple and complete
 versions.

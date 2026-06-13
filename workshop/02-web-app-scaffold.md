@@ -8,17 +8,19 @@ Teams create a working HTML/CSS/JS app shell.
 
 - page layout
 - setup form for year/class, learning area, and study need
-- topic/question input, with mode/setup controls visible in starter or advanced in the reference app
+- topic/question input, with mode/setup controls visible in the scaffold or advanced in the public app
 - output/results area
 - revision plan area
 - topic tutor or help area
 - JavaScript connected to the page
 
-## Starter Option
+## Scaffold Option
 
 Use `starter/` as the base. Teams can rename headings, data, and questions.
 
-The reference app shows the fuller Soma Study Coach flow. Students do not need to copy every feature on day one; they should first make the page sections and one button work.
+The public app shows the fuller Soma Study Coach flow. Students do not need to
+copy every feature on day one; they should first make the page sections and one
+button work.
 
 ## Concept: Web App Flow
 
@@ -29,9 +31,10 @@ JavaScript = behavior
 Data = what the app reasons over
 ```
 
-## Activity 1: Run The Starter
+## Activity 1: Run The Scaffold
 
-Open `starter/index.html` in a browser.
+Open `starter/index.html` in a browser or through the local server at
+`/starter/index.html`.
 
 Check:
 
@@ -75,4 +78,4 @@ A working page where a user can enter or select information and see at least one
 
 ## Homework
 
-Replace the starter questions/data with your project data.
+Replace the scaffold questions/data with your project data.
