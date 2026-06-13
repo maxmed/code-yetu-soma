@@ -16,8 +16,8 @@ const elements = {
   coachStatus: document.getElementById("coachStatus"),
   coachOutput: document.getElementById("coachOutput"),
   debugStatus: document.getElementById("debugStatus"),
-  toggleDebugButton: document.getElementById("toggleDebugButton"),
   debugOutput: document.getElementById("debugOutput"),
+  keepLearningSection: document.getElementById("keepLearningSection"),
   planOutput: document.getElementById("planOutput"),
   followUpInput: document.getElementById("followUpInput"),
   followUpButton: document.getElementById("followUpButton"),
@@ -29,7 +29,6 @@ const progressStorageKey = "soma-study-coach.plan-progress.v2";
 
 const state = {
   contextVisible: false,
-  debugVisible: false,
   lastContext: null,
   lastResponse: null
 };
@@ -316,9 +315,8 @@ function renderDebug(debug) {
   `;
 }
 
-function updateDebugVisibility() {
-  elements.debugOutput.classList.toggle("hidden", !state.debugVisible);
-  elements.toggleDebugButton.textContent = state.debugVisible ? "Hide under the hood" : "Show under the hood";
+function setKeepLearningVisible(visible) {
+  elements.keepLearningSection.classList.toggle("hidden", !visible);
 }
 
 function normalizeList(value) {
@@ -457,6 +455,7 @@ function renderCoachResponse(response) {
     <p class="limitation">${escapeHtml(response.limitations || "Demo output is study support from dummy data. Check important learning decisions with a teacher or mentor.")}</p>
   `;
   renderPlan(response.sevenDayPlan);
+  setKeepLearningVisible(true);
 }
 
 function readProgress() {
@@ -567,6 +566,7 @@ async function runCoach() {
   const context = buildCoachContext();
   state.lastContext = context;
   state.lastResponse = null;
+  setKeepLearningVisible(false);
   updatePromptPreview();
   setStatus("Calling proxy", "working");
   renderAgentSteps("running");
@@ -639,16 +639,17 @@ function resetApp() {
   elements.practiceForm.reset();
   state.lastContext = null;
   state.lastResponse = null;
-  setStatus("Not run");
-  setDebugStatus("Waiting");
+  setKeepLearningVisible(false);
+  setStatus("Ready");
+  setDebugStatus("Ready");
   renderAgentSteps("ready");
   updatePracticeBadge();
   elements.coachOutput.className = "empty-state";
-  elements.coachOutput.textContent = "Choose a mode and topic, enter a question, then call /api/coach.";
+  elements.coachOutput.textContent = "Pick a topic and ask a question to get study help.";
   elements.planOutput.className = "empty-state";
-  elements.planOutput.textContent = "A returned 7-day plan will appear here.";
+  elements.planOutput.textContent = "A study plan will appear after your first question.";
   elements.followUpOutput.className = "answer-box";
-  elements.followUpOutput.textContent = "Run the study helper first, then ask a follow-up question.";
+  elements.followUpOutput.textContent = "";
   renderDebug(null);
 }
 
@@ -657,6 +658,8 @@ function updateTopicFlow() {
   renderPractice();
   elements.studentQuestionInput.placeholder = getTopic().sampleQuestion;
   state.lastContext = null;
+  state.lastResponse = null;
+  setKeepLearningVisible(false);
   updatePromptPreview();
 }
 
@@ -664,6 +667,7 @@ renderSelects();
 renderTopicSummary();
 renderPractice();
 renderAgentSteps("ready");
+setKeepLearningVisible(false);
 updatePromptPreview();
 
 elements.modeSelect.addEventListener("change", updateTopicFlow);
@@ -680,10 +684,6 @@ elements.togglePromptButton.addEventListener("click", () => {
   state.contextVisible = !state.contextVisible;
   elements.promptPreview.classList.toggle("hidden", !state.contextVisible);
   elements.togglePromptButton.textContent = state.contextVisible ? "Hide context" : "Show context";
-});
-elements.toggleDebugButton.addEventListener("click", () => {
-  state.debugVisible = !state.debugVisible;
-  updateDebugVisibility();
 });
 elements.clearProgressButton.addEventListener("click", () => {
   localStorage.removeItem(progressStorageKey);

@@ -122,6 +122,11 @@ h4 {
   font-size: 18px;
 }
 
+.provider-card .badge {
+  display: inline-flex;
+  margin-bottom: 6px;
+}
+
 main {
   display: grid;
   gap: 18px;
@@ -166,6 +171,26 @@ main {
 
 .wide {
   grid-column: span 3;
+}
+
+.advanced-options {
+  margin-top: 16px;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+.advanced-options summary,
+.under-the-hood summary {
+  cursor: pointer;
+}
+
+.advanced-options summary {
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.advanced-options .setup-grid {
+  margin-top: 14px;
 }
 
 .topic-summary {
@@ -461,6 +486,32 @@ button.small {
   padding: 12px;
   white-space: pre-wrap;
   word-break: break-word;
+}
+
+.under-the-hood summary {
+  list-style: none;
+  margin-bottom: 0;
+}
+
+.under-the-hood summary::-webkit-details-marker {
+  display: none;
+}
+
+.under-the-hood[open] summary {
+  margin-bottom: 16px;
+}
+
+.under-the-hood > .note {
+  margin-bottom: 14px;
+}
+
+.under-the-hood .debug-card + .debug-card {
+  margin-top: 14px;
+}
+
+.keep-learning {
+  display: grid;
+  gap: 14px;
 }
 
 .feedback-block {

@@ -12,15 +12,12 @@
       <p class="eyebrow">Code Yetu Soma</p>
       <h1>Soma Study Coach</h1>
       <p class="intro">
-        A mode-first Grade 7 Integrated Science Study Helper. Choose a topic,
-        ask a question, preview the safe context, and call the demo
-        <code>/api/coach</code> endpoint for structured study support.
+        Pick a topic, ask a question, get study help.
       </p>
     </div>
     <aside class="provider-card" aria-label="Coach endpoint status">
-      <span>Demo boundary</span>
-      <strong>/api/coach</strong>
-      <small>Mock demo, no frontend API keys</small>
+      <span id="coachStatus" class="badge">Ready</span>
+      <strong>Grade 7 · Integrated Science</strong>
     </aside>
   </header>
 
@@ -29,147 +26,129 @@
       <div class="section-heading">
         <div>
           <p class="eyebrow">Step 1</p>
-          <h2 id="setup-title">Choose Help Mode And Topic</h2>
+          <h2 id="setup-title">Pick A Topic</h2>
         </div>
-        <span class="badge">Mode first</span>
       </div>
       <div class="setup-grid">
-        <label>
-          Help mode
-          <select id="modeSelect"></select>
-        </label>
-        <label>
-          Grade / Year
-          <select id="gradeSelect"></select>
-        </label>
-        <label>
-          Learning area
-          <select id="learningAreaSelect"></select>
-        </label>
         <label class="wide">
           Topic
           <select id="topicSelect"></select>
         </label>
       </div>
       <div id="topicSummary" class="topic-summary"></div>
+      <details class="advanced-options">
+        <summary>Advanced options</summary>
+        <div class="setup-grid">
+          <label>
+            Help mode
+            <select id="modeSelect"></select>
+          </label>
+          <label>
+            Grade / Year
+            <select id="gradeSelect"></select>
+          </label>
+          <label>
+            Learning area
+            <select id="learningAreaSelect"></select>
+          </label>
+        </div>
+      </details>
     </section>
 
-    <section class="grid-two">
-      <article class="panel" aria-labelledby="question-title">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Step 2</p>
-            <h2 id="question-title">Ask The Study Helper</h2>
-          </div>
-          <button id="sampleQuestionButton" type="button" class="small secondary">Use sample</button>
+    <section class="panel" aria-labelledby="question-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Step 2</p>
+          <h2 id="question-title">Ask A Question</h2>
         </div>
-        <label for="studentQuestionInput" class="question-label">Student question</label>
-        <textarea id="studentQuestionInput" rows="5" placeholder="Example: Why is growth a life process?"></textarea>
-        <p class="note">Use dummy learning questions only. Do not enter names, school names, marks, phone numbers or private records.</p>
-        <div class="button-row">
-          <button id="coachButton" type="button">Ask demo coach</button>
-          <button id="resetButton" type="button" class="secondary">Reset</button>
-        </div>
-      </article>
-
-      <article class="panel" aria-labelledby="practice-title">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Optional</p>
-            <h2 id="practice-title">Practice Input</h2>
-          </div>
-          <span id="practiceBadge" class="badge">0 answered</span>
-        </div>
-        <form id="practiceForm" class="question-grid"></form>
-      </article>
+        <button id="sampleQuestionButton" type="button" class="small secondary">Use sample</button>
+      </div>
+      <label for="studentQuestionInput" class="question-label">What do you want to learn?</label>
+      <textarea id="studentQuestionInput" rows="3" placeholder="Example: Why is growth a life process?"></textarea>
+      <p class="note">Do not enter names, school names, marks, or phone numbers.</p>
+      <div class="button-row">
+        <button id="coachButton" type="button">Ask coach</button>
+        <button id="resetButton" type="button" class="secondary">Reset</button>
+      </div>
     </section>
 
-    <section class="grid-two">
-      <article class="panel" aria-labelledby="context-title">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Step 3</p>
-            <h2 id="context-title">Safe Context Preview</h2>
-          </div>
-          <button id="togglePromptButton" type="button" class="small secondary">Show context</button>
+    <section class="panel response-panel" aria-labelledby="ai-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Step 3</p>
+          <h2 id="ai-title">Your Answer</h2>
         </div>
+      </div>
+      <div id="coachOutput" class="empty-state">
+        Pick a topic and ask a question to get study help.
+      </div>
+    </section>
+
+    <details class="panel under-the-hood" aria-labelledby="debug-title">
+      <summary class="section-heading">
+        <div>
+          <p class="eyebrow">Under The Hood</p>
+          <h2 id="debug-title">See How It Works</h2>
+        </div>
+        <span id="debugStatus" class="badge">Ready</span>
+      </summary>
+      <p class="note">
+        For mentors and curious learners: see the safe context, server prompt, and model response.
+        API keys are never shown.
+      </p>
+
+      <article class="debug-card" aria-labelledby="context-title">
+        <h3 id="context-title">Safe Context Preview</h3>
+        <button id="togglePromptButton" type="button" class="small secondary">Show context</button>
         <ol id="agentSteps" class="steps"></ol>
         <pre id="promptPreview" class="prompt-preview hidden"></pre>
       </article>
 
-      <article class="panel" aria-labelledby="ai-title">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Step 4</p>
-            <h2 id="ai-title">Study Helper Response</h2>
-          </div>
-          <span id="coachStatus" class="badge">Not run</span>
-        </div>
-        <div id="coachOutput" class="empty-state">
-          Choose a mode and topic, enter a question, then call <code>/api/coach</code>.
-        </div>
+      <article class="debug-card" aria-labelledby="practice-title">
+        <h3 id="practice-title">Practice Input</h3>
+        <span id="practiceBadge" class="badge">0 answered</span>
+        <form id="practiceForm" class="question-grid"></form>
       </article>
-    </section>
 
-    <section class="panel" aria-labelledby="debug-title">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">Under The Hood</p>
-          <h2 id="debug-title">See What The App Sends</h2>
-        </div>
-        <div class="heading-actions">
-          <span id="debugStatus" class="badge">Waiting</span>
-          <button id="toggleDebugButton" type="button" class="small secondary">Show under the hood</button>
-        </div>
-      </div>
-      <p class="note">
-        Opens a teaching view of the safe context, server prompt, model return, and parsed app response.
-        It never shows API keys or key-bearing provider URLs.
-      </p>
-      <div id="debugOutput" class="debug-grid hidden">
+      <div id="debugOutput" class="debug-grid">
         <article class="debug-card">
-          <h3>1. Safe context</h3>
-          <pre>Run the study helper to inspect the safe context.</pre>
+          <h3>Prompt Sent</h3>
+          <pre>Run the study helper to inspect the prompt.</pre>
         </article>
         <article class="debug-card">
-          <h3>2. Coach response</h3>
+          <h3>Response Received</h3>
           <pre>Run the study helper to inspect the response.</pre>
         </article>
       </div>
-    </section>
+    </details>
 
-    <section class="grid-two">
-      <article class="panel" aria-labelledby="plan-title">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Step 5</p>
-            <h2 id="plan-title">Local Study Progress</h2>
+    <section id="keepLearningSection" class="keep-learning hidden">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Keep Learning</p>
+          <h2>Continue Your Study</h2>
+        </div>
+      </div>
+      <div class="grid-two">
+        <article class="panel" aria-labelledby="followup-title">
+          <h3 id="followup-title">Ask A Follow-Up</h3>
+          <div class="search-row">
+            <input id="followUpInput" type="text" placeholder="Example: give another local example">
+            <button id="followUpButton" type="button">Ask</button>
           </div>
-          <button id="clearProgressButton" type="button" class="small secondary">Clear progress</button>
-        </div>
-        <div id="planOutput" class="empty-state">
-          A returned 7-day plan will appear here.
-        </div>
-      </article>
+          <div id="followUpOutput" class="answer-box"></div>
+        </article>
 
-      <article class="panel" aria-labelledby="followup-title">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Step 6</p>
-            <h2 id="followup-title">Follow-Up Tutor</h2>
+        <article class="panel" aria-labelledby="plan-title">
+          <div class="section-heading">
+            <h3 id="plan-title">Your 7-Day Plan</h3>
+            <button id="clearProgressButton" type="button" class="small secondary">Clear</button>
           </div>
-          <span class="badge">Same topic context</span>
-        </div>
-        <label class="question-label" for="followUpInput">Ask a follow-up question</label>
-        <div class="search-row">
-          <input id="followUpInput" type="text" placeholder="Example: give another local example">
-          <button id="followUpButton" type="button">Ask</button>
-        </div>
-        <p class="note">Do not include personal details. The follow-up uses the same dummy topic context.</p>
-        <div id="followUpOutput" class="answer-box">
-          Run the study helper first, then ask a follow-up question.
-        </div>
-      </article>
+          <div id="planOutput" class="empty-state">
+            A study plan will appear after your first question.
+          </div>
+        </article>
+      </div>
     </section>
 
     <section class="panel" aria-labelledby="limits-title">
