@@ -40,11 +40,11 @@ Task:
 
 1. Open `http://127.0.0.1:8787/starter/index.html`.
 2. Change one visible heading, label, or intro sentence in `starter/index.html`.
-2. Keep the element ID the same.
-3. Save the file.
-4. Hard refresh the browser and confirm the UI changed.
-5. Open browser developer tools and confirm there is no red console error.
-6. Click **Use sample**, **Preview context**, and **Call /api/coach** to confirm
+3. Keep the element ID the same.
+4. Save the file.
+5. Hard refresh the browser and confirm the UI changed.
+6. Open browser developer tools and confirm there is no red console error.
+7. Click **Use sample**, **Preview context**, and **Call /api/coach** to confirm
    the starter still works.
 
 Stretch after the starter works:
