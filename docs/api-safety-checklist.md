@@ -43,8 +43,15 @@ Setup](./gemini-key-setup.md) and [Deploy To Vercel](./deploy-vercel.md).
 
 ```bash
 rg -n "AIza|GEMINI_API_KEY|\\?key=" reference starter
+rg -n "AIza|key=AIza|GEMINI_API_KEY=[A-Za-z0-9_-]{20,}" . --glob '!node_modules/**' --glob '!.git/**'
 rg -n "includeLlmCall" reference tests
 npm run test:e2e
+```
+
+If `rg` is not installed, use:
+
+```bash
+grep -rn "AIza\\|key=AIza\\|GEMINI_API_KEY=[A-Za-z0-9_-]\\{20,\\}" . --exclude-dir=node_modules --exclude-dir=.git
 ```
 
 Expected:

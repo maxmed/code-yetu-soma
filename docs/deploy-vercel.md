@@ -32,12 +32,13 @@ Before deploying with a real Gemini key, also check:
 
 ```bash
 rg -n "AIza|GEMINI_API_KEY|\\?key=" reference starter
+rg -n "AIza|key=AIza|GEMINI_API_KEY=[A-Za-z0-9_-]{20,}" . --glob '!node_modules/**' --glob '!.git/**'
 ```
 
 If `rg` is not installed, use:
 
 ```bash
-grep -rn "AIza\\|GEMINI_API_KEY" reference starter
+grep -rn "AIza\\|key=AIza\\|GEMINI_API_KEY=[A-Za-z0-9_-]\\{20,\\}" . --exclude-dir=node_modules --exclude-dir=.git
 ```
 
 Expected:

@@ -145,8 +145,10 @@ Before using a real key:
 
 - run `git status --short` and confirm `.env` is not tracked,
 - run `rg -n "AIza|GEMINI_API_KEY|\\?key=" reference starter`,
+- run
+  `rg -n "AIza|key=AIza|GEMINI_API_KEY=[A-Za-z0-9_-]{20,}" . --glob '!node_modules/**' --glob '!.git/**'`,
 - if `rg` is not installed, run
-  `grep -rn "AIza\\|GEMINI_API_KEY" reference starter`,
+  `grep -rn "AIza\\|key=AIza\\|GEMINI_API_KEY=[A-Za-z0-9_-]\\{20,\\}" . --exclude-dir=node_modules --exclude-dir=.git`,
 - confirm no real key appears in docs,
 - ask one test question,
 - open Debug Lab and confirm no key is visible,
