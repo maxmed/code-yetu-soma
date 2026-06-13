@@ -1,7 +1,29 @@
 const { buildCoachResult, hasPersonalData } = require("../lib/coach-core");
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-2.0-flash";
+const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-2.5-flash-lite";
+
+async function readProviderError(response) {
+  try {
+    return await response.json();
+  } catch {
+    return {};
+  }
+}
+
+function providerErrorMessage(status, errorBody) {
+  const providerMessage = String(errorBody?.error?.message || "");
+  if (status === 429) {
+    if (/limit:\s*0/i.test(providerMessage)) {
+      return `Gemini quota is not available for ${GEMINI_MODEL}. Check the Google AI Studio project quota or billing.`;
+    }
+    return "Gemini quota or rate limit was reached. Try again later or check the project quota.";
+  }
+  if (status === 400 || status === 403) {
+    return "Gemini rejected the request. Check that the API key, project, model, and API access are configured correctly.";
+  }
+  return `Gemini provider error: HTTP ${status}.`;
+}
 
 function normalizeList(value) {
   if (Array.isArray(value)) {
@@ -113,8 +135,8 @@ Rules:
 
   if (!response.ok) {
     const status = response.status;
-    if (status === 429) throw { status: 429, message: "Gemini rate limit reached." };
-    throw { status: 503, message: `Gemini error: ${status}` };
+    const errorBody = await readProviderError(response);
+    throw { status: status === 429 ? 429 : 503, message: providerErrorMessage(status, errorBody) };
   }
 
   const data = await response.json();
