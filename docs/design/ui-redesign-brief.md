@@ -34,7 +34,7 @@ Use these principles when judging mocks and implementation:
 5. **AI transparency and control**: let learners inspect inputs, prompts,
    parameters, responses, parsing, and safety checks in a bounded lab.
 6. **Safety by design**: never show API keys or key-bearing URLs; keep model and
-   prompt controls allowlisted and educational.
+   prompt controls bounded and educational.
 7. **Accessible polish**: readable type, clear labels, high contrast, keyboard
    focus, and mobile-first layouts are part of beauty.
 
@@ -183,7 +183,7 @@ The Debug Lab should support:
 - safe context inspection,
 - tutor prompt editing,
 - user prompt editing,
-- allowlisted model selection,
+- suggested model selection,
 - temperature and max-token controls with safe ranges,
 - run/replay from the lab,
 - original versus modified output comparison,

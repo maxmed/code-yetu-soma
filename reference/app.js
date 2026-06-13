@@ -273,7 +273,7 @@ function renderRunSteps(status = "ready") {
     ["Input", "Read the topic, question and optional practice answers."],
     ["Context", "Attach the local topic pack, resources and safety rules."],
     ["Prompt", "Build tutor instructions on the server."],
-    ["Model", "Use the allowlisted model and safe lab settings."],
+    ["Model", "Use the configured model and bounded lab settings."],
     ["Request", "POST the safe JSON context to /api/coach."],
     ["Raw return", "Receive raw model or mock output."],
     ["Parsed", "Validate structured fields before rendering."],

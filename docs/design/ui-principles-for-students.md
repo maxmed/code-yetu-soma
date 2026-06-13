@@ -91,7 +91,7 @@ If you let learners change prompts or model settings:
 
 - explain what each control does,
 - provide safe defaults,
-- use an allowlist for models,
+- use suggested or approved models,
 - keep values in safe ranges,
 - show reset buttons,
 - never expose API keys,
