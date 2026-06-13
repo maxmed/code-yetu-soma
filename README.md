@@ -43,11 +43,11 @@ tasks.
    npm run test:e2e
    ```
 
-Mock mode needs no API key. Real Gemini answers are optional and must be
-configured server-side. For the complete beginner path, start with
-[docs/getting-started.md](docs/getting-started.md); use
-[docs/local-setup.md](docs/local-setup.md) and
-[docs/gemini-key-setup.md](docs/gemini-key-setup.md) as references.
+For the complete zero-to-hero beginner path, start with
+[docs/getting-started.md](docs/getting-started.md). It covers mock mode,
+optional Gemini setup, safe `.env` configuration, local testing, and deploy
+checks in one sequence. Use [docs/local-setup.md](docs/local-setup.md) and
+[docs/gemini-key-setup.md](docs/gemini-key-setup.md) only as reference pages.
 
 ## What Is Included
 
