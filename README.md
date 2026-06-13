@@ -162,8 +162,16 @@ automatically before serving `/api/coach`.
 npm run serve:mock
 ```
 
-If another server is already using port 8787, set `SOMA_TEST_PORT` in `.env`
-or run with a temporary override:
+Then open `http://127.0.0.1:8787/reference/index.html`.
+
+Only use `SOMA_TEST_PORT` if port 8787 is already busy and you cannot stop the
+old local server. It is not needed for normal local testing or deployment.
+
+For deployment, do not upload `.env`. Set the same `GEMINI_API_KEY` value in the
+hosting provider's server-side environment variables, for example Vercel Project
+Settings -> Environment Variables, then redeploy.
+
+Temporary alternate-port example:
 
 ```bash
 SOMA_TEST_PORT=8788 npm run serve:mock
