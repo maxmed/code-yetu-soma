@@ -4,7 +4,9 @@ Open `index.html` from a local/static HTTP server.
 
 This is the flagship AI-tutor-shaped sample project for the Code Yetu program.
 
-Current status: mode-first reference app. Study Helper / Topic Tutor is the default path and practice/review is optional input.
+Current status: tutor-first reference app. Topic, question, and answer are the
+default path. Advanced options, safe context, practice input, and the LLM call
+inspector are collapsed until needed.
 
 ## What It Demonstrates
 

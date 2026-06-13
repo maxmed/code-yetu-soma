@@ -1,0 +1,126 @@
+# Testing And Debugging
+
+## Fast Confidence Check
+
+Run:
+
+```bash
+npm run test:e2e
+```
+
+Expected result:
+
+```text
+8 passed
+```
+
+The tests cover:
+
+- reference app happy path,
+- starter app happy path,
+- follow-up questions,
+- local progress checkboxes,
+- quota errors,
+- network errors,
+- personal-data blocking,
+- desktop and mobile layouts.
+
+## Manual Browser Check
+
+Start the local server:
+
+```bash
+npm run serve:mock
+```
+
+Open:
+
+```text
+http://127.0.0.1:8787/reference/index.html
+```
+
+Check:
+
+1. The first screen shows Topic, Question, and Your Answer.
+2. Keep Learning is hidden before the first successful answer.
+3. Ask coach returns a structured answer.
+4. Keep Learning appears after the answer.
+5. Under The Hood is collapsed by default.
+6. Opening Under The Hood shows safe context and debug information.
+7. No API key is shown.
+
+## Under The Hood View
+
+The Under The Hood panel is a teaching/debugging tool.
+
+Use it to inspect:
+
+- browser request payload,
+- server prompt,
+- provider request shape,
+- raw return,
+- parsed response,
+- endpoint/model/status notes.
+
+Do not use it to show secrets. If a key or key-bearing URL appears in this view,
+that is a blocker.
+
+## Common Problems
+
+### Port already in use
+
+Symptom:
+
+```text
+EADDRINUSE
+```
+
+Fix: another local server is already using the port. Stop the old server, then
+run `npm run serve:mock` again.
+
+### `/api/coach` returns 404
+
+Cause: the app is being opened as a static file or from a server that does not
+provide `/api/coach`.
+
+Fix: use `npm run serve:mock` or deploy with `api/coach.js`.
+
+### Gemini quota or rate limit
+
+Cause: the Gemini project or model quota is exhausted or unavailable.
+
+Fix: use mock mode for workshop testing, try a different configured model, or
+check the provider project quota.
+
+### Personal data blocked
+
+Cause: the question includes names, school names, marks, phone numbers, or other
+private records.
+
+Fix: rewrite the question as a learning question only.
+
+### Tests fail after changing text
+
+Cause: Playwright tests search for visible labels and output text.
+
+Fix: update `tests/soma-student.spec.js` so the tests match the intended UI.
+
+### Tests fail after moving an element
+
+Cause: JavaScript expects specific IDs from `index.html`.
+
+Fix: preserve IDs such as `studentQuestionInput`, `coachButton`,
+`coachOutput`, `debugOutput`, `keepLearningSection`, `planOutput`, and
+`followUpInput`, or update `app.js` and tests together.
+
+## Before You Commit
+
+Run:
+
+```bash
+node --check reference/app.js
+node --check api/coach.js
+node --check scripts/mock-coach-server.js
+git diff --check
+npm run test:e2e
+```

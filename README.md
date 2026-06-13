@@ -46,6 +46,15 @@ code-yetu-soma/
 ├── rubric.md
 ├── copilot-prompts.md
 ├── vercel.json
+├── docs/
+│   ├── README.md
+│   ├── architecture.md
+│   ├── code-map.md
+│   ├── api-coach-contract.md
+│   ├── local-setup.md
+│   ├── testing-debugging.md
+│   ├── extend-soma.md
+│   └── api-safety-checklist.md
 ├── api/
 │   └── coach.js
 ├── lib/
@@ -78,24 +87,39 @@ code-yetu-soma/
 
 ## Fast Start For Facilitators
 
-1. Open `workshop/workshop_guide.md`.
-2. Open `curriculum-source.md` for the Grade 7 Integrated Science content source.
-3. Demo `reference/index.html` from a simple local server.
-4. Give every team the `starter/` folder.
-5. Run one workshop file per session.
-6. Use `project-cards.md` for remix ideas.
-7. Share `student-ai-limits.md` before students use the AI coach.
-8. Use `copilot-prompts.md` for debugging help.
-9. Use `rubric.md` for demos.
+1. Open `docs/README.md` for the beginner codebase tour.
+2. Open `workshop/workshop_guide.md`.
+3. Open `curriculum-source.md` for the Grade 7 Integrated Science content source.
+4. Demo `reference/index.html` from a simple local server.
+5. Give every team the `starter/` folder.
+6. Run one workshop file per session.
+7. Use `project-cards.md` for remix ideas.
+8. Share `student-ai-limits.md` before students use the AI coach.
+9. Use `copilot-prompts.md` for debugging help.
+10. Use `rubric.md` for demos.
+
+## Beginner Developer Docs
+
+Use `docs/README.md` as the student and mentor entry point for understanding
+the codebase. It links to:
+
+- `docs/architecture.md` - how the browser, local data, `/api/coach`, mock mode,
+  and Gemini mode fit together.
+- `docs/code-map.md` - what each important file does.
+- `docs/api-coach-contract.md` - request/response contract for `/api/coach`.
+- `docs/local-setup.md` - local run, `.env`, tests, and deploy notes.
+- `docs/testing-debugging.md` - Playwright, manual checks, and Under The Hood.
+- `docs/extend-soma.md` - beginner extension tasks.
+- `docs/api-safety-checklist.md` - key, data, AI honesty, and debug checks.
 
 ## Workshop Readiness Bar
 
 Before this is public, it should be at least as complete as the previous Code Yetu workshop:
 
 - full working `reference/` app,
-- mode-first Study Helper / Topic Tutor flow,
+- tutor-first Study Helper / Topic Tutor flow,
 - local topic-pack loading,
-- visible safe context / prompt preview,
+- opt-in visible safe context / prompt preview under Under The Hood,
 - `/api/coach` call with structured response rendering,
 - follow-up question flow,
 - local progress tracking,
@@ -113,7 +137,7 @@ Before this is public, it should be at least as complete as the previous Code Ye
 Before publishing the live demo:
 
 1. Run the reference app locally from a simple static server.
-2. Verify the mode-first Study Helper / Topic Tutor flow.
+2. Verify the tutor-first Study Helper / Topic Tutor flow.
 3. Verify `/api/coach` behavior, including quota/error states.
 4. Deploy the static app and `/api/coach` adapter. The repo includes
    `api/coach.js` and `vercel.json` for a Vercel-style deployment.
@@ -207,7 +231,11 @@ Teams can build a smaller version or remix the same pattern into a career explor
 
 This repo contains the workshop-facing material. Planning notes, architecture discussion, provider research, and build coordination stay in the Mica workspace.
 
-The current `reference/` app is mode-first: Study Helper / Topic Tutor first, with practice/review as optional input. Local mock E2E covers reference and starter flows across desktop and mobile. The deploy adapter calls Gemini when `GEMINI_API_KEY` is configured and otherwise falls back to mock/demo responses.
+The current `reference/` app is tutor-first: Topic -> Question -> Your Answer,
+with Advanced Options and Under The Hood collapsed until needed. Local mock E2E
+covers reference and starter flows across desktop and mobile. The deploy adapter
+calls Gemini when `GEMINI_API_KEY` is configured and otherwise falls back to
+mock/demo responses.
 
 ## Simplicity Rule
 
