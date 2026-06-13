@@ -174,4 +174,3 @@ Before you call a learning UI done, ask:
 5. Are AI limits and safety clear?
 6. Does it work on a phone?
 7. Would a student want to try another question?
-
