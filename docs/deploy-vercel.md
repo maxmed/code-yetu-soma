@@ -34,6 +34,12 @@ Before deploying with a real Gemini key, also check:
 rg -n "AIza|GEMINI_API_KEY|\\?key=" reference starter
 ```
 
+If `rg` is not installed, use:
+
+```bash
+grep -rn "AIza\\|GEMINI_API_KEY" reference starter
+```
+
 Expected:
 
 - `.env` is not tracked,
@@ -44,7 +50,7 @@ Expected:
 
 ## 2. Create Or Sign In To Vercel
 
-1. Go to Vercel.
+1. Go to https://vercel.com.
 2. Sign up or log in.
 3. Connect your GitHub account when Vercel asks for a Git provider.
 4. Allow Vercel to access the `code-yetu-soma` repository.
@@ -54,8 +60,8 @@ to `main` can trigger new deployments.
 
 ## 3. Import The Project
 
-1. In Vercel, choose **Add New**.
-2. Choose **Project**.
+1. In Vercel, click the black **Add New** button in the top-right corner.
+2. Click **Project**.
 3. Select the GitHub repo.
 4. Keep the default framework setting for a static/plain JavaScript project.
 5. Leave build command empty unless Vercel asks for one.
@@ -82,6 +88,8 @@ Choose the environments you need:
 - Production for the public demo,
 - Preview if you want pull-request deployments to call Gemini,
 - Development only if you use Vercel's local tooling.
+
+For most workshops, select **Production** and click **Save**.
 
 ## 5. Deploy
 

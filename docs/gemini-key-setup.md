@@ -21,10 +21,11 @@ Official reference:
 
 ## 1. Create A Gemini API Key
 
-1. Open Google AI Studio.
-2. Sign in.
-3. Go to the API key area.
-4. Create an API key.
+1. Open https://aistudio.google.com.
+2. Sign in with your Google account. This is the same kind of account you use
+   for Gmail or YouTube.
+3. Click **Get API key** in the left sidebar.
+4. Click **Create API key**.
 5. Copy the key once and keep it private.
 
 Do not paste the key into:
@@ -144,6 +145,8 @@ Before using a real key:
 
 - run `git status --short` and confirm `.env` is not tracked,
 - run `rg -n "AIza|GEMINI_API_KEY|\\?key=" reference starter`,
+- if `rg` is not installed, run
+  `grep -rn "AIza\\|GEMINI_API_KEY" reference starter`,
 - confirm no real key appears in docs,
 - ask one test question,
 - open Debug Lab and confirm no key is visible,
