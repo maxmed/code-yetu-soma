@@ -49,6 +49,7 @@ both to the code, labs, and AI coding prompts.
 | When not to use an LLM | [Where LLMs Fit](./lessons/09-where-llms-fit.md) | `reference/app.js`, `lib/coach-core.js` | [Lab G](./labs/README.md#lab-g-replace-a-wasteful-llm-call-with-normal-code) |
 | Agent loops | [Agents](./lessons/10-agents.md) | Current app flow in `reference/app.js`; future extension idea | [Build Your Own](./lessons/12-build-your-own.md) |
 | Safety and variability | [Safety And Variability](./lessons/11-safety-and-variability.md) | `reference/app.js`, `api/coach.js`, `tests/soma-student.spec.js` | [Lab F](./labs/README.md#lab-f-debug-a-bad-json-response) |
+| AI history and future directions | [The Story Of AI](./lessons/13-ai-history-and-future.md) | Whole-project context: rules, `/api/coach`, Debug Lab, model boundaries | [Build Your Own](./lessons/12-build-your-own.md) |
 
 ## Code Prompts By Task
 

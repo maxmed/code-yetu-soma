@@ -20,6 +20,7 @@ hands-on labs are in [../labs/README.md](../labs/README.md).
 | 10 | [Agents](./10-agents.md) | [Project Cards](../../student/project-cards.md) |
 | 11 | [Safety And Variability](./11-safety-and-variability.md) | [Safety Checklist](../../api-safety-checklist.md) |
 | 12 | [Build Your Own](./12-build-your-own.md) | [Student Handout](../../student/handout.md) |
+| Special | [The Story Of AI](./13-ai-history-and-future.md) | [Reviewed Source Spine](../sources.md) |
 
 ## Maps And Sources
 

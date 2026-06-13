@@ -155,6 +155,19 @@ unlimited.
 
 ## Prompting, Agents, And LLM Concepts
 
+### The Story Of AI Lecture
+
+Link: ./lessons/13-ai-history-and-future.md
+
+Use for: a lecture-quality narrative from symbolic AI and expert systems to
+machine learning, neural networks, LLMs, multimodal systems, computer-use
+agents, robotics, and future directions.
+
+Learner level: intermediate student and mentor reference.
+
+Why it is included: students need a memorable story of how AI became today's
+tools, with source links close to claims so mentors can validate facts.
+
 ### OpenAI Prompting Guide
 
 Link: https://developers.openai.com/api/docs/guides/prompting

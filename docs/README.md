@@ -17,6 +17,7 @@ Gemini provider calls that stay server-side.
 | understand the architecture | [Architecture](./architecture.md) | [Code Map](./code-map.md) |
 | teach the workshop | [Workshop Course](./workshop/README.md) | [6-Session Runbook](./workshop/sessions/README.md) |
 | learn the concepts | [Lesson Index](./workshop/lessons/README.md) | [Concept To Code Map](./workshop/concept-to-code-map.md) |
+| understand AI history | [The Story Of AI](./workshop/lessons/13-ai-history-and-future.md) | [Reviewed Source Spine](./workshop/sources.md) |
 | do hands-on practice | [Workshop Labs](./workshop/labs/README.md) | [AI Coding Prompts](./student/ai-coding-prompts.md) |
 | build a student project | [Student Guide](./student/README.md) | [Project Cards](./student/project-cards.md) |
 | mentor teams | [Mentor Guide](./mentor/README.md) | [Rubric](./mentor/rubric.md) |
@@ -32,6 +33,9 @@ Use these together:
   session.
 - [Lesson Index](./workshop/lessons/README.md) - the 12 deeper teaching
   lessons.
+- [The Story Of AI](./workshop/lessons/13-ai-history-and-future.md) - lecture
+  material on AI history, machine learning, LLMs, multimodal systems, computer
+  use, robotics, and future directions.
 - [Workshop Labs](./workshop/labs/README.md) - hands-on practice tasks.
 - [Concept To Code Map](./workshop/concept-to-code-map.md) - connects sessions,
   lessons, labs, code files, and AI coding prompts.

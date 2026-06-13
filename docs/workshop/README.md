@@ -31,6 +31,7 @@ prompts shape the answer, and where AI is useful, risky, or wasteful.
 | mentor notes and rubric | [Mentor Guide Index](../mentor/README.md) |
 | setup, tests, and deploy | [Local Setup](../local-setup.md) |
 | exact file-to-concept links | [Concept To Code Map](./concept-to-code-map.md) |
+| AI history and future context | [Special Lecture: The Story Of AI](./lessons/13-ai-history-and-future.md) |
 
 ## How To Use This Course
 
@@ -71,6 +72,7 @@ Every lesson follows the same pattern:
 | 10 | [Agents](./lessons/10-agents.md) | Observe-plan-act loops, tools, memory/state, guardrails, and tradeoffs. |
 | 11 | [Safety And Variability](./lessons/11-safety-and-variability.md) | Hallucination, prompt injection, personal data, non-determinism, evals, and limits. |
 | 12 | [Build Your Own](./lessons/12-build-your-own.md) | Capstone checklist, project extensions, demo rubric, and next learning path. |
+| Special | [The Story Of AI](./lessons/13-ai-history-and-future.md) | Logic, expert systems, machine learning, neural networks, LLMs, multimodal AI, agents, computer use, robotics, and future directions. |
 
 Use [the lesson template](./lesson-template.md) when adding optional extension
 lessons or rewriting these lessons for a different audience.
