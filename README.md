@@ -93,7 +93,7 @@ code-yetu-soma/
 1. Open `docs/README.md` for the beginner codebase tour.
 2. Open `workshop/workshop_guide.md`.
 3. Open `docs/mentor/curriculum-source.md` for the Grade 7 Integrated Science content source.
-4. Demo `reference/index.html` from a simple local server.
+4. Demo `reference/index.html` with `npm run serve:mock`.
 5. Give every team the `starter/` folder.
 6. Run one workshop file per session.
 7. Use `docs/student/project-cards.md` for remix ideas.
@@ -141,7 +141,7 @@ Before this is public, it should be at least as complete as the previous Code Ye
 
 Before publishing the live demo:
 
-1. Run the reference app locally from a simple static server.
+1. Run the reference app locally with `npm run serve:mock`.
 2. Verify the tutor-first Study Helper / Topic Tutor flow.
 3. Verify `/api/coach` behavior, including quota/error states.
 4. Deploy the static app and `/api/coach` adapter. The repo includes
@@ -150,8 +150,9 @@ Before publishing the live demo:
    same variable works locally in `.env` and in Vercel or another deployment
    provider's environment-variable settings.
 6. Add the live demo URL to this README.
-7. Re-test the deployed URL from a clean browser.
-8. Optional: set `GEMINI_MODEL`; otherwise the default is `gemini-3.1-flash-lite`.
+7. Re-test `/`, `/reference/index.html`, `/starter/index.html`, and `POST /api/coach` from a clean browser.
+8. Confirm the Under The Hood view does not show keys.
+9. Optional: set `GEMINI_MODEL`; otherwise the default is `gemini-3.1-flash-lite`.
 
 ## Local Mock And E2E Smoke
 
@@ -221,9 +222,10 @@ deployment setup.
 
 The flagship reference app is Soma Study Coach, an AI-tutor demo using Grade 7 Integrated Science as the class demo:
 
-- a student selects help mode, year/class, learning area, topic, and study need,
+- a student first picks a topic, asks a question, and reads the answer,
+- advanced help mode, grade/year, and learning-area controls stay available under Advanced Options,
 - the app loads local KICD/CBC-aligned sample topic content,
-- the app shows the safe context it will send,
+- the app can show the safe context under the opt-in Under The Hood panel,
 - the app calls one shared `/api/coach` endpoint,
 - the coach endpoint returns an explanation, examples, misconception help, resources, or a study plan,
 - the app supports follow-up study questions,

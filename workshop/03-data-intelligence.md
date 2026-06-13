@@ -51,7 +51,7 @@ For Soma Study Coach, build the topic tutor context first.
 ### Study Helper Context Builder
 
 ```text
-Input: selected mode, topic pack, student question, optional practice answers
+Input: selected topic pack, student question, support mode, optional practice answers
 Steps: filter topic pack -> add safety constraints -> include resources -> build /api/coach request
 Output: safe context preview and request JSON
 ```

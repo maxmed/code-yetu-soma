@@ -14,7 +14,7 @@ inspector are collapsed until needed.
 - topic-pack context for a Study Helper / Topic Tutor
 - prompt/context building for an LLM-backed study coach
 - frontend adapter that calls `/api/coach`
-- visible agent steps and prompt preview
+- opt-in agent steps and prompt preview inside Under The Hood
 - opt-in LLM call inspector showing the safe payload, provider request shape,
   raw return, and parsed response without exposing provider keys
 - honest error handling when the coach endpoint is unavailable

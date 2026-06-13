@@ -119,6 +119,7 @@ Run:
 
 ```bash
 node --check reference/app.js
+node --check starter/app.js
 node --check api/coach.js
 node --check scripts/mock-coach-server.js
 git diff --check

@@ -14,7 +14,7 @@ A browser-based education MVP with a simple intelligence layer:
 The default project is Soma Study Coach in `../reference/`. It demonstrates the full course arc:
 
 ```text
-choose help mode -> choose Grade 7 Integrated Science topic -> preview safe context -> call /api/coach -> study explanation/resources/plan -> follow-up -> progress -> limitations
+pick a Grade 7 Integrated Science topic -> ask a study question -> call /api/coach -> study explanation/resources/plan -> optional Under The Hood context -> follow-up -> progress -> limitations
 ```
 
 ## Session Path
@@ -22,7 +22,7 @@ choose help mode -> choose Grade 7 Integrated Science topic -> preview safe cont
 | Session | Guide | Output |
 |---|---|---|
 | 1 | [Ideation and AI basics](./01-ideation-ai-basics.md) | Problem, user, project choice, AI idea |
-| 2 | [Web app scaffold](./02-web-app-scaffold.md) | App shell with mode selector, topic setup, context preview, result, plan, and tutor sections |
+| 2 | [Web app scaffold](./02-web-app-scaffold.md) | App shell with topic/question flow, setup controls, context preview, result, plan, and tutor sections |
 | 3 | [Data and intelligence](./03-data-intelligence.md) | KICD/CBC-aligned sample data, prompt context, and LLM response handling |
 | 4 | [Integrate intelligence into UX](./04-integrate-ai-ux.md) | Topic context produces explanations, resources, a plan, and follow-up help |
 | 5 | [Testing and responsible AI](./05-testing-responsible-ai.md) | Test cases, progress checks, bug fixes, responsible AI note |

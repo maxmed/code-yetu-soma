@@ -55,7 +55,7 @@ I could not find a good match. Try changing the topic or adding more data.
 Show a short explanation:
 
 ```text
-1. I read your selected mode and topic.
+1. I read your selected topic, question, and support mode.
 2. I used the local topic pack as context.
 3. I asked /api/coach for a structured study-helper response.
 4. I showed the explanation, examples, resources, plan, and limits.

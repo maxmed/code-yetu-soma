@@ -58,7 +58,7 @@ Teams choose one intelligence pattern:
 For the flagship Soma pattern, the workflow is:
 
 ```text
-Observe selected mode, topic, question, and local topic pack.
+Observe selected topic, question, support mode, and local topic pack.
 Explain the topic in age-appropriate language.
 Recommend resources or examples.
 Plan the next 7 days if requested.

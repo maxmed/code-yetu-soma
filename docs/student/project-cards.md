@@ -12,7 +12,7 @@ Use these for ideation. Teams may copy one, combine two, or adapt one to their s
 
 **Intelligence:** Builds safe topic context, calls `/api/coach`, and renders explanation, examples, resources, plan, follow-up, and limitations.
 
-**MVP:** Mode selector, topic selector, question box, safe context preview, study helper response, follow-up tutor, local progress.
+**MVP:** Topic selector, question box, study helper response, opt-in safe context preview, follow-up tutor, local progress. Keep mode/setup controls available as advanced options or visible starter controls.
 
 **Extension:** Add more Grade 7 topics, practice input, or a deployable `/api/coach` proxy.
 

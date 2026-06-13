@@ -44,7 +44,7 @@ Teach students to ask Copilot for small changes, not whole apps.
 Good prompt:
 
 ```text
-Here is my buildCoachContext function for Soma Study Coach. It should include the selected mode, Grade 7 topic, student question, topic snippets, resources, and safety constraints, but the prompt preview is missing the topic. Find the bug and show only the fixed function.
+Here is my buildCoachContext function for Soma Study Coach. It should include the Grade 7 topic, student question, support mode, topic snippets, resources, and safety constraints, but the prompt preview is missing the topic. Find the bug and show only the fixed function.
 ```
 
 Weak prompt:

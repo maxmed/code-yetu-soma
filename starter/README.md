@@ -2,7 +2,8 @@
 
 Open `index.html` from a simple local server.
 
-This starter demonstrates the same mode-first shape as the reference app:
+This starter demonstrates the same `/api/coach` learning pattern as the
+reference app, but keeps all setup controls visible for beginners:
 
 - choose help mode,
 - choose Grade 7 Integrated Science topic,
@@ -13,8 +14,10 @@ This starter demonstrates the same mode-first shape as the reference app:
 - ask a follow-up question,
 - track returned plan tasks in local browser storage.
 
-The starter is intentionally smaller than `../reference/`. Students can add
-practice input, stronger error UI, and more topics during the workshop.
+The starter is intentionally smaller than `../reference/`. The reference app is
+the polished tutor-first version; this starter exposes more setup controls so
+students can see how the context is built. Students can add practice input,
+stronger error UI, and more topics during the workshop.
 
 ## Files
 

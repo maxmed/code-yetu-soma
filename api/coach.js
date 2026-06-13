@@ -13,6 +13,7 @@ const generationConfig = {
       studyFeedback: { type: "string" },
       topicExplanation: { type: "string" },
       examples: { type: "array", items: { type: "string" } },
+      likelyWeakAreas: { type: "array", items: { type: "string" } },
       misconceptionHelp: { type: "array", items: { type: "string" } },
       recommendedResources: { type: "array", items: { type: "object", properties: { title: { type: "string" }, reason: { type: "string" } } } },
       sevenDayPlan: { type: "array", items: { type: "object", properties: { day: { type: "integer" }, title: { type: "string" }, task: { type: "string" } } } },
@@ -80,9 +81,11 @@ function normalizeList(value) {
 
 function normalizeGeminiResponse(result, mode, topic) {
   const normalized = {
+    mode: String(result.mode || mode || "").trim(),
     studyFeedback: String(result.studyFeedback || "").trim(),
     topicExplanation: String(result.topicExplanation || "").trim(),
     examples: normalizeList(result.examples),
+    likelyWeakAreas: normalizeList(result.likelyWeakAreas),
     misconceptionHelp: normalizeList(result.misconceptionHelp),
     recommendedResources: normalizeList(result.recommendedResources),
     sevenDayPlan: normalizeList(result.sevenDayPlan),
@@ -126,6 +129,18 @@ function normalizeGeminiResponse(result, mode, topic) {
   return normalized;
 }
 
+function formatVocabulary(vocabulary) {
+  if (!Array.isArray(vocabulary)) {
+    return "";
+  }
+  return vocabulary.map(item => {
+    if (typeof item === "string") {
+      return item;
+    }
+    return [item.term, item.meaning].filter(Boolean).join(": ");
+  }).filter(Boolean).join(", ");
+}
+
 function parseGeminiJson(text) {
   try {
     return JSON.parse(text);
@@ -147,7 +162,7 @@ function buildGeminiCall(payload) {
   const systemPrompt = `You are a Grade 7 Integrated Science study coach for Kenyan students (KICD/CBC curriculum).
 Topic: ${topic}
 Context: ${snippet.summary || "Use topic pack data."}
-Vocabulary: ${(snippet.vocabulary || []).join(", ")}
+Vocabulary: ${formatVocabulary(snippet.vocabulary)}
 Examples: ${(snippet.examples || []).join("; ")}
 Misconceptions: ${JSON.stringify(snippet.misconceptions || [])}
 

@@ -76,11 +76,11 @@ async function runStarterSuccess(page, testInfo) {
 }
 
 test.describe("Soma Study Coach student smoke", () => {
-  test("reference app supports mode-first coach, follow-up and progress", async ({ page }, testInfo) => {
+  test("reference app supports tutor-first coach, follow-up and progress", async ({ page }, testInfo) => {
     await runReferenceSuccess(page, testInfo);
   });
 
-  test("starter app supports mode-first coach, follow-up and progress", async ({ page }, testInfo) => {
+  test("starter app supports setup-visible coach, follow-up and progress", async ({ page }, testInfo) => {
     await runStarterSuccess(page, testInfo);
   });
 

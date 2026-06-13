@@ -8,7 +8,7 @@ Teams create a working HTML/CSS/JS app shell.
 
 - page layout
 - setup form for year/class, learning area, and study need
-- mode selector and topic/question input
+- topic/question input, with mode/setup controls visible in starter or advanced in the reference app
 - output/results area
 - revision plan area
 - topic tutor or help area
@@ -49,7 +49,7 @@ Teams change:
 - target user
 - colors
 - intro text
-- mode/topic/question fields
+- topic/question fields and any setup controls your project needs
 - setup fields for grade, learning area, topic, and support type
 - section names for plan, resources, progress, or coach
 

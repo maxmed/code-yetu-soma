@@ -88,8 +88,9 @@ For a Vercel-style deploy:
    - `GEMINI_API_KEY`
    - optional `GEMINI_MODEL`
 4. Deploy.
-5. Test the deployed `reference/index.html`.
-6. Confirm the Under The Hood view does not show keys.
+5. Test `/`; `vercel.json` rewrites it to `/reference/index.html`.
+6. Test `/reference/index.html`, `/starter/index.html`, and `POST /api/coach`.
+7. Confirm the Under The Hood view does not show keys.
 
 ## Mock Versus Gemini
 

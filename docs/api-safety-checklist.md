@@ -47,4 +47,6 @@ Expected:
 
 - no real key values,
 - no key-bearing frontend URL,
+- `includeLlmCall` may appear as an internal request flag and test assertion,
+  but it must not appear in student-visible debug output,
 - tests pass.

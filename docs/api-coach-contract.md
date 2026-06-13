@@ -60,7 +60,9 @@ Important fields:
 
 ## Response Shape
 
-Successful responses should look like this:
+Successful `/api/coach` responses should look like this. Mock mode returns this
+full shape directly. Gemini mode is normalized server-side so the browser can
+use the same shape.
 
 ```json
 {
@@ -89,7 +91,9 @@ Successful responses should look like this:
 ```
 
 The reference app normalizes the response before rendering. If a Gemini response
-misses a non-critical field, the app fills in safe defaults where possible.
+misses a non-critical field, the app fills in safe defaults where possible. The
+starter app reads the same core fields but intentionally ignores
+`likelyWeakAreas` to stay smaller.
 
 ## Follow-Up Mode
 
@@ -143,6 +147,10 @@ GEMINI_MODEL=gemini-3.1-flash-lite
 ```
 
 If `GEMINI_MODEL` is not set, the server uses the default in `api/coach.js`.
+
+The Gemini response schema asks for the same study-helper fields used by the
+mock path. The server also fills `mode` from the request if the provider omits
+it.
 
 ## Debug Payload
 
