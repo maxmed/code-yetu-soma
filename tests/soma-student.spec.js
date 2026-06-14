@@ -28,10 +28,17 @@ async function runReferenceSuccess(page, testInfo) {
 
   await page.getByRole("button", { name: "Ask Soma" }).click();
   await expect(page.locator("#coachStatus")).toContainText("Response ready");
-  await expect(page.locator("#coachOutput")).toContainText("Topic explanation");
-  await expect(page.locator("#coachOutput")).toContainText("Common mistake");
-  await expect(page.locator("#coachOutput")).toContainText("Next resources");
+  await expect(page.locator("#coachOutput")).toContainText("Soma asks back");
+  await expect(page.locator("#askComposer")).toBeHidden();
+  await expect(page.locator("#keepLearningSection")).toBeVisible();
+  await expect(page.locator("#coachOutput")).not.toContainText("Topic explanation");
+  await expect(page.locator("#coachOutput")).not.toContainText("Common mistake");
+  await expect(page.locator("#coachOutput")).not.toContainText("Next resources");
+  await expect(page.locator("#answerDetailsSection")).toContainText("Topic explanation");
+  await expect(page.locator("#answerDetailsSection")).toContainText("Common mistake");
+  await expect(page.locator("#answerDetailsSection")).toContainText("Next resources");
   await expect(page.locator("#coachOutput")).not.toContainText("[object Object]");
+  expect(await page.locator("#coachOutput").evaluate(node => node.nextElementSibling?.id)).toBe("keepLearningSection");
   await expect(page.locator("#debugStatus")).toContainText("mock: deterministic-demo");
   await expect(page.locator("#debugOutput")).toContainText("Safe context sent by browser");
   await expect(page.locator("#debugOutput")).toContainText("Student question");
@@ -42,7 +49,6 @@ async function runReferenceSuccess(page, testInfo) {
   await expect(page.locator("#debugOutput")).not.toContainText("GEMINI_API_KEY");
   await expect(page.locator("#debugOutput")).not.toContainText("?key=");
 
-  await expect(page.locator("#keepLearningSection")).toBeVisible();
   await page.getByRole("button", { name: "Behind The Scenes" }).click();
   await page.locator("#labModelInput").fill("student-lab-model");
   await page.locator("#labTemperatureInput").fill("0.2");
@@ -56,6 +62,7 @@ async function runReferenceSuccess(page, testInfo) {
   await expect(page.locator("#debugOutput")).toContainText("Explain like a patient tutor");
   await page.getByRole("button", { name: "Close" }).click();
 
+  await page.locator(".plan-details summary").click();
   await expect(page.locator("#planOutput input[type='checkbox']").first()).toBeVisible();
   await page.locator("#planOutput input[type='checkbox']").first().check();
   const storedProgress = await page.evaluate(() => localStorage.getItem("soma-study-coach.plan-progress.v2"));

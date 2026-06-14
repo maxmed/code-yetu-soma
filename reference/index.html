@@ -35,21 +35,24 @@
       </div>
 
       <div class="progress-chips" aria-label="Current learning step">
-        <span>1 Choose</span>
-        <span class="active">2 Ask</span>
-        <span>3 Answer back</span>
-        <span>4 Inspect</span>
-        <span>5 Reflect</span>
+        <span data-step="1">1 Choose</span>
+        <span data-step="2" class="active">2 Ask</span>
+        <span data-step="3">3 Answer back</span>
+        <span data-step="4">4 Inspect</span>
+        <span data-step="5">5 Reflect</span>
       </div>
 
       <div class="chat-layout">
         <section class="chat-card" aria-labelledby="ask-title">
           <div class="chat-header">
             <div>
-              <p class="eyebrow">Step 2 of 5: Ask</p>
+              <p id="currentStepLabel" class="eyebrow">Step 2 of 5: Ask</p>
               <h2 id="ask-title">Ask Soma About The Topic</h2>
             </div>
-            <span class="badge">Lesson First</span>
+            <div class="heading-actions">
+              <span class="badge">Lesson First</span>
+              <button id="openDebugLabButton" type="button" class="small secondary">Behind The Scenes</button>
+            </div>
           </div>
 
           <div id="coachOutput" class="chat-thread empty-state">
@@ -62,7 +65,33 @@
             </div>
           </div>
 
-          <div class="composer-panel">
+          <section id="keepLearningSection" class="keep-learning inline-reply hidden">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Step 3 of 5: Answer back</p>
+                <h3 id="followup-title">Your Reply</h3>
+              </div>
+            </div>
+            <div class="search-row">
+              <input id="followUpInput" type="text" placeholder="Type your answer to Soma's question">
+              <button id="followUpButton" type="button">Send</button>
+            </div>
+            <div id="followUpOutput" class="answer-box"></div>
+            <details class="plan-details">
+              <summary>Your 7-Day Plan</summary>
+              <div class="section-heading compact-heading">
+                <span class="note">Optional practice steps for later.</span>
+                <button id="clearProgressButton" type="button" class="small secondary">Clear</button>
+              </div>
+              <div id="planOutput" class="empty-state">
+                A study plan will appear after your first question.
+              </div>
+            </details>
+          </section>
+
+          <section id="answerDetailsSection" class="answer-details-section hidden" aria-label="Answer details"></section>
+
+          <div id="askComposer" class="composer-panel">
             <div class="composer-controls">
               <label>
                 Topic
@@ -94,7 +123,6 @@
             <div class="button-row hero-actions">
               <button id="coachButton" type="button">Ask Soma</button>
               <button id="sampleQuestionButton" type="button" class="secondary">Use sample</button>
-              <button id="openDebugLabButton" type="button" class="secondary">Behind The Scenes</button>
               <button id="resetButton" type="button" class="ghost">Reset</button>
             </div>
           </div>
@@ -197,35 +225,6 @@
             </article>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section id="keepLearningSection" class="keep-learning hidden">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">Keep Learning</p>
-          <h2>Answer Soma Back</h2>
-        </div>
-      </div>
-      <div class="grid-two">
-        <article class="panel" aria-labelledby="followup-title">
-          <h3 id="followup-title">Your Reply</h3>
-          <div class="search-row">
-            <input id="followUpInput" type="text" placeholder="Type your answer to Soma's question">
-            <button id="followUpButton" type="button">Send</button>
-          </div>
-          <div id="followUpOutput" class="answer-box"></div>
-        </article>
-
-        <article class="panel" aria-labelledby="plan-title">
-          <div class="section-heading">
-            <h3 id="plan-title">Your 7-Day Plan</h3>
-            <button id="clearProgressButton" type="button" class="small secondary">Clear</button>
-          </div>
-          <div id="planOutput" class="empty-state">
-            A study plan will appear after your first question.
-          </div>
-        </article>
       </div>
     </section>
 

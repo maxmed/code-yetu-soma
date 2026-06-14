@@ -302,6 +302,12 @@ main {
   margin-top: 12px;
 }
 
+.answer-details-section {
+  border-top: 1px solid var(--line);
+  background: #fbfdff;
+  padding: 14px 20px 18px;
+}
+
 .composer-panel {
   border-top: 1px solid var(--line);
   background: var(--surface);
@@ -965,6 +971,33 @@ button.small {
   gap: 14px;
 }
 
+.inline-reply {
+  border-top: 1px solid var(--line);
+  background: #fff8f5;
+  padding: 18px 20px 20px;
+}
+
+.inline-reply .section-heading {
+  margin-bottom: 10px;
+}
+
+.plan-details {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.78);
+  padding: 12px;
+}
+
+.plan-details summary {
+  cursor: pointer;
+  color: var(--primary-dark);
+  font-weight: 900;
+}
+
+.compact-heading {
+  margin: 12px 0;
+}
+
 .plan-list {
   display: grid;
   gap: 10px;
@@ -1090,6 +1123,12 @@ button.small {
 
   .chat-thread {
     min-height: auto;
+    padding: 14px;
+  }
+
+  .inline-reply,
+  .answer-details-section,
+  .composer-panel {
     padding: 14px;
   }
 

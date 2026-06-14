@@ -26,6 +26,9 @@ const elements = {
   promptPreview: document.getElementById("promptPreview"),
   coachStatus: document.getElementById("coachStatus"),
   coachOutput: document.getElementById("coachOutput"),
+  askComposer: document.getElementById("askComposer"),
+  answerDetailsSection: document.getElementById("answerDetailsSection"),
+  currentStepLabel: document.getElementById("currentStepLabel"),
   debugStatus: document.getElementById("debugStatus"),
   debugOutput: document.getElementById("debugOutput"),
   keepLearningSection: document.getElementById("keepLearningSection"),
@@ -411,6 +414,24 @@ function setKeepLearningVisible(visible) {
   elements.keepLearningSection.classList.toggle("hidden", !visible);
 }
 
+function setAskComposerVisible(visible) {
+  elements.askComposer.classList.toggle("hidden", !visible);
+}
+
+function setAnswerDetailsVisible(visible) {
+  elements.answerDetailsSection.classList.toggle("hidden", !visible);
+  if (!visible) {
+    elements.answerDetailsSection.innerHTML = "";
+  }
+}
+
+function setLearningStep(step, label) {
+  elements.currentStepLabel.textContent = `Step ${step} of 5: ${label}`;
+  document.querySelectorAll(".progress-chips [data-step]").forEach(chip => {
+    chip.classList.toggle("active", chip.dataset.step === String(step));
+  });
+}
+
 function normalizeList(value) {
   if (Array.isArray(value)) {
     return value;
@@ -564,10 +585,12 @@ function renderCoachResponse(response) {
       <div>
         <p class="eyebrow">Soma asks back</p>
         <h3 id="socratic-title">${escapeHtml(socraticPrompt)}</h3>
-        <p>Reply below in Keep Learning. Soma will use the same safe <code>/api/coach</code> path to respond.</p>
+        <p>Answer this next. Soma will use the same safe <code>/api/coach</code> path to respond.</p>
       </div>
     </section>
-    <details class="response-details" open>
+  `;
+  elements.answerDetailsSection.innerHTML = `
+    <details class="response-details">
       <summary>Answer details, examples, and resources</summary>
       <div class="lesson-grid">
       <section class="feedback-block wide-block">
@@ -600,6 +623,9 @@ function renderCoachResponse(response) {
   `;
   renderPlan(response.sevenDayPlan);
   elements.followUpInput.placeholder = "Type your answer to Soma's question";
+  setLearningStep(3, "Answer back");
+  setAskComposerVisible(false);
+  setAnswerDetailsVisible(true);
   setKeepLearningVisible(true);
 }
 
@@ -695,6 +721,8 @@ function validateQuestion() {
 function renderError(error) {
   setStatus("Coach unavailable", "danger");
   renderRunSteps("ready");
+  setAskComposerVisible(true);
+  setAnswerDetailsVisible(false);
   elements.coachOutput.className = "error-state";
   elements.coachOutput.innerHTML = `
     <h3>Study helper could not run</h3>
@@ -712,6 +740,7 @@ async function runCoach() {
   state.lastContext = context;
   state.lastResponse = null;
   setKeepLearningVisible(false);
+  setAnswerDetailsVisible(false);
   updatePromptPreview();
   setStatus("Calling proxy", "working");
   renderRunSteps("running");
@@ -835,6 +864,9 @@ function resetApp() {
   state.lastResponse = null;
   state.lastDebug = null;
   setKeepLearningVisible(false);
+  setAskComposerVisible(true);
+  setAnswerDetailsVisible(false);
+  setLearningStep(2, "Ask");
   setStatus("Ready");
   setDebugStatus("Ready");
   renderRunSteps("ready");
@@ -864,6 +896,9 @@ function updateTopicFlow() {
   state.lastContext = null;
   state.lastResponse = null;
   setKeepLearningVisible(false);
+  setAskComposerVisible(true);
+  setAnswerDetailsVisible(false);
+  setLearningStep(2, "Ask");
   updatePromptPreview();
 }
 
