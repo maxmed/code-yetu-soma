@@ -126,9 +126,9 @@ their app sends one request to an API, and the provider hides many machines
 behind that API.
 
 For the richer visual version with Mermaid diagrams, use
-[Architecture](../../architecture.md). The best first diagram for this lesson is
-**One Question, Two Paths**: it shows why the same `/api/coach` endpoint can
-return a local mock answer in class or call a deployed provider from the server.
+[Architecture](../../architecture.md). Start with **One Question, Two Paths** to
+show why the same `/api/coach` endpoint can return a local mock answer in class
+or call a deployed provider from the server.
 
 Mentor prompt:
 
