@@ -58,7 +58,7 @@ flowchart TD
     F["6. normalizeCoachResponse()<br/>checks the returned shape"]
     G["7. renderCoachResponse()<br/>shows feedback, explanation, examples, resources and limits"]
     H["8. renderDebug()<br/>shows safe debug details when Debug Lab is opened"]
-    
+
     A --> B --> C --> D --> E --> F --> G --> H
 ```
 
