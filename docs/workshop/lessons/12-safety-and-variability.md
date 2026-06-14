@@ -47,24 +47,12 @@ Safety is not one feature. It is a set of boundaries:
 
 ## Risk Map
 
-```text
-student input
-  |
-  | personal data risk
-  v
-browser checks
-  |
-  | unsafe context risk
-  v
-/api/coach checks
-  |
-  | provider variability risk
-  v
-model output
-  |
-  | rendering and truth risk
-  v
-student answer + limitations
+```mermaid
+flowchart TD
+    A[Student input] -->|personal data risk| B[Browser checks]
+    B -->|unsafe context risk| C["/api/coach checks"]
+    C -->|provider variability risk| D[Model output]
+    D -->|rendering and truth risk| E[Student answer + limitations]
 ```
 
 ## Find It In This Repo

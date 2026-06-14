@@ -40,8 +40,12 @@ A good final project is small, useful and honest.
 Students should not build "AI for everything." They should build one clear
 learning support flow:
 
-```text
-user need -> local data/context -> safe app action -> useful output -> clear limits
+```mermaid
+flowchart LR
+    A[User need] --> B[Local data/context]
+    B --> C[Safe app action]
+    C --> D[Useful output]
+    D --> E[Clear limits]
 ```
 
 ## Project Shape
@@ -60,16 +64,16 @@ Every team should define:
 
 ## Build Path
 
-```text
-1. Pick a problem
-2. Choose a small user flow
-3. Add local data
-4. Build the page
-5. Add /api/coach only where useful
-6. Render structured output
-7. Add limitations
-8. Test happy path and failure path
-9. Demo honestly
+```mermaid
+flowchart TD
+    A[1. Pick a problem] --> B[2. Choose a small user flow]
+    B --> C[3. Add local data]
+    C --> D[4. Build the page]
+    D --> E[5. Add /api/coach only where useful]
+    E --> F[6. Render structured output]
+    F --> G[7. Add limitations]
+    G --> H[8. Test happy path and failure path]
+    H --> I[9. Demo honestly]
 ```
 
 ## Find It In This Repo

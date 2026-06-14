@@ -47,20 +47,12 @@ as:
 
 ## Response Flow
 
-```text
-provider or mock return
-        |
-        v
-parse JSON
-        |
-        v
-normalize fields
-        |
-        v
-frontend validates shape
-        |
-        v
-render answer sections
+```mermaid
+flowchart TD
+    A[Provider or mock return] --> B[Parse JSON]
+    B --> C[Normalize fields]
+    C --> D[Frontend validates shape]
+    D --> E[Render answer sections]
 ```
 
 ## Find It In This Repo

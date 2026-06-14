@@ -53,20 +53,12 @@ unverified, or unrelated to the student's question.
 
 ## Data Flow
 
-```text
-reference/data.js topic pack
-        |
-        v
-buildCoachContext()
-        |
-        v
-curriculumContext.snippets + resources + constraints
-        |
-        v
-/api/coach
-        |
-        v
-server prompt and structured response
+```mermaid
+flowchart TD
+  topic["reference/data.js topic pack"] --> context["buildCoachContext()"]
+  context --> payload["curriculumContext snippets, resources, and constraints"]
+  payload --> endpoint["/api/coach"]
+  endpoint --> response["server prompt and structured response"]
 ```
 
 ## Find It In This Repo

@@ -39,38 +39,27 @@ By the end, students can:
 
 The frontend is a set of connected pieces:
 
-```text
-HTML IDs -> JavaScript element map -> state -> functions -> rendered HTML
+```mermaid
+flowchart LR
+    A[HTML IDs] --> B[JavaScript element map] --> C[state] --> D[functions] --> E[rendered HTML]
 ```
 
 Soma's frontend uses plain JavaScript so students can see the full chain.
 
 ## Frontend Flow
 
-```text
-1. renderSelects()
-   fills dropdowns from setupOptions and topicPacks
-
-2. renderTopicSummary()
-   shows topic summary, vocabulary and examples
-
-3. validateQuestion()
-   blocks empty questions and obvious personal data
-
-4. buildCoachContext()
-   creates the JSON request for /api/coach
-
-5. askStudyCoach()
-   sends the request with fetch()
-
-6. normalizeCoachResponse()
-   checks the returned shape
-
-7. renderCoachResponse()
-   shows feedback, explanation, examples, resources and limits
-
-8. renderDebug()
-   shows safe debug details when Debug Lab is opened
+```mermaid
+flowchart TD
+    A["1. renderSelects()<br/>fills dropdowns from setupOptions and topicPacks"]
+    B["2. renderTopicSummary()<br/>shows topic summary, vocabulary and examples"]
+    C["3. validateQuestion()<br/>blocks empty questions and obvious personal data"]
+    D["4. buildCoachContext()<br/>creates the JSON request for /api/coach"]
+    E["5. askStudyCoach()<br/>sends the request with fetch()"]
+    F["6. normalizeCoachResponse()<br/>checks the returned shape"]
+    G["7. renderCoachResponse()<br/>shows feedback, explanation, examples, resources and limits"]
+    H["8. renderDebug()<br/>shows safe debug details when Debug Lab is opened"]
+    
+    A --> B --> C --> D --> E --> F --> G --> H
 ```
 
 ## Find It In This Repo

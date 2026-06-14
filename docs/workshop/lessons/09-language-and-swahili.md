@@ -48,20 +48,12 @@ so it is understandable, testable and safe.
 
 ## Language Design Flow
 
-```text
-student chooses language
-        |
-        v
-frontend includes language preference in context
-        |
-        v
-server prompt tells coach how to answer
-        |
-        v
-response rendered with clear limits
-        |
-        v
-mentor checks quality and code-switching
+```mermaid
+flowchart TD
+    A[Student chooses language] --> B[Frontend includes language preference in context]
+    B --> C[Server prompt tells coach how to answer]
+    C --> D[Response rendered with clear limits]
+    D --> E[Mentor checks quality and code-switching]
 ```
 
 ## Find It In This Repo

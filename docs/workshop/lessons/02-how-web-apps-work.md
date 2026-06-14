@@ -54,20 +54,12 @@ students can open the files, read the code, and see how each layer connects.
 
 ## Diagram
 
-```text
-student clicks button
-        |
-        v
-browser event listener in reference/app.js
-        |
-        v
-build JSON context from topic, question, resources, safety rules
-        |
-        v
-fetch("/api/coach")
-        |
-        v
-render structured answer into the page
+```mermaid
+flowchart TD
+    A[student clicks button] --> B[browser event listener in reference/app.js]
+    B --> C[build JSON context from topic, question, resources, safety rules]
+    C --> D["fetch('/api/coach')"]
+    D --> E[render structured answer into the page]
 ```
 
 ## Find It In This Repo
