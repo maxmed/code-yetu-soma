@@ -17,7 +17,7 @@ tasks.
 ## Quick Start
 
 1. Try the live demo: https://soma-study-coach.vercel.app/
-2. For the full beginner path, use
+2. For the one beginner setup path, use
    [docs/getting-started.md](docs/getting-started.md).
 3. Install local dependencies:
 
@@ -46,11 +46,10 @@ tasks.
    This keeps the learning server on `8787` open and lets Playwright use a
    separate temporary port for tests.
 
-For the complete zero-to-hero beginner path, start with
-[docs/getting-started.md](docs/getting-started.md). It covers mock mode,
-optional Gemini setup, safe `.env` configuration, local testing, and deploy
-checks in one sequence. Use [docs/local-setup.md](docs/local-setup.md) and
-[docs/gemini-key-setup.md](docs/gemini-key-setup.md) only as reference pages.
+For setup, do not choose between multiple docs. Start with
+[docs/getting-started.md](docs/getting-started.md) and follow it in order. It
+covers mock mode, optional Gemini setup, safe `.env` configuration, local
+testing, and deploy checks in one sequence.
 
 ## What Is Included
 
@@ -106,12 +105,6 @@ Then use the deeper course:
 To connect sessions, lessons, files, labs, and AI coding prompts, use:
 [docs/workshop/concept-to-code-map.md](docs/workshop/concept-to-code-map.md)
 
-To use a real LLM key for testing, use:
-[docs/gemini-key-setup.md](docs/gemini-key-setup.md)
-
-To deploy the app publicly with Vercel, use:
-[docs/deploy-vercel.md](docs/deploy-vercel.md)
-
 ## Where To Go Next
 
 For facilitators:
@@ -141,8 +134,10 @@ For developers:
 - [docs/README.md](docs/README.md) - best reading order.
 - [docs/architecture.md](docs/architecture.md) - browser, data, server, mock
   mode, and Gemini mode.
-- [docs/gemini-key-setup.md](docs/gemini-key-setup.md) - beginner guide to
-  creating and testing a Gemini API key safely.
+- [docs/local-setup.md](docs/local-setup.md) - command reference if the main
+  getting-started path fails locally.
+- [docs/gemini-key-setup.md](docs/gemini-key-setup.md) - reference for mentors
+  configuring a real Gemini key after mock mode works.
 - [docs/deploy-vercel.md](docs/deploy-vercel.md) - beginner Vercel deployment
   guide.
 - [docs/code-map.md](docs/code-map.md) - where to change common things.
