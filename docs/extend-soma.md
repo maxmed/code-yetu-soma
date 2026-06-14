@@ -172,7 +172,6 @@ Files:
 
 ```text
 api/coach.js
-api/coach.js
 reference/app.js
 docs/api-coach-contract.md
 tests/soma-student.spec.js
@@ -202,7 +201,6 @@ Files:
 reference/data.js
 reference/index.html
 reference/app.js
-api/coach.js
 api/coach.js
 docs/mentor/curriculum-source.md
 ```
