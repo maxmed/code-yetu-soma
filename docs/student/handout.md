@@ -16,6 +16,15 @@ Your app might:
 - suggest resources,
 - adapt practice questions.
 
+Example project shapes:
+
+- **Study Coach:** a learner picks a topic, asks one question, and gets an
+  explanation, example, common mistake, resource, and next practice step.
+- **Revision Planner:** a learner chooses a weak topic and available study
+  days; the app makes a short plan and explains why each day matters.
+- **Practice Helper:** a learner answers dummy practice questions; the app gives
+  feedback, shows the misconception, and suggests what to review next.
+
 ## What Counts As Intelligence?
 
 Use the course-provided `/api/coach` for LLM features. Do not use paid APIs, student API keys, or provider keys in frontend JavaScript.

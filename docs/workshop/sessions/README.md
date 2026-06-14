@@ -18,6 +18,20 @@ Related indexes:
 - [Student Guide](../../student/README.md)
 - [Mentor Guide Index](../../mentor/README.md)
 
+## Schedule Variants
+
+Use the same material at different depths depending on the workshop format.
+
+| Format | Best Use | Suggested Path |
+|---|---|---|
+| 1-day sprint | Demo day, taster session, or outreach event | Session 1 hook, Session 2 starter scaffold, one Lab A edit, one safe `/api/coach` demo, responsible AI note, 2-minute share-out |
+| 3-day workshop | Short camp or weekend build | Day 1: Sessions 1-2. Day 2: Sessions 3-4 plus Labs B/C. Day 3: Session 5 testing and Session 6 demo/pitch |
+| 6-session studio | Full course path | Run Sessions 1-6 as written, with deep lessons assigned as live teaching or self-study blocks |
+
+For shorter formats, keep mock/demo mode as the default. Use real Gemini mode
+only if a mentor has verified the provider quota and key setup before students
+arrive.
+
 ## What Students Build
 
 A browser-based study coach, starting from one common path: Soma Study Coach.
@@ -50,7 +64,7 @@ finders, or other education tools.
 | Session | Deep Lessons | Code/Lab Tie-Back |
 |---|---|---|
 | 1 | [Why AI Matters Now](../lessons/01-ai-history-and-future.md) | [Getting Started From Zero](../../getting-started.md) |
-| 2 | [How Web Apps Work](../lessons/02-how-web-apps-work.md), [Frontend Walkthrough](../lessons/04-frontend-walkthrough.md) | [Lab A](../labs/README.md#lab-a-change-one-ui-section-safely) |
+| 2 | [How Web Apps Work](../lessons/02-how-web-apps-work.md), [Soma App Architecture](../lessons/03-soma-architecture.md), [Frontend Walkthrough](../lessons/04-frontend-walkthrough.md) | [Lab A](../labs/README.md#lab-a-change-one-ui-section-safely) |
 | 3 | [Data And Context](../lessons/05-data-and-context.md), [LLM Prompts](../lessons/06-llm-prompts.md), [Calling The LLM](../lessons/07-calling-the-llm.md) | [Lab B](../labs/README.md#lab-b-add-a-new-topic-pack), [Lab C](../labs/README.md#lab-c-edit-a-tutor-prompt-and-compare-output) |
 | 4 | [Parsing And Rendering](../lessons/08-parsing-and-rendering.md), [Language And Swahili](../lessons/09-language-and-swahili.md) | [Lab E](../labs/README.md#lab-e-add-swahili-answer-mode), [Lab F](../labs/README.md#lab-f-debug-a-bad-json-response) |
 | 5 | [Safety And Variability](../lessons/12-safety-and-variability.md), [Where LLMs Fit](../lessons/10-where-llms-fit.md) | [Lab G](../labs/README.md#lab-g-replace-a-wasteful-llm-call-with-normal-code) |

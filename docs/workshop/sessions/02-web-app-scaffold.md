@@ -7,6 +7,7 @@ Teams create a working HTML/CSS/JS app shell.
 Deepen this session:
 
 - [How Web Apps Work](../lessons/02-how-web-apps-work.md)
+- [Soma App Architecture](../lessons/03-soma-architecture.md)
 - [Frontend Walkthrough](../lessons/04-frontend-walkthrough.md)
 - [Lab A: Change One UI Section Safely](../labs/README.md#lab-a-change-one-ui-section-safely)
 - [Fix A JavaScript Error prompt](../../student/ai-coding-prompts.md#fix-a-javascript-error)
@@ -28,6 +29,11 @@ Use `starter/` as the base. Teams can rename headings, data, and questions.
 The public app shows the fuller Soma Study Coach flow. Students do not need to
 copy every feature on day one; they should first make the page sections and one
 button work.
+
+Before editing the endpoint path, use
+[Soma App Architecture](../lessons/03-soma-architecture.md) to name the pieces:
+browser, local server, `starter/`, `reference/`, `/api/coach`, mock mode, and
+provider mode.
 
 ## Concept: Web App Flow
 

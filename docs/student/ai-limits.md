@@ -16,8 +16,14 @@ GEMINI_MODEL=gemini-3.1-flash-lite
 ```
 
 This is the best tested choice for the current Soma Study Coach app because it
-works with `/api/coach` and has the strongest Gemini text-tutor allowance in
-the active classroom project quota table:
+works with `/api/coach`. At setup time, the classroom project quota table showed
+the strongest text-tutor allowance for this model.
+
+Important: treat this table as a planning snapshot, not a permanent promise.
+Provider quotas change by project, account, billing tier, model, and date. A
+mentor must verify the live Google AI Studio rate-limit page on the workshop day
+before treating any number below as current:
+https://ai.google.dev/gemini-api/docs/rate-limits
 
 | Model | Requests per minute | Tokens per minute | Requests per day | Use |
 |---|---:|---:|---:|---|
@@ -26,7 +32,8 @@ the active classroom project quota table:
 | `gemini-2.5-flash` | 5 | 250K | 20 | Higher-quality demo, low daily limit |
 | `gemini-2.0-flash` / `gemini-2.0-flash-lite` | 0 | 0 | 0 | Not usable on this project |
 
-The full quota table also showed Gemma 4 models with 1,500 requests per day.
+At setup time, the full quota table also showed Gemma 4 models with 1,500
+requests per day.
 Those are not the current workshop default because the app has only been fully
 tested and accepted with Gemini text tutor responses. `gemma-4-31b-it` can be a
 future experiment if the class needs more than 500 daily tutor calls.

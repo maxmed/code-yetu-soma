@@ -82,6 +82,22 @@ project that follows: students will build a small AI-shaped study coach and
 learn how the visible app, local data, server endpoint, prompt, model response,
 tests, and safety rules fit together.
 
+## Live Delivery Slice
+
+This lesson is intentionally deep. Do not teach every section live in the first
+session. For a 30-40 minute beginner opening, use this slice:
+
+| Time | Teach Live | Skip Or Assign Later |
+|---|---|---|
+| 5 min | The hook: AI is becoming a basic skill | Long history details |
+| 5 min | One media clip and the four questions: input, output, failure, human check | Extra clips |
+| 10 min | Where AI is used now, using 4-5 examples only | Full source list |
+| 10 min | The Soma mental model: student question -> topic context -> AI-shaped answer -> limitations -> human review | Detailed model taxonomy |
+| 5-10 min | Pair discussion: "What should a human check?" | Optional future-reading sections |
+
+Use the rest of Lesson 1 as mentor background, self-study reading, or an
+extension lecture for older/faster students.
+
 ## The Big Question
 
 Imagine a student in 1950 asking:
