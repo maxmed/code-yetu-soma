@@ -6,9 +6,11 @@ Audience: students who understand frontend/backend boundaries.
 
 ## Learner Hook
 
-When you click Ask coach, a message can travel to a model provider and back
-faster than you can sharpen a pencil. This lesson follows that trip from browser
-to server to AI and back.
+When you click the coach button, a message can travel to a model provider and
+back faster than you can sharpen a pencil. In the reference app that button may
+say **Ask Soma**; in the starter scaffold it may be the button that calls
+`/api/coach`. This lesson follows that trip from browser to server to AI and
+back.
 
 ## Try This Now
 

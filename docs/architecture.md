@@ -10,7 +10,7 @@ systems.
 
 ## The Amazing Part
 
-When a student clicks **Ask coach**, Soma can do one of two very different
+When a student clicks the coach button, Soma can do one of two very different
 things:
 
 - In class, it can stay on one laptop and return a safe mock answer.
@@ -117,7 +117,6 @@ flowchart TB
     safety["Safety and policy systems<br/>request and response checks"]
     router["Router / load balancer<br/>find available capacity"]
     workers["Model-serving workers<br/>CPU plus GPU/TPU accelerator machines"]
-    telemetry["Monitoring and logs<br/>latency, errors, capacity"]
   end
 
   browser -->|"POST /api/coach"| soma
@@ -125,7 +124,6 @@ flowchart TB
   gateway --> safety
   safety --> router
   router --> workers
-  workers --> telemetry
   workers -->|"raw model output"| safety
   safety -->|"provider response"| soma
   soma -->|"normalized JSON"| browser
@@ -277,7 +275,7 @@ careful boundaries.
 | Mock mode first | Works offline from a class perspective and costs nothing. | It does not prove the real provider response quality. | `api/coach.js` returns deterministic mock JSON when no key is set. |
 | Server-side provider call | Keeps keys out of the browser. | Requires a server endpoint and environment variables. | Browser calls `/api/coach`, never Gemini directly. |
 | Structured JSON response | Easier for the UI to render safely. | The server must handle malformed provider output. | Server parses and normalizes before responding. |
-| Provider API | Gives access to powerful model infrastructure. | Adds latency, quota limits, pricing and provider errors. | Errors are shown honestly instead of pretending success. |
+| External AI provider | Gives access to powerful model infrastructure. | Adds latency, quota limits, pricing and provider errors. | Errors are shown honestly instead of pretending success. |
 | Small beginner app | Easy to inspect and teach. | Not a full production platform. | No database, accounts, queues or framework required. |
 | Sending context | Helps the answer fit the selected topic. | Too much or private context would be unsafe. | Send only safe topic data and the student question. |
 

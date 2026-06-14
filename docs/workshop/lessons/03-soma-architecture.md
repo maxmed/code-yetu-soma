@@ -12,9 +12,11 @@ is the map that keeps useful things connected and dangerous things separated.
 
 ## Try This Now
 
-Open DevTools, choose the Network tab, click Ask coach, and look for the
-`/api/coach` request. Open it and inspect the JSON payload without looking for
-any API key, because the key should not be there.
+Open DevTools, choose the Network tab, click the coach button, and look for the
+`/api/coach` request. In the reference app the button may say **Ask Soma**; in
+the starter scaffold it may be the button that calls `/api/coach`. Open the
+request and inspect the JSON payload without looking for any API key, because
+the key should not be there.
 
 ## Real-World Connection
 
