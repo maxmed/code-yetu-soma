@@ -126,6 +126,18 @@ Students do not need to build this cloud system. They need to understand that
 their app sends one request to an API, and the provider hides many machines
 behind that API.
 
+For the richer visual version with Mermaid diagrams, use
+[Architecture](../../architecture.md). The best first diagram for this lesson is
+**One Question, Two Paths**: it shows why the same `/api/coach` endpoint can
+return a local mock answer in class or call a deployed provider from the server.
+
+Mentor prompt:
+
+```text
+Point to each box and ask: which parts run on your laptop, which parts run on
+Soma's server, and which parts belong to the provider?
+```
+
 ## Find It In This Repo
 
 | File | Why It Matters |

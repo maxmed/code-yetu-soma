@@ -42,25 +42,25 @@ parses and normalizes it before the browser renders it.
 
 ## Call Flow
 
-```text
-browser
-  |
-  | POST /api/coach
-  v
-server api/coach.js
-  |
-  | build prompt + request body
-  | attach server-side key
-  v
-Gemini provider
-  |
-  | raw response
-  v
-server parses and normalizes
-  |
-  v
-browser renders structured answer
+```mermaid
+sequenceDiagram
+  participant Browser as Browser
+  participant Soma as api/coach.js
+  participant Gemini as Gemini API
+  participant Fleet as Provider model fleet
+
+  Browser->>Soma: POST /api/coach with safe study context
+  Soma->>Soma: Build prompt, schema and settings
+  Soma->>Gemini: HTTPS request with server-side key
+  Gemini->>Fleet: Route through quota, safety and serving systems
+  Fleet-->>Gemini: Raw model output
+  Gemini-->>Soma: Provider response or provider error
+  Soma->>Soma: Parse and normalize into Soma JSON
+  Soma-->>Browser: Structured answer
 ```
+
+The full visual version is in [Architecture](../../architecture.md), especially
+**Journey Of One Ask Coach Click** and **What "The LLM Server" Really Means**.
 
 ## Provider Infrastructure Flow
 
@@ -68,36 +68,25 @@ When Soma uses Gemini mode, `api/coach.js` does not talk to one visible machine
 named "the LLM." It talks to a provider API. The provider runs the distributed
 system behind that API.
 
-```text
-api/coach.js
-  |
-  | HTTPS request:
-  | - server-side API key
-  | - prompt
-  | - model name
-  | - temperature
-  | - token limit
-  | - JSON response schema
-  v
-Gemini API front door
-  |
-  | authenticate key
-  | check quota and rate limits
-  | run provider safety systems
-  v
-load balancer / router
-  |
-  | choose available serving capacity
-  v
-model-serving fleet
-  |
-  | many accelerator machines may help serve requests
-  | exact count is provider-managed and changes over time
-  v
-raw provider response
-  |
-  v
-api/coach.js parses, normalizes and returns Soma JSON
+```mermaid
+flowchart LR
+  soma["api/coach.js"]
+  request["Provider request<br/>key, prompt, model, temperature, token limit, schema"]
+  gateway["Gemini API front door<br/>auth, quota, rate limits"]
+  safety["Provider safety systems"]
+  router["Load balancer / router<br/>choose available capacity"]
+  fleet["Model-serving fleet<br/>accelerator machines may help serve requests"]
+  response["Raw provider response"]
+  normalized["Parsed Soma JSON"]
+
+  soma --> request
+  request --> gateway
+  gateway --> safety
+  safety --> router
+  router --> fleet
+  fleet --> response
+  response --> soma
+  soma --> normalized
 ```
 
 Plain-language version:
@@ -113,6 +102,17 @@ Do not tell students an exact number of machines is required. For real LLM
 services, the number depends on model size, traffic, region, batching, hardware,
 quota and provider deployment. The useful idea is that a production LLM service
 is distributed across many systems, while Soma sees one API.
+
+## Tradeoffs Behind One Call
+
+| Tradeoff | Why students should care |
+|---|---|
+| Latency | A real provider call crosses the network and may travel to another region before returning. |
+| Cost and quota | Each provider call can count against rate limits or billing, so apps should not call the LLM for every tiny task. |
+| Privacy | The browser must not send private student data or provider keys. |
+| Reliability | Provider errors, network failures and malformed output can happen, so the app needs honest error handling. |
+| Scale | The provider can run large accelerator fleets, but Soma should still send small, focused requests. |
+| Testing | Mock mode proves the app flow without depending on live provider output. |
 
 ## Find It In This Repo
 

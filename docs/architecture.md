@@ -8,40 +8,145 @@ This project is intentionally small. The goal is to teach the shape of an AI
 tutor without introducing frameworks, databases, accounts, queues, or build
 systems.
 
-## Big Picture
+## The Amazing Part
 
-Soma has two useful paths:
+When a student clicks **Ask coach**, Soma can do one of two very different
+things:
 
-- **Local mock path:** everything runs from a student's computer, and no real
-  LLM provider is called.
-- **Deployed AI path:** the browser calls Soma's server endpoint, and that
-  server endpoint calls Gemini with a private server-side key.
+- In class, it can stay on one laptop and return a safe mock answer.
+- In deployment, it can send one server-side request into a provider cloud where
+  gateways, quota systems, safety systems, routers and accelerator fleets work
+  together to produce one answer.
+
+The student sees one button. Under the hood, that button crosses a real
+architecture boundary:
 
 ```text
-Student browser
-  |
-  | loads static files
-  v
-public app in reference/ or workshop scaffold in starter/
-  |
-  | POST /api/coach with safe study context
-  v
-api/coach.js
-  |
-  | if GEMINI_API_KEY is missing
-  v
-mock/demo response from api/coach.js
+small app code -> server endpoint -> provider API -> distributed AI system
+```
 
-api/coach.js
-  |
-  | if GEMINI_API_KEY is set
-  v
-Gemini API server-side call
+Soma is deliberately shaped so students can understand that whole journey
+without needing to build the provider's cloud.
+
+## One Question, Two Paths
+
+```mermaid
+flowchart LR
+  student["Student browser"]
+  app["Static Soma app<br/>reference/ or starter/"]
+  endpoint["/api/coach<br/>api/coach.js"]
+  key{"Server has<br/>GEMINI_API_KEY?"}
+  mock["Mock response<br/>same laptop, no provider call"]
+  provider["Gemini API<br/>server-side HTTPS call"]
+  fleet["Provider systems<br/>quota, safety, routing, model fleet"]
+  answer["Structured Soma answer"]
+
+  student -->|"loads HTML, CSS, JS"| app
+  app -->|"POST safe study context"| endpoint
+  endpoint --> key
+  key -->|"no"| mock
+  key -->|"yes"| provider
+  provider --> fleet
+  mock --> answer
+  fleet --> answer
+  answer --> student
 ```
 
 The browser never talks directly to Gemini. The browser only calls
 `/api/coach`. This keeps provider keys out of frontend code and student
 machines.
+
+## Journey Of One Ask Coach Click
+
+```mermaid
+sequenceDiagram
+  participant Student as Student browser
+  participant Soma as Soma server (/api/coach)
+  participant Provider as Gemini API front door
+  participant Control as Provider routing, quota, safety
+  participant Fleet as Model-serving fleet
+
+  Student->>Soma: POST safe study context
+  Soma->>Soma: Validate request and block private data
+  alt mock mode
+    Soma-->>Student: Deterministic mock JSON
+  else Gemini mode
+    Soma->>Provider: HTTPS request with server-side key
+    Provider->>Control: Authenticate, check quota, apply safety systems
+    Control->>Fleet: Route to available model-serving capacity
+    Fleet-->>Control: Raw model output
+    Control-->>Provider: Provider response
+    Provider-->>Soma: Raw generated content or provider error
+    Soma->>Soma: Parse and normalize into Soma JSON
+    Soma-->>Student: Structured answer, examples, plan and resources
+  end
+```
+
+The important lesson is not the exact number of machines. The important lesson
+is the contract: Soma sends one safe request, the provider hides a distributed
+system behind one API, and Soma returns one safe app response.
+
+## Who Talks To Whom?
+
+One click can involve several conversations:
+
+| Conversation | Who talks | What it means |
+|---|---|---|
+| 1 | Browser -> static host | Load the app files. |
+| 2 | Browser -> `/api/coach` | Send safe study context, not secrets. |
+| 3 | `/api/coach` -> server environment | Read the private provider key. |
+| 4 | `/api/coach` -> Gemini API | Ask the provider from the server side. |
+| 5 | Gemini API -> provider systems | Route through auth, quota, safety and model serving. |
+| 6 | `/api/coach` -> browser | Return a safe structured answer. |
+
+In mock mode, conversations 4 and 5 disappear. That is why the same app can be
+safe for a first workshop and still teach the shape of a real deployed AI app.
+
+## What "The LLM Server" Really Means
+
+There is usually no single visible computer named "the LLM." A production AI
+provider hides many layers behind a simple API endpoint.
+
+```mermaid
+flowchart TB
+  browser["Student device<br/>browser UI"]
+  soma["Soma server<br/>api/coach.js"]
+
+  subgraph ProviderCloud["Provider cloud hidden behind the Gemini API"]
+    gateway["API gateway<br/>HTTPS, auth, project, quota"]
+    safety["Safety and policy systems<br/>request and response checks"]
+    router["Router / load balancer<br/>find available capacity"]
+    workers["Model-serving workers<br/>CPU plus GPU/TPU accelerator machines"]
+    telemetry["Monitoring and logs<br/>latency, errors, capacity"]
+  end
+
+  browser -->|"POST /api/coach"| soma
+  soma -->|"provider request"| gateway
+  gateway --> safety
+  safety --> router
+  router --> workers
+  workers --> telemetry
+  workers -->|"raw model output"| safety
+  safety -->|"provider response"| soma
+  soma -->|"normalized JSON"| browser
+```
+
+Large AI systems can use fleets of accelerator machines such as GPUs or TPUs.
+They may route traffic across regions or zones for latency, capacity and
+reliability. The exact count of machines for one request is provider-managed and
+changes with model, traffic, region, batching, quota and deployment choices.
+Depending on deployment and routing, a request may be served near the student or
+may travel to infrastructure in another region. Soma should not guess that
+location; it should design for the possibility that the answer comes back across
+a real network, not from a magic local box.
+
+For students, the useful mental model is:
+
+```text
+our app sends one request
+the provider distributes work inside its cloud
+our app gets one response
+```
 
 ## Local Mock Path
 
@@ -51,34 +156,19 @@ Use this path when students run:
 npm run serve:mock
 ```
 
-```text
-student laptop
-  |
-  | open http://127.0.0.1:8787/
-  v
-browser loads reference/ or starter/
-  |
-  | fetch("/api/coach")
-  | sends safe JSON:
-  | - mode
-  | - student question
-  | - selected topic data
-  | - resources
-  | - optional debug request
-  v
-local Node server: scripts/mock-coach-server.js
-  |
-  | calls the local handler
-  v
-api/coach.js
-  |
-  | no GEMINI_API_KEY found
-  v
-deterministic mock response
-  |
-  | sends JSON answer back
-  v
-browser renders explanation, examples, resources, plan and limits
+```mermaid
+flowchart LR
+  laptop["Student laptop"]
+  browser["Browser<br/>http://127.0.0.1:8787/"]
+  localServer["Local Node server<br/>scripts/mock-coach-server.js"]
+  handler["Coach handler<br/>api/coach.js"]
+  mock["Deterministic mock answer"]
+
+  laptop --> browser
+  browser -->|"fetch('/api/coach')"| localServer
+  localServer --> handler
+  handler -->|"no GEMINI_API_KEY"| mock
+  mock -->|"JSON response"| browser
 ```
 
 In this mode, the student's machine is both the browser and the server. There
@@ -89,54 +179,31 @@ is no Google/Gemini network call. This is the safest first setup for a class.
 Use this path when Soma is deployed and a private `GEMINI_API_KEY` is set on the
 server.
 
-```text
-student laptop or phone
-  |
-  | HTTPS request for the page
-  v
-hosting/CDN serves static files
-  |
-  | browser runs HTML/CSS/JS
-  v
-browser fetch("/api/coach")
-  |
-  | sends safe JSON context
-  | does NOT send an API key
-  v
-Soma server endpoint: api/coach.js
-  |
-  | reads GEMINI_API_KEY from server environment
-  | builds Gemini request body
-  | sends HTTPS request to Gemini API
-  v
-Google Gemini API front door
-  |
-  | authenticates key
-  | checks quota/rate limits/safety systems
-  | routes request through provider infrastructure
-  v
-model serving fleet
-  |
-  | many accelerator machines run model inference
-  | exact machine count is provider-managed and not visible to Soma
-  v
-Gemini API response
-  |
-  | raw provider output
-  v
-api/coach.js parses and normalizes JSON
-  |
-  | structured Soma response
-  v
-browser renders the answer
+```mermaid
+flowchart LR
+  phone["Student laptop or phone"]
+  host["Static host / CDN<br/>serves HTML, CSS, JS"]
+  browser["Browser app"]
+  soma["Soma endpoint<br/>api/coach.js"]
+  env["Server environment<br/>GEMINI_API_KEY"]
+  gemini["Gemini API"]
+  cloud["Provider infrastructure<br/>gateway, quota, safety, routing, model fleet"]
+  result["Structured answer"]
+
+  phone -->|"HTTPS page request"| host
+  host --> browser
+  browser -->|"POST safe context<br/>no API key"| soma
+  env -->|"server reads secret"| soma
+  soma -->|"HTTPS provider request"| gemini
+  gemini --> cloud
+  cloud -->|"provider response"| soma
+  soma --> result
+  result --> browser
 ```
 
-The important lesson is that students do not own or run the LLM computers. They
-call an API. The provider runs large distributed systems behind that API:
-gateways, load balancers, quota systems, safety systems, model servers and
-monitoring. A single student request may be handled by more than one machine,
-but the exact number changes by provider, model, region, traffic and internal
-deployment. Soma only needs one stable contract: `POST /api/coach`.
+Students do not own or run the LLM computers. They call an API. The provider
+runs the large distributed system behind that API. Soma only needs one stable
+contract: `POST /api/coach`.
 
 ## What Is Sent At Each Step
 
@@ -159,13 +226,14 @@ deployed mode: browser + Soma server + provider API + provider model fleet
 ```
 
 For a real LLM provider, the answer is "many machines," not one magic computer.
-A production LLM service commonly uses:
+A production LLM service commonly includes:
 
 - API gateway machines to receive HTTPS requests,
 - load balancers to route traffic,
-- quota and safety services,
-- model-serving workers running on GPU or TPU accelerator machines,
-- storage/cache/monitoring systems,
+- quota and rate-limit services,
+- safety systems,
+- model-serving workers running on CPU plus GPU or TPU accelerator machines,
+- storage, cache and monitoring systems,
 - multiple regions or zones for reliability and latency.
 
 Soma does not need to know the exact machine count. The provider hides that
@@ -174,6 +242,44 @@ complexity behind the Gemini API. Students should understand the shape:
 ```text
 our app sends one request -> provider distributes work -> our app gets one response
 ```
+
+## What We Know Vs What The Provider Hides
+
+| Question | What Soma knows | What the provider hides |
+|---|---|---|
+| Who sends the request? | `api/coach.js` sends the provider request from the server. | Which internal gateway machine receives it first. |
+| What model is requested? | The configured `GEMINI_MODEL` value. | The exact serving topology for that model at that moment. |
+| Is there a key? | The key is stored server-side in environment variables. | Provider-side credential storage and internal auth flow. |
+| How is traffic controlled? | Soma sees quota and rate-limit errors. | The full quota, routing, batching and capacity decisions. |
+| How many accelerators are used? | Soma knows the provider may use accelerator fleets. | The exact CPU/GPU/TPU count for one request. |
+| What comes back? | Raw provider output or provider error, then normalized Soma JSON. | Internal retries, logs and monitoring details. |
+
+This is normal cloud design. Good APIs hide complexity while exposing a stable
+contract.
+
+## Scale Thought Experiment
+
+Ask students to imagine three moments:
+
+| Moment | What changes | Architecture concern |
+|---|---|---|
+| One student testing | One browser asks one question. | Keep setup simple and visible. |
+| A class of 30 students | Many browsers may ask at once. | Avoid leaking keys, handle errors, keep mock mode available. |
+| A public app | Many schools or regions may use it. | Watch latency, quota, cost, safety, logging and provider reliability. |
+
+The code stays beginner-sized, but the diagram shows why production AI apps need
+careful boundaries.
+
+## Tradeoffs Students Should Notice
+
+| Choice | Benefit | Cost or risk | Soma's design |
+|---|---|---|---|
+| Mock mode first | Works offline from a class perspective and costs nothing. | It does not prove the real provider response quality. | `api/coach.js` returns deterministic mock JSON when no key is set. |
+| Server-side provider call | Keeps keys out of the browser. | Requires a server endpoint and environment variables. | Browser calls `/api/coach`, never Gemini directly. |
+| Structured JSON response | Easier for the UI to render safely. | The server must handle malformed provider output. | Server parses and normalizes before responding. |
+| Provider API | Gives access to powerful model infrastructure. | Adds latency, quota limits, pricing and provider errors. | Errors are shown honestly instead of pretending success. |
+| Small beginner app | Easy to inspect and teach. | Not a full production platform. | No database, accounts, queues or framework required. |
+| Sending context | Helps the answer fit the selected topic. | Too much or private context would be unsafe. | Send only safe topic data and the student question. |
 
 ## Main Pieces
 
@@ -244,12 +350,13 @@ or private provider key.
 
 Keep this boundary clear:
 
-```text
-Frontend:
-  topic selection, student question, local display, localStorage progress
+```mermaid
+flowchart LR
+  frontend["Frontend<br/>topic selection, question, display, localStorage"]
+  server["Server<br/>API key, provider call, prompt construction, errors"]
 
-Server:
-  API key, provider call, prompt construction, provider errors
+  frontend -->|"safe study context only"| server
+  server -->|"safe structured response"| frontend
 ```
 
 If a value is secret, it belongs on the server. If a value is student-facing, it
@@ -268,9 +375,31 @@ It must never show:
 - private student data,
 - internal-only debug flags.
 
+## How This Becomes A Lesson
+
+Use this doc in two passes:
+
+1. In [Lesson 3: Soma App Architecture](./workshop/lessons/03-soma-architecture.md),
+   focus on the first diagram: browser, `/api/coach`, mock mode and server-side
+   keys.
+2. In [Lesson 7: Calling The LLM](./workshop/lessons/07-calling-the-llm.md),
+   focus on the sequence diagram and provider cloud diagram: gateway, quota,
+   safety, routing, model-serving fleet and tradeoffs.
+
+Ask students to explain the journey in one sentence:
+
+```text
+My browser sends safe learning context to Soma; Soma protects the key and calls
+the provider; the provider hides many machines behind one API; Soma sends back a
+safe structured answer.
+```
+
 ## Deeper Reading
 
 - Gemini API docs: https://ai.google.dev/gemini-api/docs
 - Gemini API rate limits: https://ai.google.dev/gemini-api/docs/rate-limits
 - Google Cloud Load Balancing docs: https://docs.cloud.google.com/load-balancing/docs
 - Google Cloud regions and zones: https://docs.cloud.google.com/docs/geography-and-regions
+- Google Cloud TPU architecture: https://docs.cloud.google.com/tpu/docs/system-architecture-tpu-vm
+- Google Cloud TPU v4 Pod scale example: https://docs.cloud.google.com/tpu/docs/v4
+- Google Cloud AI and ML architecture guides: https://docs.cloud.google.com/architecture/ai-ml
