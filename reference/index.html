@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Soma Study Coach</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,8 +15,8 @@
       <p class="eyebrow">Code Yetu Soma</p>
       <h1>Soma Study Coach</h1>
       <p class="intro">
-        Ask a study question. See the answer. Open the lab to learn how the AI
-        tutoring pipeline works.
+        Follow a guided lesson path. Ask Soma a question, answer Soma's
+        question back, then inspect how the AI tutoring pipeline works.
       </p>
     </div>
     <aside class="provider-card" aria-label="Coach endpoint status">
@@ -24,12 +27,41 @@
   </header>
 
   <main>
-    <section class="ask-studio" aria-labelledby="ask-title">
+    <section class="mode-strip" aria-label="Learning modes">
+      <article class="mode-card">
+        <strong>A. Coach Desk</strong>
+        <span>Quiet dashboard for independent study.</span>
+      </article>
+      <article class="mode-card active">
+        <strong>B. Lesson First</strong>
+        <span>Workshop default: choose, ask, inspect, practice, reflect.</span>
+      </article>
+      <article class="mode-card">
+        <strong>C. Chat + Lab</strong>
+        <span>Conversation with the AI pipeline visible.</span>
+      </article>
+    </section>
+
+    <section class="lesson-first-shell" aria-label="Lesson First study path">
+      <aside class="lesson-path" aria-labelledby="lesson-path-title">
+        <p class="eyebrow">Learning path</p>
+        <h2 id="lesson-path-title">Session 2</h2>
+        <ol>
+          <li class="active"><span>1</span><strong>Choose</strong><small>Pick a science topic.</small></li>
+          <li class="active"><span>2</span><strong>Ask</strong><small>Send Soma one question.</small></li>
+          <li><span>3</span><strong>Answer back</strong><small>Soma asks one thinking question.</small></li>
+          <li><span>4</span><strong>Inspect</strong><small>Open the pipeline lab.</small></li>
+          <li><span>5</span><strong>Reflect</strong><small>Practice and teach back.</small></li>
+        </ol>
+      </aside>
+
+      <div class="lesson-workspace">
+        <section class="ask-studio" aria-labelledby="ask-title">
       <div class="ask-card">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Ask Soma</p>
-            <h2 id="ask-title">Start With One Question</h2>
+            <p class="eyebrow">Step 2: Ask</p>
+            <h2 id="ask-title">Ask Soma About The Topic</h2>
           </div>
         </div>
         <label class="wide">
@@ -37,7 +69,7 @@
           <select id="topicSelect"></select>
         </label>
 
-        <label for="studentQuestionInput" class="question-label">What do you want to understand?</label>
+        <label for="studentQuestionInput" class="question-label">Your question</label>
         <textarea id="studentQuestionInput" rows="4" placeholder="Example: Why is growth a life process?"></textarea>
         <p class="note">Use a learning question. Do not enter names, school names, marks, phone numbers, or private records.</p>
 
@@ -86,8 +118,10 @@
         </div>
       </div>
       <div id="coachOutput" class="empty-state">
-        Pick a topic and ask one question. Soma will explain it with an example,
-        a common mistake, and a next step.
+        Pick a topic and ask one question. Soma will answer briefly, ask one
+        thinking question back, and guide your next step.
+      </div>
+    </section>
       </div>
     </section>
 

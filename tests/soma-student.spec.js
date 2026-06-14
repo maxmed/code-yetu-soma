@@ -98,7 +98,7 @@ test.describe("Soma Study Coach student smoke", () => {
     for (const route of ["/", "/index.html", "/reference", "/reference/"]) {
       await page.goto(route);
       await expect(page.getByRole("heading", { name: "Soma Study Coach" })).toBeVisible();
-      await expect(page.getByRole("heading", { name: "Start With One Question" })).toBeVisible();
+      await expect(page.getByRole("heading", { name: "Ask Soma About The Topic" })).toBeVisible();
     }
   });
 

@@ -9,6 +9,7 @@ const generationConfig = {
     type: "object",
     properties: {
       studyFeedback: { type: "string" },
+      socraticPrompt: { type: "string" },
       topicExplanation: { type: "string" },
       examples: { type: "array", items: { type: "string" } },
       likelyWeakAreas: { type: "array", items: { type: "string" } },
@@ -18,7 +19,7 @@ const generationConfig = {
       followUpAnswer: { type: "string" },
       limitations: { type: "string" }
     },
-    required: ["studyFeedback", "topicExplanation", "examples", "limitations"]
+    required: ["studyFeedback", "socraticPrompt", "topicExplanation", "examples", "limitations"]
   }
 };
 
@@ -68,6 +69,22 @@ function topicFromPayload(payload) {
   return payload?.studentSetup?.topic || "the selected topic";
 }
 
+function makeSocraticPrompt(payload, topic) {
+  const question = String(payload.studentQuestion || "").toLowerCase();
+
+  if (question.includes("growth")) {
+    return "You said growth means getting bigger. Can something look bigger without actually growing as a living thing?";
+  }
+  if (question.includes("digestion") || question.includes("nutrition")) {
+    return "What do you think happens to food before cells can use its nutrients?";
+  }
+  if (question.includes("light") || question.includes("plant")) {
+    return "What do you think light helps a plant make, and what evidence would show that?";
+  }
+
+  return `Before Soma explains more, what do you already think is the strongest clue about ${topic}?`;
+}
+
 function makeCoachResponse(payload) {
   const mode = payload.mode || "learn-topic";
   const topic = topicFromPayload(payload);
@@ -91,13 +108,14 @@ function makeCoachResponse(payload) {
     return {
       mode,
       studyFeedback: "",
+      socraticPrompt: "",
       topicExplanation: "",
       examples: [],
       likelyWeakAreas: [],
       misconceptionHelp: [],
       recommendedResources: [],
       sevenDayPlan: [],
-      followUpAnswer: `For ${topic}, connect your follow-up to the topic pack and explain it with one local example.`,
+      followUpAnswer: `Good thinking. For ${topic}, connect your reply to the topic pack and explain it with one local example before moving to the next step.`,
       limitations: "Mock response for testing. Check important learning decisions with a teacher or mentor."
     };
   }
@@ -105,6 +123,7 @@ function makeCoachResponse(payload) {
   return {
     mode,
     studyFeedback: `Good question about ${topic}. Start with the topic idea, then connect it to an everyday observation.`,
+    socraticPrompt: makeSocraticPrompt(payload, topic),
     topicExplanation: snippet.summary || `${topic} can be explained using the selected Grade 7 Integrated Science topic pack.`,
     examples,
     likelyWeakAreas: mode === "practice" || mode === "review-weak-areas"
@@ -245,6 +264,7 @@ function normalizeGeminiResponse(result, mode, topic) {
   const normalized = {
     mode: String(result.mode || mode || "").trim(),
     studyFeedback: String(result.studyFeedback || "").trim(),
+    socraticPrompt: String(result.socraticPrompt || "").trim(),
     topicExplanation: String(result.topicExplanation || "").trim(),
     examples: normalizeList(result.examples),
     likelyWeakAreas: normalizeList(result.likelyWeakAreas),
@@ -267,6 +287,8 @@ function normalizeGeminiResponse(result, mode, topic) {
 
   normalized.studyFeedback = normalized.studyFeedback ||
     `Good question about ${topic}. Start with the key idea, then connect it to an everyday example.`;
+  normalized.socraticPrompt = normalized.socraticPrompt ||
+    `Before Soma explains more, what do you already think is the strongest clue about ${topic}?`;
   normalized.topicExplanation = normalized.topicExplanation ||
     `${topic} can be explained using the selected Grade 7 Integrated Science topic pack.`;
   normalized.examples = normalized.examples.length
@@ -337,7 +359,7 @@ Rules:
 
   const defaultUserPrompt = mode === "follow-up"
     ? `Follow-up question about ${topic}: ${question}`
-    : `Student question: ${question}\n\nProvide: explanation, 2 examples, misconception help, and a 7-day study plan.`;
+    : `Student question: ${question}\n\nProvide: short feedback, exactly one bounded Socratic follow-up question in socraticPrompt, explanation, 2 examples, misconception help, and a 7-day study plan.`;
   const systemPrompt = labConfig.systemPrompt || defaultSystemPrompt;
   const userPrompt = labConfig.userPrompt || defaultUserPrompt;
   const callGenerationConfig = {

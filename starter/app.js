@@ -157,6 +157,7 @@ function normalizeResponse(payload) {
 
   return {
     studyFeedback: String(payload.studyFeedback || "").trim(),
+    socraticPrompt: String(payload.socraticPrompt || "").trim(),
     topicExplanation: String(payload.topicExplanation || "").trim(),
     examples: normalizeList(payload.examples),
     misconceptionHelp: normalizeList(payload.misconceptionHelp),

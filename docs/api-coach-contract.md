@@ -72,6 +72,7 @@ use the same shape.
 {
   "mode": "learn-topic",
   "studyFeedback": "Good question...",
+  "socraticPrompt": "Before I explain more, what do you think happens first?",
   "topicExplanation": "A mixture is...",
   "examples": ["Example one", "Example two"],
   "likelyWeakAreas": [],
@@ -98,6 +99,15 @@ The public app normalizes the response before rendering. If a Gemini response
 misses a non-critical field, the app fills in safe defaults where possible. The
 workshop scaffold reads the same core fields but intentionally ignores
 `likelyWeakAreas` to stay smaller.
+
+`socraticPrompt` is Soma's one bounded question back to the learner. The UI
+uses it for the two-way learning loop:
+
+```text
+learner asks -> Soma answers briefly and asks one question back -> learner replies -> Soma gives feedback or a next step
+```
+
+Use one prompt per turn. Do not turn the coach into a long quiz barrage.
 
 ## Follow-Up Mode
 

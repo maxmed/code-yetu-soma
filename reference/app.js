@@ -429,6 +429,7 @@ function normalizeCoachResponse(payload, mode) {
   const normalized = {
     mode: String(payload.mode || mode || "").trim(),
     studyFeedback: String(payload.studyFeedback || "").trim(),
+    socraticPrompt: String(payload.socraticPrompt || "").trim(),
     topicExplanation: String(payload.topicExplanation || "").trim(),
     examples: normalizeList(payload.examples),
     likelyWeakAreas: normalizeList(payload.likelyWeakAreas),
@@ -540,10 +541,20 @@ function renderCoachResponse(response) {
   const firstExample = textFromItem(response.examples[0], "No example returned.");
   const remainingExamples = response.examples.slice(1);
   const firstMisconception = textFromItem(response.misconceptionHelp[0], "No misconception help returned.");
+  const socraticPrompt = response.socraticPrompt ||
+    "Before Soma explains more, what do you already think is the strongest clue?";
   elements.coachOutput.innerHTML = `
     <section class="lesson-hero">
       <p class="eyebrow">Short answer</p>
       <p>${escapeHtml(response.studyFeedback || "Study support returned by the proxy.")}</p>
+    </section>
+    <section class="socratic-turn" aria-labelledby="socratic-title">
+      <div class="soma-avatar">S</div>
+      <div>
+        <p class="eyebrow">Soma asks back</p>
+        <h3 id="socratic-title">${escapeHtml(socraticPrompt)}</h3>
+        <p>Reply below in Keep Learning. Soma will use the same safe <code>/api/coach</code> path to respond.</p>
+      </div>
     </section>
     <div class="lesson-grid">
       <section class="feedback-block wide-block">
@@ -814,7 +825,7 @@ function resetApp() {
   renderRunSteps("ready");
   updatePracticeBadge();
   elements.coachOutput.className = "empty-state";
-  elements.coachOutput.textContent = "Pick a topic and ask one question. Soma will explain it with an example, a common mistake, and a next step.";
+  elements.coachOutput.textContent = "Pick a topic and ask one question. Soma will answer briefly, ask one thinking question back, and guide your next step.";
   elements.planOutput.className = "empty-state";
   elements.planOutput.textContent = "A study plan will appear after your first question.";
   elements.followUpOutput.className = "answer-box";
