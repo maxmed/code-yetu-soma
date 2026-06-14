@@ -67,6 +67,23 @@ checks in one sequence. Use [docs/local-setup.md](docs/local-setup.md) and
 - Student handouts, project cards, AI limits, mentor notes, and a demo rubric
   under [docs/student/](docs/student/) and [docs/mentor/](docs/mentor/).
 
+## Repo Map
+
+Use this when `tree -L 1` feels like a list of mystery folders.
+
+| Path | What is in it | Why it is needed | How it helps students |
+|---|---|---|---|
+| [reference/](reference/) | Complete Soma Study Coach app: HTML, CSS, data, browser JS, and folder README. | This is the polished app served at `/` and `/index.html`. | Students can inspect the finished tutor-first pattern after they understand the scaffold. |
+| [starter/](starter/) | Smaller app with matching file names: HTML, CSS, data, browser JS, and folder README. | Beginners need a simpler place for first edits before touching the full app. | Students safely change headings, topic data, rendering, and `/api/coach` context during early lessons. |
+| [scripts/](scripts/) | Local tooling, currently the mock coach server. | `npm run serve:mock` needs a local server that serves the apps, docs, and `/api/coach`. | Students can run Soma locally without Vercel or a Gemini key. |
+| [api/](api/) | `POST /api/coach` server endpoint and Gemini adapter. | The browser must call a server instead of an AI provider directly. This folder owns HTTP handling, provider calls, provider errors, and key safety. | Students learn the safe boundary that keeps provider keys out of frontend code. |
+| [lib/](lib/) | Shared deterministic coach/mock logic used by the endpoint and tests. | Mock mode and tests need stable, no-key responses without duplicating server route code. This folder owns reusable local logic, not HTTP/provider wiring. | Students can learn and test without spending quota or needing private keys. |
+| [docs/](docs/) | Getting Started, workshop lessons, sessions, labs, student docs, mentor docs, design docs, and safety docs. | The app is a workshop, not only code. | Students and mentors have one path from zero setup to final demo. |
+| [tests/](tests/) | Playwright student-flow smoke tests. | The project needs repeatable checks for routes, UI flow, errors, and safety behavior. | Students can verify their changes before demos. |
+| `playwright.config.js` | Test server and browser-test configuration. | Playwright needs to know how to run the app during tests. | Students can run one command to check the app works. |
+| `vercel.json` | Public deployment route rules. | Vercel needs to serve the polished app at `/` and route assets correctly. | Students can see how the local app becomes a public demo. |
+| `node_modules/`, `playwright-report/`, `test-results/` | Installed packages and generated test output. | These are local/generated folders, not workshop source material. | Students can ignore them unless debugging install or test failures. |
+
 ## What Students Learn
 
 The workshop connects a real browser app to the concepts behind AI-assisted
