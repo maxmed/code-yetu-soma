@@ -60,68 +60,59 @@ Gemini mode.
 
 Level 1: local learning path.
 
-```text
-student laptop
-  |
-  | open http://127.0.0.1:8787/
-  v
-browser loads Soma
-  |
-  | fetch("/api/coach")
-  | sends safe JSON context
-  v
-local server on the same laptop
-  |
-  | calls api/coach.js
-  v
-mock response
-  |
-  v
-browser shows the answer
+```mermaid
+flowchart TB
+  laptop["Student laptop"]
+  browser["Browser loads Soma<br/>http://127.0.0.1:8787/"]
+  localServer["Local server<br/>same laptop"]
+  handler["api/coach.js"]
+  mock["Mock response"]
+  answer["Browser shows the answer"]
+
+  laptop --> browser
+  browser -->|"fetch('/api/coach')<br/>sends safe JSON context"| localServer
+  localServer --> handler
+  handler --> mock
+  mock --> answer
 ```
 
 Level 2: deployed AI path.
 
-```text
-student browser
-  |
-  | fetch("/api/coach")
-  | sends safe JSON context
-  v
-Soma server: api/coach.js
-  |
-  | server-side key stays here
-  | calls Gemini API
-  |
-  v
-Gemini provider
-  |
-  | routes request to model-serving machines
-  |
-  v
-Soma server receives model output
-  |
-  | normalizes JSON
-  v
-browser shows the answer
+```mermaid
+flowchart TB
+  browser["Student browser"]
+  soma["Soma server<br/>api/coach.js"]
+  key["Server-side key stays here"]
+  gemini["Gemini provider"]
+  fleet["Routes to model-serving machines"]
+  output["Model output"]
+  normalize["Normalizes JSON"]
+  answer["Browser shows the answer"]
+
+  browser -->|"fetch('/api/coach')<br/>sends safe JSON context"| soma
+  soma --- key
+  soma -->|"calls Gemini API"| gemini
+  gemini --> fleet
+  fleet --> output
+  output --> soma
+  soma --> normalize
+  normalize --> answer
 ```
 
 Level 3: what "the AI server" really means.
 
-```text
-Soma server
-  |
-  v
-Gemini API gateway
-  |
-  v
-load balancing, quota checks, safety checks
-  |
-  v
-model-serving fleet across provider infrastructure
-  |
-  v
-one response back to Soma
+```mermaid
+flowchart TB
+  soma["Soma server"]
+  gateway["Gemini API gateway"]
+  checks["Load balancing, quota checks, safety checks"]
+  fleet["Model-serving fleet<br/>provider infrastructure"]
+  response["One response back to Soma"]
+
+  soma --> gateway
+  gateway --> checks
+  checks --> fleet
+  fleet --> response
 ```
 
 Students do not need to build this cloud system. They need to understand that
@@ -196,11 +187,16 @@ The backend checks:
 
 The student-friendly rule:
 
-```text
-browser sends learning context
-server sends provider request
-provider sends model output
-server sends safe app response
+```mermaid
+flowchart LR
+  browser["Browser"]
+  server["Server"]
+  provider["Provider"]
+
+  browser -->|"learning context"| server
+  server -->|"provider request"| provider
+  provider -->|"model output"| server
+  server -->|"safe app response"| browser
 ```
 
 ## Mock Mode
@@ -240,14 +236,23 @@ shared with students, it can be copied or exhausted.
 
 Soma's rule is simple:
 
-```text
-student browser -> /api/coach -> provider
+```mermaid
+flowchart LR
+  browser["Student browser"]
+  coach["/api/coach"]
+  provider["Provider"]
+
+  browser --> coach --> provider
 ```
 
 Never:
 
-```text
-student browser -> provider with API key
+```mermaid
+flowchart LR
+  browser["Student browser"]
+  provider["Provider with API key"]
+
+  browser -.->|"❌ WRONG"| provider
 ```
 
 ## Worked Soma Example
