@@ -41,6 +41,7 @@ both to the code, labs, and AI coding prompts.
 | DOM IDs and event listeners | [Frontend Walkthrough](./lessons/04-frontend-walkthrough.md) | `starter/index.html`, `starter/app.js`; compare with `reference/index.html`, `reference/app.js` later | [Lab A](./labs/README.md#lab-a-change-one-ui-section-safely) |
 | Topic packs and local data | [Data And Context](./lessons/05-data-and-context.md) | `starter/data.js`; compare with `reference/data.js` later | [Lab B](./labs/README.md#lab-b-add-a-new-topic-pack) |
 | `/api/coach` request context | [Data And Context](./lessons/05-data-and-context.md) | `reference/app.js` `buildCoachContext()` | [Lab B](./labs/README.md#lab-b-add-a-new-topic-pack) |
+| Local versus deployed AI path | [Soma App Architecture](./lessons/03-soma-architecture.md) | `scripts/mock-coach-server.js`, `api/coach.js`, `vercel.json` | [Lab D](./labs/README.md#lab-d-change-model-settings-and-observe-variability) |
 | Prompt design | [LLM Prompts](./lessons/06-llm-prompts.md) | `api/coach.js` `buildGeminiCall()` | [Lab C](./labs/README.md#lab-c-edit-a-tutor-prompt-and-compare-output) |
 | Model settings | [Calling The LLM](./lessons/07-calling-the-llm.md) | `api/coach.js`, Debug Lab controls | [Lab D](./labs/README.md#lab-d-change-model-settings-and-observe-variability) |
 | Response parsing | [Parsing And Rendering](./lessons/08-parsing-and-rendering.md) | `api/coach.js` `parseGeminiJson()`, `normalizeGeminiResponse()` | [Lab F](./labs/README.md#lab-f-debug-a-bad-json-response) |

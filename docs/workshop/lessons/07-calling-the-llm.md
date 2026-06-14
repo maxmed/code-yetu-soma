@@ -29,7 +29,8 @@ By the end, students can:
 - identify model, temperature and token settings,
 - explain structured output,
 - explain quota and rate-limit errors,
-- explain why provider keys stay server-side.
+- explain why provider keys stay server-side,
+- describe why a provider API hides many machines behind one endpoint.
 
 ## Key Ideas
 
@@ -61,6 +62,58 @@ server parses and normalizes
 browser renders structured answer
 ```
 
+## Provider Infrastructure Flow
+
+When Soma uses Gemini mode, `api/coach.js` does not talk to one visible machine
+named "the LLM." It talks to a provider API. The provider runs the distributed
+system behind that API.
+
+```text
+api/coach.js
+  |
+  | HTTPS request:
+  | - server-side API key
+  | - prompt
+  | - model name
+  | - temperature
+  | - token limit
+  | - JSON response schema
+  v
+Gemini API front door
+  |
+  | authenticate key
+  | check quota and rate limits
+  | run provider safety systems
+  v
+load balancer / router
+  |
+  | choose available serving capacity
+  v
+model-serving fleet
+  |
+  | many accelerator machines may help serve requests
+  | exact count is provider-managed and changes over time
+  v
+raw provider response
+  |
+  v
+api/coach.js parses, normalizes and returns Soma JSON
+```
+
+Plain-language version:
+
+```text
+our server asks the provider API
+the provider spreads work across its cloud
+our server gets one answer back
+the browser never sees the key
+```
+
+Do not tell students an exact number of machines is required. For real LLM
+services, the number depends on model size, traffic, region, batching, hardware,
+quota and provider deployment. The useful idea is that a production LLM service
+is distributed across many systems, while Soma sees one API.
+
 ## Find It In This Repo
 
 | File | Why It Matters |
@@ -83,6 +136,9 @@ browser renders structured answer
 - Helpful prompt: [Fix /api/coach 404 Or 429](../../student/ai-coding-prompts.md#fix-apicoach-404-or-429).
 
 ## Important Settings
+
+These settings travel from Soma's server to the provider API, not from the
+browser directly to Gemini.
 
 Model:
 
@@ -145,6 +201,17 @@ The server does not pretend provider errors worked. It returns honest errors for
 
 The frontend then shows the error clearly.
 
+## What Can Fail In The Cloud Path
+
+| Place | Example failure | What Soma should do |
+|---|---|---|
+| Browser to Soma server | local server is not running | Show that `/api/coach` is unavailable. |
+| Soma server input check | request is invalid JSON | Return a clear 400 error. |
+| Safety check | request includes personal data | Block before provider use. |
+| Provider API gateway | key, quota or rate-limit problem | Return an honest provider/quota error. |
+| Model response | empty or malformed output | Return an honest 503-style error. |
+| Browser rendering | response shape is missing fields | Normalize or show a clear error instead of pretending. |
+
 ## Live Demo
 
 1. Open the app in mock mode.
@@ -195,6 +262,8 @@ adapter, safe request, structured response, honest errors.
 
 - Gemini API docs: https://ai.google.dev/gemini-api/docs
 - Gemini rate limits: https://ai.google.dev/gemini-api/docs/rate-limits
+- Google Cloud Load Balancing docs: https://docs.cloud.google.com/load-balancing/docs
+- Google Cloud regions and zones: https://docs.cloud.google.com/docs/geography-and-regions
 - OpenAI Safety Best Practices: https://developers.openai.com/api/docs/guides/safety-best-practices
 
 ## Inspiring Resources

@@ -153,6 +153,30 @@ Learner level: mentor reference.
 Why it is included: students should understand that AI calls are not free or
 unlimited.
 
+### Google Cloud Load Balancing
+
+Link: https://docs.cloud.google.com/load-balancing/docs
+
+Use for: explaining why real cloud services route requests through load
+balancers instead of one visible computer.
+
+Learner level: mentor reference and selected student excerpts.
+
+Why it is included: students asked how an app server reaches an AI provider at
+internet scale. Load balancing is a concrete part of that mental model.
+
+### Google Cloud Regions And Zones
+
+Link: https://docs.cloud.google.com/docs/geography-and-regions
+
+Use for: explaining regions, zones, latency, reliability, and why production
+systems may run across more than one place.
+
+Learner level: mentor reference and selected student excerpts.
+
+Why it is included: the workshop should teach "many machines across provider
+infrastructure" without inventing exact internal machine counts.
+
 ## Prompting, Agents, And LLM Concepts
 
 ### Why AI Matters Now

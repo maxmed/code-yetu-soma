@@ -30,7 +30,8 @@ By the end, students can:
 - describe how Soma uses local topic data,
 - trace a request from the browser to `/api/coach`,
 - explain mock mode versus Gemini mode,
-- explain why API keys must stay on the server.
+- explain why API keys must stay on the server,
+- distinguish the local learning path from the deployed AI path.
 
 ## Key Ideas
 
@@ -55,27 +56,75 @@ Gemini mode.
 
 ## Architecture Diagram
 
+Level 1: local learning path.
+
 ```text
-Browser
+student laptop
   |
-  | reads HTML/CSS/JS
-  | loads topic packs from reference/data.js
-  | builds safe JSON request
+  | open http://127.0.0.1:8787/
   v
-POST /api/coach
+browser loads Soma
   |
-  | if no GEMINI_API_KEY
-  |----> api/coach.js mock response
-  |
-  | if GEMINI_API_KEY exists
-  |----> Gemini API request from server
-  |
+  | fetch("/api/coach")
+  | sends safe JSON context
   v
-structured JSON response
+local server on the same laptop
+  |
+  | calls api/coach.js
+  v
+mock response
   |
   v
-Browser renders answer, resources, plan, Debug Lab
+browser shows the answer
 ```
+
+Level 2: deployed AI path.
+
+```text
+student browser
+  |
+  | fetch("/api/coach")
+  | sends safe JSON context
+  v
+Soma server: api/coach.js
+  |
+  | server-side key stays here
+  | calls Gemini API
+  |
+  v
+Gemini provider
+  |
+  | routes request to model-serving machines
+  |
+  v
+Soma server receives model output
+  |
+  | normalizes JSON
+  v
+browser shows the answer
+```
+
+Level 3: what "the AI server" really means.
+
+```text
+Soma server
+  |
+  v
+Gemini API gateway
+  |
+  v
+load balancing, quota checks, safety checks
+  |
+  v
+model-serving fleet across provider infrastructure
+  |
+  v
+one response back to Soma
+```
+
+Students do not need to build this cloud system. They need to understand that
+their app sends one request to an API, and the provider hides many machines
+behind that API.
 
 ## Find It In This Repo
 
@@ -121,6 +170,24 @@ The backend checks:
 - does it appear to contain personal data,
 - is a Gemini API key configured,
 - should debug data be included.
+
+## What Is Sent
+
+| Step | What is sent | What is not sent |
+|---|---|---|
+| Browser loads app | Request for HTML, CSS and JavaScript | Gemini API key |
+| Browser calls `/api/coach` | Mode, question, selected topic data, resources and safe debug request | Names, marks, phone numbers, private records, Gemini API key |
+| Server calls Gemini | Prompt, model settings, response schema and server-side key | Frontend code or browser secrets |
+| Server returns to browser | Structured answer JSON or honest error | Secret key |
+
+The student-friendly rule:
+
+```text
+browser sends learning context
+server sends provider request
+provider sends model output
+server sends safe app response
+```
 
 ## Mock Mode
 

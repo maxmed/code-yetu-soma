@@ -98,11 +98,11 @@ Build in small confidence loops:
 |---|---|---|
 | 1 | [Why AI Matters Now](./lessons/01-ai-history-and-future.md) | Why students should pay attention to AI; practical examples from education, healthcare, nature monitoring, weather, fashion, recommender systems, accessibility, software, robotics, and media hooks; how AI works; history; risks; future directions. |
 | 2 | [How Web Apps Work](./lessons/02-how-web-apps-work.md) | Browser, HTML, CSS, JavaScript, events, state, `fetch`, and `localStorage`. |
-| 3 | [Soma App Architecture](./lessons/03-soma-architecture.md) | Frontend, topic data, `/api/coach`, mock mode, Gemini mode, and server-side keys. |
+| 3 | [Soma App Architecture](./lessons/03-soma-architecture.md) | Frontend, topic data, `/api/coach`, local mock path, deployed AI path, and server-side keys. |
 | 4 | [Frontend Walkthrough](./lessons/04-frontend-walkthrough.md) | How `index.html`, DOM IDs, `app.js`, and rendering functions work together. |
 | 5 | [Data And Context](./lessons/05-data-and-context.md) | Topic packs, safe context, resources, practice answers, and context limits. |
 | 6 | [LLM Prompts](./lessons/06-llm-prompts.md) | System prompts, user prompts, context, weak prompts, stronger prompts, and iteration. |
-| 7 | [Calling The LLM](./lessons/07-calling-the-llm.md) | Request body, model settings, temperature, token limits, quota, errors, and retries. |
+| 7 | [Calling The LLM](./lessons/07-calling-the-llm.md) | Provider API flow, model settings, temperature, token limits, quota, distributed serving, errors, and retries. |
 | 8 | [Parsing And Rendering](./lessons/08-parsing-and-rendering.md) | Raw model output, JSON parsing, normalization, app response fields, and UI rendering. |
 | 9 | [Language And Swahili](./lessons/09-language-and-swahili.md) | English, Swahili, code-switching, language metadata, and multilingual testing. |
 | 10 | [Where LLMs Fit](./lessons/10-where-llms-fit.md) | Good uses, bad uses, wasteful calls, rules, search, retrieval, and human review. |
