@@ -159,6 +159,184 @@ main {
   padding-bottom: 30px;
 }
 
+.chat-shell {
+  display: grid;
+  gap: 12px;
+}
+
+.mode-switch,
+.progress-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.mode-switch span,
+.mode-switch strong,
+.progress-chips span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 850;
+  padding: 7px 11px;
+}
+
+.mode-switch strong,
+.progress-chips .active {
+  border-color: var(--teal);
+  background: var(--teal-soft);
+  color: var(--teal-dark);
+}
+
+.chat-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 310px;
+  gap: 16px;
+  align-items: start;
+}
+
+.chat-card,
+.side-drawer {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.chat-card {
+  display: grid;
+  gap: 0;
+  overflow: hidden;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  border-bottom: 1px solid var(--line);
+  padding: 18px 20px;
+}
+
+.chat-thread {
+  display: grid;
+  gap: 12px;
+  min-height: 260px;
+  background: linear-gradient(180deg, #f8fbff, #fff);
+  padding: 18px 20px;
+}
+
+.chat-message {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  max-width: 860px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 14px;
+}
+
+.learner-message {
+  justify-self: end;
+  width: min(100%, 760px);
+  background: var(--primary-soft);
+}
+
+.soma-message,
+.socratic-turn {
+  justify-self: start;
+  width: min(100%, 820px);
+}
+
+.socratic-turn {
+  border-color: #ffd6ca;
+  background: #fff8f5;
+}
+
+.learner-avatar,
+.soma-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius);
+  font-weight: 900;
+}
+
+.learner-avatar {
+  background: var(--primary);
+  color: #fff;
+  font-size: 12px;
+}
+
+.soma-avatar {
+  background: var(--coral-soft);
+  color: var(--coral);
+}
+
+.chat-message p:last-child,
+.response-details p:last-child {
+  margin-bottom: 0;
+}
+
+.response-details {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.72);
+  padding: 12px;
+}
+
+.response-details summary {
+  cursor: pointer;
+  color: var(--primary-dark);
+  font-weight: 900;
+}
+
+.response-details .lesson-grid {
+  margin-top: 12px;
+}
+
+.composer-panel {
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+  padding: 18px 20px 20px;
+}
+
+.composer-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: end;
+}
+
+.side-drawer {
+  padding: 14px;
+}
+
+.side-drawer .topic-card {
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+.side-drawer summary {
+  cursor: pointer;
+  color: var(--navy);
+  font-family: "Space Grotesk", "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.side-drawer .topic-summary {
+  margin-top: 12px;
+}
+
 .mode-strip {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -606,36 +784,12 @@ button.small {
   font-size: 19px;
 }
 
-.socratic-turn {
-  display: grid;
-  grid-template-columns: 48px minmax(0, 1fr);
-  gap: 13px;
-  align-items: start;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface);
-  box-shadow: 0 12px 28px rgba(47, 83, 112, 0.08);
-  padding: 16px;
-}
-
 .socratic-turn h3 {
   margin-bottom: 8px;
 }
 
 .socratic-turn p:last-child {
   margin-bottom: 0;
-}
-
-.soma-avatar {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 46px;
-  height: 46px;
-  border-radius: var(--radius);
-  background: var(--coral-soft);
-  color: var(--coral);
-  font-weight: 900;
 }
 
 .feedback-block {
@@ -873,6 +1027,8 @@ button.small {
 
 @media (max-width: 940px) {
   .topbar,
+  .chat-layout,
+  .composer-controls,
   .mode-strip,
   .lesson-first-shell,
   .ask-studio,
@@ -921,6 +1077,38 @@ button.small {
 
   h2 {
     font-size: 24px;
+  }
+
+  .chat-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .chat-header .badge {
+    width: fit-content;
+  }
+
+  .chat-thread {
+    min-height: auto;
+    padding: 14px;
+  }
+
+  .chat-message {
+    grid-template-columns: 38px minmax(0, 1fr);
+    padding: 12px;
+  }
+
+  .learner-avatar,
+  .soma-avatar {
+    width: 36px;
+    height: 36px;
+  }
+
+  .mode-switch span,
+  .mode-switch strong,
+  .progress-chips span {
+    font-size: 12px;
+    padding: 7px 10px;
   }
 
   .ask-card,

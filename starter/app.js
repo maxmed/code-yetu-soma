@@ -219,6 +219,10 @@ function renderResponse(result) {
       <p>${escapeHtml(result.studyFeedback || "Study support returned by /api/coach.")}</p>
     </section>
     <article class="card">
+      <h3>Soma asks back</h3>
+      <p>${escapeHtml(result.socraticPrompt || "Before Soma explains more, what do you already think?")}</p>
+    </article>
+    <article class="card">
       <h3>Topic explanation</h3>
       <p>${escapeHtml(result.topicExplanation || "No topic explanation returned.")}</p>
     </article>

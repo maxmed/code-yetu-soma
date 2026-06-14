@@ -61,9 +61,9 @@ async function runReferenceSuccess(page, testInfo) {
   const storedProgress = await page.evaluate(() => localStorage.getItem("soma-study-coach.plan-progress.v2"));
   expect(storedProgress).toContain("true");
 
-  await page.locator("#followUpInput").fill("Give another kitchen example.");
-  await page.getByRole("button", { name: /^Ask$/ }).click();
-  await expect(page.locator("#followUpOutput")).toContainText("Coach answer");
+  await page.locator("#followUpInput").fill("The mixture can be separated by filtering.");
+  await page.getByRole("button", { name: /^Send$/ }).click();
+  await expect(page.locator("#followUpOutput")).toContainText("Soma replies");
   await saveFullPage(page, testInfo, "reference-success");
 }
 
@@ -137,7 +137,7 @@ test.describe("Soma Study Coach student smoke", () => {
     await page.getByRole("button", { name: "Ask Soma" }).click();
     await expect(page.locator("#coachStatus")).toContainText("Response ready");
     await page.locator("#followUpInput").fill("My school name is Test Academy. Help me.");
-    await page.getByRole("button", { name: /^Ask$/ }).click();
+    await page.getByRole("button", { name: /^Send$/ }).click();
     await expect(page.locator("#followUpOutput")).toContainText("Remove personal data");
     await saveFullPage(page, testInfo, "reference-follow-up-safety");
 

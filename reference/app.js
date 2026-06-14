@@ -256,7 +256,7 @@ function buildPromptPreview(context) {
     "Soma Study Coach request to /api/coach",
     "",
     "Expected response JSON fields:",
-    "mode, studyFeedback, topicExplanation, examples, likelyWeakAreas, misconceptionHelp, recommendedResources, sevenDayPlan, followUpAnswer, limitations",
+    "mode, studyFeedback, socraticPrompt, topicExplanation, examples, likelyWeakAreas, misconceptionHelp, recommendedResources, sevenDayPlan, followUpAnswer, limitations",
     "",
     "Context:",
     JSON.stringify(context, null, 2)
@@ -537,18 +537,29 @@ function textFromItem(item, fallback = "") {
 }
 
 function renderCoachResponse(response) {
-  elements.coachOutput.className = "coach-result";
+  elements.coachOutput.className = "chat-thread coach-result";
   const firstExample = textFromItem(response.examples[0], "No example returned.");
   const remainingExamples = response.examples.slice(1);
   const firstMisconception = textFromItem(response.misconceptionHelp[0], "No misconception help returned.");
   const socraticPrompt = response.socraticPrompt ||
     "Before Soma explains more, what do you already think is the strongest clue?";
+  const studentQuestion = elements.studentQuestionInput.value.trim() || "My study question";
   elements.coachOutput.innerHTML = `
-    <section class="lesson-hero">
-      <p class="eyebrow">Short answer</p>
-      <p>${escapeHtml(response.studyFeedback || "Study support returned by the proxy.")}</p>
+    <section class="chat-message learner-message">
+      <div class="learner-avatar">You</div>
+      <div>
+        <strong>Your question</strong>
+        <p>${escapeHtml(studentQuestion)}</p>
+      </div>
     </section>
-    <section class="socratic-turn" aria-labelledby="socratic-title">
+    <section class="chat-message soma-message">
+      <div class="soma-avatar">S</div>
+      <div>
+        <strong>Soma</strong>
+        <p>${escapeHtml(response.studyFeedback || "Study support returned by the proxy.")}</p>
+      </div>
+    </section>
+    <section class="chat-message socratic-turn" aria-labelledby="socratic-title">
       <div class="soma-avatar">S</div>
       <div>
         <p class="eyebrow">Soma asks back</p>
@@ -556,7 +567,9 @@ function renderCoachResponse(response) {
         <p>Reply below in Keep Learning. Soma will use the same safe <code>/api/coach</code> path to respond.</p>
       </div>
     </section>
-    <div class="lesson-grid">
+    <details class="response-details" open>
+      <summary>Answer details, examples, and resources</summary>
+      <div class="lesson-grid">
       <section class="feedback-block wide-block">
         <h3>Topic explanation</h3>
         <p>${escapeHtml(response.topicExplanation || "No topic explanation returned.")}</p>
@@ -581,10 +594,12 @@ function renderCoachResponse(response) {
         <h3>Next resources</h3>
         <ul>${renderArray(response.recommendedResources, "No resources returned.", renderTextItem)}</ul>
       </section>
-    </div>
+      </div>
+    </details>
     <p class="limitation">${escapeHtml(response.limitations || "Demo output is study support from dummy data. Check important learning decisions with a teacher or mentor.")}</p>
   `;
   renderPlan(response.sevenDayPlan);
+  elements.followUpInput.placeholder = "Type your answer to Soma's question";
   setKeepLearningVisible(true);
 }
 
@@ -771,7 +786,7 @@ async function runFollowUp() {
   const question = elements.followUpInput.value.trim();
   if (!question) {
     elements.followUpOutput.className = "answer-box error-state";
-    elements.followUpOutput.textContent = "Type a follow-up question first.";
+    elements.followUpOutput.textContent = "Type your answer first.";
     return;
   }
   if (!state.lastContext) {
@@ -789,13 +804,13 @@ async function runFollowUp() {
   updatePromptPreview();
   elements.followUpButton.disabled = true;
   elements.followUpOutput.className = "answer-box";
-  elements.followUpOutput.textContent = "Sending follow-up to /api/coach...";
+  elements.followUpOutput.textContent = "Sending your answer to /api/coach...";
 
   try {
     const response = await askStudyCoach(context);
     renderDebug(response.__debug);
     elements.followUpOutput.innerHTML = `
-      <h3>Coach answer</h3>
+      <h3>Soma replies</h3>
       <p>${escapeHtml(response.followUpAnswer)}</p>
       <p class="limitation">${escapeHtml(response.limitations || "This answer is study support. Check important points with a teacher or mentor.")}</p>
     `;
@@ -824,8 +839,16 @@ function resetApp() {
   setDebugStatus("Ready");
   renderRunSteps("ready");
   updatePracticeBadge();
-  elements.coachOutput.className = "empty-state";
-  elements.coachOutput.textContent = "Pick a topic and ask one question. Soma will answer briefly, ask one thinking question back, and guide your next step.";
+  elements.coachOutput.className = "chat-thread empty-state";
+  elements.coachOutput.innerHTML = `
+    <div class="chat-message soma-message">
+      <div class="soma-avatar">S</div>
+      <div>
+        <strong>Soma</strong>
+        <p>Pick a topic and ask one learning question. I will answer briefly, then ask one question back.</p>
+      </div>
+    </div>
+  `;
   elements.planOutput.className = "empty-state";
   elements.planOutput.textContent = "A study plan will appear after your first question.";
   elements.followUpOutput.className = "answer-box";
