@@ -92,7 +92,7 @@ Every team should define:
 - Build one safe request: `starter/app.js` or `reference/app.js`
   `buildCoachContext()`.
 - Keep one endpoint: `api/coach.js`.
-- Keep mock testing: `lib/coach-core.js`.
+- Keep mock testing: `api/coach.js`.
 - Add project tests: `tests/soma-student.spec.js`.
 - Check extension contracts: [Extend Soma Study Coach](../../extend-soma.md).
 - Helpful prompts: [Generate A Project Plan](../../student/ai-coding-prompts.md#generate-a-project-plan),

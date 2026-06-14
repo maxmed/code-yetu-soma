@@ -32,7 +32,7 @@ POST /api/coach
 ```
 
 For local tests and any environment without `GEMINI_API_KEY`, `/api/coach` uses
-deterministic mock logic from `../lib/coach-core.js`.
+deterministic mock logic from `../api/coach.js`.
 
 For a real AI deployment, set `GEMINI_API_KEY` server-side in the hosting
 environment. The browser still only calls `/api/coach`; provider keys stay out

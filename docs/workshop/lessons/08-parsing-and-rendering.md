@@ -67,8 +67,7 @@ render answer sections
 
 | File | Why It Matters |
 |---|---|
-| `api/coach.js` | `parseGeminiJson()` and `normalizeGeminiResponse()` prepare provider output. |
-| `lib/coach-core.js` | Mock mode returns the same response shape. |
+| `api/coach.js` | `parseGeminiJson()` and `normalizeGeminiResponse()` prepare provider output; mock mode returns the same response shape. |
 | `reference/app.js` | `normalizeCoachResponse()` and `renderCoachResponse()` prepare UI. |
 | `docs/api-coach-contract.md` | Documents required request/response fields. |
 
@@ -76,7 +75,7 @@ render answer sections
 
 - Parse provider text: `api/coach.js` `parseGeminiJson()`.
 - Normalize provider result: `api/coach.js` `normalizeGeminiResponse()`.
-- Mock response shape: `lib/coach-core.js` `makeCoachResponse()`.
+- Mock response shape: `api/coach.js` `makeCoachResponse()`.
 - Frontend response check: `reference/app.js` `normalizeCoachResponse()`.
 - Render answer sections: `reference/app.js` `renderCoachResponse()`.
 - Render study plan: `reference/app.js` `renderPlan()`.

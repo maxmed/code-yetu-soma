@@ -58,7 +58,7 @@ checks in one sequence. Use [docs/local-setup.md](docs/local-setup.md) and
   at `/`.
 - A smaller workshop scaffold in [starter/](starter/) for early exercises.
 - One server-side coach endpoint, [`POST /api/coach`](api/coach.js).
-- Deterministic mock responses in [lib/coach-core.js](lib/coach-core.js), so
+- Deterministic mock responses in [api/coach.js](api/coach.js), so
   students can learn without provider keys.
 - Optional Gemini mode through server-side environment variables only.
 - Debug Lab for inspecting context, prompt shape, model settings, provider
@@ -76,8 +76,7 @@ Use this when `tree -L 1` feels like a list of mystery folders.
 | [reference/](reference/) | Complete Soma Study Coach app: HTML, CSS, data, browser JS, and folder README. | This is the polished app served at `/` and `/index.html`. | Students can inspect the finished tutor-first pattern after they understand the scaffold. |
 | [starter/](starter/) | Smaller app with matching file names: HTML, CSS, data, browser JS, and folder README. | Beginners need a simpler place for first edits before touching the full app. | Students safely change headings, topic data, rendering, and `/api/coach` context during early lessons. |
 | [scripts/](scripts/) | Local tooling, currently the mock coach server. | `npm run serve:mock` needs a local server that serves the apps, docs, and `/api/coach`. | Students can run Soma locally without Vercel or a Gemini key. |
-| [api/](api/) | `POST /api/coach` server endpoint and Gemini adapter. | The browser must call a server instead of an AI provider directly. This folder owns HTTP handling, provider calls, provider errors, and key safety. | Students learn the safe boundary that keeps provider keys out of frontend code. |
-| [lib/](lib/) | Shared deterministic coach/mock logic used by the endpoint and tests. | Mock mode and tests need stable, no-key responses without duplicating server route code. This folder owns reusable local logic, not HTTP/provider wiring. | Students can learn and test without spending quota or needing private keys. |
+| [api/](api/) | Server-side coach code. `coach.js` handles `POST /api/coach`, mock responses, Gemini calls, safety checks, and errors. | The browser must call one server folder instead of an AI provider directly. | Students learn the safe server boundary without extra top-level server helper folders. |
 | [docs/](docs/) | Getting Started, workshop lessons, sessions, labs, student docs, mentor docs, design docs, and safety docs. | The app is a workshop, not only code. | Students and mentors have one path from zero setup to final demo. |
 | [tests/](tests/) | Playwright student-flow smoke tests. | The project needs repeatable checks for routes, UI flow, errors, and safety behavior. | Students can verify their changes before demos. |
 | `playwright.config.js` | Test server and browser-test configuration. | Playwright needs to know how to run the app during tests. | Students can run one command to check the app works. |

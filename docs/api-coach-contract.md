@@ -133,8 +133,8 @@ Common errors:
 
 ## Mock Mode
 
-If `GEMINI_API_KEY` is not set, `api/coach.js` calls `lib/coach-core.js` and
-returns a deterministic mock/demo response.
+If `GEMINI_API_KEY` is not set, `api/coach.js` returns a deterministic
+mock/demo response from its local mock logic.
 
 This is the normal local test path.
 

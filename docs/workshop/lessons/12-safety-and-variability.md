@@ -72,8 +72,7 @@ student answer + limitations
 | File | Safety Role |
 |---|---|
 | `reference/app.js` | Frontend personal-data check and honest error rendering. |
-| `api/coach.js` | Server-side personal-data block and provider error handling. |
-| `lib/coach-core.js` | Mock quota, network and personal-data paths for tests. |
+| `api/coach.js` | Server-side personal-data block, provider error handling, and mock quota/network test paths. |
 | `tests/soma-student.spec.js` | Checks safety and error paths. |
 | `docs/api-safety-checklist.md` | Checklist for review before release. |
 
@@ -81,10 +80,10 @@ student answer + limitations
 
 - Frontend personal-data patterns: `reference/app.js` `personalDataPatterns`.
 - Frontend block UI: `reference/app.js` `showPersonalDataError()`.
-- Server personal-data check: `lib/coach-core.js` `hasPersonalData()` and
+- Server personal-data check: `api/coach.js` `hasPersonalData()` and
   `api/coach.js` request handling.
 - Honest error rendering: `reference/app.js` `renderError()`.
-- Quota/network mock triggers: `lib/coach-core.js` `buildCoachResult()`.
+- Quota/network mock triggers: `api/coach.js` `buildCoachResult()`.
 - Safety tests: `tests/soma-student.spec.js`.
 - Safety checklist: `docs/api-safety-checklist.md`.
 - Helpful prompts: [Personal Data In Context](../../student/ai-coding-prompts.md#personal-data-in-context),

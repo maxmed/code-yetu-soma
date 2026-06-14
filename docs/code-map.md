@@ -72,11 +72,8 @@ versions.
 `api/coach.js`
 
 The server endpoint for `POST /api/coach`. It chooses between mock mode and
-Gemini mode.
-
-`lib/coach-core.js`
-
-Shared deterministic coach logic for mock/demo mode. This is also used by tests.
+Gemini mode, keeps provider keys server-side, and includes the deterministic
+mock/demo logic used by tests.
 
 `scripts/mock-coach-server.js`
 
@@ -184,7 +181,7 @@ Change what the browser sends to the coach:
 
 Change mock responses:
 
-- `lib/coach-core.js`
+- `api/coach.js`
 
 Change Gemini prompt shape:
 

@@ -23,7 +23,7 @@ api/coach.js
   |
   | if GEMINI_API_KEY is missing
   v
-lib/coach-core.js mock/demo response
+mock/demo response from api/coach.js
 
 api/coach.js
   |
@@ -78,8 +78,8 @@ It handles:
 
 ### Mock/demo logic
 
-`lib/coach-core.js` builds deterministic responses for local demos and tests.
-It also contains the shared personal-data checks used by the server.
+`api/coach.js` builds deterministic responses for local demos and tests. It
+also contains the personal-data checks used by the server.
 
 Mock mode matters because students and mentors can test the app without a paid
 or private provider key.

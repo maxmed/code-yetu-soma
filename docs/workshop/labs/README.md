@@ -197,7 +197,7 @@ Main files:
 
 - `reference/app.js`
 - `reference/data.js`
-- `lib/coach-core.js`
+- `api/coach.js`
 
 Task:
 

@@ -41,7 +41,7 @@ Soma has four main parts:
 1. The browser app in `reference/`.
 2. Local topic data in `reference/data.js`.
 3. The server endpoint in `api/coach.js`.
-4. Mock response logic in `lib/coach-core.js`, or Gemini when a server-side key
+4. Mock response logic in `api/coach.js`, or Gemini when a server-side key
    is configured.
 
 The most important boundary is this:
@@ -65,7 +65,7 @@ Browser
 POST /api/coach
   |
   | if no GEMINI_API_KEY
-  |----> lib/coach-core.js mock response
+  |----> api/coach.js mock response
   |
   | if GEMINI_API_KEY exists
   |----> Gemini API request from server
@@ -83,8 +83,7 @@ Browser renders answer, resources, plan, Debug Lab
 |---|---|
 | `reference/app.js` | Builds the request in `buildCoachContext()` and sends it in `askStudyCoach()`. |
 | `reference/data.js` | Provides safe local topic content and resources. |
-| `api/coach.js` | Handles `POST /api/coach`, blocks personal data, calls mock or Gemini. |
-| `lib/coach-core.js` | Builds deterministic mock responses for local demos and tests. |
+| `api/coach.js` | Handles `POST /api/coach`, blocks personal data, and returns mock or Gemini responses. |
 | `.env.example` | Shows the server-side environment variables for Gemini mode. |
 | `docs/api-coach-contract.md` | Documents the request and response shape. |
 
@@ -94,7 +93,7 @@ Browser renders answer, resources, plan, Debug Lab
 - Browser request builder: `reference/app.js` `buildCoachContext()`.
 - Browser API call: `reference/app.js` `askStudyCoach()`.
 - Server endpoint: `api/coach.js` exported handler.
-- Mock mode: `lib/coach-core.js` `buildCoachResult()`.
+- Mock mode: `api/coach.js` `buildCoachResult()`.
 - Gemini mode: `api/coach.js` `callGemini()` and `buildGeminiCall()`.
 - Local server route: `scripts/mock-coach-server.js`.
 - Deployment route: `vercel.json`.
@@ -219,7 +218,7 @@ Steps:
 
 1. In `reference/app.js`, find `fetch("/api/coach"`.
 2. In `api/coach.js`, find `module.exports = async function handler`.
-3. In `lib/coach-core.js`, find `makeCoachResponse`.
+3. In `api/coach.js`, find `makeCoachResponse`.
 4. Draw the request path in your notebook.
 
 Expected result: students can explain which file runs in the browser and which

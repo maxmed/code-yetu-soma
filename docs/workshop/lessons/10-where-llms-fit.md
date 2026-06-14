@@ -84,7 +84,7 @@ Can we provide safe, relevant context?
   `writeProgress()`.
 - Local-data display: `reference/app.js` `renderTopicSummary()`.
 - LLM-backed call: `reference/app.js` `askStudyCoach()`.
-- Mock LLM-shaped result: `lib/coach-core.js` `makeCoachResponse()`.
+- Mock LLM-shaped result: `api/coach.js` `makeCoachResponse()`.
 - Related lab: [Lab G: Replace A Wasteful LLM Call With Normal Code](../labs/README.md#lab-g-replace-a-wasteful-llm-call-with-normal-code).
 - Helpful prompt: [Add Test Cases](../../student/ai-coding-prompts.md#add-test-cases).
 

@@ -49,12 +49,12 @@ Weak examples:
 |---|---|---|
 | add a new science topic | `starter/data.js`, then `reference/data.js` | Topic objects keep the same fields. |
 | change page text or layout | `reference/index.html`, `reference/style.css` | Existing IDs stay stable unless JS and tests change too. |
-| add a new visible answer section | `api/coach.js`, `lib/coach-core.js`, `reference/app.js`, tests, API docs | Server, mock mode, renderer, and tests all know the new field. |
+| add a new visible answer section | `api/coach.js`, `reference/app.js`, tests, API docs | Server, mock mode, renderer, and tests all know the new field. |
 | change what context is sent | `reference/app.js`, `starter/app.js`, `docs/api-coach-contract.md` | Browser still calls only `/api/coach`. |
 | add language support | `reference/data.js`, `reference/app.js`, `api/coach.js` | The selected language is explicit in the safe context. |
 | add a project-specific app | copy `starter/` or study `reference/` | Keep local data, one endpoint, safe context, and honest limits. |
 | change AI behavior | `api/coach.js` and Debug Lab | Keys stay server-side; model settings stay bounded. |
-| change mock/demo output | `lib/coach-core.js` | Mock mode remains deterministic for tests. |
+| change mock/demo output | `api/coach.js` | Mock mode remains deterministic for tests. |
 
 ## Contracts You Should Preserve
 
@@ -110,7 +110,7 @@ Important IDs include:
 The coach response is structured JSON. If you add a field, update all of these:
 
 1. `api/coach.js` provider prompt/schema.
-2. `lib/coach-core.js` mock response.
+2. `api/coach.js` mock response.
 3. `reference/app.js` normalization and rendering.
 4. `docs/api-coach-contract.md`.
 5. `tests/soma-student.spec.js`.
@@ -172,7 +172,7 @@ Files:
 
 ```text
 api/coach.js
-lib/coach-core.js
+api/coach.js
 reference/app.js
 docs/api-coach-contract.md
 tests/soma-student.spec.js
@@ -203,7 +203,7 @@ reference/data.js
 reference/index.html
 reference/app.js
 api/coach.js
-lib/coach-core.js
+api/coach.js
 docs/mentor/curriculum-source.md
 ```
 

@@ -1,6 +1,6 @@
 # API
 
-This folder is the server endpoint layer.
+This folder holds the server-side coach code.
 
 ## `coach.js`
 
@@ -16,18 +16,22 @@ It:
 - calls Gemini server-side when a private key is configured,
 - returns JSON responses and honest error messages.
 
-## Why This Is Separate From `lib/`
+## Why The Mock Logic Lives Here
 
 The browser needs one safe app endpoint to call. Provider keys must stay on the
 server, so the browser calls `/api/coach` instead of calling Gemini directly.
 
-`api/` owns the web boundary: HTTP requests, HTTP responses, provider calls,
-provider errors, and server-side environment variables.
+For a beginner workshop, one server folder and one server file are easier to
+scan than multiple server-side helper folders. `api/coach.js` keeps the small
+server story in one place:
 
-Reusable deterministic coaching logic lives in `lib/` so mock mode, tests, and
-local tools can use it without pretending to be an HTTP endpoint.
+- HTTP requests and responses,
+- provider calls and provider errors,
+- server-side environment variables,
+- stable no-key mock/demo responses,
+- quota, network, and personal-data test paths.
 
 ```text
-browser -> /api/coach -> lib/coach-core.js mock response
-browser -> /api/coach -> Gemini server-side call
+browser -> /api/coach -> mock response from api/coach.js
+browser -> /api/coach -> Gemini server-side call from api/coach.js
 ```

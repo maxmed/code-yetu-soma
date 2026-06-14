@@ -129,7 +129,7 @@ Use labs when students need hands-on practice.
 | [D](./labs/README.md#lab-d-change-model-settings-and-observe-variability) | Change model settings and observe variability. | Debug Lab, `/api/coach` |
 | [E](./labs/README.md#lab-e-add-swahili-answer-mode) | Add Swahili answer mode. | `reference/data.js`, `reference/app.js`, `api/coach.js` |
 | [F](./labs/README.md#lab-f-debug-a-bad-json-response) | Debug malformed JSON. | `api/coach.js`, `reference/app.js` |
-| [G](./labs/README.md#lab-g-replace-a-wasteful-llm-call-with-normal-code) | Replace a wasteful LLM call with normal code. | `reference/app.js`, `lib/coach-core.js` |
+| [G](./labs/README.md#lab-g-replace-a-wasteful-llm-call-with-normal-code) | Replace a wasteful LLM call with normal code. | `reference/app.js`, `api/coach.js` |
 
 ## Concept To Code Map
 
