@@ -49,8 +49,14 @@ Soma has four main parts:
 
 The most important boundary is this:
 
-```text
-browser code never sees provider keys
+```mermaid
+flowchart LR
+  browser["Browser code"]
+  server["Server endpoint<br/>api/coach.js"]
+  secret["Provider key<br/>server environment only"]
+
+  browser -->|"safe study context"| server
+  secret --> server
 ```
 
 The browser calls `/api/coach`. The server decides whether to use mock mode or
@@ -252,7 +258,7 @@ flowchart LR
   browser["Student browser"]
   provider["Provider with API key"]
 
-  browser -.->|"❌ WRONG"| provider
+  browser -.->|"WRONG: do not send keys from browser"| provider
 ```
 
 ## Worked Soma Example
