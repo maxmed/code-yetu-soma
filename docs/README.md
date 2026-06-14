@@ -16,6 +16,7 @@ Gemini provider calls that stay server-side.
 | use a real Gemini key | [Getting Started From Zero](./getting-started.md) | [Gemini Key Setup](./gemini-key-setup.md) |
 | deploy the demo | [Deploy To Vercel](./deploy-vercel.md) | [Gemini Key Setup](./gemini-key-setup.md) |
 | understand the architecture | [Architecture](./architecture.md) | [Code Map](./code-map.md) |
+| understand the LLM call flow / under the hood | [Architecture](./architecture.md) | [Calling The LLM](./workshop/lessons/07-calling-the-llm.md) |
 | teach the workshop | [Workshop Course](./workshop/README.md) | [6-Session Runbook](./workshop/sessions/README.md) |
 | learn the concepts | [Lesson Index](./workshop/lessons/README.md) | [Concept To Code Map](./workshop/concept-to-code-map.md) |
 | understand why AI matters | [Why AI Matters Now](./workshop/lessons/01-ai-history-and-future.md) | [Reviewed Source Spine](./workshop/sources.md) |
@@ -41,6 +42,9 @@ Use these together:
 - [Why AI Matters Now](./workshop/lessons/01-ai-history-and-future.md) - the
   opening hook on what AI is, where it is used, AI history, machine learning,
   LLMs, multimodal systems, computer use, robotics, and future directions.
+- [Calling The LLM](./workshop/lessons/07-calling-the-llm.md) - the
+  under-the-hood provider flow: API front door, quota checks, router/load
+  balancer, model-serving fleet, and response back.
 - [Workshop Labs](./workshop/labs/README.md) - hands-on practice tasks.
 - [Concept To Code Map](./workshop/concept-to-code-map.md) - connects sessions,
   lessons, labs, code files, and AI coding prompts.
@@ -86,13 +90,15 @@ Use these together:
    environment variables, deploy, and smoke-test the live app.
 5. [Architecture](./architecture.md) - browser, data, server, mock mode, and
    Gemini mode.
-6. [Code Map](./code-map.md) - where to change common things.
-7. [`/api/coach` Contract](./api-coach-contract.md) - request and response shape.
-8. [Testing And Debugging](./testing-debugging.md) - Playwright, manual checks,
+6. [Calling The LLM](./workshop/lessons/07-calling-the-llm.md) - LLM call flow
+   under the hood, including provider routing and model-serving infrastructure.
+7. [Code Map](./code-map.md) - where to change common things.
+8. [`/api/coach` Contract](./api-coach-contract.md) - request and response shape.
+9. [Testing And Debugging](./testing-debugging.md) - Playwright, manual checks,
    Debug Lab, and commit gates.
-9. [Safety Checklist](./api-safety-checklist.md) - key, data, AI honesty, and
+10. [Safety Checklist](./api-safety-checklist.md) - key, data, AI honesty, and
    debug checks.
-10. [Extend Soma](./extend-soma.md) - safe beginner-sized extension tasks.
+11. [Extend Soma](./extend-soma.md) - safe beginner-sized extension tasks.
 
 ## Design Path
 

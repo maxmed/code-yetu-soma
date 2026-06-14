@@ -105,6 +105,12 @@ Then use the deeper course:
 To connect sessions, lessons, files, labs, and AI coding prompts, use:
 [docs/workshop/concept-to-code-map.md](docs/workshop/concept-to-code-map.md)
 
+For the LLM call flow under the hood, use
+[docs/architecture.md](docs/architecture.md) for the full app architecture and
+[docs/workshop/lessons/07-calling-the-llm.md](docs/workshop/lessons/07-calling-the-llm.md)
+for the provider flow: API front door, quota checks, router/load balancer,
+model-serving fleet, and response back.
+
 ## Where To Go Next
 
 For facilitators:
@@ -134,6 +140,9 @@ For developers:
 - [docs/README.md](docs/README.md) - best reading order.
 - [docs/architecture.md](docs/architecture.md) - browser, data, server, mock
   mode, and Gemini mode.
+- [docs/workshop/lessons/07-calling-the-llm.md](docs/workshop/lessons/07-calling-the-llm.md) -
+  LLM call flow under the hood: provider API, quota checks, load balancing, and
+  model-serving fleet.
 - [docs/local-setup.md](docs/local-setup.md) - command reference if the main
   getting-started path fails locally.
 - [docs/gemini-key-setup.md](docs/gemini-key-setup.md) - reference for mentors
