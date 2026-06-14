@@ -1,4 +1,16 @@
+/*
+  Starter data file
+
+  Students usually extend Soma here first. Add or edit topic packs below, then
+  reload /starter/index.html and choose the new topic from the Setup panel.
+
+  Keep the field names stable (`topic`, `summary`, `examples`, `resources`,
+  and `sampleQuestion`) because starter/app.js uses those names to build the
+  safe /api/coach context.
+*/
+
 const setupOptions = {
+  // Add a mode when the app needs a new kind of help, such as "make quiz".
   modes: [
     { id: "learn-topic", label: "Learn a topic" },
     { id: "ask-tutor", label: "Ask topic tutor" },
@@ -19,6 +31,15 @@ const setupOptions = {
   ]
 };
 
+/*
+  Each topic pack is one small bundle of dummy curriculum data.
+
+  To add a new topic:
+  1. Copy one whole object inside topicPacks.
+  2. Give it a new id.
+  3. Change the topic, summary, vocabulary, examples, resources, and sample question.
+  4. Use dummy learning content only. Do not add real student records.
+*/
 const topicPacks = [
   {
     id: "living-things",

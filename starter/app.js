@@ -1,3 +1,17 @@
+/*
+  Starter app map
+
+  This file connects the page to the data and to /api/coach:
+  1. Read HTML elements by id.
+  2. Fill the setup dropdowns from starter/data.js.
+  3. Build a safe context object from the selected topic and question.
+  4. Send that context to /api/coach.
+  5. Render the structured response and local progress.
+
+  Beginner rule: if you rename an id in starter/index.html, update the matching
+  document.getElementById call below.
+*/
+
 const modeSelect = document.getElementById("modeSelect");
 const gradeSelect = document.getElementById("gradeSelect");
 const learningAreaSelect = document.getElementById("learningAreaSelect");
@@ -22,6 +36,7 @@ const progressStorageKey = "soma-starter.plan-progress.v1";
 let lastContext = null;
 let lastResponse = null;
 
+// Prevent user text from being treated as HTML when we render it on the page.
 function escapeHtml(value) {
   return String(value ?? "")
     .replaceAll("&", "&amp;")
@@ -31,10 +46,12 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
+// Reusable helper for turning data.js objects into dropdown <option> tags.
 function optionHtml(option) {
   return `<option value="${escapeHtml(option.id)}">${escapeHtml(option.label || option.topic)}</option>`;
 }
 
+// Find the selected object in a list. Falls back to the first item for safety.
 function getSelected(collection, selectElement) {
   return collection.find(item => item.id === selectElement.value) || collection[0];
 }
@@ -50,6 +67,7 @@ function renderSelects() {
   topicSelect.innerHTML = topicPacks.map(optionHtml).join("");
 }
 
+// Update the topic summary card whenever the selected topic changes.
 function renderTopicCard() {
   const topic = getTopic();
   topicCard.innerHTML = `
@@ -60,6 +78,13 @@ function renderTopicCard() {
   studentQuestionInput.placeholder = topic.sampleQuestion;
 }
 
+/*
+  Extension point: this is the main safe-context builder.
+
+  Add new fields here when your project needs more topic data, but keep personal
+  data out. The browser sends this object to /api/coach; it should contain only
+  the learner's study question plus safe dummy/sample context.
+*/
 function buildContext() {
   const grade = getSelected(setupOptions.grades, gradeSelect);
   const learningArea = getSelected(setupOptions.learningAreas, learningAreaSelect);
@@ -100,17 +125,20 @@ function buildContext() {
   };
 }
 
+// Show students exactly what would be sent before making an AI/provider call.
 function previewContext() {
   const context = buildContext();
   contextPreview.textContent = JSON.stringify(context, null, 2);
   contextBadge.textContent = "Preview ready";
 }
 
+// Badge helper used by the main coach status label.
 function setCoachStatus(text, className = "") {
   coachStatus.textContent = text;
   coachStatus.className = `badge ${className}`.trim();
 }
 
+// /api/coach fields may come back as strings or arrays; normalize to arrays.
 function normalizeList(value) {
   if (Array.isArray(value)) {
     return value;
@@ -121,6 +149,7 @@ function normalizeList(value) {
   return [];
 }
 
+// Keep rendering stable even if mock mode and provider mode differ slightly.
 function normalizeResponse(payload) {
   if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
     throw new Error("The proxy returned an unexpected response shape.");
@@ -138,6 +167,12 @@ function normalizeResponse(payload) {
   };
 }
 
+/*
+  The only network call in the starter.
+
+  The browser calls our own server endpoint, not Gemini directly. That keeps
+  provider keys server-side and lets mock mode work with no API key.
+*/
 async function askStudyCoach(context) {
   const response = await fetch("/api/coach", {
     method: "POST",
@@ -161,6 +196,7 @@ async function askStudyCoach(context) {
   return normalizeResponse(await response.json());
 }
 
+// Convert response arrays into simple list HTML for the starter UI.
 function listHtml(items) {
   if (!items.length) {
     return "<li>No items returned.</li>";
@@ -173,6 +209,7 @@ function listHtml(items) {
   }).join("");
 }
 
+// Main response renderer. Add new output sections here after /api/coach returns them.
 function renderResponse(result) {
   responseOutput.className = "results";
   responseOutput.innerHTML = `
@@ -205,6 +242,7 @@ function renderResponse(result) {
   renderPlan(result.sevenDayPlan);
 }
 
+// Local progress is stored only in this browser. It is not sent to /api/coach.
 function readProgress() {
   try {
     return JSON.parse(localStorage.getItem(progressStorageKey) || "{}");
@@ -217,6 +255,7 @@ function writeProgress(progress) {
   localStorage.setItem(progressStorageKey, JSON.stringify(progress));
 }
 
+// Accept plan items as either strings or objects so students can experiment.
 function normalizePlanItem(item, index) {
   if (typeof item === "string") {
     return { day: index + 1, title: `Day ${index + 1}`, task: item };
@@ -228,6 +267,7 @@ function normalizePlanItem(item, index) {
   };
 }
 
+// Render the 7-day plan and restore checked boxes from localStorage.
 function renderPlan(planItems) {
   if (!planItems.length) {
     planOutput.className = "empty-state";
@@ -249,6 +289,7 @@ function renderPlan(planItems) {
   }).join("");
 }
 
+// Main button flow: validate, preview, call /api/coach, then render or show errors.
 async function callCoach() {
   const context = buildContext();
   if (!context.studentQuestion) {
@@ -284,6 +325,7 @@ async function callCoach() {
   }
 }
 
+// Reuse the previous safe topic context for one follow-up question.
 async function callFollowUp() {
   const question = followUpInput.value.trim();
   if (!question) {
@@ -324,6 +366,7 @@ async function callFollowUp() {
   }
 }
 
+// Put the starter back into its first-run state.
 function resetApp() {
   studentQuestionInput.value = "";
   followUpInput.value = "";
@@ -339,10 +382,12 @@ function resetApp() {
   previewContext();
 }
 
+// Initial page setup.
 renderSelects();
 renderTopicCard();
 previewContext();
 
+// Event wiring: each listener connects one visible control to one function.
 modeSelect.addEventListener("change", previewContext);
 gradeSelect.addEventListener("change", previewContext);
 learningAreaSelect.addEventListener("change", previewContext);

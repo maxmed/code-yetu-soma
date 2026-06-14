@@ -19,6 +19,10 @@
   </header>
 
   <main class="layout">
+    <!--
+      Safe-to-change section: students can rename headings, helper text, and
+      panel order. Keep id="" values unless you also update starter/app.js.
+    -->
     <section class="panel" aria-labelledby="setup-title">
       <div class="panel-header">
         <h2 id="setup-title">Setup</h2>
@@ -45,6 +49,11 @@
       <div id="topicCard" class="topic-card"></div>
     </section>
 
+    <!--
+      This panel gathers the learner question. The buttons are wired in
+      starter/app.js by their ids: sampleButton, previewButton, coachButton,
+      and resetButton.
+    -->
     <section class="panel" aria-labelledby="question-title">
       <div class="panel-header">
         <h2 id="question-title">Question And Context</h2>
@@ -60,6 +69,7 @@
       </div>
     </section>
 
+    <!-- Shows the exact safe JSON context before it is sent to /api/coach. -->
     <section class="panel" aria-labelledby="context-title">
       <div class="panel-header">
         <h2 id="context-title">Safe Context Preview</h2>
@@ -68,6 +78,7 @@
       <pre id="contextPreview" class="context-preview"></pre>
     </section>
 
+    <!-- The structured /api/coach response is rendered here by renderResponse(). -->
     <section class="panel" aria-labelledby="response-title">
       <div class="panel-header">
         <h2 id="response-title">Study Helper Response</h2>
@@ -78,6 +89,7 @@
       </div>
     </section>
 
+    <!-- Local browser-only progress. Nothing here is sent to the AI provider. -->
     <section class="panel" aria-labelledby="progress-title">
       <div class="panel-header">
         <h2 id="progress-title">Local Progress</h2>
@@ -86,6 +98,7 @@
       <div id="planOutput" class="empty-state">A returned 7-day plan will appear here.</div>
     </section>
 
+    <!-- Uses the last safe context so a follow-up stays grounded in one topic. -->
     <section class="panel" aria-labelledby="followup-title">
       <div class="panel-header">
         <h2 id="followup-title">Follow-Up Tutor</h2>
