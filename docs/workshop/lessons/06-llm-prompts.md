@@ -118,7 +118,7 @@ output shape.
 
 ## Worked Soma Example
 
-In `api/coach.js`, the server builds a default system prompt with:
+In [`api/coach.js`](../../../api/coach.js), the server builds a default system prompt with:
 
 - topic,
 - context,

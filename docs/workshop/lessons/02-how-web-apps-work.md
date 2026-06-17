@@ -87,7 +87,8 @@ flowchart TD
 
 ## Worked Soma Example
 
-The Ask coach button is declared in `reference/index.html`:
+The Ask coach button is declared in
+[`reference/index.html`](../../../reference/index.html):
 
 ```html
 <button id="coachButton" type="button">Ask coach</button>
@@ -128,7 +129,7 @@ The frontend does not call Gemini directly and does not hold API keys.
 ## What `fetch()` Does
 
 `fetch()` is the browser API for making network requests. Soma uses it in
-`reference/app.js` to call the server:
+[`reference/app.js`](../../../reference/app.js) to call the server:
 
 ```js
 fetch("/api/coach", {
@@ -175,7 +176,7 @@ Task: Change the sample question text for one topic.
 
 Steps:
 
-1. Open `starter/data.js`.
+1. Open [`starter/data.js`](../../../starter/data.js).
 2. Find a topic's `sampleQuestion`.
 3. Change it to a new learning question.
 4. Reload `http://127.0.0.1:8787/starter/index.html`.
@@ -184,7 +185,8 @@ Steps:
 Expected result: the textarea shows the new sample question.
 
 Stretch after the starter works: repeat the same kind of change in
-`reference/data.js` and compare the polished app with the starter scaffold.
+[`reference/data.js`](../../../reference/data.js) and compare the polished app
+with the starter scaffold.
 
 ## Reflection Questions
 

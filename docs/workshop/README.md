@@ -30,9 +30,9 @@ Use one common path before students remix anything:
    dependencies, run the local server, open the app, open `/starter/index.html`,
    make one visible starter edit, hard refresh, read the browser console, and
    optionally add a Gemini key safely.
-3. Use `starter/` for the first hands-on changes.
-4. Use `reference/` to inspect the polished app and compare patterns.
-5. Move into `reference/`, tests, deployment, and extension after students can
+3. Use [`starter/`](../../starter/) for the first hands-on changes.
+4. Use [`reference/`](../../reference/) to inspect the polished app and compare patterns.
+5. Move into [`reference/`](../../reference/), tests, deployment, and extension after students can
    explain the starter flow.
 
 ## Course Navigation
@@ -123,13 +123,13 @@ Use labs when students need hands-on practice.
 
 | Lab | Task | Main Files |
 |---|---|---|
-| [A](./labs/README.md#lab-a-change-one-ui-section-safely) | Change one starter UI section safely. | `starter/index.html`, `starter/style.css`, `starter/app.js` |
-| [B](./labs/README.md#lab-b-add-a-new-topic-pack) | Add a new topic pack. | `starter/data.js`, then `reference/data.js` |
-| [C](./labs/README.md#lab-c-edit-a-tutor-prompt-and-compare-output) | Edit a tutor prompt and compare output. | Debug Lab, `api/coach.js` |
+| [A](./labs/README.md#lab-a-change-one-ui-section-safely) | Change one starter UI section safely. | [`starter/index.html`](../../starter/index.html), [`starter/style.css`](../../starter/style.css), [`starter/app.js`](../../starter/app.js) |
+| [B](./labs/README.md#lab-b-add-a-new-topic-pack) | Add a new topic pack. | [`starter/data.js`](../../starter/data.js), then [`reference/data.js`](../../reference/data.js) |
+| [C](./labs/README.md#lab-c-edit-a-tutor-prompt-and-compare-output) | Edit a tutor prompt and compare output. | Debug Lab, [`api/coach.js`](../../api/coach.js) |
 | [D](./labs/README.md#lab-d-change-model-settings-and-observe-variability) | Change model settings and observe variability. | Debug Lab, `/api/coach` |
-| [E](./labs/README.md#lab-e-add-swahili-answer-mode) | Add Swahili answer mode. | `reference/data.js`, `reference/app.js`, `api/coach.js` |
-| [F](./labs/README.md#lab-f-debug-a-bad-json-response) | Debug malformed JSON. | `api/coach.js`, `reference/app.js` |
-| [G](./labs/README.md#lab-g-replace-a-wasteful-llm-call-with-normal-code) | Replace a wasteful LLM call with normal code. | `reference/app.js`, `api/coach.js` |
+| [E](./labs/README.md#lab-e-add-swahili-answer-mode) | Add Swahili answer mode. | [`reference/data.js`](../../reference/data.js), [`reference/app.js`](../../reference/app.js), [`api/coach.js`](../../api/coach.js) |
+| [F](./labs/README.md#lab-f-debug-a-bad-json-response) | Debug malformed JSON. | [`api/coach.js`](../../api/coach.js), [`reference/app.js`](../../reference/app.js) |
+| [G](./labs/README.md#lab-g-replace-a-wasteful-llm-call-with-normal-code) | Replace a wasteful LLM call with normal code. | [`reference/app.js`](../../reference/app.js), [`api/coach.js`](../../api/coach.js) |
 
 ## Concept To Code Map
 

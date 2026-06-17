@@ -11,9 +11,10 @@ give it the right topic pack and it can act like a focused study helper.
 
 ## Try This Now
 
-Open `starter/data.js`, change one topic's `sampleQuestion`, reload
+Open [`starter/data.js`](../../../starter/data.js), change one topic's `sampleQuestion`, reload
 `http://127.0.0.1:8787/starter/index.html`, click Use sample, and confirm the
-question changed. Later, compare the same pattern in `reference/data.js`.
+question changed. Later, compare the same pattern in
+[`reference/data.js`](../../../reference/data.js).
 
 ## Real-World Connection
 
@@ -85,7 +86,7 @@ flowchart TD
 
 ## Worked Soma Example
 
-In `reference/data.js`, the mixtures topic includes:
+In [`reference/data.js`](../../../reference/data.js), the mixtures topic includes:
 
 ```js
 topic: "Mixtures and separation",
@@ -95,7 +96,7 @@ examples: [
 ]
 ```
 
-In `reference/app.js`, `buildCoachContext()` sends this as a snippet:
+In [`reference/app.js`](../../../reference/app.js), `buildCoachContext()` sends this as a snippet:
 
 ```js
 curriculumContext: {
@@ -144,7 +145,7 @@ Task: add one new resource to a topic.
 
 Steps:
 
-1. Open `starter/data.js`.
+1. Open [`starter/data.js`](../../../starter/data.js).
 2. Pick one topic.
 3. Add one item to its `resources` array.
 4. Reload `http://127.0.0.1:8787/starter/index.html`.
@@ -153,8 +154,9 @@ Steps:
 
 Expected result: the new resource is available to the coach request.
 
-Stretch after the starter works: add the same resource to `reference/data.js`
-and compare the polished app with the starter scaffold.
+Stretch after the starter works: add the same resource to
+[`reference/data.js`](../../../reference/data.js) and compare the polished app
+with the starter scaffold.
 
 ## Reflection Questions
 

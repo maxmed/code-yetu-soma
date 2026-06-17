@@ -41,10 +41,10 @@ Architecture means how the parts of an app fit together.
 
 Soma has four main parts:
 
-1. The browser app in `reference/`.
-2. Local topic data in `reference/data.js`.
-3. The server endpoint in `api/coach.js`.
-4. Mock response logic in `api/coach.js`, or Gemini when a server-side key
+1. The browser app in [`reference/`](../../../reference/).
+2. Local topic data in [`reference/data.js`](../../../reference/data.js).
+3. The server endpoint in [`api/coach.js`](../../../api/coach.js).
+4. Mock response logic in [`api/coach.js`](../../../api/coach.js), or Gemini when a server-side key
    is configured.
 
 The most important boundary is this:
@@ -223,7 +223,7 @@ works.
 
 Gemini mode is used when `GEMINI_API_KEY` is set on the server.
 
-In Gemini mode, `api/coach.js`:
+In Gemini mode, [`api/coach.js`](../../../api/coach.js):
 
 - builds a server-side prompt,
 - builds a provider request body,
@@ -263,7 +263,7 @@ flowchart LR
 
 ## Worked Soma Example
 
-Open `api/coach.js` and find:
+Open [`api/coach.js`](../../../api/coach.js) and find:
 
 ```js
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
@@ -308,9 +308,9 @@ Task: Find the boundary between frontend and backend.
 
 Steps:
 
-1. In `reference/app.js`, find `fetch("/api/coach"`.
-2. In `api/coach.js`, find `module.exports = async function handler`.
-3. In `api/coach.js`, find `makeCoachResponse`.
+1. In [`reference/app.js`](../../../reference/app.js), find `fetch("/api/coach"`.
+2. In [`api/coach.js`](../../../api/coach.js), find `module.exports = async function handler`.
+3. In [`api/coach.js`](../../../api/coach.js), find `makeCoachResponse`.
 4. Draw the request path in your notebook.
 
 Expected result: students can explain which file runs in the browser and which
@@ -324,7 +324,8 @@ Lab.
 - What is the frontend responsible for?
 - What is the backend responsible for?
 - Why is mock mode useful even when real AI is available?
-- What would go wrong if the API key were placed in `reference/app.js`?
+- What would go wrong if the API key were placed in
+  [`reference/app.js`](../../../reference/app.js)?
 - Which part of the system should enforce personal-data blocking?
 
 ## Mentor Notes

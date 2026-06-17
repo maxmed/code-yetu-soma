@@ -92,7 +92,7 @@ flowchart TD
 
 ## Worked Soma Example: Topic Summary
 
-In `reference/data.js`, a topic has fields like:
+In [`reference/data.js`](../../../reference/data.js), a topic has fields like:
 
 ```js
 topic: "States of matter",
@@ -102,7 +102,7 @@ vocabulary: [
 ]
 ```
 
-In `reference/app.js`, `renderTopicSummary()` reads the selected topic and
+In [`reference/app.js`](../../../reference/app.js), `renderTopicSummary()` reads the selected topic and
 builds HTML:
 
 ```js
@@ -168,9 +168,9 @@ lab is for inspection, experiments, and teaching.
 
 ## Live Demo
 
-1. Open `reference/index.html`.
+1. Open [`reference/index.html`](../../../reference/index.html).
 2. Find `openDebugLabButton`.
-3. Open `reference/app.js`.
+3. Open [`reference/app.js`](../../../reference/app.js).
 4. Find `openDebugLabButton` in the `elements` map.
 5. Find the event listener that opens the lab.
 6. Run the app and click **Debug Lab**.
@@ -187,7 +187,7 @@ Task: Rename one answer section safely.
 
 Steps:
 
-1. Open `starter/app.js`.
+1. Open [`starter/app.js`](../../../starter/app.js).
 2. Find `renderResponse()`.
 3. Change the visible heading `Topic explanation` to `Main idea`.
 4. Reload `http://127.0.0.1:8787/starter/index.html`.
@@ -198,8 +198,9 @@ Expected result: only the visible heading changes. The JSON field
 `topicExplanation` should not be renamed.
 
 Stretch after the starter works: inspect the same rendering pattern in
-`reference/app.js` `renderCoachResponse()`. Update Playwright tests only with a
-mentor if the polished app intentionally changes visible text.
+[`reference/app.js`](../../../reference/app.js) `renderCoachResponse()`. Update
+Playwright tests only with a mentor if the polished app intentionally changes
+visible text.
 
 ## Reflection Questions
 
