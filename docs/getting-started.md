@@ -266,23 +266,21 @@ Expected:
 
 ## 12. Check That The Key Is Safe
 
-Before committing or sharing anything, run:
+The `.gitignore` already protects your `.env` file from being committed. Verify:
 
 ```bash
 git status --short
-rg -n "AIza|GEMINI_API_KEY|\?key=" reference starter
-rg -n "AIza|key=AIza|GEMINI_API_KEY=[A-Za-z0-9_-]{20,}" . --glob '!node_modules/**' --glob '!.git/**'
 ```
 
-Expected:
+If `.env` appears in the output, something is wrong. It should be ignored.
 
-- `.env` is not tracked by Git,
-- no real key appears in `reference/` or `starter/`,
-- no real key appears in docs or config,
-- no `?key=` URL appears in frontend code.
+Quick safety check:
 
-If `rg` is not installed, use the grep commands in
-[Gemini Key Setup](./gemini-key-setup.md#safety-checklist).
+- [ ] `.env` does not appear in `git status`
+- [ ] Your key does not appear in the browser page or console
+- [ ] Your key does not appear in Debug Lab / Behind The Scenes
+
+For a deeper safety scan, see [Gemini Key Setup](./gemini-key-setup.md#safety-checklist).
 
 ## 13. Optional: Deploy Later
 
