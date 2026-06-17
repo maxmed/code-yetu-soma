@@ -47,14 +47,14 @@ Weak examples:
 
 | If students want to... | Change these files | Keep this contract |
 |---|---|---|
-| add a new science topic | `starter/data.js`, then `reference/data.js` | Topic objects keep the same fields. |
-| change page text or layout | `reference/index.html`, `reference/style.css` | Existing IDs stay stable unless JS and tests change too. |
-| add a new visible answer section | `api/coach.js`, `reference/app.js`, tests, API docs | Server, mock mode, renderer, and tests all know the new field. |
-| change what context is sent | `reference/app.js`, `starter/app.js`, `docs/api-coach-contract.md` | Browser still calls only `/api/coach`. |
-| add language support | `reference/data.js`, `reference/app.js`, `api/coach.js` | The selected language is explicit in the safe context. |
-| add a project-specific app | copy `starter/` or study `reference/` | Keep local data, one endpoint, safe context, and honest limits. |
-| change AI behavior | `api/coach.js` and Debug Lab | Keys stay server-side; model settings stay bounded. |
-| change mock/demo output | `api/coach.js` | Mock mode remains deterministic for tests. |
+| add a new science topic | [`starter/data.js`](../starter/data.js), then [`reference/data.js`](../reference/data.js) | Topic objects keep the same fields. |
+| change page text or layout | [`reference/index.html`](../reference/index.html), [`reference/style.css`](../reference/style.css) | Existing IDs stay stable unless JS and tests change too. |
+| add a new visible answer section | [`api/coach.js`](../api/coach.js), [`reference/app.js`](../reference/app.js), tests, API docs | Server, mock mode, renderer, and tests all know the new field. |
+| change what context is sent | [`reference/app.js`](../reference/app.js), [`starter/app.js`](../starter/app.js), [`docs/api-coach-contract.md`](./api-coach-contract.md) | Browser still calls only `/api/coach`. |
+| add language support | [`reference/data.js`](../reference/data.js), [`reference/app.js`](../reference/app.js), [`api/coach.js`](../api/coach.js) | The selected language is explicit in the safe context. |
+| add a project-specific app | copy [`starter/`](../starter/) or study [`reference/`](../reference/) | Keep local data, one endpoint, safe context, and honest limits. |
+| change AI behavior | [`api/coach.js`](../api/coach.js) and Debug Lab | Keys stay server-side; model settings stay bounded. |
+| change mock/demo output | [`api/coach.js`](../api/coach.js) | Mock mode remains deterministic for tests. |
 
 ## Contracts You Should Preserve
 
@@ -109,11 +109,11 @@ Important IDs include:
 
 The coach response is structured JSON. If you add a field, update all of these:
 
-1. `api/coach.js` provider prompt/schema.
-2. `api/coach.js` mock response.
-3. `reference/app.js` normalization and rendering.
-4. `docs/api-coach-contract.md`.
-5. `tests/soma-student.spec.js`.
+1. [`api/coach.js`](../api/coach.js) provider prompt/schema.
+2. [`api/coach.js`](../api/coach.js) mock response.
+3. [`reference/app.js`](../reference/app.js) normalization and rendering.
+4. [`docs/api-coach-contract.md`](./api-coach-contract.md).
+5. [`tests/soma-student.spec.js`](../tests/soma-student.spec.js).
 
 Do not only change the frontend.
 
@@ -182,7 +182,7 @@ Steps:
 1. Name the new field, for example `quickQuiz`.
 2. Add it to the server response instructions.
 3. Add deterministic mock output.
-4. Normalize the field in `reference/app.js`.
+4. Normalize the field in [`reference/app.js`](../reference/app.js).
 5. Render it in `renderCoachResponse()`.
 6. Update the API contract docs.
 7. Add a Playwright expectation that proves it appears.
@@ -279,7 +279,7 @@ adapt if many students remix it.
 
 | Generalize | Why It Helps | Possible Shape |
 |---|---|---|
-| shared topic data | Avoid editing both `reference/data.js` and `starter/data.js`. | Move topic packs into one shared JS module or generated JSON file. |
+| shared topic data | Avoid editing both [`reference/data.js`](../reference/data.js) and [`starter/data.js`](../starter/data.js). | Move topic packs into one shared JS module or generated JSON file. |
 | response schema | Keep server, mock, frontend, docs, and tests aligned. | Define response fields in one documented schema object. |
 | app configuration | Make subject/grade labels easier to change. | Add a small `appConfig` object for title, subject, grade, and safety copy. |
 | prompt templates | Let mentors compare prompt versions safely. | Store named prompt templates server-side, not in browser storage. |
