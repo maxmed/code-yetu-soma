@@ -44,7 +44,7 @@ larger reference app yet.
 - [`reference/index.html`](../../../reference/index.html) - full app HTML
 - [`reference/app.js`](../../../reference/app.js) - full app JavaScript
 
-**Key functions:** `elements`, `renderCoachResponse`, `init`
+**Key functions:** `elements`, `renderCoachResponse`, `renderSelects`
 
 **End-to-end flow:** Edit HTML → save → hard refresh → check console → verify UI works
 
@@ -96,7 +96,7 @@ Goal: learn how local data powers the tutor.
 - [`reference/data.js`](../../../reference/data.js) - full topic data
 - [`reference/app.js`](../../../reference/app.js) - data rendering logic
 
-**Key functions:** `renderTopicSummary`, `buildCoachContext`, `topics`
+**Key functions:** `renderTopicSummary`, `buildCoachContext`, `topicPacks`
 
 **End-to-end flow:** Copy topic → edit fields → reload → pick topic → ask question → check context
 
@@ -221,7 +221,7 @@ Goal: design a multilingual feature safely.
 - [`reference/index.html`](../../../reference/index.html) - language UI option
 - [`api/coach.js`](../../../api/coach.js) - prompt with language instruction
 
-**Key functions:** `buildCoachContext`, `buildGeminiCall`, language selector handling
+**Key functions:** `buildCoachContext`, `buildGeminiCall`, new `#languageSelect` in HTML
 
 **End-to-end flow:** Add language option → include in context → update server prompt → test question → verify answer language
 
