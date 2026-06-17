@@ -59,19 +59,19 @@ flowchart TD
 
 | File | Why It Matters |
 |---|---|
-| `api/coach.js` | `parseGeminiJson()` and `normalizeGeminiResponse()` prepare provider output; mock mode returns the same response shape. |
-| `reference/app.js` | `normalizeCoachResponse()` and `renderCoachResponse()` prepare UI. |
-| `docs/api-coach-contract.md` | Documents required request/response fields. |
+| [api/coach.js](../../../api/coach.js) | `parseGeminiJson()` and `normalizeGeminiResponse()` prepare provider output; mock mode returns the same response shape. |
+| [reference/app.js](../../../reference/app.js) | `normalizeCoachResponse()` and `renderCoachResponse()` prepare UI. |
+| [docs/api-coach-contract.md](../../api-coach-contract.md) | Documents required request/response fields. |
 
 ## Map To Soma Code
 
-- Parse provider text: `api/coach.js` `parseGeminiJson()`.
-- Normalize provider result: `api/coach.js` `normalizeGeminiResponse()`.
-- Mock response shape: `api/coach.js` `makeCoachResponse()`.
-- Frontend response check: `reference/app.js` `normalizeCoachResponse()`.
-- Render answer sections: `reference/app.js` `renderCoachResponse()`.
-- Render study plan: `reference/app.js` `renderPlan()`.
-- Render debug parsed response: `reference/app.js` `renderDebug()`.
+- Parse provider text: [api/coach.js](../../../api/coach.js) `parseGeminiJson()`.
+- Normalize provider result: [api/coach.js](../../../api/coach.js) `normalizeGeminiResponse()`.
+- Mock response shape: [api/coach.js](../../../api/coach.js) `makeCoachResponse()`.
+- Frontend response check: [reference/app.js](../../../reference/app.js) `normalizeCoachResponse()`.
+- Render answer sections: [reference/app.js](../../../reference/app.js) `renderCoachResponse()`.
+- Render study plan: [reference/app.js](../../../reference/app.js) `renderPlan()`.
+- Render debug parsed response: [reference/app.js](../../../reference/app.js) `renderDebug()`.
 - Related lab: [Lab F: Debug A Bad JSON Response](../labs/README.md#lab-f-debug-a-bad-json-response).
 - Helpful prompt: [Response Not Rendering](../../student/ai-coding-prompts.md#response-not-rendering).
 

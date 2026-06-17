@@ -66,9 +66,9 @@ The full visual version is in [Architecture](../../architecture.md), especially
 
 ## Provider Infrastructure Flow
 
-When Soma uses Gemini mode, `api/coach.js` does not talk to one visible machine
-named "the LLM." It talks to a provider API. The provider runs the distributed
-system behind that API.
+When Soma uses Gemini mode, [api/coach.js](../../../api/coach.js) does not talk
+to one visible machine named "the LLM." It talks to a provider API. The
+provider runs the distributed system behind that API.
 
 ```mermaid
 flowchart LR
@@ -120,20 +120,20 @@ is distributed across many systems, while Soma sees one API.
 
 | File | Why It Matters |
 |---|---|
-| `api/coach.js` | Contains `callGemini()`, `buildGeminiCall()`, and error handling. |
-| `.env.example` | Documents `GEMINI_API_KEY` and `GEMINI_MODEL`. |
-| `docs/api-coach-contract.md` | Documents the app-level request and response contract. |
-| `docs/testing-debugging.md` | Shows how to inspect Debug Lab and avoid leaking keys. |
+| [api/coach.js](../../../api/coach.js) | Contains `callGemini()`, `buildGeminiCall()`, and error handling. |
+| [.env.example](../../../.env.example) | Documents `GEMINI_API_KEY` and `GEMINI_MODEL`. |
+| [docs/api-coach-contract.md](../../api-coach-contract.md) | Documents the app-level request and response contract. |
+| [docs/testing-debugging.md](../../testing-debugging.md) | Shows how to inspect Debug Lab and avoid leaking keys. |
 
 ## Map To Soma Code
 
-- Server endpoint: `api/coach.js` `module.exports = async function handler`.
-- Provider model default: `api/coach.js` `GEMINI_MODEL`.
-- Provider request builder: `api/coach.js` `buildGeminiCall()`.
-- Provider call: `api/coach.js` `callGemini()`.
-- Provider error wording: `api/coach.js` `providerErrorMessage()`.
-- Mock fallback: `api/coach.js` `if (!GEMINI_API_KEY)`.
-- Lab settings UI: `reference/index.html` experiment controls.
+- Server endpoint: [api/coach.js](../../../api/coach.js) `module.exports = async function handler`.
+- Provider model default: [api/coach.js](../../../api/coach.js) `GEMINI_MODEL`.
+- Provider request builder: [api/coach.js](../../../api/coach.js) `buildGeminiCall()`.
+- Provider call: [api/coach.js](../../../api/coach.js) `callGemini()`.
+- Provider error wording: [api/coach.js](../../../api/coach.js) `providerErrorMessage()`.
+- Mock fallback: [api/coach.js](../../../api/coach.js) `if (!GEMINI_API_KEY)`.
+- Lab settings UI: [reference/index.html](../../../reference/index.html) experiment controls.
 - Related lab: [Lab D: Change Model Settings And Observe Variability](../labs/README.md#lab-d-change-model-settings-and-observe-variability).
 - Helpful prompt: [Fix /api/coach 404 Or 429](../../student/ai-coding-prompts.md#fix-apicoach-404-or-429).
 
@@ -240,7 +240,7 @@ Choose one:
 Write:
 
 1. what it controls,
-2. where it appears in `api/coach.js`,
+2. where it appears in [api/coach.js](../../../api/coach.js),
 3. how changing it could affect the answer,
 4. what risk it could introduce.
 

@@ -60,21 +60,21 @@ flowchart TD
 
 | File | Why It Matters |
 |---|---|
-| `reference/index.html` | The page currently declares `lang="en"`. |
-| `reference/data.js` | Topic packs could include translated labels or vocabulary. |
-| `reference/app.js` | `buildCoachContext()` would send the selected language. |
-| `api/coach.js` | `buildGeminiCall()` would include language instructions. |
-| `tests/soma-student.spec.js` | Tests should cover the language path if it is added. |
+| [reference/index.html](../../../reference/index.html) | The page currently declares `lang="en"`. |
+| [reference/data.js](../../../reference/data.js) | Topic packs could include translated labels or vocabulary. |
+| [reference/app.js](../../../reference/app.js) | `buildCoachContext()` would send the selected language. |
+| [api/coach.js](../../../api/coach.js) | `buildGeminiCall()` would include language instructions. |
+| [tests/soma-student.spec.js](../../../tests/soma-student.spec.js) | Tests should cover the language path if it is added. |
 
 ## Map To Soma Code
 
-- Current page language: `reference/index.html` `lang="en"`.
-- Possible language selector location: `reference/index.html` setup or advanced
+- Current page language: [reference/index.html](../../../reference/index.html) `lang="en"`.
+- Possible language selector location: [reference/index.html](../../../reference/index.html) setup or advanced
   options.
-- Language context field: `reference/app.js` `buildCoachContext()`.
-- Translated labels or vocabulary: `reference/data.js`.
-- Server prompt instruction: `api/coach.js` `buildGeminiCall()`.
-- Test coverage: `tests/soma-student.spec.js`.
+- Language context field: [reference/app.js](../../../reference/app.js) `buildCoachContext()`.
+- Translated labels or vocabulary: [reference/data.js](../../../reference/data.js).
+- Server prompt instruction: [api/coach.js](../../../api/coach.js) `buildGeminiCall()`.
+- Test coverage: [tests/soma-student.spec.js](../../../tests/soma-student.spec.js).
 - Related lab: [Lab E: Add Swahili Answer Mode](../labs/README.md#lab-e-add-swahili-answer-mode).
 - Helpful prompt: [Make The UI Clearer](../../student/ai-coding-prompts.md#make-the-ui-clearer).
 
@@ -150,7 +150,8 @@ Write a short design:
 - how you would test quality,
 - what limitations the app should show.
 
-Stretch: implement the language field in `buildCoachContext()`.
+Stretch: implement the language field in
+[reference/app.js](../../../reference/app.js) `buildCoachContext()`.
 
 ## Reflection Questions
 
