@@ -25,7 +25,7 @@ Gemini provider calls that stay server-side.
 | extend or remix Soma | [Extend Soma](./extend-soma.md) | [Concept To Code Map](./workshop/concept-to-code-map.md) |
 | mentor teams | [Mentor Guide](./mentor/README.md) | [Rubric](./mentor/rubric.md) |
 | review safety | [Safety Checklist](./api-safety-checklist.md) | [`/api/coach` Contract](./api-coach-contract.md) |
-| improve the UI | [Design Docs](./design/README.md) | [UI Redesign Brief](./design/ui-redesign-brief.md) |
+| improve the UI | [Design Docs](./design/README.md) | [UI Design Principles For Learning Apps](./design/ui-principles-for-students.md) |
 
 ## Workshop Material
 
@@ -105,8 +105,6 @@ Use these together:
 - [Design Docs](./design/README.md) - design navigation.
 - [UI Design Principles For Learning Apps](./design/ui-principles-for-students.md)
   - student-facing principles.
-- [Soma UI Redesign Brief](./design/ui-redesign-brief.md) - implemented learner
-  UI design reference.
 
 ## The Main App Flow
 

@@ -1,7 +1,7 @@
 # UI Design Principles For Learning Apps
 
-Use this with the [Design Docs](./README.md), [Soma UI Redesign
-Brief](./ui-redesign-brief.md), and [Workshop Labs](../workshop/labs/README.md).
+Use this with the [Design Docs](./README.md) and [Workshop
+Labs](../workshop/labs/README.md).
 
 Beautiful learning software is not decoration. It helps a learner know what to
 do, feel safe trying, understand the result, and keep going.

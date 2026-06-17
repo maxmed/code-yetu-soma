@@ -95,8 +95,7 @@ demo.
 
 [docs/design/README.md](./design/README.md)
 
-Design navigation for learner UI principles and the implemented redesign
-reference.
+Design navigation for learner UI principles.
 
 [docs/design/ui-principles-for-students.md](./design/ui-principles-for-students.md)
 
@@ -105,8 +104,8 @@ functional, engaging, accessible, and safe.
 
 [docs/design/ui-redesign-brief.md](./design/ui-redesign-brief.md)
 
-Implemented Soma learner UI redesign reference. It includes desktop, mobile, and
-Debug Lab wireframes plus review criteria.
+Archived Soma learner UI redesign implementation reference. It is not required
+workshop reading.
 
 ## Workshop Material
 
