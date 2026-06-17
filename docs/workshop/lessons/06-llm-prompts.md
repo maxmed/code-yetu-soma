@@ -67,19 +67,19 @@ format: explanation, examples, misconception help, resources, plan
 
 | File | Why It Matters |
 |---|---|
-| `api/coach.js` | `buildGeminiCall()` builds the real provider prompt. |
-| `reference/app.js` | Debug Lab sends optional prompt overrides for one run. |
-| `docs/workshop/labs/README.md` | Lab C uses prompt edits to compare output. |
+| [`api/coach.js`](../../../api/coach.js) | `buildGeminiCall()` builds the real provider prompt. |
+| [`reference/app.js`](../../../reference/app.js) | Debug Lab sends optional prompt overrides for one run. |
+| [`docs/workshop/labs/README.md`](../labs/README.md) | Lab C uses prompt edits to compare output. |
 
 ## Map To Soma Code
 
-- Default system prompt: `api/coach.js` `buildGeminiCall()`.
-- Default user prompt: `api/coach.js` `buildGeminiCall()`.
-- Lab prompt fields: `reference/index.html` `labSystemPromptInput` and
+- Default system prompt: [`api/coach.js`](../../../api/coach.js) `buildGeminiCall()`.
+- Default user prompt: [`api/coach.js`](../../../api/coach.js) `buildGeminiCall()`.
+- Lab prompt fields: [`reference/index.html`](../../../reference/index.html) `labSystemPromptInput` and
   `labUserPromptInput`.
-- Lab override collector: `reference/app.js` `getLabOverrides()`.
-- Server-side override sanitizer: `api/coach.js` `getLabConfig()`.
-- Debug prompt display: `reference/app.js` `renderDebug()`.
+- Lab override collector: [`reference/app.js`](../../../reference/app.js) `getLabOverrides()`.
+- Server-side override sanitizer: [`api/coach.js`](../../../api/coach.js) `getLabConfig()`.
+- Debug prompt display: [`reference/app.js`](../../../reference/app.js) `renderDebug()`.
 - Related lab: [Lab C: Edit A Tutor Prompt And Compare Output](../labs/README.md#lab-c-edit-a-tutor-prompt-and-compare-output).
 - Helpful prompt: [Build The /api/coach Context](../../student/ai-coding-prompts.md#build-the-apicoach-context).
 
