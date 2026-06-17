@@ -7,20 +7,13 @@ Use Kenya's KICD CBC curriculum designs as the source for age-appropriate learni
 
 Primary source:
 
-```text
-https://kicd.ac.ke/cbc-materials/curriculum-designs/
-```
+- [KICD CBC Curriculum Designs](https://kicd.ac.ke/cbc-materials/curriculum-designs/)
 
 Grade 7 source pages for the current demo:
 
-```text
-Grade 7 Integrated Science:
-https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-seven-designs/
-
-Grade 7 HI Integrated Science:
-https://kicd.ac.ke/cbc-materials/curriculum-designs/sne-curriculum-designs/hi-grade-seven7/
-https://drive.google.com/file/d/1iZlM0ifcI80lnjtSbDdRVjB-bu4PDOt0/view
-```
+- [Grade 7 Integrated Science](https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-seven-designs/)
+- [Grade 7 HI Integrated Science (KICD)](https://kicd.ac.ke/cbc-materials/curriculum-designs/sne-curriculum-designs/hi-grade-seven7/)
+- [Grade 7 HI Integrated Science (Drive preview)](https://drive.google.com/file/d/1iZlM0ifcI80lnjtSbDdRVjB-bu4PDOt0/view)
 
 Note: the HI Integrated Science Drive file is viewable through KICD's embedded preview, but direct download is disabled by the file owner. Use it as a source reference unless the owner enables download or provides a downloadable copy.
 
