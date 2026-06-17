@@ -94,7 +94,7 @@ run `npm run serve:mock` again.
 Cause: the app is being opened as a static file or from a server that does not
 provide `/api/coach`.
 
-Fix: use `npm run serve:mock` or deploy with `api/coach.js`.
+Fix: use `npm run serve:mock` or deploy with [`api/coach.js`](../api/coach.js).
 
 ### Gemini quota or rate limit
 
@@ -114,15 +114,15 @@ Fix: rewrite the question as a learning question only.
 
 Cause: Playwright tests search for visible labels and output text.
 
-Fix: update `tests/soma-student.spec.js` so the tests match the intended UI.
+Fix: update [`tests/soma-student.spec.js`](../tests/soma-student.spec.js) so the tests match the intended UI.
 
 ### Tests fail after moving an element
 
-Cause: JavaScript expects specific IDs from `index.html`.
+Cause: JavaScript expects specific IDs from [`index.html`](../reference/index.html).
 
 Fix: preserve IDs such as `studentQuestionInput`, `coachButton`,
 `coachOutput`, `debugOutput`, `keepLearningSection`, `planOutput`, and
-`followUpInput`, or update `app.js` and tests together.
+`followUpInput`, or update [`app.js`](../reference/app.js) and tests together.
 
 ## Before You Commit
 
