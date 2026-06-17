@@ -1,4 +1,4 @@
-# Reviewed Source Spine
+# Reference Sources
 
 Use this with the [Workshop Course](./README.md), [Lesson
 Index](./lessons/README.md), and [UI Design Principles](../design/ui-principles-for-students.md).

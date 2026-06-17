@@ -8,7 +8,7 @@ hands-on labs are in [../labs/README.md](../labs/README.md).
 
 | Lesson | Topic | Pair With |
 |---|---|---|
-| 1 | [Why AI Matters Now](./01-ai-history-and-future.md) | [Reviewed Source Spine](../sources.md) |
+| 1 | [Why AI Matters Now](./01-ai-history-and-future.md) | [Reference Sources](../sources.md) |
 | 2 | [How Web Apps Work](./02-how-web-apps-work.md) | [Lab A](../labs/README.md#lab-a-change-one-ui-section-safely) |
 | 3 | [Soma App Architecture](./03-soma-architecture.md) | [Local Setup](../../local-setup.md) |
 | 4 | [Frontend Walkthrough](./04-frontend-walkthrough.md) | [Lab A](../labs/README.md#lab-a-change-one-ui-section-safely) |
@@ -26,7 +26,7 @@ hands-on labs are in [../labs/README.md](../labs/README.md).
 
 - [Concept To Code Map](../concept-to-code-map.md) - connects lessons to
   sessions, files, labs, and AI coding prompts.
-- [Reviewed Source Spine](../sources.md) - reputable sources behind the
+- [Reference Sources](../sources.md) - reputable sources behind the
   lessons.
 - [Lesson Template](../lesson-template.md) - structure for adding a new lesson.
 

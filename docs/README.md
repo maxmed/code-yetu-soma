@@ -19,7 +19,7 @@ Gemini provider calls that stay server-side.
 | understand the LLM call flow / under the hood | [Architecture](./architecture.md) | [Calling The LLM](./workshop/lessons/07-calling-the-llm.md) |
 | teach the workshop | [Workshop Course](./workshop/README.md) | [6-Session Runbook](./workshop/sessions/README.md) |
 | learn the concepts | [Lesson Index](./workshop/lessons/README.md) | [Concept To Code Map](./workshop/concept-to-code-map.md) |
-| understand why AI matters | [Why AI Matters Now](./workshop/lessons/01-ai-history-and-future.md) | [Reviewed Source Spine](./workshop/sources.md) |
+| understand why AI matters | [Why AI Matters Now](./workshop/lessons/01-ai-history-and-future.md) | [Reference Sources](./workshop/sources.md) |
 | do hands-on practice | [Workshop Labs](./workshop/labs/README.md) | [AI Coding Prompts](./student/ai-coding-prompts.md) |
 | build a student project | [Student Guide](./student/README.md) | [Project Cards](./student/project-cards.md) |
 | extend or remix Soma | [Extend Soma](./extend-soma.md) | [Concept To Code Map](./workshop/concept-to-code-map.md) |
@@ -48,7 +48,7 @@ Use these together:
 - [Workshop Labs](./workshop/labs/README.md) - hands-on practice tasks.
 - [Concept To Code Map](./workshop/concept-to-code-map.md) - connects sessions,
   lessons, labs, code files, and AI coding prompts.
-- [Reviewed Source Spine](./workshop/sources.md) - reputable sources behind the
+- [Reference Sources](./workshop/sources.md) - reputable sources behind the
   teaching material.
 - [Lesson Template](./workshop/lesson-template.md) - structure for adding new
   lessons.
