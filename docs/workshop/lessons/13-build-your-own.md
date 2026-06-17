@@ -80,24 +80,24 @@ flowchart TD
 
 | File Or Folder | Use |
 |---|---|
-| `starter/` | Smaller scaffold for teams that need a simpler starting point. |
-| `reference/` | Full app to study or remix carefully. |
-| `docs/student/project-cards.md` | Project ideas. |
-| `docs/student/handout.md` | Student challenge and submission guide. |
-| `docs/extend-soma.md` | Extension contracts, safe recipes and generalization plan. |
-| `docs/mentor/rubric.md` | Demo and evaluation criteria. |
-| `docs/workshop/labs/README.md` | Practice tasks for common changes. |
+| [`starter/`](../../../starter/) | Smaller scaffold for teams that need a simpler starting point. |
+| [`reference/`](../../../reference/) | Full app to study or remix carefully. |
+| [`docs/student/project-cards.md`](../../student/project-cards.md) | Project ideas. |
+| [`docs/student/handout.md`](../../student/handout.md) | Student challenge and submission guide. |
+| [`docs/extend-soma.md`](../../extend-soma.md) | Extension contracts, safe recipes and generalization plan. |
+| [`docs/mentor/rubric.md`](../../mentor/rubric.md) | Demo and evaluation criteria. |
+| [`docs/workshop/labs/README.md`](../labs/README.md) | Practice tasks for common changes. |
 
 ## Map To Soma Code
 
-- Study the full pattern: `reference/`.
-- Build from the smaller scaffold: `starter/`.
-- Add local data first: `starter/data.js` or `reference/data.js`.
-- Build one safe request: `starter/app.js` or `reference/app.js`
+- Study the full pattern: [`reference/`](../../../reference/).
+- Build from the smaller scaffold: [`starter/`](../../../starter/).
+- Add local data first: [`starter/data.js`](../../../starter/data.js) or [`reference/data.js`](../../../reference/data.js).
+- Build one safe request: [`starter/app.js`](../../../starter/app.js) or [`reference/app.js`](../../../reference/app.js)
   `buildCoachContext()`.
-- Keep one endpoint: `api/coach.js`.
-- Keep mock testing: `api/coach.js`.
-- Add project tests: `tests/soma-student.spec.js`.
+- Keep one endpoint: [`api/coach.js`](../../../api/coach.js).
+- Keep mock testing: [`api/coach.js`](../../../api/coach.js).
+- Add project tests: [`tests/soma-student.spec.js`](../../../tests/soma-student.spec.js).
 - Check extension contracts: [Extend Soma Study Coach](../../extend-soma.md).
 - Helpful prompts: [Generate A Project Plan](../../student/ai-coding-prompts.md#generate-a-project-plan),
   [Create Dummy Data](../../student/ai-coding-prompts.md#create-dummy-data),

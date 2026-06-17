@@ -79,12 +79,12 @@ Can we provide safe, relevant context?
 
 ## Map To Soma Code
 
-- Normal-code counting: `reference/app.js` `updatePracticeBadge()`.
-- Normal-code local progress: `reference/app.js` `readProgress()` and
+- Normal-code counting: [`reference/app.js`](../../../reference/app.js) `updatePracticeBadge()`.
+- Normal-code local progress: [`reference/app.js`](../../../reference/app.js) `readProgress()` and
   `writeProgress()`.
-- Local-data display: `reference/app.js` `renderTopicSummary()`.
-- LLM-backed call: `reference/app.js` `askStudyCoach()`.
-- Mock LLM-shaped result: `api/coach.js` `makeCoachResponse()`.
+- Local-data display: [`reference/app.js`](../../../reference/app.js) `renderTopicSummary()`.
+- LLM-backed call: [`reference/app.js`](../../../reference/app.js) `askStudyCoach()`.
+- Mock LLM-shaped result: [`api/coach.js`](../../../api/coach.js) `makeCoachResponse()`.
 - Related lab: [Lab G: Replace A Wasteful LLM Call With Normal Code](../labs/README.md#lab-g-replace-a-wasteful-llm-call-with-normal-code).
 - Helpful prompt: [Add Test Cases](../../student/ai-coding-prompts.md#add-test-cases).
 
@@ -121,7 +121,7 @@ Use AI where it adds real learning value.
 ## Live Demo
 
 1. Ask students which Soma features need AI.
-2. Open `reference/app.js`.
+2. Open [`reference/app.js`](../../../reference/app.js).
 3. Find `updatePracticeBadge()`.
 4. Explain why it is normal code.
 5. Find `askStudyCoach()`.

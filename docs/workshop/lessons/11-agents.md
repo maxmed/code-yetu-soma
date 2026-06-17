@@ -98,17 +98,17 @@ continue or stop
 
 | File | Agent-Shaped Idea |
 |---|---|
-| `reference/app.js` | Builds context and tracks follow-up state. |
-| `api/coach.js` | Adapter that could become one tool in a larger agent, with deterministic fallback logic for safe testing. |
-| `docs/api-safety-checklist.md` | Guardrails that would matter even more for agents. |
+| [`reference/app.js`](../../../reference/app.js) | Builds context and tracks follow-up state. |
+| [`api/coach.js`](../../../api/coach.js) | Adapter that could become one tool in a larger agent, with deterministic fallback logic for safe testing. |
+| [`docs/api-safety-checklist.md`](../../api-safety-checklist.md) | Guardrails that would matter even more for agents. |
 
 ## Map To Soma Code
 
-- Observe selected setup/topic/question: `reference/app.js` `buildCoachContext()`.
-- Act by calling one tool-like endpoint: `reference/app.js` `askStudyCoach()`.
-- Follow-up state: `reference/app.js` `state.lastContext` and follow-up handler.
-- Tool boundary: `api/coach.js` `/api/coach` handler.
-- Guardrails: `api/coach.js` `getLabConfig()` and `api/coach.js`
+- Observe selected setup/topic/question: [`reference/app.js`](../../../reference/app.js) `buildCoachContext()`.
+- Act by calling one tool-like endpoint: [`reference/app.js`](../../../reference/app.js) `askStudyCoach()`.
+- Follow-up state: [`reference/app.js`](../../../reference/app.js) `state.lastContext` and follow-up handler.
+- Tool boundary: [`api/coach.js`](../../../api/coach.js) `/api/coach` handler.
+- Guardrails: [`api/coach.js`](../../../api/coach.js) `getLabConfig()` and [`api/coach.js`](../../../api/coach.js)
   `hasPersonalData()`.
 - Current app is not autonomous: there is no loop that chooses tools without a
   user click.

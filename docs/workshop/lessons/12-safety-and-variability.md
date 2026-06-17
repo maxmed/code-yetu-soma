@@ -59,21 +59,21 @@ flowchart TD
 
 | File | Safety Role |
 |---|---|
-| `reference/app.js` | Frontend personal-data check and honest error rendering. |
-| `api/coach.js` | Server-side personal-data block, provider error handling, and mock quota/network test paths. |
-| `tests/soma-student.spec.js` | Checks safety and error paths. |
-| `docs/api-safety-checklist.md` | Checklist for review before release. |
+| [`reference/app.js`](../../../reference/app.js) | Frontend personal-data check and honest error rendering. |
+| [`api/coach.js`](../../../api/coach.js) | Server-side personal-data block, provider error handling, and mock quota/network test paths. |
+| [`tests/soma-student.spec.js`](../../../tests/soma-student.spec.js) | Checks safety and error paths. |
+| [`docs/api-safety-checklist.md`](../../api-safety-checklist.md) | Checklist for review before release. |
 
 ## Map To Soma Code
 
-- Frontend personal-data patterns: `reference/app.js` `personalDataPatterns`.
-- Frontend block UI: `reference/app.js` `showPersonalDataError()`.
-- Server personal-data check: `api/coach.js` `hasPersonalData()` and
-  `api/coach.js` request handling.
-- Honest error rendering: `reference/app.js` `renderError()`.
-- Quota/network mock triggers: `api/coach.js` `buildCoachResult()`.
-- Safety tests: `tests/soma-student.spec.js`.
-- Safety checklist: `docs/api-safety-checklist.md`.
+- Frontend personal-data patterns: [`reference/app.js`](../../../reference/app.js) `personalDataPatterns`.
+- Frontend block UI: [`reference/app.js`](../../../reference/app.js) `showPersonalDataError()`.
+- Server personal-data check: [`api/coach.js`](../../../api/coach.js) `hasPersonalData()` and
+  [`api/coach.js`](../../../api/coach.js) request handling.
+- Honest error rendering: [`reference/app.js`](../../../reference/app.js) `renderError()`.
+- Quota/network mock triggers: [`api/coach.js`](../../../api/coach.js) `buildCoachResult()`.
+- Safety tests: [`tests/soma-student.spec.js`](../../../tests/soma-student.spec.js).
+- Safety checklist: [`docs/api-safety-checklist.md`](../../api-safety-checklist.md).
 - Helpful prompts: [Personal Data In Context](../../student/ai-coding-prompts.md#personal-data-in-context),
   [Add Responsible AI Note](../../student/ai-coding-prompts.md#add-responsible-ai-note).
 
