@@ -66,27 +66,27 @@ flowchart TD
 
 | File | Function Or Section | Why It Matters |
 |---|---|---|
-| `reference/index.html` | `id="topicSelect"` | Topic dropdown students use first. |
-| `reference/index.html` | `id="studentQuestionInput"` | Question textarea. |
-| `reference/index.html` | `id="openDebugLabButton"` | Opens the Behind The Scenes view. |
-| `reference/app.js` | `const elements = ...` | Maps HTML IDs into JavaScript variables. |
-| `reference/app.js` | `buildCoachContext()` | Builds the safe JSON request. |
-| `reference/app.js` | `askStudyCoach()` | Calls `/api/coach`. |
-| `reference/app.js` | `renderCoachResponse()` | Turns response JSON into visible answer UI. |
-| `reference/app.js` | `renderDebug()` | Turns debug JSON into learner-readable panels. |
-| `reference/data.js` | `topicPacks` | Supplies local curriculum-style content. |
+| [`reference/index.html`](../../../reference/index.html) | `id="topicSelect"` | Topic dropdown students use first. |
+| [`reference/index.html`](../../../reference/index.html) | `id="studentQuestionInput"` | Question textarea. |
+| [`reference/index.html`](../../../reference/index.html) | `id="openDebugLabButton"` | Opens the Behind The Scenes view. |
+| [`reference/app.js`](../../../reference/app.js) | `const elements = ...` | Maps HTML IDs into JavaScript variables. |
+| [`reference/app.js`](../../../reference/app.js) | `buildCoachContext()` | Builds the safe JSON request. |
+| [`reference/app.js`](../../../reference/app.js) | `askStudyCoach()` | Calls `/api/coach`. |
+| [`reference/app.js`](../../../reference/app.js) | `renderCoachResponse()` | Turns response JSON into visible answer UI. |
+| [`reference/app.js`](../../../reference/app.js) | `renderDebug()` | Turns debug JSON into learner-readable panels. |
+| [`reference/data.js`](../../../reference/data.js) | `topicPacks` | Supplies local curriculum-style content. |
 
 ## Map To Soma Code
 
-- Topic dropdown: `reference/index.html` `topicSelect`.
-- Question box: `reference/index.html` `studentQuestionInput`.
-- Ask button: `reference/index.html` `coachButton`.
-- Element lookup: `reference/app.js` `const elements = ...`.
-- Selected topic lookup: `reference/app.js` `getTopic()`.
-- Context builder: `reference/app.js` `buildCoachContext()`.
-- API call: `reference/app.js` `askStudyCoach()`.
-- Answer rendering: `reference/app.js` `renderCoachResponse()`.
-- Debug rendering: `reference/app.js` `renderDebug()`.
+- Topic dropdown: [`reference/index.html`](../../../reference/index.html) `topicSelect`.
+- Question box: [`reference/index.html`](../../../reference/index.html) `studentQuestionInput`.
+- Ask button: [`reference/index.html`](../../../reference/index.html) `coachButton`.
+- Element lookup: [`reference/app.js`](../../../reference/app.js) `const elements = ...`.
+- Selected topic lookup: [`reference/app.js`](../../../reference/app.js) `getTopic()`.
+- Context builder: [`reference/app.js`](../../../reference/app.js) `buildCoachContext()`.
+- API call: [`reference/app.js`](../../../reference/app.js) `askStudyCoach()`.
+- Answer rendering: [`reference/app.js`](../../../reference/app.js) `renderCoachResponse()`.
+- Debug rendering: [`reference/app.js`](../../../reference/app.js) `renderDebug()`.
 - Helpful prompts: [Prompt Preview Not Showing](../../student/ai-coding-prompts.md#prompt-preview-not-showing),
   [Response Not Rendering](../../student/ai-coding-prompts.md#response-not-rendering).
 

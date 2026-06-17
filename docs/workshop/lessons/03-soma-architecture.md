@@ -141,22 +141,22 @@ Soma's server, and which parts belong to the provider?
 
 | File | Why It Matters |
 |---|---|
-| `reference/app.js` | Builds the request in `buildCoachContext()` and sends it in `askStudyCoach()`. |
-| `reference/data.js` | Provides safe local topic content and resources. |
-| `api/coach.js` | Handles `POST /api/coach`, blocks personal data, and returns mock or Gemini responses. |
-| `.env.example` | Shows the server-side environment variables for Gemini mode. |
-| `docs/api-coach-contract.md` | Documents the request and response shape. |
+| [`reference/app.js`](../../../reference/app.js) | Builds the request in `buildCoachContext()` and sends it in `askStudyCoach()`. |
+| [`reference/data.js`](../../../reference/data.js) | Provides safe local topic content and resources. |
+| [`api/coach.js`](../../../api/coach.js) | Handles `POST /api/coach`, blocks personal data, and returns mock or Gemini responses. |
+| [`.env.example`](../../../.env.example) | Shows the server-side environment variables for Gemini mode. |
+| [`docs/api-coach-contract.md`](../../api-coach-contract.md) | Documents the request and response shape. |
 
 ## Map To Soma Code
 
-- Public app entry point: `/` -> `reference/index.html`.
-- Browser request builder: `reference/app.js` `buildCoachContext()`.
-- Browser API call: `reference/app.js` `askStudyCoach()`.
-- Server endpoint: `api/coach.js` exported handler.
-- Mock mode: `api/coach.js` `buildCoachResult()`.
-- Gemini mode: `api/coach.js` `callGemini()` and `buildGeminiCall()`.
-- Local server route: `scripts/mock-coach-server.js`.
-- Deployment route: `vercel.json`.
+- Public app entry point: `/` -> [`reference/index.html`](../../../reference/index.html).
+- Browser request builder: [`reference/app.js`](../../../reference/app.js) `buildCoachContext()`.
+- Browser API call: [`reference/app.js`](../../../reference/app.js) `askStudyCoach()`.
+- Server endpoint: [`api/coach.js`](../../../api/coach.js) exported handler.
+- Mock mode: [`api/coach.js`](../../../api/coach.js) `buildCoachResult()`.
+- Gemini mode: [`api/coach.js`](../../../api/coach.js) `callGemini()` and `buildGeminiCall()`.
+- Local server route: [`scripts/mock-coach-server.js`](../../../scripts/mock-coach-server.js).
+- Deployment route: [`vercel.json`](../../../vercel.json).
 - Helpful prompt: [Fix /api/coach 404 Or 429](../../student/ai-coding-prompts.md#fix-apicoach-404-or-429).
 
 ## Request Flow
