@@ -30,6 +30,24 @@ Use labs with:
 Goal: learn how HTML, CSS, and JavaScript stay connected without touching the
 larger reference app yet.
 
+### Connect This Lab
+
+**Related lessons:**
+- [How Web Apps Work](../lessons/02-how-web-apps-work.md) - browser/server basics
+- [Soma App Architecture](../lessons/03-soma-architecture.md) - how Soma is structured
+- [Frontend Walkthrough](../lessons/04-frontend-walkthrough.md) - HTML/CSS/JS in Soma
+
+**Code trail:**
+- [`starter/index.html`](../../../starter/index.html) - starter HTML
+- [`starter/style.css`](../../../starter/style.css) - starter styles
+- [`starter/app.js`](../../../starter/app.js) - starter JavaScript
+- [`reference/index.html`](../../../reference/index.html) - full app HTML
+- [`reference/app.js`](../../../reference/app.js) - full app JavaScript
+
+**Key functions:** `elements`, `renderCoachResponse`, `init`
+
+**End-to-end flow:** Edit HTML → save → hard refresh → check console → verify UI works
+
 Main files:
 
 - `starter/index.html`
@@ -67,6 +85,21 @@ Discussion:
 
 Goal: learn how local data powers the tutor.
 
+### Connect This Lab
+
+**Related lessons:**
+- [Data And Context](../lessons/05-data-and-context.md) - how topic data shapes the tutor
+- [Soma App Architecture](../lessons/03-soma-architecture.md) - where data fits in the app
+
+**Code trail:**
+- [`starter/data.js`](../../../starter/data.js) - starter topic data
+- [`reference/data.js`](../../../reference/data.js) - full topic data
+- [`reference/app.js`](../../../reference/app.js) - data rendering logic
+
+**Key functions:** `renderTopicSummary`, `buildCoachContext`, `topics`
+
+**End-to-end flow:** Copy topic → edit fields → reload → pick topic → ask question → check context
+
 Main files:
 
 - `starter/data.js`
@@ -95,6 +128,21 @@ Discussion:
 
 Goal: understand how prompt wording changes model behavior.
 
+### Connect This Lab
+
+**Related lessons:**
+- [LLM Prompts](../lessons/06-llm-prompts.md) - how prompts shape AI responses
+- [Calling The LLM](../lessons/07-calling-the-llm.md) - the API call flow
+
+**Code trail:**
+- [`api/coach.js`](../../../api/coach.js) - server-side prompt building
+- [`reference/app.js`](../../../reference/app.js) - Debug Lab logic
+- [`reference/index.html`](../../../reference/index.html) - Debug Lab UI fields
+
+**Key functions:** `getLabOverrides`, `runLab`, `renderDebug`, `buildGeminiCall`, `getLabConfig`
+
+**End-to-end flow:** Ask question → open Debug Lab → load prompt → edit system prompt → run lab → compare
+
 Main files:
 
 - Debug Lab in the browser
@@ -122,6 +170,21 @@ Discussion:
 
 Goal: learn that model output can vary.
 
+### Connect This Lab
+
+**Related lessons:**
+- [Calling The LLM](../lessons/07-calling-the-llm.md) - model settings and API flow
+- [Safety And Variability](../lessons/12-safety-and-variability.md) - why outputs vary
+
+**Code trail:**
+- [`api/coach.js`](../../../api/coach.js) - generation config and model call
+- [`reference/app.js`](../../../reference/app.js) - Debug Lab controls
+- [`reference/index.html`](../../../reference/index.html) - Debug Lab UI
+
+**Key functions:** `generationConfig`, `getLabConfig`, `callGemini`, `providerErrorMessage`
+
+**End-to-end flow:** Ask same question twice → open Debug Lab → change temperature → run lab → compare variability
+
 Main files:
 
 - Debug Lab in the browser
@@ -144,6 +207,23 @@ Discussion:
 ## Lab E: Add Swahili Answer Mode
 
 Goal: design a multilingual feature safely.
+
+### Connect This Lab
+
+**Related lessons:**
+- [Language And Swahili](../lessons/09-language-and-swahili.md) - multilingual design
+- [Data And Context](../lessons/05-data-and-context.md) - context building
+- [LLM Prompts](../lessons/06-llm-prompts.md) - prompt instructions
+
+**Code trail:**
+- [`reference/data.js`](../../../reference/data.js) - topic data structure
+- [`reference/app.js`](../../../reference/app.js) - context building logic
+- [`reference/index.html`](../../../reference/index.html) - language UI option
+- [`api/coach.js`](../../../api/coach.js) - prompt with language instruction
+
+**Key functions:** `buildCoachContext`, `buildGeminiCall`, language selector handling
+
+**End-to-end flow:** Add language option → include in context → update server prompt → test question → verify answer language
 
 Main files:
 
@@ -171,6 +251,20 @@ Discussion:
 
 Goal: learn why structured output and parsing matter.
 
+### Connect This Lab
+
+**Related lessons:**
+- [Parsing And Rendering](../lessons/08-parsing-and-rendering.md) - JSON handling
+- [Safety And Variability](../lessons/12-safety-and-variability.md) - error handling
+
+**Code trail:**
+- [`api/coach.js`](../../../api/coach.js) - JSON parsing logic
+- [`reference/app.js`](../../../reference/app.js) - response rendering and error handling
+
+**Key functions:** `parseGeminiJson`, `normalizeGeminiResponse`, `normalizeCoachResponse`, `renderCoachResponse`, `renderError`
+
+**End-to-end flow:** Find parser → understand text-around-JSON handling → identify error case → discuss mock simulation
+
 Main files:
 
 - `api/coach.js`
@@ -192,6 +286,21 @@ Discussion:
 ## Lab G: Replace A Wasteful LLM Call With Normal Code
 
 Goal: learn when not to use an LLM.
+
+### Connect This Lab
+
+**Related lessons:**
+- [Where LLMs Fit](../lessons/10-where-llms-fit.md) - when to use AI vs normal code
+- [Build Your Own](../lessons/13-build-your-own.md) - making good design choices
+
+**Code trail:**
+- [`reference/app.js`](../../../reference/app.js) - rule-based features
+- [`reference/data.js`](../../../reference/data.js) - static data
+- [`api/coach.js`](../../../api/coach.js) - LLM call for contrast
+
+**Key functions:** `updatePracticeBadge`, `readProgress`, `renderTopicSummary`, `askStudyCoach` (contrast)
+
+**End-to-end flow:** Find deterministic feature → explain why JS is better → implement/inspect rule-based version → describe LLM waste
 
 Main files:
 
