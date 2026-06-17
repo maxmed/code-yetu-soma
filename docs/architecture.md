@@ -283,21 +283,21 @@ careful boundaries.
 
 ### Static apps
 
-- `reference/` powers the public app served at `/` and `/index.html`.
-- `starter/` is the smaller workshop scaffold students can edit during lessons.
+- [`reference/`](../reference/) powers the public app served at `/` and `/index.html`.
+- [`starter/`](../starter/) is the smaller workshop scaffold students can edit during lessons.
 
 Both are plain HTML/CSS/JS. They can be served by any static server, but the
 coach call only works when `/api/coach` is available.
 
 ### Topic data
 
-- `reference/data.js` and `starter/data.js` hold local sample curriculum data.
+- [`reference/data.js`](../reference/data.js) and [`starter/data.js`](../starter/data.js) hold local sample curriculum data.
 - The app uses this data to build context for the coach.
 - This is workshop sample content, not official curriculum material.
 
 ### Browser logic
 
-`reference/app.js` does five main jobs:
+[`reference/app.js`](../reference/app.js) does five main jobs:
 
 1. Fill the topic, mode, grade, and learning-area controls.
 2. Build a safe request object from the selected topic and student question.
@@ -307,7 +307,7 @@ coach call only works when `/api/coach` is available.
 
 ### Server endpoint
 
-`api/coach.js` receives `POST /api/coach` requests.
+[`api/coach.js`](../api/coach.js) receives `POST /api/coach` requests.
 
 It handles:
 
@@ -321,7 +321,7 @@ It handles:
 
 ### Mock/demo logic
 
-`api/coach.js` builds deterministic responses for local demos and tests. It
+[`api/coach.js`](../api/coach.js) builds deterministic responses for local demos and tests. It
 also contains the personal-data checks used by the server.
 
 Mock mode matters because students and mentors can test the app without a paid
@@ -329,12 +329,12 @@ or private provider key.
 
 ### Local server
 
-`scripts/mock-coach-server.js` serves the static files and wires `/api/coach` to
-`api/coach.js`. It also loads `.env` for local testing.
+[`scripts/mock-coach-server.js`](../scripts/mock-coach-server.js) serves the static files and wires `/api/coach` to
+[`api/coach.js`](../api/coach.js). It also loads `.env` for local testing.
 
 ### Tests
 
-`tests/soma-student.spec.js` uses Playwright to test:
+[`tests/soma-student.spec.js`](../tests/soma-student.spec.js) uses Playwright to test:
 
 - public app success flow,
 - workshop scaffold success flow,
