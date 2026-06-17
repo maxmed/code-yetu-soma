@@ -297,17 +297,17 @@ Deployment reviewer should review:
 
 ## Implementation Plan After Approval
 
-1. Update `reference/index.html` for the new app shell and Debug Lab drawer.
-2. Update `reference/style.css` for the visual system and responsive layout.
-3. Update `reference/app.js` only where needed for lab open/close, stepper,
+1. Update [`reference/index.html`](../../reference/index.html) for the new app shell and Debug Lab drawer.
+2. Update [`reference/style.css`](../../reference/style.css) for the visual system and responsive layout.
+3. Update [`reference/app.js`](../../reference/app.js) only where needed for lab open/close, stepper,
    comparison, and state labels.
 4. Keep `/api/coach` key safety and lab override bounds.
 5. Update Playwright tests for the new main flow and Debug Lab.
 6. Update docs:
-   - `docs/design/ui-principles-for-students.md`
-   - `docs/testing-debugging.md`
-   - `docs/code-map.md`
-   - `reference/README.md`
+   - [`docs/design/ui-principles-for-students.md`](./ui-principles-for-students.md)
+   - [`docs/testing-debugging.md`](../testing-debugging.md)
+   - [`docs/code-map.md`](../code-map.md)
+   - [`reference/README.md`](../../reference/README.md)
 7. Run:
    - `node --check api/coach.js`
    - `node --check reference/app.js`

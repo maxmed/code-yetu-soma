@@ -209,10 +209,10 @@ contract: `POST /api/coach`.
 |---|---|---|---|---|
 | Page load | Browser | Static host or local server | Request for HTML, CSS and JavaScript | Provider API key |
 | Coach request | Browser | `/api/coach` | Safe study context, selected topic data, question, mode, resources | Names, marks, phone numbers, private school records, provider API key |
-| Mock response | `api/coach.js` | Browser | Deterministic JSON answer for learning and tests | Fake claim that a real LLM was called |
-| Provider request | `api/coach.js` | Gemini API | Server-side prompt, model settings, response schema, server-side key | Frontend secrets or private student data |
-| Provider response | Gemini API | `api/coach.js` | Raw generated content or provider error | API key |
-| Render response | `api/coach.js` | Browser | Normalized JSON answer, honest error, optional safe debug payload | Secret key or hidden provider URL with key |
+| Mock response | [`api/coach.js`](../api/coach.js) | Browser | Deterministic JSON answer for learning and tests | Fake claim that a real LLM was called |
+| Provider request | [`api/coach.js`](../api/coach.js) | Gemini API | Server-side prompt, model settings, response schema, server-side key | Frontend secrets or private student data |
+| Provider response | Gemini API | [`api/coach.js`](../api/coach.js) | Raw generated content or provider error | API key |
+| Render response | [`api/coach.js`](../api/coach.js) | Browser | Normalized JSON answer, honest error, optional safe debug payload | Secret key or hidden provider URL with key |
 
 ## How Many Machines Are Involved?
 
@@ -245,7 +245,7 @@ our app sends one request -> provider distributes work -> our app gets one respo
 
 | Question | What Soma knows | What the provider hides |
 |---|---|---|
-| Who sends the request? | `api/coach.js` sends the provider request from the server. | Which internal gateway machine receives it first. |
+| Who sends the request? | [`api/coach.js`](../api/coach.js) sends the provider request from the server. | Which internal gateway machine receives it first. |
 | What model is requested? | The configured `GEMINI_MODEL` value. | The exact serving topology for that model at that moment. |
 | Is there a key? | The key is stored server-side in environment variables. | Provider-side credential storage and internal auth flow. |
 | How is traffic controlled? | Soma sees quota and rate-limit errors. | The full quota, routing, batching and capacity decisions. |
@@ -272,7 +272,7 @@ careful boundaries.
 
 | Choice | Benefit | Cost or risk | Soma's design |
 |---|---|---|---|
-| Mock mode first | Works offline from a class perspective and costs nothing. | It does not prove the real provider response quality. | `api/coach.js` returns deterministic mock JSON when no key is set. |
+| Mock mode first | Works offline from a class perspective and costs nothing. | It does not prove the real provider response quality. | [`api/coach.js`](../api/coach.js) returns deterministic mock JSON when no key is set. |
 | Server-side provider call | Keeps keys out of the browser. | Requires a server endpoint and environment variables. | Browser calls `/api/coach`, never Gemini directly. |
 | Structured JSON response | Easier for the UI to render safely. | The server must handle malformed provider output. | Server parses and normalizes before responding. |
 | External AI provider | Gives access to powerful model infrastructure. | Adds latency, quota limits, pricing and provider errors. | Errors are shown honestly instead of pretending success. |
