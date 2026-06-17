@@ -34,10 +34,10 @@ Official reference:
 
 Do not paste the key into:
 
-- `reference/app.js`,
-- `starter/app.js`,
-- `reference/index.html`,
-- `starter/index.html`,
+- [`reference/app.js`](../reference/app.js),
+- [`starter/app.js`](../starter/app.js),
+- [`reference/index.html`](../reference/index.html),
+- [`starter/index.html`](../starter/index.html),
 - GitHub,
 - shared workshop chat,
 - student handouts.
@@ -58,7 +58,7 @@ GEMINI_MODEL=gemini-3.1-flash-lite
 ```
 
 Keep the variable name exactly `GEMINI_API_KEY`. The server reads that name in
-`api/coach.js`.
+[`api/coach.js`](../api/coach.js).
 
 ## 3. Run The App With The Key
 
@@ -122,7 +122,7 @@ try again. Do not commit the old key.
 ### The key appears in the browser
 
 This is a blocker. Stop and remove the key from frontend code. The key should
-only be read server-side by `api/coach.js`.
+only be read server-side by [`api/coach.js`](../api/coach.js).
 
 ## 6. Deploy With The Key
 

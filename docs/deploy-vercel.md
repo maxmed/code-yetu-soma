@@ -6,7 +6,7 @@ the app runs locally in mock/demo mode.
 Use this guide to put Soma Study Coach on a public Vercel URL.
 
 Vercel is a good fit for this repo because the app has static files plus one
-serverless endpoint at `api/coach.js`.
+serverless endpoint at [`api/coach.js`](../api/coach.js).
 
 Official reference:
 
@@ -55,7 +55,7 @@ Expected:
 - no real key appears in frontend files,
 - no real key appears in docs or root config,
 - `vercel.json` is present,
-- `api/coach.js` is present.
+- [`api/coach.js`](../api/coach.js) is present.
 
 ## 2. Create Or Sign In To Vercel
 
