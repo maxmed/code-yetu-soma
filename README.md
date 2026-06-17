@@ -3,7 +3,7 @@
 Code Yetu Soma is a beginner-friendly workshop project for building and
 understanding an AI-shaped study helper.
 
-The flagship demo is **Soma Study Coach**, a Grade 7 Integrated Science topic
+The  demo is **Soma Study Coach**, a Grade 7 Integrated Science topic
 tutor. It lets a learner pick a topic, ask a question, receive a structured
 study answer, ask follow-up questions, and optionally open Debug Lab to inspect
 the safe context, prompt shape, model settings, and parsed response.
