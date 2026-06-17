@@ -18,8 +18,8 @@ both to the code, labs, and AI coding prompts.
 | [docs/workshop/lessons/](./lessons/) | Lecture material and deeper explanations. | You are teaching a concept or assigning self-study. |
 | [docs/student/](../student/handout.md) | Student handouts, project cards, limits, and AI coding prompts. | Students need instructions or rescue prompts. |
 | [docs/mentor/](../mentor/mentor-guide.md) | Mentor guide, curriculum notes, and rubric. | Facilitators need review and assessment guidance. |
-| `reference/` | Polished public app implementation. | Students use the real Soma app or inspect the full code. |
-| `starter/` | Smaller workshop scaffold. | Students need a simpler codebase to copy and modify. |
+| [`reference/`](../../reference/) | Polished public app implementation. | Students use the real Soma app or inspect the full code. |
+| [`starter/`](../../starter/) | Smaller workshop scaffold. | Students need a simpler codebase to copy and modify. |
 
 ## Session To Lesson Map
 
