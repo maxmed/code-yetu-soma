@@ -143,14 +143,14 @@ Common errors:
 
 ## Mock Mode
 
-If `GEMINI_API_KEY` is not set, `api/coach.js` returns a deterministic
+If `GEMINI_API_KEY` is not set, [`api/coach.js`](../api/coach.js) returns a deterministic
 mock/demo response from its local mock logic.
 
 This is the normal local test path.
 
 ## Gemini Mode
 
-If `GEMINI_API_KEY` is set, `api/coach.js` builds a Gemini request server-side.
+If `GEMINI_API_KEY` is set, [`api/coach.js`](../api/coach.js) builds a Gemini request server-side.
 
 The browser still only calls `/api/coach`.
 
@@ -160,7 +160,7 @@ Optional:
 GEMINI_MODEL=gemini-3.1-flash-lite
 ```
 
-If `GEMINI_MODEL` is not set, the server uses the default in `api/coach.js`.
+If `GEMINI_MODEL` is not set, the server uses the default in [`api/coach.js`](../api/coach.js).
 
 The Gemini response schema asks for the same study-helper fields used by the
 mock path. The server also fills `mode` from the request if the provider omits
