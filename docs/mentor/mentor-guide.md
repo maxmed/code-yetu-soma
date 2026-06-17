@@ -82,9 +82,10 @@ Gemini limits are project-specific and can change with account status, billing
 tier, model choice, and provider policy. If the live table differs, update the
 classroom guidance and keep mock/demo mode as the fallback.
 
-Use `../student/ai-limits.md` as the student-facing guide. During build time,
-encourage teams to debug UI and JavaScript with mock/demo responses first, then
-spend real AI calls only on final tutor-flow checks.
+Use [Student AI Limits And Advice](../student/ai-limits.md) as the
+student-facing guide. During build time, encourage teams to debug UI and
+JavaScript with mock/demo responses first, then spend real AI calls only on final
+tutor-flow checks.
 
 The public app also includes an opt-in Debug Lab. Use it to show
 students the safe `/api/coach` payload, provider request shape, raw return, and
