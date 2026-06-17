@@ -134,7 +134,7 @@ Common errors:
 ```
 
 ```json
-{ "error": "The classroom coach quota or rate limit was reached. Try again later or ask a mentor." }
+{ "error": "The configured coach quota or rate limit was reached. Try again later or ask a mentor." }
 ```
 
 ```json

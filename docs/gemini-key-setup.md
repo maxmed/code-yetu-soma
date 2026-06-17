@@ -110,9 +110,9 @@ Check:
 
 ### Quota or rate limit error
 
-The shared Google project or model limit may be exhausted. Stop clicking the
-coach repeatedly. Use mock/demo mode for UI and JavaScript work, then try one
-real Gemini call later.
+The configured Google AI project/API key or model limit may be exhausted. Stop
+clicking the coach repeatedly. Use mock/demo mode for UI and JavaScript work,
+then try one real Gemini call later.
 
 ### Invalid key error
 

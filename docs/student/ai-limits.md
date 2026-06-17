@@ -4,8 +4,8 @@ Use this with the [Student Handout](./handout.md), [Testing And
 Debugging](../testing-debugging.md), and [Safety
 Checklist](../api-safety-checklist.md).
 
-Use the shared `/api/coach` endpoint for AI help. Do not create your own API
-key, paste keys into code, or call Gemini directly from browser JavaScript.
+Use your app's server-side `/api/coach` endpoint for AI help. Do not paste API
+keys into code or call Gemini directly from browser JavaScript.
 
 ## Workshop Model
 
@@ -16,13 +16,13 @@ GEMINI_MODEL=gemini-3.1-flash-lite
 ```
 
 This is the best tested choice for the current Soma Study Coach app because it
-works with `/api/coach`. At setup time, the classroom project quota table showed
-the strongest text-tutor allowance for this model.
+works with `/api/coach`. At setup time, the configured Google AI project/API key
+quota table showed the strongest text-tutor allowance for this model.
 
 Important: treat this table as a planning snapshot, not a permanent promise.
-Provider quotas change by project, account, billing tier, model, and date. A
-mentor must verify the live Google AI Studio rate-limit page on the workshop day
-before treating any number below as current:
+Provider quotas change by key/project, account, billing tier, model, and date.
+A mentor must verify the live Google AI Studio rate-limit page on the workshop
+day before treating any number below as current:
 https://ai.google.dev/gemini-api/docs/rate-limits
 
 | Model | Requests per minute | Tokens per minute | Requests per day | Use |
@@ -36,16 +36,15 @@ At setup time, the full quota table also showed Gemma 4 models with 1,500
 requests per day.
 Those are not the current workshop default because the app has only been fully
 tested and accepted with Gemini text tutor responses. `gemma-4-31b-it` can be a
-future experiment if the class needs more than 500 daily tutor calls.
+future experiment if a team app needs more daily tutor calls than its configured
+Gemini key/project allows.
 
 ## What The Limits Mean
 
-- The limit is shared by the workshop project, not owned by one student.
-- `15 RPM` means the whole class should stay under about 15 AI requests per
-  minute.
-- `500 RPD` means the whole class should stay under about 500 AI requests per
-  day.
-- A quota error does not mean your app is broken. It means the shared classroom
+- The limit belongs to the server-side key/project configured for your app.
+- `15 RPM` means that app/key should stay under about 15 AI requests per minute.
+- `500 RPD` means that app/key should stay under about 500 AI requests per day.
+- A quota error does not mean your app is broken. It means your app's configured
   AI allowance was reached or the model is temporarily unavailable.
 
 ## How To Avoid Wasting Requests
@@ -74,4 +73,4 @@ future experiment if the class needs more than 500 daily tutor calls.
 2. If it says quota or rate limit, stop clicking and tell a mentor.
 3. Continue building the app using local data, mock responses, and your own
    JavaScript logic.
-4. Try again later when the shared project quota is available.
+4. Try again later when your app's configured key/project quota is available.

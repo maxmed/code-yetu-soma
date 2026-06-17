@@ -68,19 +68,24 @@ When a team is stuck:
 6. Ask an AI coding assistant for a focused fix.
 7. Test again.
 
-## Shared AI Limits
+## AI Key And Quota Limits
 
 The workshop default model is `gemini-3.1-flash-lite` through the server-side
-`/api/coach` endpoint. At setup time, the classroom quota table showed 15
-requests per minute, 250K tokens per minute, and 500 requests per day for this
-model. These limits are shared by the whole class, not per student.
+`/api/coach` endpoint. At setup time, the quota table showed 15 requests per
+minute, 250K tokens per minute, and 500 requests per day for this model on the
+configured Google AI project/API key.
+
+These limits are tied to the server-side key/project used by each deployed app.
+They are not shared by the whole class unless multiple apps intentionally reuse
+the same key/project. For this workshop, each group or student app should have
+its own server-side key/project configuration.
 
 Verify these numbers in Google AI Studio on the workshop day:
 https://ai.google.dev/gemini-api/docs/rate-limits
 
-Gemini limits are project-specific and can change with account status, billing
-tier, model choice, and provider policy. If the live table differs, update the
-classroom guidance and keep mock/demo mode as the fallback.
+Gemini limits are key/project-specific and can change with account status,
+billing tier, model choice, and provider policy. If the live table differs,
+update the classroom guidance and keep mock/demo mode as the fallback.
 
 Use [Student AI Limits And Advice](../student/ai-limits.md) as the
 student-facing guide. During build time, encourage teams to debug UI and

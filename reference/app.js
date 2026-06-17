@@ -504,7 +504,7 @@ async function askStudyCoach(context) {
       if (response.status === 404) {
         detail = "No /api/coach endpoint is running for this page.";
       } else if (response.status === 429) {
-        detail = "The classroom coach quota or rate limit was reached.";
+        detail = "The configured coach quota or rate limit was reached.";
       } else if (response.status === 400) {
         detail = "The request was blocked. Check that no personal data was included.";
       }

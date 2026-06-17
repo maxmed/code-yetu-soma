@@ -162,7 +162,7 @@ function buildCoachResult(payload) {
   if (triggerText.includes("quota-test")) {
     return {
       status: 429,
-      payload: { error: "The classroom coach quota or rate limit was reached. Try again later or ask a mentor." }
+      payload: { error: "The configured coach quota or rate limit was reached. Try again later or ask a mentor." }
     };
   }
 

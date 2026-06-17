@@ -186,7 +186,7 @@ async function askStudyCoach(context) {
       throw new Error("No /api/coach endpoint is running.");
     }
     if (response.status === 429) {
-      throw new Error("The classroom coach quota or rate limit was reached.");
+      throw new Error("The configured coach quota or rate limit was reached.");
     }
     if (response.status === 400) {
       throw new Error("The request was blocked. Check for personal data.");

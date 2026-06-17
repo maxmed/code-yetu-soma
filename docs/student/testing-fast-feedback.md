@@ -21,7 +21,7 @@ Good tests help you:
 - know whether a change helped or broke the app,
 - explain your project with evidence,
 - avoid clicking `/api/coach` again and again while debugging,
-- save shared AI quota for the checks that really need the model.
+- save your app's AI quota for the checks that really need the model.
 
 Do not wait until the end. Test after each small change.
 

@@ -31,8 +31,8 @@ Example project shapes:
 Use the course-provided `/api/coach` for LLM features. Do not use paid APIs, student API keys, or provider keys in frontend JavaScript.
 
 Before testing the AI coach, read [Student AI Limits And Advice](./ai-limits.md).
-The shared workshop model is `gemini-3.1-flash-lite`, and the whole class shares
-the same request limits.
+The workshop model is `gemini-3.1-flash-lite`, and request limits are tied to
+the server-side key/project configured for your app.
 
 Your app can also use simple JavaScript support logic:
 

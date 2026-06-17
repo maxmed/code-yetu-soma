@@ -256,7 +256,7 @@ Preparing context -> Asking coach -> Turning answer into a lesson
 ### Quota Error
 
 ```text
-The coach is out of shared AI requests for now. You can still inspect the
+The coach is out of AI requests for this app for now. You can still inspect the
 context in Debug Lab or ask a mentor to switch to mock mode.
 ```
 

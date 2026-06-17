@@ -43,7 +43,7 @@ Here is my HTML and CSS for a student education app: [paste code]. Improve the l
 ## Fix /api/coach 404 Or 429
 
 ```text
-My app calls /api/coach and gets this status: [paste status and response]. Here is my fetch function: [paste function]. Update it so 404 shows "AI coach endpoint is not running" and 429 shows "Classroom AI quota is temporarily exhausted". Keep the response honest and do not fake a successful AI answer. Output only the fixed function.
+My app calls /api/coach and gets this status: [paste status and response]. Here is my fetch function: [paste function]. Update it so 404 shows "AI coach endpoint is not running" and 429 shows "AI quota for this app is temporarily exhausted". Keep the response honest and do not fake a successful AI answer. Output only the fixed function.
 ```
 
 ## Prompt Preview Not Showing
