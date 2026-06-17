@@ -50,14 +50,15 @@ larger reference app yet.
 
 Main files:
 
-- `starter/index.html`
-- `starter/style.css`
-- `starter/app.js`
+- [starter/index.html](../../../starter/index.html)
+- [starter/style.css](../../../starter/style.css)
+- [starter/app.js](../../../starter/app.js)
 
 Task:
 
 1. Open `http://127.0.0.1:8787/starter/index.html`.
-2. Change one visible heading, label, or intro sentence in `starter/index.html`.
+2. Change one visible heading, label, or intro sentence in
+   [starter/index.html](../../../starter/index.html).
 3. Keep the element ID the same.
 4. Save the file.
 5. Hard refresh the browser and confirm the UI changed.
@@ -68,7 +69,7 @@ Task:
 Stretch after the starter works:
 
 1. With a mentor, find the same kind of visible label in
-   `reference/index.html`.
+   [reference/index.html](../../../reference/index.html).
 2. Change only visible text, not IDs.
 3. If the learning server is still running, run
    `SOMA_TEST_PORT=8790 npm run test:e2e`.
@@ -79,7 +80,8 @@ Discussion:
 - What changed visually?
 - What broke or stayed stable?
 - Why are IDs more fragile than visible text?
-- Why do beginners start in `starter/` before editing `reference/`?
+- Why do beginners start in [starter/](../../../starter/) before editing
+  [reference/](../../../reference/)?
 
 ## Lab B: Add A New Topic Pack
 
@@ -102,12 +104,12 @@ Goal: learn how local data powers the tutor.
 
 Main files:
 
-- `starter/data.js`
-- `reference/data.js` after the starter pattern is clear
+- [starter/data.js](../../../starter/data.js)
+- [reference/data.js](../../../reference/data.js) after the starter pattern is clear
 
 Task:
 
-1. In `starter/data.js`, copy an existing topic object.
+1. In [starter/data.js](../../../starter/data.js), copy an existing topic object.
 2. Change `id`, `topic`, `summary`, `vocabulary`, `examples`,
    `misconceptions`, `resources`, `practiceQuestions`, and `sampleQuestion`.
 3. Reload `http://127.0.0.1:8787/starter/index.html` and pick the new topic.
@@ -115,8 +117,8 @@ Task:
 5. Click **Preview context** and inspect the safe context.
 
 Stretch after the starter works: repeat the topic-pack change in
-`reference/data.js`, then open Debug Lab in the polished app and compare the
-safe context.
+[reference/data.js](../../../reference/data.js), then open Debug Lab in the
+polished app and compare the safe context.
 
 Discussion:
 
@@ -146,7 +148,7 @@ Goal: understand how prompt wording changes model behavior.
 Main files:
 
 - Debug Lab in the browser
-- `api/coach.js`
+- [api/coach.js](../../../api/coach.js)
 
 Task:
 
@@ -188,7 +190,7 @@ Goal: learn that model output can vary.
 Main files:
 
 - Debug Lab in the browser
-- `api/coach.js`
+- [api/coach.js](../../../api/coach.js)
 
 Task:
 
@@ -227,10 +229,10 @@ Goal: design a multilingual feature safely.
 
 Main files:
 
-- `reference/data.js`
-- `reference/app.js`
-- `api/coach.js`
-- `reference/index.html`
+- [reference/data.js](../../../reference/data.js)
+- [reference/app.js](../../../reference/app.js)
+- [api/coach.js](../../../api/coach.js)
+- [reference/index.html](../../../reference/index.html)
 
 Task:
 
@@ -267,12 +269,12 @@ Goal: learn why structured output and parsing matter.
 
 Main files:
 
-- `api/coach.js`
-- `reference/app.js`
+- [api/coach.js](../../../api/coach.js)
+- [reference/app.js](../../../reference/app.js)
 
 Task:
 
-1. Find `parseGeminiJson()` in `api/coach.js`.
+1. Find `parseGeminiJson()` in [api/coach.js](../../../api/coach.js).
 2. Explain what happens when the provider returns text around JSON.
 3. Explain what error is returned when no JSON object is found.
 4. In mock mode, discuss how you would simulate a malformed response for a test.
@@ -304,9 +306,9 @@ Goal: learn when not to use an LLM.
 
 Main files:
 
-- `reference/app.js`
-- `reference/data.js`
-- `api/coach.js`
+- [reference/app.js](../../../reference/app.js)
+- [reference/data.js](../../../reference/data.js)
+- [api/coach.js](../../../api/coach.js)
 
 Task:
 
