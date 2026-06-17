@@ -51,6 +51,42 @@ For setup, do not choose between multiple docs. Start with
 covers mock mode, optional Gemini setup, safe `.env` configuration, local
 testing, and deploy checks in one sequence.
 
+## Tools You Can Use
+
+### Code Editors (Install on your laptop)
+
+| Tool | AI Assistant | Free | Notes |
+|------|--------------|------|-------|
+| [VS Code](https://code.visualstudio.com) | [GitHub Copilot](https://github.com/features/copilot) | ✅ Free tier | Recommended for this workshop |
+| [Cursor](https://cursor.com) | Built-in Claude/GPT | ✅ Free tier | AI-native editor |
+| [Windsurf](https://windsurf.com) | Built-in Cascade AI | ✅ Free | VS Code fork with generous free AI |
+| [Zed](https://zed.dev) | Claude/Gemini via API | ✅ Free & open source | Fast, built in Rust |
+
+### Online Editors (No install needed)
+
+| Tool | AI Built-in | Notes |
+|------|-------------|-------|
+| [Replit](https://replit.com) | ✅ Replit AI | Full IDE in browser, great for beginners |
+| [CodeSandbox](https://codesandbox.io) | ✅ AI assistant | Instant environments |
+| [CodePen](https://codepen.io) | ✅ AI suggestions | Quick HTML/CSS/JS demos, no sign-up needed |
+| [GitHub Codespaces](https://github.com/features/codespaces) | ✅ GitHub Copilot | Full VS Code in the browser |
+
+### AI Assistants (Use with any editor)
+
+| Tool | Notes |
+|------|-------|
+| [Claude](https://claude.ai) | Paste prompts, copy code into your editor |
+| [Google AI Studio](https://aistudio.google.com) | Gemini-powered, same flow |
+| [ChatGPT](https://chat.openai.com) | GPT-powered alternative |
+
+> **For this workshop:** VS Code with GitHub Copilot is recommended. If you
+> cannot install anything, use [CodePen](https://codepen.io) or
+> [Replit](https://replit.com) and paste prompts into Claude or Google AI
+> Studio.
+>
+> **Important:** API keys must stay server-side. Never put provider keys in
+> browser JavaScript, `reference/`, or `starter/`.
+
 ## What Is Included
 
 - A polished learner demo in [reference/](reference/), served as the public app

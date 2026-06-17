@@ -299,16 +299,23 @@ The short version:
 5. Test `/`, `/reference`, `/starter/index.html`, and `POST /api/coach`.
 6. Confirm no key appears in the browser or Debug Lab.
 
-## Ready For The Workshop Check
+## ✅ Ready When
 
-You are ready to continue if you can:
+You are ready for the workshop when you can check all boxes:
 
-- open `http://127.0.0.1:8787/`,
-- open `http://127.0.0.1:8787/starter/index.html`,
-- ask one mock study question,
-- make one visible starter edit,
-- run the smoke tests or explain the smoke-test path,
-- explain where API keys are allowed: server-side `.env` or hosting env vars
-  only.
+- [ ] `npm run serve:mock` is running in terminal
+- [ ] Browser shows Soma at `http://127.0.0.1:8787/`
+- [ ] Browser shows starter at `http://127.0.0.1:8787/starter/index.html`
+- [ ] You asked one mock study question and got a response
+- [ ] You made one visible edit in `starter/index.html` and saw it after refresh
+- [ ] Console (F12) has no red errors
+- [ ] You know: API keys go in `.env` only, never in browser code
+
+Optional but recommended:
+
+- [ ] `SOMA_TEST_PORT=8790 npm run test:e2e` passes
+- [ ] You can explain the difference between `starter/` and `reference/`
+
+---
 
 Back to [Docs Home](./README.md) or [Workshop Course](./workshop/README.md).
