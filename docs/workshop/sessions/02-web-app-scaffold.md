@@ -24,7 +24,8 @@ Deepen this session:
 
 ## Scaffold Option
 
-Use `starter/` as the base. Teams can rename headings, data, and questions.
+Use [`starter/`](../../../starter/) as the base. Teams can rename headings,
+data, and questions.
 
 The public app shows the fuller Soma Study Coach flow. Students do not need to
 copy every feature on day one; they should first make the page sections and one
@@ -32,8 +33,8 @@ button work.
 
 Before editing the endpoint path, use
 [Soma App Architecture](../lessons/03-soma-architecture.md) to name the pieces:
-browser, local server, `starter/`, `reference/`, `/api/coach`, mock mode, and
-provider mode.
+browser, local server, [`starter/`](../../../starter/),
+[`reference/`](../../../reference/), `/api/coach`, mock mode, and provider mode.
 
 ## Concept: Web App Flow
 
@@ -85,7 +86,8 @@ Students should identify:
 
 ## Debug Checklist
 
-- Is `app.js` loaded after `data.js`?
+- Is [`starter/app.js`](../../../starter/app.js) loaded after
+  [`starter/data.js`](../../../starter/data.js)?
 - Are IDs spelled the same in HTML and JS?
 - Is there an error in browser console?
 - Did the function run? Add `console.log("clicked")`.
@@ -103,9 +105,11 @@ Replace the scaffold questions/data with your project data.
 Students are ready for Session 3 if they can:
 
 - open `http://127.0.0.1:8787/starter/index.html`,
-- identify `starter/index.html`, `starter/style.css`, `starter/app.js`, and
-  `starter/data.js`,
-- make one visible text or style change in `starter/`,
+- identify [`starter/index.html`](../../../starter/index.html),
+  [`starter/style.css`](../../../starter/style.css),
+  [`starter/app.js`](../../../starter/app.js), and
+  [`starter/data.js`](../../../starter/data.js),
+- make one visible text or style change in [`starter/`](../../../starter/),
 - hard refresh and see the change,
 - click one button and explain which JavaScript function ran,
 - open the browser console and check for errors.

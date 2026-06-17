@@ -3,7 +3,7 @@
 Use this guide to run the 6-session project studio.
 
 This folder is the live-session runbook. The deeper lecture material lives one
-level up in `docs/workshop/`. Use both together:
+level up in [`docs/workshop/`](../). Use both together:
 
 - [sessions/](./) tells mentors what to run each session.
 - [lessons/](../lessons/) teaches the concepts in more detail.
