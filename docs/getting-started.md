@@ -48,14 +48,12 @@ If both commands print version numbers, continue.
 
 Open a terminal in the repo root. You should see files such as:
 
-```text
-README.md
-package.json
-reference/
-starter/
-docs/
-api/
-```
+- [README.md](../README.md)
+- [package.json](../package.json)
+- [reference/](../reference/)
+- [starter/](../starter/)
+- [docs/](./)
+- [api/](../api/)
 
 If you are using Git, make sure you are on the latest code:
 
@@ -151,14 +149,13 @@ study questions only.
 
 Find these files:
 
-```text
-starter/index.html
-starter/style.css
-starter/app.js
-starter/data.js
-```
+- [starter/index.html](../starter/index.html)
+- [starter/style.css](../starter/style.css)
+- [starter/app.js](../starter/app.js)
+- [starter/data.js](../starter/data.js)
 
-In `starter/index.html`, change the visible heading text:
+In [starter/index.html](../starter/index.html), change the visible heading
+text:
 
 ```html
 Soma Study Coach Starter
@@ -208,8 +205,8 @@ You need a Google account.
 
 Never paste the key into:
 
-- `reference/`,
-- `starter/`,
+- [reference/](../reference/),
+- [starter/](../starter/),
 - browser JavaScript,
 - GitHub,
 - screenshots,
@@ -266,7 +263,8 @@ Expected:
 
 ## 12. Check That The Key Is Safe
 
-The `.gitignore` already protects your `.env` file from being committed. Verify:
+The [.gitignore](../.gitignore) already protects your `.env` file from being
+committed. Verify:
 
 ```bash
 git status --short
@@ -305,14 +303,16 @@ You are ready for the workshop when you can check all boxes:
 - [ ] Browser shows Soma at `http://127.0.0.1:8787/`
 - [ ] Browser shows starter at `http://127.0.0.1:8787/starter/index.html`
 - [ ] You asked one mock study question and got a response
-- [ ] You made one visible edit in `starter/index.html` and saw it after refresh
+- [ ] You made one visible edit in [starter/index.html](../starter/index.html)
+      and saw it after refresh
 - [ ] Console (F12) has no red errors
 - [ ] You know: API keys go in `.env` only, never in browser code
 
 Optional but recommended:
 
 - [ ] `SOMA_TEST_PORT=8790 npm run test:e2e` passes
-- [ ] You can explain the difference between `starter/` and `reference/`
+- [ ] You can explain the difference between [starter/](../starter/) and
+      [reference/](../reference/)
 
 ---
 

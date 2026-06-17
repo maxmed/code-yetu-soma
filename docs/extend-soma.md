@@ -78,8 +78,8 @@ for workshop exercises.
 
 Never put provider keys in:
 
-- `reference/`
-- `starter/`
+- [reference/](../reference/)
+- [starter/](../starter/)
 - browser JavaScript
 - GitHub
 - screenshots
@@ -145,10 +145,8 @@ Use this when a team wants more science content.
 
 Files:
 
-```text
-reference/data.js
-starter/data.js
-```
+- [reference/data.js](../reference/data.js)
+- [starter/data.js](../starter/data.js)
 
 Steps:
 
@@ -161,7 +159,8 @@ Steps:
 6. Open Debug Lab and confirm the new topic appears in safe context.
 
 Good generalization later: move shared topic packs into one common data file so
-`reference/` and `starter/` do not need duplicate edits.
+[reference/](../reference/) and [starter/](../starter/) do not need duplicate
+edits.
 
 ### Recipe 2: Add A New Answer Section
 
@@ -170,12 +169,10 @@ Use this when a team wants a new learning move such as "Quick quiz" or
 
 Files:
 
-```text
-api/coach.js
-reference/app.js
-docs/api-coach-contract.md
-tests/soma-student.spec.js
-```
+- [api/coach.js](../api/coach.js)
+- [reference/app.js](../reference/app.js)
+- [docs/api-coach-contract.md](./api-coach-contract.md)
+- [tests/soma-student.spec.js](../tests/soma-student.spec.js)
 
 Steps:
 
@@ -197,13 +194,11 @@ a school-specific topic.
 
 Files:
 
-```text
-reference/data.js
-reference/index.html
-reference/app.js
-api/coach.js
-docs/mentor/curriculum-source.md
-```
+- [reference/data.js](../reference/data.js)
+- [reference/index.html](../reference/index.html)
+- [reference/app.js](../reference/app.js)
+- [api/coach.js](../api/coach.js)
+- [docs/mentor/curriculum-source.md](./mentor/curriculum-source.md)
 
 Steps:
 
@@ -224,12 +219,10 @@ Use this when a team wants English, Swahili, or code-switching support.
 
 Files:
 
-```text
-reference/index.html
-reference/app.js
-api/coach.js
-tests/soma-student.spec.js
-```
+- [reference/index.html](../reference/index.html)
+- [reference/app.js](../reference/app.js)
+- [api/coach.js](../api/coach.js)
+- [tests/soma-student.spec.js](../tests/soma-student.spec.js)
 
 Steps:
 
@@ -249,9 +242,7 @@ explorer, revision planner, or school FAQ helper.
 
 Start from:
 
-```text
-starter/
-```
+- [starter/](../starter/)
 
 Keep:
 
