@@ -143,7 +143,7 @@ Use [concept-to-code-map.md](./concept-to-code-map.md) to connect:
 
 ## Source Standard
 
-Use [sources.md](./sources.md) as the approved source spine. Prefer official or
+Use [Reference Sources](./sources.md) as the approved source list. Prefer official or
 institutional sources: MDN, web.dev, W3C/WAI, CAST, Google PAIR, Gemini docs,
 OpenAI developer docs, OWASP, UNESCO, NIST, and the AI Literacy Framework.
 
