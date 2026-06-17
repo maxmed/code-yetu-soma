@@ -2,9 +2,9 @@
 
 This folder holds the server-side coach code.
 
-## `coach.js`
+## [coach.js](./coach.js)
 
-`api/coach.js` handles `POST /api/coach`.
+[`api/coach.js`](./coach.js) handles `POST /api/coach`.
 
 It:
 
@@ -22,7 +22,7 @@ The browser needs one safe app endpoint to call. Provider keys must stay on the
 server, so the browser calls `/api/coach` instead of calling Gemini directly.
 
 For a beginner workshop, one server folder and one server file are easier to
-scan than multiple server-side helper folders. `api/coach.js` keeps the small
+scan than multiple server-side helper folders. [`api/coach.js`](./coach.js) keeps the small
 server story in one place:
 
 - HTTP requests and responses,

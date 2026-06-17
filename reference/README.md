@@ -1,6 +1,6 @@
 # Reference App: Soma Study Coach
 
-Open `index.html` from a local/static HTTP server.
+Open [index.html](./index.html) from a local/static HTTP server.
 
 This is the flagship AI-tutor-shaped sample project for the Code Yetu program.
 
@@ -32,7 +32,7 @@ POST /api/coach
 ```
 
 For local tests and any environment without `GEMINI_API_KEY`, `/api/coach` uses
-deterministic mock logic from `../api/coach.js`.
+deterministic mock logic from [`api/coach.js`](../api/coach.js).
 
 For a real AI deployment, set `GEMINI_API_KEY` server-side in the hosting
 environment. The browser still only calls `/api/coach`; provider keys stay out

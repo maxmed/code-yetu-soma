@@ -139,7 +139,7 @@ Use [concept-to-code-map.md](./concept-to-code-map.md) to connect:
 - each deep lesson,
 - the relevant project files,
 - the matching lab,
-- the useful AI coding prompt in `../student/ai-coding-prompts.md`.
+- the useful [AI coding prompt](../student/ai-coding-prompts.md).
 
 ## Source Standard
 

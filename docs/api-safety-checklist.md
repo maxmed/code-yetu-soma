@@ -8,8 +8,8 @@ Setup](./gemini-key-setup.md) and [Deploy To Vercel](./deploy-vercel.md).
 
 ## Key Safety
 
-- API keys are not in `reference/`.
-- API keys are not in `starter/`.
+- API keys are not in [reference/](../reference/).
+- API keys are not in [starter/](../starter/).
 - API keys are not in committed docs except as placeholder variable names.
 - `.env` is not committed.
 - `/api/coach` is the only provider path used by the browser.

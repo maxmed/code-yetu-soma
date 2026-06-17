@@ -122,7 +122,7 @@ The public app is tutor-first:
 
 ## Important Rules
 
-- Never put API keys in `reference/`, `starter/`, or browser JavaScript.
+- Never put API keys in [reference/](../reference/), [starter/](../starter/), or browser JavaScript.
 - Students should use dummy learning questions, not personal data.
 - `/api/coach` is the only path from the browser to the coach.
 - Mock mode is valid for local demos and tests.

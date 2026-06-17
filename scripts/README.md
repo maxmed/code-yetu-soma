@@ -2,16 +2,16 @@
 
 This folder holds small local tools for running and testing Soma.
 
-## `mock-coach-server.js`
+## [mock-coach-server.js](./mock-coach-server.js)
 
-`npm run serve:mock` runs this file.
+`npm run serve:mock` runs [mock-coach-server.js](./mock-coach-server.js).
 
 It:
 
 - serves the polished app at `/`, `/index.html`, and `/reference/`,
 - serves the beginner scaffold at `/starter/index.html`,
 - serves docs so local documentation links can be checked,
-- connects local `POST /api/coach` requests to `api/coach.js`,
+- connects local `POST /api/coach` requests to [`api/coach.js`](../api/coach.js),
 - loads `.env` for local Gemini testing when a private key is configured,
 - falls back to deterministic mock/demo responses when no key is configured.
 
