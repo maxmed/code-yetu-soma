@@ -66,21 +66,21 @@ flowchart TD
 
 | File | Why It Matters |
 |---|---|
-| `reference/index.html` | Defines the visible app sections and element IDs. |
-| `reference/style.css` | Controls the layout, panels, Debug Lab, and responsive design. |
-| `reference/data.js` | Stores local topics, vocabulary, examples, resources, and sample questions. |
-| `reference/app.js` | Adds behavior: events, context building, `fetch`, rendering, progress, errors. |
-| `starter/` | Smaller scaffold students can modify before reading the full public app implementation. |
+| [`reference/index.html`](../../../reference/index.html) | Defines the visible app sections and element IDs. |
+| [`reference/style.css`](../../../reference/style.css) | Controls the layout, panels, Debug Lab, and responsive design. |
+| [`reference/data.js`](../../../reference/data.js) | Stores local topics, vocabulary, examples, resources, and sample questions. |
+| [`reference/app.js`](../../../reference/app.js) | Adds behavior: events, context building, `fetch`, rendering, progress, errors. |
+| [`starter/`](../../../starter/) | Smaller scaffold students can modify before reading the full public app implementation. |
 
 ## Map To Soma Code
 
-- Public app route: `/` and `/index.html` serve `reference/index.html`.
-- Page structure: `reference/index.html`.
-- Visual layout: `reference/style.css`.
-- Browser behavior: `reference/app.js`.
-- Local topic data: `reference/data.js`.
-- Smaller teaching scaffold: `starter/index.html`, `starter/app.js`,
-  `starter/style.css`.
+- Public app route: `/` and `/index.html` serve [`reference/index.html`](../../../reference/index.html).
+- Page structure: [`reference/index.html`](../../../reference/index.html).
+- Visual layout: [`reference/style.css`](../../../reference/style.css).
+- Browser behavior: [`reference/app.js`](../../../reference/app.js).
+- Local topic data: [`reference/data.js`](../../../reference/data.js).
+- Smaller teaching scaffold: [`starter/index.html`](../../../starter/index.html), [`starter/app.js`](../../../starter/app.js),
+  [`starter/style.css`](../../../starter/style.css).
 - Related lab: [Lab A: Change One UI Section Safely](../labs/README.md#lab-a-change-one-ui-section-safely).
 - Helpful prompts: [Fix A JavaScript Error](../../student/ai-coding-prompts.md#fix-a-javascript-error),
   [Make The UI Clearer](../../student/ai-coding-prompts.md#make-the-ui-clearer).

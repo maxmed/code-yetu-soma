@@ -54,7 +54,7 @@ Expected:
 - tests pass,
 - no real key appears in frontend files,
 - no real key appears in docs or root config,
-- `vercel.json` is present,
+- [`vercel.json`](../vercel.json) is present,
 - [`api/coach.js`](../api/coach.js) is present.
 
 ## 2. Create Or Sign In To Vercel
@@ -105,7 +105,7 @@ For most workshops, select **Production** and click **Save**.
 Click **Deploy**.
 
 After deployment, open the public URL. For this repo, the root page should show
-the polished Soma Study Coach because `vercel.json` rewrites `/` to
+the polished Soma Study Coach because [`vercel.json`](../vercel.json) rewrites `/` to
 `/reference`.
 
 ## 6. Smoke Test The Live Site
@@ -145,7 +145,7 @@ If the project is connected to GitHub:
 3. Wait for Vercel to deploy.
 4. Re-run the live smoke test.
 
-If you change asset names or move files, update `vercel.json` in the same
+If you change asset names or move files, update [`vercel.json`](../vercel.json) in the same
 commit. The current public route contract expects root asset paths:
 
 ```text
@@ -159,7 +159,7 @@ commit. The current public route contract expects root asset paths:
 ### Root page is plain HTML
 
 The HTML loaded, but CSS or JS did not. Check `/style.css`, `/data.js`, and
-`/app.js`. If those routes fail, update `vercel.json`.
+`/app.js`. If those routes fail, update [`vercel.json`](../vercel.json).
 
 ### Coach answer fails
 
