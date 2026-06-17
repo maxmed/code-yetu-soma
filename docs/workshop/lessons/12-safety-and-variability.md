@@ -62,6 +62,7 @@ flowchart TD
 | [`reference/app.js`](../../../reference/app.js) | Frontend personal-data check and honest error rendering. |
 | [`api/coach.js`](../../../api/coach.js) | Server-side personal-data block, provider error handling, and mock quota/network test paths. |
 | [`tests/soma-student.spec.js`](../../../tests/soma-student.spec.js) | Checks safety and error paths. |
+| [`docs/student/testing-fast-feedback.md`](../../student/testing-fast-feedback.md) | Student-facing guide for writing fast manual tests before spending AI calls. |
 | [`docs/api-safety-checklist.md`](../../api-safety-checklist.md) | Checklist for review before release. |
 
 ## Map To Soma Code
@@ -73,6 +74,8 @@ flowchart TD
 - Honest error rendering: [`reference/app.js`](../../../reference/app.js) `renderError()`.
 - Quota/network mock triggers: [`api/coach.js`](../../../api/coach.js) `buildCoachResult()`.
 - Safety tests: [`tests/soma-student.spec.js`](../../../tests/soma-student.spec.js).
+- Student testing guide:
+  [Testing For Fast Feedback](../../student/testing-fast-feedback.md).
 - Safety checklist: [`docs/api-safety-checklist.md`](../../api-safety-checklist.md).
 - Helpful prompts: [Personal Data In Context](../../student/ai-coding-prompts.md#personal-data-in-context),
   [Add Responsible AI Note](../../student/ai-coding-prompts.md#add-responsible-ai-note).

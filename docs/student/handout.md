@@ -1,7 +1,8 @@
 # Student Handout
 
 Use this with the [Student Guide](./README.md), [Project
-Cards](./project-cards.md), and [Student AI Limits And Advice](./ai-limits.md).
+Cards](./project-cards.md), [Student AI Limits And Advice](./ai-limits.md), and
+[Testing For Fast Feedback](./testing-fast-feedback.md).
 
 ## Your Challenge
 
@@ -60,6 +61,8 @@ The app shows an explanation, examples, resources, and limitations.
 
 ## AI Testing Advice
 
+- Write 3-5 manual test cases before demo. Use [Testing For Fast
+  Feedback](./testing-fast-feedback.md) for examples.
 - Preview your context before calling `/api/coach`.
 - Do not click the coach button repeatedly while debugging.
 - Fix layout and JavaScript bugs without spending AI requests.

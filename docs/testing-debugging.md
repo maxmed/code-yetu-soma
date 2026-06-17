@@ -1,7 +1,9 @@
 # Testing And Debugging
 
 Use this with [Local Setup](./local-setup.md), [Safety
-Checklist](./api-safety-checklist.md), and the [Code Map](./code-map.md).
+Checklist](./api-safety-checklist.md), the [Code Map](./code-map.md), and the
+student-facing [Testing For Fast Feedback](./student/testing-fast-feedback.md)
+guide.
 
 ## Fast Confidence Check
 

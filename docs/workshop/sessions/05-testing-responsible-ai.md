@@ -8,6 +8,7 @@ Deepen this session:
 
 - [Safety And Variability](../lessons/12-safety-and-variability.md)
 - [Where LLMs Fit](../lessons/10-where-llms-fit.md)
+- [Testing For Fast Feedback](../../student/testing-fast-feedback.md)
 - [Testing And Debugging](../../testing-debugging.md)
 - [Add Test Cases prompt](../../student/ai-coding-prompts.md#add-test-cases)
 
@@ -31,6 +32,9 @@ Reasons the app may be wrong:
 - recommendations may not fit every learner.
 
 ## Activity 1: Test Cases
+
+Use [Testing For Fast Feedback](../../student/testing-fast-feedback.md) for the
+student version of why tests help teams move faster.
 
 Each team writes:
 

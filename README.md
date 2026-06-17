@@ -168,6 +168,8 @@ For students:
   limits.
 - [docs/student/ai-coding-prompts.md](docs/student/ai-coding-prompts.md) -
   debugging and extension prompts.
+- [docs/student/testing-fast-feedback.md](docs/student/testing-fast-feedback.md) -
+  how and why to write tests while building.
 - [docs/extend-soma.md](docs/extend-soma.md) - what to change, what to keep
   stable, and how to test a safe remix.
 

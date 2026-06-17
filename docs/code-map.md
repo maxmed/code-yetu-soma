@@ -134,6 +134,11 @@ Student-facing workshop handout.
 
 Student-facing AI usage limits and quota guidance.
 
+[docs/student/testing-fast-feedback.md](./student/testing-fast-feedback.md)
+
+Student-facing guide for why tests help, how to write manual test cases, when
+to run smoke tests, and how to avoid wasting AI calls while debugging.
+
 [docs/mentor/mentor-guide.md](./mentor/mentor-guide.md)
 
 Facilitator guide.

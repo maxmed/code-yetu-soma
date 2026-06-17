@@ -22,6 +22,7 @@ Gemini provider calls that stay server-side.
 | understand why AI matters | [Why AI Matters Now](./workshop/lessons/01-ai-history-and-future.md) | [Reference Sources](./workshop/sources.md) |
 | do hands-on practice | [Workshop Labs](./workshop/labs/README.md) | [AI Coding Prompts](./student/ai-coding-prompts.md) |
 | build a student project | [Student Guide](./student/README.md) | [Project Cards](./student/project-cards.md) |
+| test student changes | [Testing For Fast Feedback](./student/testing-fast-feedback.md) | [Testing And Debugging](./testing-debugging.md) |
 | extend or remix Soma | [Extend Soma](./extend-soma.md) | [Concept To Code Map](./workshop/concept-to-code-map.md) |
 | mentor teams | [Mentor Guide](./mentor/README.md) | [Rubric](./mentor/rubric.md) |
 | review safety | [Safety Checklist](./api-safety-checklist.md) | [`/api/coach` Contract](./api-coach-contract.md) |
@@ -62,8 +63,10 @@ Use these together:
 5. Read [Student AI Limits And Advice](./student/ai-limits.md) before making AI
    calls.
 6. Use [AI Coding Prompts](./student/ai-coding-prompts.md) when stuck.
-7. Use [Workshop Labs](./workshop/labs/README.md) for focused practice.
-8. Use [Extend Soma](./extend-soma.md) before changing the app structure,
+7. Use [Testing For Fast Feedback](./student/testing-fast-feedback.md) before
+   demo or after changing behavior.
+8. Use [Workshop Labs](./workshop/labs/README.md) for focused practice.
+9. Use [Extend Soma](./extend-soma.md) before changing the app structure,
    response shape, prompts, topics, or subject area.
 
 ## Mentor Path
