@@ -4,6 +4,10 @@
 
 Teams add dummy data and write the first intelligent function.
 
+This session still works without a real LLM. Students use local dummy data,
+safe context, and the mock `/api/coach` response first. Real Gemini is an
+optional later mode after the local flow works.
+
 Deepen this session:
 
 - [Data And Context](../lessons/05-data-and-context.md)

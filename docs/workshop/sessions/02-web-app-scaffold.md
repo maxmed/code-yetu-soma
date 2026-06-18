@@ -27,6 +27,11 @@ Deepen this session:
 Use [`starter/`](../../../starter/) as the base. Teams can rename headings,
 data, and questions.
 
+Students should build this scaffold local-first. Use
+[`starter/data.js`](../../../starter/data.js), `npm run serve:mock`, and
+mock/demo responses before any Gemini key is required. The goal of this session
+is a working local page, not a live LLM call.
+
 The public app shows the fuller Soma Study Coach flow. Students do not need to
 copy every feature on day one; they should first make the page sections and one
 button work.
@@ -105,6 +110,8 @@ Replace the scaffold questions/data with your project data.
 Students are ready for Session 3 if they can:
 
 - open `http://127.0.0.1:8787/starter/index.html`,
+- explain that the scaffold can be developed locally with dummy data and
+  mock/demo responses before using an LLM,
 - identify [`starter/index.html`](../../../starter/index.html),
   [`starter/style.css`](../../../starter/style.css),
   [`starter/app.js`](../../../starter/app.js), and

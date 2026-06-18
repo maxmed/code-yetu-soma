@@ -9,6 +9,11 @@ Feedback](./testing-fast-feedback.md).
 
 Build a web app that helps with an education problem and includes an intelligent feature.
 
+Build local-first: use dummy data, JavaScript logic, and mock/demo responses
+before using a real LLM. After setup, `npm run serve:mock` lets you keep
+developing without a Gemini key, without LLM calls, and without an internet
+connection.
+
 Your app might:
 
 - recommend what to study next,

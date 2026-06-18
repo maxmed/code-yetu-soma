@@ -29,6 +29,22 @@ Suggested 90-minute session:
 
 For 2-hour sessions, extend team build time.
 
+## Local-First Facilitation Rule
+
+Run the workshop so students build locally before any real LLM dependency:
+
+1. Install dependencies while internet is available.
+2. Start `npm run serve:mock`.
+3. Edit local dummy data in [`starter/data.js`](../../starter/data.js).
+4. Build and test the UI with mock/demo responses.
+5. Add real Gemini only after the local flow works and a mentor has checked key
+   setup, quota, and safety.
+
+After setup, teams can keep developing with the local server, dummy data, and
+mock/demo responses without internet access or an LLM key. If a team is stuck
+because Gemini is unavailable, move them back to local data, JavaScript logic,
+and mock mode.
+
 ## Mentor Check-In Questions
 
 Ask teams:

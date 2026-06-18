@@ -3,6 +3,11 @@
 Use this folder when you are building a student project or need help during the
 workshop.
 
+Start local-first. After setup, you can build with local dummy data in
+[`starter/data.js`](../../starter/data.js), run `npm run serve:mock`, and test
+mock/demo responses without a Gemini key, without LLM calls, and without an
+internet connection. Add real Gemini only after the local app works.
+
 ## Start Here
 
 1. [Student Handout](./handout.md) - the challenge, what to submit, and demo
@@ -26,6 +31,7 @@ workshop.
 |---|---|
 | I do not know what to build. | [Project Cards](./project-cards.md) |
 | I need the workshop challenge. | [Student Handout](./handout.md) |
+| I need to build without internet or an LLM key. | [Getting Started From Zero](../getting-started.md), [Student AI Limits And Advice](./ai-limits.md#how-to-avoid-wasting-requests) |
 | The AI coach is failing or rate-limited. | [Student AI Limits And Advice](./ai-limits.md) |
 | I need to build with local dummy data. | [Student AI Limits And Advice](./ai-limits.md#how-to-avoid-wasting-requests), [Workshop Lab B](../workshop/labs/README.md#lab-b-add-a-new-topic-pack) |
 | I need to check if my AI app is useful and safe. | [Evaluate Usefulness And Safety](./evaluate-ai-app.md) |

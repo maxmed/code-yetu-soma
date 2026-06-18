@@ -24,6 +24,11 @@ Students do not build a new app yet. They build shared understanding:
 Everyone follows the same Soma path first. Project remixes come after students
 understand the starter scaffold and the `/api/coach` pattern.
 
+Local-first rule for students: Soma can run in mock/demo mode with local dummy
+data before any real LLM is configured. After setup, teams can keep building
+with `npm run serve:mock` without a Gemini key, without LLM calls, and without
+internet access.
+
 ## Concept: What Is AI?
 
 AI is software that uses rules, data, models, or learned patterns to do tasks

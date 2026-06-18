@@ -47,6 +47,11 @@ Soma has four main parts:
 4. Mock response logic in [`api/coach.js`](../../../api/coach.js), or Gemini when a server-side key
    is configured.
 
+Local-first rule: after setup, the browser app, local topic data, local server,
+and mock response logic are enough for students to keep building without a
+Gemini key, without LLM calls, and without internet access. Gemini mode is an
+optional later path.
+
 The most important boundary is this:
 
 ```mermaid
@@ -282,6 +287,10 @@ if (!GEMINI_API_KEY) {
 ```
 
 This means the app can run without a real provider key.
+
+That no-key path is the default workshop development path. Use it for local
+data edits, UI work, context preview, rendering, safety checks, and demo
+practice before switching to real Gemini.
 
 ## Live Demo
 

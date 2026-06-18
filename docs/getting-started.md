@@ -7,6 +7,12 @@ real AI responses.
 You do not need a Gemini key for the first workshop pass. Start in mock/demo
 mode, prove the app works, then add the key later.
 
+Local-first rule: after the repo dependencies are installed, students can keep
+building with [`starter/data.js`](../starter/data.js), mock/demo responses, and
+`npm run serve:mock` without a Gemini key, without LLM calls, and without an
+internet connection. Internet is only needed for first setup, pulling updates,
+or optional real Gemini/deployment work.
+
 ## What You Need
 
 - A computer with a browser.
@@ -175,6 +181,11 @@ resources, practice questions, and `sampleQuestion`. Reload
 `/starter/index.html`, choose the new topic, and confirm the screen works before
 using real Gemini calls.
 
+This is the main student development path: edit local files, use local dummy
+data, run the local server, and test the app in mock/demo mode. Do not wait for
+a Gemini key before building the page, data, buttons, rendering, safety checks,
+or demo flow.
+
 Open the browser developer tools and check the Console tab. A beginner should
 know how to see whether the page has a red JavaScript error before moving on.
 
@@ -309,6 +320,8 @@ The short version:
 You are ready for the workshop when you can check all boxes:
 
 - [ ] `npm run serve:mock` is running in terminal
+- [ ] You understand the local-first path: after setup, you can build with
+      local dummy data and mock/demo responses without internet or an LLM key
 - [ ] Browser shows Soma at `http://127.0.0.1:8787/`
 - [ ] Browser shows starter at `http://127.0.0.1:8787/starter/index.html`
 - [ ] You asked one mock study question and got a response

@@ -7,6 +7,11 @@ AI-shaped study coach. It keeps the app simple: static HTML/CSS/JS in the
 browser, local topic data, one server endpoint named `/api/coach`, and optional
 Gemini provider calls that stay server-side.
 
+The workshop is local-first. After dependencies are installed, students can
+build with local dummy data and mock/demo responses using `npm run serve:mock`
+without a Gemini key, without LLM calls, and without internet access. Real
+Gemini is optional later.
+
 ## Quick Navigation
 
 | I want to... | Start here | Then use |

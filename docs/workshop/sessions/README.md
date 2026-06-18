@@ -32,6 +32,20 @@ For shorter formats, keep mock/demo mode as the default. Use real Gemini mode
 only if a mentor has verified the provider quota and key setup before students
 arrive.
 
+## Local-First Workshop Rule
+
+Students should develop locally before depending on a real LLM:
+
+1. Install dependencies while internet is available.
+2. Run `npm run serve:mock`.
+3. Use [`starter/data.js`](../../../starter/data.js) and other local dummy data.
+4. Build screens, buttons, context preview, rendering, tests, and demo flow with
+   mock/demo responses.
+5. Add real Gemini only after the local app works.
+
+After setup, this path works without a Gemini key, without LLM calls, and
+without an internet connection. Keep this rule visible in Sessions 1-3.
+
 ## What Students Build
 
 A browser-based study coach, starting from one common path: Soma Study Coach.

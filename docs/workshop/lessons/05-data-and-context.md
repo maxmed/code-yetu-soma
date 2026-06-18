@@ -16,6 +16,10 @@ Open [`starter/data.js`](../../../starter/data.js), change one topic's `sampleQu
 question changed. Later, compare the same pattern in
 [`reference/data.js`](../../../reference/data.js).
 
+This works in mock/demo mode. After setup, students can keep editing local topic
+data and checking the app without a Gemini key, without LLM calls, and without
+internet access.
+
 ## Real-World Connection
 
 Spotify Wrapped turns listening history into a personal story. Soma does a
@@ -153,6 +157,10 @@ Steps:
 6. Check whether the resource appears in the answer or **Preview context**.
 
 Expected result: the new resource is available to the coach request.
+
+This is a local-first exercise. If Gemini is unavailable, the team can still
+finish the data edit, preview the safe context, and receive a deterministic mock
+response from `/api/coach`.
 
 Stretch after the starter works: add the same resource to
 [`reference/data.js`](../../../reference/data.js) and compare the polished app
