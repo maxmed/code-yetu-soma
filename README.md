@@ -106,8 +106,6 @@ testing, and deploy checks in one sequence.
 
 ## Repo Map
 
-Use this when `tree -L 1` feels like a list of mystery folders.
-
 | Path | What is in it | Why it is needed | How it helps students |
 |---|---|---|---|
 | [reference/](reference/) | Complete Soma Study Coach app: HTML, CSS, data, browser JS, and folder README. | This is the polished app served at `/` and `/index.html`. | Students can inspect the finished tutor-first pattern after they understand the scaffold. |
