@@ -198,8 +198,8 @@ Before students start:
 After completing the task, you should see:
 
 - Your new topic name appears in the topic dropdown.
-- Selecting it shows your summary, vocabulary, and examples in the topic card.
-- The **Preview context** button shows your topic data in the safe context JSON.
+- Selecting it shows your summary and examples in the topic card.
+- The **Preview context** button shows your topic data (including vocabulary) in the safe context JSON.
 - The mock coach response references your topic name and uses your examples.
 
 ### Quick Check
@@ -207,7 +207,7 @@ After completing the task, you should see:
 Ask yourself:
 
 - [ ] Does my new topic appear in the dropdown?
-- [ ] Does the topic card show my summary and vocabulary?
+- [ ] Does the topic card show my summary and examples?
 - [ ] Does Preview context show my topic data?
 - [ ] Does the mock response mention my topic?
 
