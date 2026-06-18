@@ -26,7 +26,8 @@ Learn how local data powers the tutor.
 - [`reference/data.js`](../../../reference/data.js) - full topic data
 - [`reference/app.js`](../../../reference/app.js) - data rendering logic
 
-**Key functions:** `renderTopicSummary`, `buildCoachContext`, `topicPacks`
+**Key functions:** `topicPacks` in `starter/data.js`, plus
+`renderTopicCard` and `buildContext` in `starter/app.js`
 
 **End-to-end flow:** copy topic -> edit fields -> reload -> pick topic -> ask
 question -> check context

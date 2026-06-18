@@ -30,7 +30,8 @@ reference app yet.
 - [`reference/index.html`](../../../reference/index.html) - full app HTML
 - [`reference/app.js`](../../../reference/app.js) - full app JavaScript
 
-**Key functions:** `elements`, `renderCoachResponse`, `renderSelects`
+**Key functions:** starter DOM constants such as `modeSelect` and
+`coachButton`, plus `renderSelects`, `renderTopicCard`, and `renderResponse`
 
 **End-to-end flow:** edit visible HTML text -> save -> hard refresh -> check
 console -> click the main buttons -> verify the app still works
