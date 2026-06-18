@@ -1,8 +1,9 @@
 # Student Handout
 
 Use this with the [Student Guide](./README.md), [Project
-Cards](./project-cards.md), [Student AI Limits And Advice](./ai-limits.md), and
-[Testing For Fast Feedback](./testing-fast-feedback.md).
+Cards](./project-cards.md), [Student AI Limits And Advice](./ai-limits.md),
+[Evaluate Usefulness And Safety](./evaluate-ai-app.md), and [Testing For Fast
+Feedback](./testing-fast-feedback.md).
 
 ## Your Challenge
 
@@ -64,6 +65,7 @@ question, then test the screen before spending real AI requests.
 - working web app files,
 - dummy data,
 - explanation of your intelligence logic,
+- usefulness and safety evaluation,
 - responsible AI note,
 - short demo.
 
@@ -71,6 +73,9 @@ question, then test the screen before spending real AI requests.
 
 - Write 3-5 manual test cases before demo. Use [Testing For Fast
   Feedback](./testing-fast-feedback.md) for examples.
+- Use [Evaluate Usefulness And Safety](./evaluate-ai-app.md) to check whether
+  the app helps the target learner, uses local/dummy data, and blocks private
+  data.
 - Preview your context before calling `/api/coach`.
 - Do not click the coach button repeatedly while debugging.
 - Fix layout and JavaScript bugs without spending AI requests.
@@ -84,5 +89,6 @@ Be ready to answer:
 - What problem does it solve?
 - What data does it use?
 - What intelligent decision does it make?
+- How did you check that it is useful and safe?
 - What can it get wrong?
 - What would you improve next?

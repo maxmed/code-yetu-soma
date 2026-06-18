@@ -8,6 +8,7 @@ Deepen this session:
 
 - [Safety And Variability](../lessons/12-safety-and-variability.md)
 - [Where LLMs Fit](../lessons/10-where-llms-fit.md)
+- [Evaluate Usefulness And Safety](../../student/evaluate-ai-app.md)
 - [Testing For Fast Feedback](../../student/testing-fast-feedback.md)
 - [Testing And Debugging](../../testing-debugging.md)
 - [Add Test Cases prompt](../../student/ai-coding-prompts.md#add-test-cases)
@@ -15,6 +16,7 @@ Deepen this session:
 ## Students Build
 
 - 5 test cases
+- usefulness and safety evaluation
 - bug fix list
 - responsible AI note
 - final improvement plan
@@ -54,6 +56,9 @@ Rule: ask for one bug or one function at a time.
 
 ## Activity 3: Responsible AI Note
 
+Use [Evaluate Usefulness And Safety](../../student/evaluate-ai-app.md) before
+writing the note.
+
 Teams write:
 
 ```text
@@ -79,6 +84,7 @@ Students are ready for Session 6 if they can:
 - run the app locally,
 - run or explain the smoke test path,
 - show at least three manual test cases,
+- show at least three usefulness or safety checks,
 - demonstrate that personal data is blocked or warned about,
 - explain when mock mode is being used,
 - write a responsible AI note with limits and data safety.

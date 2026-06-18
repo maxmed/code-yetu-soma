@@ -10,6 +10,8 @@ student demos.
 2. [Curriculum Content Source](./curriculum-source.md) - what content Soma uses
    and what boundaries mentors should keep clear.
 3. [Demo Rubric](./rubric.md) - minimum MVP bar and suggested awards.
+4. [Evaluate Usefulness And Safety](../student/evaluate-ai-app.md) - student
+   checklist for usefulness, grounding, privacy, and honest failures.
 
 ## Run The Workshop
 
@@ -25,6 +27,8 @@ student demos.
 
 - [Safety Checklist](../api-safety-checklist.md) - key, data, AI honesty, and
   Debug Lab checks.
+- [Evaluate Usefulness And Safety](../student/evaluate-ai-app.md) - simple
+  student checks before demo.
 - [`/api/coach` Contract](../api-coach-contract.md) - request and response
   shape.
 - [Testing And Debugging](../testing-debugging.md) - local test and manual

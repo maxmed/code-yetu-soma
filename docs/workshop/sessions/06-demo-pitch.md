@@ -9,6 +9,7 @@ Deepen this session:
 - [Build Your Own](../lessons/13-build-your-own.md)
 - [Project Rubric](../../mentor/rubric.md)
 - [Student Handout](../../student/handout.md)
+- [Evaluate Usefulness And Safety](../../student/evaluate-ai-app.md)
 - [Add Responsible AI Note prompt](../../student/ai-coding-prompts.md#add-responsible-ai-note)
 
 ## Students Build
@@ -16,6 +17,7 @@ Deepen this session:
 - final demo flow
 - short pitch
 - README
+- usefulness and safety evidence
 - final fixes
 
 ## Demo Structure
@@ -26,8 +28,9 @@ Deepen this session:
 2. User: Who is it for?
 3. Demo: Show the app working.
 4. Intelligence: Explain the data and logic.
-5. Responsible AI: What are the limitations?
-6. Next steps: What would you improve?
+5. Evaluation: How did you check usefulness and safety?
+6. Responsible AI: What are the limitations?
+7. Next steps: What would you improve?
 
 ## README Template
 
@@ -52,6 +55,8 @@ based on the starter scaffold.
 
 ## Limitations
 
+## Usefulness And Safety Checks
+
 ## Next Steps
 ```
 
@@ -61,6 +66,7 @@ based on the starter scaffold.
 - main user flow works,
 - buttons and inputs are clear,
 - recommendation includes reasons,
+- usefulness and safety checks are ready,
 - team can explain the code,
 - responsible AI note is ready,
 - demo fits in 3-5 minutes.
@@ -85,5 +91,6 @@ A team is ready to present if they can:
 - explain what data the app uses,
 - explain what `/api/coach` does,
 - say whether the demo is using mock mode or Gemini mode,
+- show how they checked usefulness and safety,
 - name one limitation or safety risk,
 - describe one next extension they would build.
