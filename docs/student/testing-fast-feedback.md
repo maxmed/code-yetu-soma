@@ -25,6 +25,22 @@ Good tests help you:
 
 Do not wait until the end. Test after each small change.
 
+## Testing Words You Will See
+
+These words appear in the docs, terminal output, and mentor instructions.
+
+| Word | Meaning | Why It Helps |
+|---|---|---|
+| Terminal | The command window where you type `npm run ...` commands. | It lets you start the app and run checks. |
+| Local server | A small server running on your computer. Soma uses it so `/api/coach` works while you build. | It makes your laptop behave more like the deployed app. |
+| Port | A number for a local server, such as `8787` or `8790`. | Different ports let the app and tests run without bumping into each other. |
+| Browser console | The error view inside browser developer tools. | It shows JavaScript errors that may not appear on the page. |
+| Smoke test | A quick check that the main app still works. | It catches big problems before demo day. |
+| End-to-end test | A test that opens the app in a browser and acts like a learner. | It checks the real flow: page, buttons, `/api/coach`, output, and errors. |
+| Playwright | The browser-testing tool used by this repo. | It clicks and checks the app automatically so students do not repeat every check by hand. |
+| Selector or ID | A way tests and JavaScript find an element, such as `coachButton`. | If an ID changes, JavaScript or tests may stop finding the button/input. |
+| Pass/fail | The result of a check. | A fail is information: it tells you what to inspect next. |
+
 ## The Fast Loop
 
 Use this loop while building:
@@ -96,12 +112,18 @@ project smoke tests from the repo root:
 npm run test:e2e
 ```
 
+This command asks Playwright to open the app in a browser and run the main
+student-flow checks.
+
 If the local learning server is already running on `8787`, use a separate test
 port:
 
 ```bash
 SOMA_TEST_PORT=8790 npm run test:e2e
 ```
+
+This means: "run the tests using port `8790` so they do not collide with the app
+server already using `8787`."
 
 Run smoke tests when:
 
@@ -113,6 +135,9 @@ Run smoke tests when:
 
 ## If A Test Fails
 
+Playwright prints the first failing check in the terminal. Start there. You do
+not need to understand every line of output.
+
 Use this order:
 
 1. Read the first failing message.
@@ -121,6 +146,15 @@ Use this order:
 4. Fix one small thing.
 5. Run the failing check again.
 6. Run the full smoke tests after the fix.
+
+Common messages:
+
+| Message | Usually Means | Try This |
+|---|---|---|
+| `EADDRINUSE` | A server is already using that port. | Use `SOMA_TEST_PORT=8790 npm run test:e2e` or stop the old server. |
+| `locator` or `selector` failed | Playwright could not find text, a button, or an ID. | Check whether you changed visible text or an HTML ID. |
+| `timeout` | The page did not show the expected result in time. | Run the same flow manually and check the browser console. |
+| `expect(...).toContainText` failed | The app showed different text than the test expected. | Decide whether the app is wrong or the test needs the new wording. |
 
 Do not paste the whole project into an AI coding assistant. Paste the smallest
 file section and the expected-versus-actual note.

@@ -5,6 +5,23 @@ Checklist](./api-safety-checklist.md), the [Code Map](./code-map.md), and the
 student-facing [Testing For Fast Feedback](./student/testing-fast-feedback.md)
 guide.
 
+## Beginner Glossary
+
+Use this section when a command or test word is unfamiliar.
+
+| Term | Plain Meaning | Why It Exists In Soma |
+|---|---|---|
+| Terminal | The command window where you run project commands. | Soma uses commands to start the local app and run tests. |
+| Local server | A small web server running on your computer. | It serves the app and makes `/api/coach` available during local testing. |
+| Port | A number that points to one local server, like `8787`. | Ports let your browser and test runner find the right local app. |
+| Browser console | The developer-tools panel that shows JavaScript errors. | It helps you see why a button, form, or script failed. |
+| Playwright | The browser automation tool used by this repo. | It opens Soma, clicks buttons, fills forms, and checks results automatically. |
+| End-to-end test | A test that checks a full user path in the browser. | It proves the page, JavaScript, server endpoint, and error handling still work together. |
+| Smoke test | A short set of important checks. | It catches obvious breakage before a demo or commit. |
+| Selector | A way for tests to find something on the page. | If text, labels, or IDs change, selectors may need updating. |
+| ID | A stable HTML name such as `coachButton` or `studentQuestionInput`. | JavaScript and tests use IDs to find inputs, buttons, and output areas. |
+| Pass/fail | Whether a check matched the expected result. | A fail points to the next thing to inspect; it is not a personal mistake. |
+
 ## Fast Confidence Check
 
 If no local server is already running, run:
@@ -13,6 +30,9 @@ If no local server is already running, run:
 npm run test:e2e
 ```
 
+This runs the Playwright smoke tests. Playwright opens the app in a browser and
+checks the main student flows automatically.
+
 If `npm run serve:mock` is already running on `8787`, keep it open and give
 Playwright its own temporary port:
 
@@ -20,11 +40,15 @@ Playwright its own temporary port:
 SOMA_TEST_PORT=8790 npm run test:e2e
 ```
 
+This tells the test server to use port `8790` instead of `8787`.
+
 Expected result:
 
 ```text
 10 passed
 ```
+
+That means all 10 browser checks passed.
 
 The tests cover:
 
@@ -88,8 +112,11 @@ Symptom:
 EADDRINUSE
 ```
 
-Fix: another local server is already using the port. Stop the old server, then
-run `npm run serve:mock` again.
+Meaning: another local server is already using the port.
+
+Fix: stop the old server, then run `npm run serve:mock` again. If you are
+running tests while the learning server stays open, use
+`SOMA_TEST_PORT=8790 npm run test:e2e`.
 
 ### `/api/coach` returns 404
 
@@ -118,6 +145,9 @@ Cause: Playwright tests search for visible labels and output text.
 
 Fix: update [`tests/soma-student.spec.js`](../tests/soma-student.spec.js) so the tests match the intended UI.
 
+Beginner rule: if you changed the words a user sees, a test that searches for
+the old words may fail even when the app is still correct.
+
 ### Tests fail after moving an element
 
 Cause: JavaScript expects specific IDs from [`index.html`](../reference/index.html).
@@ -125,6 +155,9 @@ Cause: JavaScript expects specific IDs from [`index.html`](../reference/index.ht
 Fix: preserve IDs such as `studentQuestionInput`, `coachButton`,
 `coachOutput`, `debugOutput`, `keepLearningSection`, `planOutput`, and
 `followUpInput`, or update [`app.js`](../reference/app.js) and tests together.
+
+Beginner rule: keep IDs stable unless you are ready to update JavaScript and
+tests in the same change.
 
 ## Before You Commit
 
