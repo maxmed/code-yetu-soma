@@ -28,7 +28,10 @@ Example project shapes:
 
 ## What Counts As Intelligence?
 
-Use the course-provided `/api/coach` for LLM features. Do not use paid APIs, student API keys, or provider keys in frontend JavaScript.
+Use your app's server-side `/api/coach` for LLM features. If your team, group,
+or solo project uses real Gemini mode, create and configure your own
+server-side key/project for that app. Do not put personal keys, provider keys,
+or paid API credentials in frontend JavaScript.
 
 Before testing the AI coach, read [Student AI Limits And Advice](./ai-limits.md).
 The workshop model is `gemini-3.1-flash-lite`, and request limits are tied to
@@ -46,10 +49,15 @@ Example:
 
 ```text
 The user chooses a topic and asks for help.
-The app loads the local topic pack.
+The app loads the local dummy topic pack from starter/data.js.
 The app sends safe context to /api/coach.
 The app shows an explanation, examples, resources, and limitations.
 ```
+
+If the AI coach is unavailable, keep building with local dummy data first. Copy
+one topic in [`starter/data.js`](../../starter/data.js), change the topic,
+summary, vocabulary, examples, resources, practice questions, and sample
+question, then test the screen before spending real AI requests.
 
 ## What You Submit
 

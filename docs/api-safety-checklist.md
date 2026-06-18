@@ -8,6 +8,8 @@ Setup](./gemini-key-setup.md) and [Deploy To Vercel](./deploy-vercel.md).
 
 ## Key Safety
 
+- Each team, group, or solo developer app has its own server-side API
+  key/provider project unless a mentor intentionally chose a shared setup.
 - API keys are not in [reference/](../reference/).
 - API keys are not in [starter/](../starter/).
 - API keys are not in committed docs except as placeholder variable names.

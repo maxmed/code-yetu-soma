@@ -7,6 +7,10 @@ key details.
 Use this when you want Soma to call the real Gemini API instead of the local
 mock/demo response.
 
+Each team, group, or solo developer should create a separate Google AI Studio
+API key/provider project for their own app. Do not plan to use one shared
+classroom key unless a mentor intentionally sets that up.
+
 The safe rule is simple: the Gemini key belongs on the server, not in browser
 JavaScript, not in screenshots, not in GitHub, and not in student chat.
 
@@ -24,6 +28,8 @@ Official reference:
 - https://ai.google.dev/gemini-api/docs/quickstart
 
 ## 1. Create A Gemini API Key
+
+Do this once per team, group, or solo developer project.
 
 1. Open https://aistudio.google.com
 2. Sign in with your Google account. This is the same kind of account you use
@@ -43,6 +49,8 @@ Do not paste the key into:
 - student handouts.
 
 ## 2. Add The Key Locally
+
+Use only the key for this app/team project.
 
 From the repo root, copy the example env file:
 

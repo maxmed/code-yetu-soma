@@ -124,6 +124,8 @@ The public app is tutor-first:
 ## Important Rules
 
 - Never put API keys in [reference/](../reference/), [starter/](../starter/), or browser JavaScript.
+- Each team, group, or solo developer app should use its own server-side
+  key/project for real Gemini mode.
 - Students should use dummy learning questions, not personal data.
 - `/api/coach` is the only path from the browser to the coach.
 - Mock mode is valid for local demos and tests.

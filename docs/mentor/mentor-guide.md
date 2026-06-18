@@ -78,7 +78,9 @@ configured Google AI project/API key.
 These limits are tied to the server-side key/project used by each deployed app.
 They are not shared by the whole class unless multiple apps intentionally reuse
 the same key/project. For this workshop, each group or student app should have
-its own server-side key/project configuration.
+its own server-side key/project configuration. Before real Gemini testing,
+confirm each team, group, or solo developer has created and configured its own
+API key/provider project for its app.
 
 Verify these numbers in Google AI Studio on the workshop day:
 https://ai.google.dev/gemini-api/docs/rate-limits

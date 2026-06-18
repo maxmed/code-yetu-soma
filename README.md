@@ -86,6 +86,8 @@ testing, and deploy checks in one sequence.
 >
 > **Important:** API keys must stay server-side. Never put provider keys in
 > browser JavaScript, [reference/](reference/), or [starter/](starter/).
+> Each team, group, or solo developer should create and configure its own
+> server-side API key/provider project for real Gemini mode.
 
 ## What Is Included
 

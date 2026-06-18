@@ -7,6 +7,11 @@ Checklist](../api-safety-checklist.md).
 Use your app's server-side `/api/coach` endpoint for AI help. Do not paste API
 keys into code or call Gemini directly from browser JavaScript.
 
+If your team, group, or solo project uses real Gemini mode, create and configure
+your own server-side Google AI Studio API key/provider project for that app. Do
+not rely on one shared class key unless a mentor intentionally tells everyone to
+use that setup.
+
 ## Workshop Model
 
 The workshop is set up to use:
@@ -42,6 +47,7 @@ Gemini key/project allows.
 ## What The Limits Mean
 
 - The limit belongs to the server-side key/project configured for your app.
+- Each team, group, or solo developer app should have its own key/project.
 - `15 RPM` means that app/key should stay under about 15 AI requests per minute.
 - `500 RPD` means that app/key should stay under about 500 AI requests per day.
 - A quota error does not mean your app is broken. It means your app's configured
@@ -52,10 +58,45 @@ Gemini key/project allows.
 - Preview your safe context before clicking the coach button.
 - Fix HTML, CSS, JavaScript, and layout bugs without calling the AI endpoint.
 - Use the mock/demo mode while debugging the app.
+- Build screens and logic with local dummy data first. Start with
+  [`starter/data.js`](../../starter/data.js), copy one `topicPacks` object, and
+  change the dummy topic, summary, vocabulary, examples, resources, practice
+  questions, and `sampleQuestion`.
 - Ask one clear question instead of clicking many times quickly.
 - Test with short topic questions before trying long prompts.
 - Share one working demo per team instead of every student repeatedly testing
   the same flow.
+
+Local-data example:
+
+```js
+{
+  id: "water-cycle",
+  topic: "Water cycle",
+  summary: "Water moves through evaporation, condensation, precipitation, and collection.",
+  vocabulary: [
+    { term: "Evaporation", meaning: "Liquid water changes into water vapour." }
+  ],
+  examples: ["A puddle drying after sunshine shows evaporation."],
+  resources: [
+    { title: "Draw The Cycle", type: "Diagram", description: "Label each stage with arrows." }
+  ],
+  practiceQuestions: [
+    {
+      id: "water-q1",
+      question: "Which stage forms clouds?",
+      options: ["Evaporation", "Condensation", "Collection", "Filtering"],
+      answerIndex: 1,
+      feedback: "Clouds form when water vapour cools and condenses."
+    }
+  ],
+  sampleQuestion: "Why do clouds form before rain?"
+}
+```
+
+For the full hands-on path, use [Lab B: Add A New Topic
+Pack](../workshop/labs/README.md#lab-b-add-a-new-topic-pack) and the [Create
+Dummy Data](./ai-coding-prompts.md#create-dummy-data) prompt.
 
 ## Safe Use Rules
 
@@ -71,6 +112,7 @@ Gemini key/project allows.
 
 1. Read the error message on the page.
 2. If it says quota or rate limit, stop clicking and tell a mentor.
-3. Continue building the app using local data, mock responses, and your own
+3. Continue building the app using local data in
+   [`starter/data.js`](../../starter/data.js), mock responses, and your own
    JavaScript logic.
 4. Try again later when your app's configured key/project quota is available.

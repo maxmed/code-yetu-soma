@@ -169,6 +169,12 @@ My Science Study Coach
 
 Save, hard refresh `/starter/index.html`, and confirm the heading changed.
 
+For a data edit, open [starter/data.js](../starter/data.js), copy one
+`topicPacks` object, and change the dummy topic, summary, vocabulary, examples,
+resources, practice questions, and `sampleQuestion`. Reload
+`/starter/index.html`, choose the new topic, and confirm the screen works before
+using real Gemini calls.
+
 Open the browser developer tools and check the Console tab. A beginner should
 know how to see whether the page has a red JavaScript error before moving on.
 
@@ -195,7 +201,9 @@ error and check whether the local server or browser route is wrong.
 
 Only do this after mock mode works.
 
-You need a Google account.
+You need a Google account. Each team, group, or solo developer should create a
+separate Google AI Studio API key/provider project for their own app. Do not
+use one shared classroom key unless a mentor intentionally sets that up.
 
 1. Open https://aistudio.google.com
 2. Sign in.
@@ -228,7 +236,8 @@ GEMINI_API_KEY=your_private_key_here
 GEMINI_MODEL=gemini-3.1-flash-lite
 ```
 
-Keep the variable name exactly `GEMINI_API_KEY`.
+Keep the variable name exactly `GEMINI_API_KEY`, and use only the key created
+for this app/team project.
 
 ## 11. Restart And Test Gemini Mode
 

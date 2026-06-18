@@ -19,7 +19,8 @@ Official reference:
 - a GitHub account,
 - a Vercel account,
 - the repo pushed to GitHub,
-- optional `GEMINI_API_KEY` if you want real Gemini answers,
+- optional `GEMINI_API_KEY` from this team/group/dev project's own Google AI
+  key if you want real Gemini answers,
 - no private keys committed to the repo.
 
 ## 1. Check The Repo First
@@ -88,6 +89,9 @@ If you want real Gemini mode, add these in Vercel project settings:
 GEMINI_API_KEY=your_private_key_here
 GEMINI_MODEL=gemini-3.1-flash-lite
 ```
+
+Use the key created for this team/group/dev project. Do not reuse a shared
+classroom key unless a mentor intentionally chose that setup.
 
 Use Vercel's project environment variable UI. Do not add these values to
 GitHub.
