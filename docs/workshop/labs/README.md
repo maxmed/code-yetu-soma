@@ -136,12 +136,18 @@ Before students start:
 
 4. Paste it after the last topic, adding a comma after the previous object.
 
-5. Change these fields to create your own topic:
+5. Change these fields to create your own topic (keep all fields from the copied
+   object):
 
    ```js
    {
      id: "water-cycle",
+     grade: "Grade 7",
+     gradeBand: "Junior School",
+     learningArea: "Integrated Science",
+     strand: "Matter and Energy",
      topic: "Water cycle",
+     studyNeed: "Explain how water moves through the environment",
      summary: "Water moves through evaporation, condensation, precipitation, and collection.",
      vocabulary: [
        { term: "Evaporation", meaning: "Liquid water changes into water vapour." },
